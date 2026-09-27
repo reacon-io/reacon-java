@@ -1,0 +1,7 @@
+{
+  "kind": "sdk-maven-signing-key",
+  "signingMode": "primary-key-only",
+  "primaryFingerprint": "F61EEA33CFB3AAAA9DAD880A33601FCE1680F222",
+  "expiresAt": "2027-09-27T21:28:45+00:00",
+  "publicKeySha256": "eb70b880fe6c00bfedb16ed2427376c91f99b7f88a4490d95c343bab335cce80"
+}

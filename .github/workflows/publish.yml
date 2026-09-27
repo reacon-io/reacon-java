@@ -1,5 +1,5 @@
 name: SDK publication
-run-name: SDK publisher identity · ${{ github.run_id }}
+run-name: SDK Maven credential qualification · ${{ github.run_id }}
 
 on:
   workflow_dispatch:
@@ -32,6 +32,19 @@ jobs:
         run: npm ci --prefix .github/sdk-release --ignore-scripts --no-audit --no-fund
       - name: Verify signed publisher identity without uploading a package
         run: node .github/sdk-release/verify-identity.mjs
+      - name: Qualify Central credentials and signing without uploading a package
+        env:
+          MAVEN_CENTRAL_CREDENTIALS: ${{ secrets.MAVEN_CENTRAL_CREDENTIALS }}
+          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: node .github/sdk-release/qualify-maven.mjs
+      - name: Retain Maven credential evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: sdk-maven-qualification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sdk-release-results/maven.json
+          if-no-files-found: error
+          retention-days: 30
       - name: Retain publisher identity evidence
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
