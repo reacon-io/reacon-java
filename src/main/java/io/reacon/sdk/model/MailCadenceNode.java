@@ -79,13 +79,13 @@ public class MailCadenceNode extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MailCadenceNode' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailCadenceNodeAnyOf> adapterMailCadenceNodeAnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf.class));
-            final TypeAdapter<MailCadenceNodeAnyOf1> adapterMailCadenceNodeAnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf1.class));
-            final TypeAdapter<MailCadenceNodeAnyOf2> adapterMailCadenceNodeAnyOf2 = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf2.class));
-            final TypeAdapter<MailCadenceNodeAnyOf3> adapterMailCadenceNodeAnyOf3 = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf3.class));
-            final TypeAdapter<MailCadenceNodeAnyOf4> adapterMailCadenceNodeAnyOf4 = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf4.class));
-            final TypeAdapter<MailCadenceNodeAnyOf5> adapterMailCadenceNodeAnyOf5 = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf5.class));
-            final TypeAdapter<MailCadenceNodeAnyOf6> adapterMailCadenceNodeAnyOf6 = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceNodeAnyOf6.class));
+            final TypeAdapter<MailCadenceNodeAnyOf> adapterMailCadenceNodeAnyOf = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf.class));
+            final TypeAdapter<MailCadenceNodeAnyOf1> adapterMailCadenceNodeAnyOf1 = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf1.class));
+            final TypeAdapter<MailCadenceNodeAnyOf2> adapterMailCadenceNodeAnyOf2 = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf2.class));
+            final TypeAdapter<MailCadenceNodeAnyOf3> adapterMailCadenceNodeAnyOf3 = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf3.class));
+            final TypeAdapter<MailCadenceNodeAnyOf4> adapterMailCadenceNodeAnyOf4 = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf4.class));
+            final TypeAdapter<MailCadenceNodeAnyOf5> adapterMailCadenceNodeAnyOf5 = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf5.class));
+            final TypeAdapter<MailCadenceNodeAnyOf6> adapterMailCadenceNodeAnyOf6 = gson.getAdapter(TypeToken.get(MailCadenceNodeAnyOf6.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailCadenceNode>() {
                 @Override
@@ -98,43 +98,64 @@ public class MailCadenceNode extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf) {
                         JsonElement element = adapterMailCadenceNodeAnyOf.toJsonTree((MailCadenceNodeAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf1`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf1) {
                         JsonElement element = adapterMailCadenceNodeAnyOf1.toJsonTree((MailCadenceNodeAnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf2`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf2) {
                         JsonElement element = adapterMailCadenceNodeAnyOf2.toJsonTree((MailCadenceNodeAnyOf2)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf3`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf3) {
                         JsonElement element = adapterMailCadenceNodeAnyOf3.toJsonTree((MailCadenceNodeAnyOf3)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf4`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf4) {
                         JsonElement element = adapterMailCadenceNodeAnyOf4.toJsonTree((MailCadenceNodeAnyOf4)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf5`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf5) {
                         JsonElement element = adapterMailCadenceNodeAnyOf5.toJsonTree((MailCadenceNodeAnyOf5)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceNodeAnyOf6`
                     if (value.getActualInstance() instanceof MailCadenceNodeAnyOf6) {
                         JsonElement element = adapterMailCadenceNodeAnyOf6.toJsonTree((MailCadenceNodeAnyOf6)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailCadenceNodeAnyOf, MailCadenceNodeAnyOf1, MailCadenceNodeAnyOf2, MailCadenceNodeAnyOf3, MailCadenceNodeAnyOf4, MailCadenceNodeAnyOf5, MailCadenceNodeAnyOf6");

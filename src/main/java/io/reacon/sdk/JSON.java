@@ -395,6 +395,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetPortfolioResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetPortfolioResponse200AnyOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetPortfolioResponse200AnyOf1.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetPortfolioResponse200Portfolio.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetQueueResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetReplyAutomationsResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetSignaturesResponse200.CustomTypeAdapterFactory());
@@ -477,7 +478,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200Campaign.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdStateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdStateResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsRequest.CustomTypeAdapterFactory());

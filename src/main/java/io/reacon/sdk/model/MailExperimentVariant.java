@@ -72,8 +72,8 @@ public class MailExperimentVariant extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MailExperimentVariant' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailCadenceMessageExperimentVariant> adapterMailCadenceMessageExperimentVariant = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceMessageExperimentVariant.class));
-            final TypeAdapter<MailCadenceWorkflowExperimentVariant> adapterMailCadenceWorkflowExperimentVariant = gson.getDelegateAdapter(this, TypeToken.get(MailCadenceWorkflowExperimentVariant.class));
+            final TypeAdapter<MailCadenceMessageExperimentVariant> adapterMailCadenceMessageExperimentVariant = gson.getAdapter(TypeToken.get(MailCadenceMessageExperimentVariant.class));
+            final TypeAdapter<MailCadenceWorkflowExperimentVariant> adapterMailCadenceWorkflowExperimentVariant = gson.getAdapter(TypeToken.get(MailCadenceWorkflowExperimentVariant.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailExperimentVariant>() {
                 @Override
@@ -86,13 +86,19 @@ public class MailExperimentVariant extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `MailCadenceMessageExperimentVariant`
                     if (value.getActualInstance() instanceof MailCadenceMessageExperimentVariant) {
                         JsonElement element = adapterMailCadenceMessageExperimentVariant.toJsonTree((MailCadenceMessageExperimentVariant)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailCadenceWorkflowExperimentVariant`
                     if (value.getActualInstance() instanceof MailCadenceWorkflowExperimentVariant) {
                         JsonElement element = adapterMailCadenceWorkflowExperimentVariant.toJsonTree((MailCadenceWorkflowExperimentVariant)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailCadenceMessageExperimentVariant, MailCadenceWorkflowExperimentVariant");

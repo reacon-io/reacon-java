@@ -284,6 +284,7 @@ src/main/java/io/reacon/sdk/model/MailGetPortfolioOverviewResponse200.java
 src/main/java/io/reacon/sdk/model/MailGetPortfolioResponse200.java
 src/main/java/io/reacon/sdk/model/MailGetPortfolioResponse200AnyOf.java
 src/main/java/io/reacon/sdk/model/MailGetPortfolioResponse200AnyOf1.java
+src/main/java/io/reacon/sdk/model/MailGetPortfolioResponse200Portfolio.java
 src/main/java/io/reacon/sdk/model/MailGetQueueResponse200.java
 src/main/java/io/reacon/sdk/model/MailGetReplyAutomationsResponse200.java
 src/main/java/io/reacon/sdk/model/MailGetSignaturesResponse200.java
@@ -366,7 +367,7 @@ src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchRequest.jav
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.java
-src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.java
+src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdStateRequest.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdStateResponse200.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsRequest.java

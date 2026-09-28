@@ -453,7 +453,7 @@ public class DomainsApi {
 
     /**
      * Count known emails for a domain
-     * Returns personal, generic and total email counts for the domain. Authenticate with X-API-Key.
+     * Returns personal, generic and total known email counts for the domain. Authenticate with X-API-Key. This endpoint reports counts only; it does not reveal email addresses. The recorded example uses a reserved example.invalid domain with zero known emails.
      * @param domain  (required)
      * @return DomainCounts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -476,7 +476,7 @@ public class DomainsApi {
 
     /**
      * Count known emails for a domain
-     * Returns personal, generic and total email counts for the domain. Authenticate with X-API-Key.
+     * Returns personal, generic and total known email counts for the domain. Authenticate with X-API-Key. This endpoint reports counts only; it does not reveal email addresses. The recorded example uses a reserved example.invalid domain with zero known emails.
      * @param domain  (required)
      * @return ApiResponse&lt;DomainCounts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -500,7 +500,7 @@ public class DomainsApi {
 
     /**
      * Count known emails for a domain (asynchronously)
-     * Returns personal, generic and total email counts for the domain. Authenticate with X-API-Key.
+     * Returns personal, generic and total known email counts for the domain. Authenticate with X-API-Key. This endpoint reports counts only; it does not reveal email addresses. The recorded example uses a reserved example.invalid domain with zero known emails.
      * @param domain  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

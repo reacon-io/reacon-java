@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailCampaignDraftRecord;
-import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign;
+import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200Campaign;
 import io.reacon.sdk.model.MailSequenceRunRecord;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -83,7 +83,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
   public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
   @SerializedName(SERIALIZED_NAME_CAMPAIGN)
   @javax.annotation.Nonnull
-  private MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign campaign;
+  private MailPostCampaignsByCampaignIdLaunchResponse200Campaign campaign;
 
   public static final String SERIALIZED_NAME_DRAFT = "draft";
   @SerializedName(SERIALIZED_NAME_DRAFT)
@@ -98,7 +98,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
   public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1() {
   }
 
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 campaign(@javax.annotation.Nonnull MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign campaign) {
+  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 campaign(@javax.annotation.Nonnull MailPostCampaignsByCampaignIdLaunchResponse200Campaign campaign) {
     this.campaign = campaign;
     this.reaconPresentFields.add(SERIALIZED_NAME_CAMPAIGN);
     return this;
@@ -109,11 +109,11 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
    * @return campaign
    */
   @javax.annotation.Nonnull
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign getCampaign() {
+  public MailPostCampaignsByCampaignIdLaunchResponse200Campaign getCampaign() {
     return campaign;
   }
 
-  public void setCampaign(@javax.annotation.Nonnull MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign campaign) {
+  public void setCampaign(@javax.annotation.Nonnull MailPostCampaignsByCampaignIdLaunchResponse200Campaign campaign) {
     this.campaign = campaign;
     this.reaconPresentFields.add(SERIALIZED_NAME_CAMPAIGN);
   }
@@ -287,7 +287,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `campaign`
-      MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.validateJsonElement(jsonObj.get("campaign"));
+      MailPostCampaignsByCampaignIdLaunchResponse200Campaign.validateJsonElement(jsonObj.get("campaign"));
       // validate the required field `draft`
       MailCampaignDraftRecord.validateJsonElement(jsonObj.get("draft"));
       if (jsonObj.get("sequences") != null) {

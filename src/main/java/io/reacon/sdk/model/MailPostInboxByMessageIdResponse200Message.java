@@ -73,8 +73,8 @@ public class MailPostInboxByMessageIdResponse200Message extends AbstractOpenApiS
                 return null; // this class only serializes 'MailPostInboxByMessageIdResponse200Message' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailInboxMessageRecord> adapterMailInboxMessageRecord = gson.getDelegateAdapter(this, TypeToken.get(MailInboxMessageRecord.class));
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
+            final TypeAdapter<MailInboxMessageRecord> adapterMailInboxMessageRecord = gson.getAdapter(TypeToken.get(MailInboxMessageRecord.class));
+            final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailPostInboxByMessageIdResponse200Message>() {
                 @Override
@@ -87,7 +87,10 @@ public class MailPostInboxByMessageIdResponse200Message extends AbstractOpenApiS
                     // check if the actual instance is of the type `MailInboxMessageRecord`
                     if (value.getActualInstance() instanceof MailInboxMessageRecord) {
                         JsonElement element = adapterMailInboxMessageRecord.toJsonTree((MailInboxMessageRecord)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `Object`

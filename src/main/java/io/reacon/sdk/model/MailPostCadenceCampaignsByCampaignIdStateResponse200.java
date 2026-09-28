@@ -76,8 +76,8 @@ public class MailPostCadenceCampaignsByCampaignIdStateResponse200 extends Abstra
                 return null; // this class only serializes 'MailPostCadenceCampaignsByCampaignIdStateResponse200' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf> adapterMailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.class));
-            final TypeAdapter<MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1> adapterMailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1.class));
+            final TypeAdapter<MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf> adapterMailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf = gson.getAdapter(TypeToken.get(MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.class));
+            final TypeAdapter<MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1> adapterMailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1 = gson.getAdapter(TypeToken.get(MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailPostCadenceCampaignsByCampaignIdStateResponse200>() {
                 @Override
@@ -90,13 +90,19 @@ public class MailPostCadenceCampaignsByCampaignIdStateResponse200 extends Abstra
                     // check if the actual instance is of the type `MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf`
                     if (value.getActualInstance() instanceof MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf) {
                         JsonElement element = adapterMailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.toJsonTree((MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1`
                     if (value.getActualInstance() instanceof MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1) {
                         JsonElement element = adapterMailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1.toJsonTree((MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf, MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf1");

@@ -63,8 +63,8 @@ public class QueuedIntegrationJobStreamPosition extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'QueuedIntegrationJobStreamPosition' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
-            final TypeAdapter<BigDecimal> adapterBigDecimal = gson.getDelegateAdapter(this, TypeToken.get(BigDecimal.class));
+            final TypeAdapter<String> adapterString = gson.getAdapter(TypeToken.get(String.class));
+            final TypeAdapter<BigDecimal> adapterBigDecimal = gson.getAdapter(TypeToken.get(BigDecimal.class));
 
             return (TypeAdapter<T>) new TypeAdapter<QueuedIntegrationJobStreamPosition>() {
                 @Override
@@ -83,7 +83,10 @@ public class QueuedIntegrationJobStreamPosition extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `BigDecimal`
                     if (value.getActualInstance() instanceof BigDecimal) {
                         JsonElement element = adapterBigDecimal.toJsonTree((BigDecimal)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BigDecimal, String");

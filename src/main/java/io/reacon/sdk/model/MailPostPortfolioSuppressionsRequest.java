@@ -71,8 +71,8 @@ public class MailPostPortfolioSuppressionsRequest extends AbstractOpenApiSchema 
                 return null; // this class only serializes 'MailPostPortfolioSuppressionsRequest' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailPostPortfolioSuppressionsRequestAnyOf> adapterMailPostPortfolioSuppressionsRequestAnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailPostPortfolioSuppressionsRequestAnyOf.class));
-            final TypeAdapter<MailPostPortfolioSuppressionsRequestAnyOf1> adapterMailPostPortfolioSuppressionsRequestAnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailPostPortfolioSuppressionsRequestAnyOf1.class));
+            final TypeAdapter<MailPostPortfolioSuppressionsRequestAnyOf> adapterMailPostPortfolioSuppressionsRequestAnyOf = gson.getAdapter(TypeToken.get(MailPostPortfolioSuppressionsRequestAnyOf.class));
+            final TypeAdapter<MailPostPortfolioSuppressionsRequestAnyOf1> adapterMailPostPortfolioSuppressionsRequestAnyOf1 = gson.getAdapter(TypeToken.get(MailPostPortfolioSuppressionsRequestAnyOf1.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailPostPortfolioSuppressionsRequest>() {
                 @Override
@@ -85,13 +85,19 @@ public class MailPostPortfolioSuppressionsRequest extends AbstractOpenApiSchema 
                     // check if the actual instance is of the type `MailPostPortfolioSuppressionsRequestAnyOf`
                     if (value.getActualInstance() instanceof MailPostPortfolioSuppressionsRequestAnyOf) {
                         JsonElement element = adapterMailPostPortfolioSuppressionsRequestAnyOf.toJsonTree((MailPostPortfolioSuppressionsRequestAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostPortfolioSuppressionsRequestAnyOf1`
                     if (value.getActualInstance() instanceof MailPostPortfolioSuppressionsRequestAnyOf1) {
                         JsonElement element = adapterMailPostPortfolioSuppressionsRequestAnyOf1.toJsonTree((MailPostPortfolioSuppressionsRequestAnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailPostPortfolioSuppressionsRequestAnyOf, MailPostPortfolioSuppressionsRequestAnyOf1");
