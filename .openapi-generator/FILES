@@ -168,6 +168,7 @@ src/main/java/io/reacon/sdk/model/InspectExcelWorkbookRequest.java
 src/main/java/io/reacon/sdk/model/InspectGoogleSheetRequest.java
 src/main/java/io/reacon/sdk/model/IntegrationCapabilityResponse.java
 src/main/java/io/reacon/sdk/model/IntegrationCapabilityResponseOutput.java
+src/main/java/io/reacon/sdk/model/IntegrationCapabilityResponseOutputNonNull.java
 src/main/java/io/reacon/sdk/model/IntegrationConnection.java
 src/main/java/io/reacon/sdk/model/IntegrationConnectionHealth.java
 src/main/java/io/reacon/sdk/model/IntegrationConnectionList.java
