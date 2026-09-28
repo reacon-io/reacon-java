@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.reacon</groupId>
   <artifactId>reacon-java</artifactId>
-  <version>0.2.0-beta.1</version>
+  <version>0.3.0-beta.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.reacon:reacon-java:0.2.0-beta.1"
+     implementation "io.reacon:reacon-java:0.3.0-beta.1"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/reacon-java-0.2.0-beta.1.jar`
+* `target/reacon-java-0.3.0-beta.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -583,7 +583,6 @@ Class | Method | HTTP request | Description
  - [MailPostAnalyticsExportRequestAfter](docs/MailPostAnalyticsExportRequestAfter.md)
  - [MailPostAnalyticsExportResponse200](docs/MailPostAnalyticsExportResponse200.md)
  - [MailPostAnalyticsExportResponse200NextCursor](docs/MailPostAnalyticsExportResponse200NextCursor.md)
- - [MailPostAnalyticsExportResponse200NextCursorAnyOf](docs/MailPostAnalyticsExportResponse200NextCursorAnyOf.md)
  - [MailPostCadenceCampaignsByCampaignIdStateRequest](docs/MailPostCadenceCampaignsByCampaignIdStateRequest.md)
  - [MailPostCadenceCampaignsByCampaignIdStateResponse200](docs/MailPostCadenceCampaignsByCampaignIdStateResponse200.md)
  - [MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf](docs/MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.md)
