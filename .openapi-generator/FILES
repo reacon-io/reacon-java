@@ -331,7 +331,6 @@ src/main/java/io/reacon/sdk/model/MailPostAnalyticsExportRequest.java
 src/main/java/io/reacon/sdk/model/MailPostAnalyticsExportRequestAfter.java
 src/main/java/io/reacon/sdk/model/MailPostAnalyticsExportResponse200.java
 src/main/java/io/reacon/sdk/model/MailPostAnalyticsExportResponse200NextCursor.java
-src/main/java/io/reacon/sdk/model/MailPostAnalyticsExportResponse200NextCursorAnyOf.java
 src/main/java/io/reacon/sdk/model/MailPostCadenceCampaignsByCampaignIdStateRequest.java
 src/main/java/io/reacon/sdk/model/MailPostCadenceCampaignsByCampaignIdStateResponse200.java
 src/main/java/io/reacon/sdk/model/MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.java

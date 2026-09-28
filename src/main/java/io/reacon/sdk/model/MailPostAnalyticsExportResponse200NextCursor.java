@@ -19,255 +19,342 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.MailPostAnalyticsExportResponse200NextCursorAnyOf;
 import java.io.IOException;
 import java.util.Arrays;
 
-
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import io.reacon.sdk.JSON;
 
+/**
+ * MailPostAnalyticsExportResponse200NextCursor
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class MailPostAnalyticsExportResponse200NextCursor extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(MailPostAnalyticsExportResponse200NextCursor.class.getName());
+public class MailPostAnalyticsExportResponse200NextCursor {
+  private transient java.util.Set<String> reaconPresentFields = new java.util.HashSet<>();
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!MailPostAnalyticsExportResponse200NextCursor.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'MailPostAnalyticsExportResponse200NextCursor' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailPostAnalyticsExportResponse200NextCursorAnyOf> adapterMailPostAnalyticsExportResponse200NextCursorAnyOf = gson.getAdapter(TypeToken.get(MailPostAnalyticsExportResponse200NextCursorAnyOf.class));
-            final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
+  /** Whether a wire property was supplied, including an explicit null. */
+  public boolean isFieldSet(String wireName) {
+    switch (wireName) {
+      case SERIALIZED_NAME_CREATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT) || this.createdAt != null;
+      case SERIALIZED_NAME_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ID) || this.id != null;
+      default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
+    }
+  }
 
-            return (TypeAdapter<T>) new TypeAdapter<MailPostAnalyticsExportResponse200NextCursor>() {
-                @Override
-                public void write(JsonWriter out, MailPostAnalyticsExportResponse200NextCursor value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  /** Omit an optional property again; required properties cannot be unset. */
+  public void unsetField(String wireName) {
+    if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
+    switch (wireName) {
+      case SERIALIZED_NAME_CREATED_AT: this.createdAt = null; break;
+      case SERIALIZED_NAME_ID: this.id = null; break;
+      default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
+    }
+    reaconPresentFields.remove(wireName);
+  }
 
-                    // check if the actual instance is of the type `MailPostAnalyticsExportResponse200NextCursorAnyOf`
-                    if (value.getActualInstance() instanceof MailPostAnalyticsExportResponse200NextCursorAnyOf) {
-                        JsonElement element = adapterMailPostAnalyticsExportResponse200NextCursorAnyOf.toJsonTree((MailPostAnalyticsExportResponse200NextCursorAnyOf)value.getActualInstance());
-                        boolean previousSerializeNulls = out.getSerializeNulls();
-                        out.setSerializeNulls(true);
-                        try { elementAdapter.write(out, element); }
-                        finally { out.setSerializeNulls(previousSerializeNulls); }
-                        return;
-                    }
-                    // check if the actual instance is of the type `Object`
-                    if (value.getActualInstance() instanceof Object) {
-                        JsonPrimitive primitive = adapterObject.toJsonTree((Object)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailPostAnalyticsExportResponse200NextCursorAnyOf, Object");
-                }
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  @javax.annotation.Nonnull
+  private String createdAt;
 
-                @Override
-                public MailPostAnalyticsExportResponse200NextCursor read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private String id;
 
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
+  public MailPostAnalyticsExportResponse200NextCursor() {
+  }
 
-                    // deserialize MailPostAnalyticsExportResponse200NextCursorAnyOf
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        MailPostAnalyticsExportResponse200NextCursorAnyOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterMailPostAnalyticsExportResponse200NextCursorAnyOf;
-                        MailPostAnalyticsExportResponse200NextCursor ret = new MailPostAnalyticsExportResponse200NextCursor();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for MailPostAnalyticsExportResponse200NextCursorAnyOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MailPostAnalyticsExportResponse200NextCursorAnyOf'", e);
-                    }
-                    // deserialize Object
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterObject;
-                        MailPostAnalyticsExportResponse200NextCursor ret = new MailPostAnalyticsExportResponse200NextCursor();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for Object failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Object'", e);
-                    }
+  public MailPostAnalyticsExportResponse200NextCursor createdAt(@javax.annotation.Nonnull String createdAt) {
+    this.createdAt = createdAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CREATED_AT);
+    return this;
+  }
 
-                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for MailPostAnalyticsExportResponse200NextCursor: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+  /**
+   * Get createdAt
+   * @return createdAt
+   */
+  @javax.annotation.Nonnull
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    this.createdAt = createdAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CREATED_AT);
+  }
+
+
+  public MailPostAnalyticsExportResponse200NextCursor id(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ID);
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public String getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ID);
+  }
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the MailPostAnalyticsExportResponse200NextCursor instance itself
+   */
+  public MailPostAnalyticsExportResponse200NextCursor putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MailPostAnalyticsExportResponse200NextCursor mailPostAnalyticsExportResponse200NextCursor = (MailPostAnalyticsExportResponse200NextCursor) o;
+    return Objects.equals(this.createdAt, mailPostAnalyticsExportResponse200NextCursor.createdAt) &&
+        Objects.equals(this.id, mailPostAnalyticsExportResponse200NextCursor.id)&&
+        Objects.equals(this.additionalProperties, mailPostAnalyticsExportResponse200NextCursor.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(createdAt, id, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MailPostAnalyticsExportResponse200NextCursor {\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("createdAt", "id"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("createdAt", "id"));
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to MailPostAnalyticsExportResponse200NextCursor
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MailPostAnalyticsExportResponse200NextCursor.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailPostAnalyticsExportResponse200NextCursor is not found in the empty JSON string", MailPostAnalyticsExportResponse200NextCursor.openapiRequiredFields.toString()));
         }
-    }
+      }
 
-    // store a list of schema names defined in anyOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
-
-    public MailPostAnalyticsExportResponse200NextCursor() {
-        super("anyOf", Boolean.FALSE);
-    }
-
-    public MailPostAnalyticsExportResponse200NextCursor(Object o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("MailPostAnalyticsExportResponse200NextCursorAnyOf", MailPostAnalyticsExportResponse200NextCursorAnyOf.class);
-        schemas.put("Object", Object.class);
-    }
-
-    @Override
-    public Map<String, Class<?>> getSchemas() {
-        return MailPostAnalyticsExportResponse200NextCursor.schemas;
-    }
-
-    /**
-     * Set the instance that matches the anyOf child schema, check
-     * the instance parameter is valid against the anyOf child schemas:
-     * MailPostAnalyticsExportResponse200NextCursorAnyOf, Object
-     *
-     * It could be an instance of the 'anyOf' schemas.
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof MailPostAnalyticsExportResponse200NextCursorAnyOf) {
-            super.setActualInstance(instance);
-            return;
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : MailPostAnalyticsExportResponse200NextCursor.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdAt").toString()));
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+  }
 
-        if (instance instanceof Object) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be MailPostAnalyticsExportResponse200NextCursorAnyOf, Object");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * MailPostAnalyticsExportResponse200NextCursorAnyOf, Object
-     *
-     * @return The actual instance (MailPostAnalyticsExportResponse200NextCursorAnyOf, Object)
-     */
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MailPostAnalyticsExportResponse200NextCursor.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MailPostAnalyticsExportResponse200NextCursor' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MailPostAnalyticsExportResponse200NextCursor> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MailPostAnalyticsExportResponse200NextCursor.class));
 
-    /**
-     * Get the actual instance of `MailPostAnalyticsExportResponse200NextCursorAnyOf`. If the actual instance is not `MailPostAnalyticsExportResponse200NextCursorAnyOf`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `MailPostAnalyticsExportResponse200NextCursorAnyOf`
-     * @throws ClassCastException if the instance is not `MailPostAnalyticsExportResponse200NextCursorAnyOf`
-     */
-    public MailPostAnalyticsExportResponse200NextCursorAnyOf getMailPostAnalyticsExportResponse200NextCursorAnyOf() throws ClassCastException {
-        return (MailPostAnalyticsExportResponse200NextCursorAnyOf)super.getActualInstance();
-    }
+       return (TypeAdapter<T>) new TypeAdapter<MailPostAnalyticsExportResponse200NextCursor>() {
+           @Override
+           public void write(JsonWriter out, MailPostAnalyticsExportResponse200NextCursor value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.createdAt == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT)) obj.add(SERIALIZED_NAME_CREATED_AT, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CREATED_AT);
+             }
+             if (value.id == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ID)) obj.add(SERIALIZED_NAME_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ID);
+             }
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonNull()) {
+                     obj.add(entry.getKey(), JsonNull.INSTANCE);
+                   } else if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
+             boolean previousSerializeNulls = out.getSerializeNulls();
+             out.setSerializeNulls(true);
+             try { elementAdapter.write(out, obj); }
+             finally { out.setSerializeNulls(previousSerializeNulls); }
+           }
 
-    /**
-     * Get the actual instance of `Object`. If the actual instance is not `Object`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Object`
-     * @throws ClassCastException if the instance is not `Object`
-     */
-    public Object getObject() throws ClassCastException {
-        return (Object)super.getActualInstance();
-    }
+           @Override
+           public MailPostAnalyticsExportResponse200NextCursor read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             MailPostAnalyticsExportResponse200NextCursor instance = thisAdapter.fromJsonTree(jsonObj);
+             instance.reaconPresentFields.addAll(jsonObj.keySet());
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
+           }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to MailPostAnalyticsExportResponse200NextCursor
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with MailPostAnalyticsExportResponse200NextCursorAnyOf
-        try {
-            MailPostAnalyticsExportResponse200NextCursorAnyOf.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for MailPostAnalyticsExportResponse200NextCursorAnyOf failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with Object
-        try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for Object failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for MailPostAnalyticsExportResponse200NextCursor with anyOf schemas: MailPostAnalyticsExportResponse200NextCursorAnyOf, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+       }.nullSafe();
     }
+  }
 
-    /**
-     * Create an instance of MailPostAnalyticsExportResponse200NextCursor given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of MailPostAnalyticsExportResponse200NextCursor
-     * @throws IOException if the JSON string is invalid with respect to MailPostAnalyticsExportResponse200NextCursor
-     */
-    public static MailPostAnalyticsExportResponse200NextCursor fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, MailPostAnalyticsExportResponse200NextCursor.class);
-    }
+  /**
+   * Create an instance of MailPostAnalyticsExportResponse200NextCursor given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MailPostAnalyticsExportResponse200NextCursor
+   * @throws IOException if the JSON string is invalid with respect to MailPostAnalyticsExportResponse200NextCursor
+   */
+  public static MailPostAnalyticsExportResponse200NextCursor fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MailPostAnalyticsExportResponse200NextCursor.class);
+  }
 
-    /**
-     * Convert an instance of MailPostAnalyticsExportResponse200NextCursor to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
+  /**
+   * Convert an instance of MailPostAnalyticsExportResponse200NextCursor to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

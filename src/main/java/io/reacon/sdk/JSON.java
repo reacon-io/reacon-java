@@ -442,7 +442,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostAnalyticsExportRequestAfter.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostAnalyticsExportResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostAnalyticsExportResponse200NextCursor.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostAnalyticsExportResponse200NextCursorAnyOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCadenceCampaignsByCampaignIdStateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCadenceCampaignsByCampaignIdStateResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf.CustomTypeAdapterFactory());

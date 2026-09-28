@@ -148,7 +148,7 @@ public class MailPostAnalyticsExportResponse200 {
 
   public static final String SERIALIZED_NAME_NEXT_CURSOR = "nextCursor";
   @SerializedName(SERIALIZED_NAME_NEXT_CURSOR)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private MailPostAnalyticsExportResponse200NextCursor nextCursor;
 
   public static final String SERIALIZED_NAME_ROW_COUNT = "rowCount";
@@ -222,7 +222,7 @@ public class MailPostAnalyticsExportResponse200 {
   }
 
 
-  public MailPostAnalyticsExportResponse200 nextCursor(@javax.annotation.Nonnull MailPostAnalyticsExportResponse200NextCursor nextCursor) {
+  public MailPostAnalyticsExportResponse200 nextCursor(@javax.annotation.Nullable MailPostAnalyticsExportResponse200NextCursor nextCursor) {
     this.nextCursor = nextCursor;
     this.reaconPresentFields.add(SERIALIZED_NAME_NEXT_CURSOR);
     return this;
@@ -232,12 +232,12 @@ public class MailPostAnalyticsExportResponse200 {
    * Get nextCursor
    * @return nextCursor
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public MailPostAnalyticsExportResponse200NextCursor getNextCursor() {
     return nextCursor;
   }
 
-  public void setNextCursor(@javax.annotation.Nonnull MailPostAnalyticsExportResponse200NextCursor nextCursor) {
+  public void setNextCursor(@javax.annotation.Nullable MailPostAnalyticsExportResponse200NextCursor nextCursor) {
     this.nextCursor = nextCursor;
     this.reaconPresentFields.add(SERIALIZED_NAME_NEXT_CURSOR);
   }
@@ -396,8 +396,10 @@ public class MailPostAnalyticsExportResponse200 {
       if (!jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
       }
+      if (jsonObj.get("nextCursor") != null && !jsonObj.get("nextCursor").isJsonNull()) {
       // validate the required field `nextCursor`
       MailPostAnalyticsExportResponse200NextCursor.validateJsonElement(jsonObj.get("nextCursor"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
