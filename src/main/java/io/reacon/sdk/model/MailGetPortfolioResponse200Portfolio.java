@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.MailTrackingDomainRecord;
+import io.reacon.sdk.model.MailMailPortfolio;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -60,31 +60,31 @@ import com.google.gson.JsonParseException;
 import io.reacon.sdk.JSON;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(MailGetTrackingDomainResponse200Domain.class.getName());
+public class MailGetPortfolioResponse200Portfolio extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(MailGetPortfolioResponse200Portfolio.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!MailGetTrackingDomainResponse200Domain.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'MailGetTrackingDomainResponse200Domain' and its subtypes
+            if (!MailGetPortfolioResponse200Portfolio.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'MailGetPortfolioResponse200Portfolio' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailTrackingDomainRecord> adapterMailTrackingDomainRecord = gson.getAdapter(TypeToken.get(MailTrackingDomainRecord.class));
+            final TypeAdapter<MailMailPortfolio> adapterMailMailPortfolio = gson.getAdapter(TypeToken.get(MailMailPortfolio.class));
             final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<MailGetTrackingDomainResponse200Domain>() {
+            return (TypeAdapter<T>) new TypeAdapter<MailGetPortfolioResponse200Portfolio>() {
                 @Override
-                public void write(JsonWriter out, MailGetTrackingDomainResponse200Domain value) throws IOException {
+                public void write(JsonWriter out, MailGetPortfolioResponse200Portfolio value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
                     }
 
-                    // check if the actual instance is of the type `MailTrackingDomainRecord`
-                    if (value.getActualInstance() instanceof MailTrackingDomainRecord) {
-                        JsonElement element = adapterMailTrackingDomainRecord.toJsonTree((MailTrackingDomainRecord)value.getActualInstance());
+                    // check if the actual instance is of the type `MailMailPortfolio`
+                    if (value.getActualInstance() instanceof MailMailPortfolio) {
+                        JsonElement element = adapterMailMailPortfolio.toJsonTree((MailMailPortfolio)value.getActualInstance());
                         boolean previousSerializeNulls = out.getSerializeNulls();
                         out.setSerializeNulls(true);
                         try { elementAdapter.write(out, element); }
@@ -97,29 +97,29 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
                         elementAdapter.write(out, primitive);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailTrackingDomainRecord, Object");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailMailPortfolio, Object");
                 }
 
                 @Override
-                public MailGetTrackingDomainResponse200Domain read(JsonReader in) throws IOException {
+                public MailGetPortfolioResponse200Portfolio read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize MailTrackingDomainRecord
+                    // deserialize MailMailPortfolio
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        MailTrackingDomainRecord.validateJsonElement(jsonElement);
-                        actualAdapter = adapterMailTrackingDomainRecord;
-                        MailGetTrackingDomainResponse200Domain ret = new MailGetTrackingDomainResponse200Domain();
+                        MailMailPortfolio.validateJsonElement(jsonElement);
+                        actualAdapter = adapterMailMailPortfolio;
+                        MailGetPortfolioResponse200Portfolio ret = new MailGetPortfolioResponse200Portfolio();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for MailTrackingDomainRecord failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MailTrackingDomainRecord'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for MailMailPortfolio failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'MailMailPortfolio'", e);
                     }
                     // deserialize Object
                     try {
@@ -128,7 +128,7 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
                             throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
                         }
                         actualAdapter = adapterObject;
-                        MailGetTrackingDomainResponse200Domain ret = new MailGetTrackingDomainResponse200Domain();
+                        MailGetPortfolioResponse200Portfolio ret = new MailGetPortfolioResponse200Portfolio();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -137,7 +137,7 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
                         log.log(Level.FINER, "Input data does not match schema 'Object'", e);
                     }
 
-                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for MailGetTrackingDomainResponse200Domain: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for MailGetPortfolioResponse200Portfolio: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -146,35 +146,35 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public MailGetTrackingDomainResponse200Domain() {
+    public MailGetPortfolioResponse200Portfolio() {
         super("anyOf", Boolean.FALSE);
     }
 
-    public MailGetTrackingDomainResponse200Domain(Object o) {
+    public MailGetPortfolioResponse200Portfolio(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("MailTrackingDomainRecord", MailTrackingDomainRecord.class);
+        schemas.put("MailMailPortfolio", MailMailPortfolio.class);
         schemas.put("Object", Object.class);
     }
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return MailGetTrackingDomainResponse200Domain.schemas;
+        return MailGetPortfolioResponse200Portfolio.schemas;
     }
 
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * MailTrackingDomainRecord, Object
+     * MailMailPortfolio, Object
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof MailTrackingDomainRecord) {
+        if (instance instanceof MailMailPortfolio) {
             super.setActualInstance(instance);
             return;
         }
@@ -184,14 +184,14 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be MailTrackingDomainRecord, Object");
+        throw new RuntimeException("Invalid instance type. Must be MailMailPortfolio, Object");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * MailTrackingDomainRecord, Object
+     * MailMailPortfolio, Object
      *
-     * @return The actual instance (MailTrackingDomainRecord, Object)
+     * @return The actual instance (MailMailPortfolio, Object)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -200,14 +200,14 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
     }
 
     /**
-     * Get the actual instance of `MailTrackingDomainRecord`. If the actual instance is not `MailTrackingDomainRecord`,
+     * Get the actual instance of `MailMailPortfolio`. If the actual instance is not `MailMailPortfolio`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `MailTrackingDomainRecord`
-     * @throws ClassCastException if the instance is not `MailTrackingDomainRecord`
+     * @return The actual instance of `MailMailPortfolio`
+     * @throws ClassCastException if the instance is not `MailMailPortfolio`
      */
-    public MailTrackingDomainRecord getMailTrackingDomainRecord() throws ClassCastException {
-        return (MailTrackingDomainRecord)super.getActualInstance();
+    public MailMailPortfolio getMailMailPortfolio() throws ClassCastException {
+        return (MailMailPortfolio)super.getActualInstance();
     }
 
     /**
@@ -225,17 +225,17 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to MailGetTrackingDomainResponse200Domain
+     * @throws IOException if the JSON Element is invalid with respect to MailGetPortfolioResponse200Portfolio
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with MailTrackingDomainRecord
+        // validate the json string with MailMailPortfolio
         try {
-            MailTrackingDomainRecord.validateJsonElement(jsonElement);
+            MailMailPortfolio.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for MailTrackingDomainRecord failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for MailMailPortfolio failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with Object
@@ -248,22 +248,22 @@ public class MailGetTrackingDomainResponse200Domain extends AbstractOpenApiSchem
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for Object failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for MailGetTrackingDomainResponse200Domain with anyOf schemas: MailTrackingDomainRecord, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for MailGetPortfolioResponse200Portfolio with anyOf schemas: MailMailPortfolio, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
-     * Create an instance of MailGetTrackingDomainResponse200Domain given an JSON string
+     * Create an instance of MailGetPortfolioResponse200Portfolio given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of MailGetTrackingDomainResponse200Domain
-     * @throws IOException if the JSON string is invalid with respect to MailGetTrackingDomainResponse200Domain
+     * @return An instance of MailGetPortfolioResponse200Portfolio
+     * @throws IOException if the JSON string is invalid with respect to MailGetPortfolioResponse200Portfolio
      */
-    public static MailGetTrackingDomainResponse200Domain fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, MailGetTrackingDomainResponse200Domain.class);
+    public static MailGetPortfolioResponse200Portfolio fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, MailGetPortfolioResponse200Portfolio.class);
     }
 
     /**
-     * Convert an instance of MailGetTrackingDomainResponse200Domain to an JSON string
+     * Convert an instance of MailGetPortfolioResponse200Portfolio to an JSON string
      *
      * @return JSON string
      */

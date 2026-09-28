@@ -119,54 +119,54 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'ProductToolExecution' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ProductDiscoverCompaniesExecution> adapterProductDiscoverCompaniesExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductDiscoverCompaniesExecution.class));
-            final TypeAdapter<ProductDiscoverPeopleExecution> adapterProductDiscoverPeopleExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductDiscoverPeopleExecution.class));
-            final TypeAdapter<ProductDomainFinderExecution> adapterProductDomainFinderExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductDomainFinderExecution.class));
-            final TypeAdapter<ProductEmailCountExecution> adapterProductEmailCountExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductEmailCountExecution.class));
-            final TypeAdapter<ProductPersonEnrichExecution> adapterProductPersonEnrichExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductPersonEnrichExecution.class));
-            final TypeAdapter<ProductCompanyEnrichExecution> adapterProductCompanyEnrichExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyEnrichExecution.class));
-            final TypeAdapter<ProductCombinedEnrichExecution> adapterProductCombinedEnrichExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCombinedEnrichExecution.class));
-            final TypeAdapter<ProductSavedSearchesListExecution> adapterProductSavedSearchesListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSavedSearchesListExecution.class));
-            final TypeAdapter<ProductLeadsListExecution> adapterProductLeadsListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadsListExecution.class));
-            final TypeAdapter<ProductLeadGetExecution> adapterProductLeadGetExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadGetExecution.class));
-            final TypeAdapter<ProductLeadCreateExecution> adapterProductLeadCreateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadCreateExecution.class));
-            final TypeAdapter<ProductLeadUpdateExecution> adapterProductLeadUpdateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadUpdateExecution.class));
-            final TypeAdapter<ProductLeadUpsertExecution> adapterProductLeadUpsertExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadUpsertExecution.class));
-            final TypeAdapter<ProductLeadDeleteExecution> adapterProductLeadDeleteExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadDeleteExecution.class));
-            final TypeAdapter<ProductLeadEnrichExecution> adapterProductLeadEnrichExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadEnrichExecution.class));
-            final TypeAdapter<ProductLeadBulkDeleteExecution> adapterProductLeadBulkDeleteExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadBulkDeleteExecution.class));
-            final TypeAdapter<ProductLeadTagsListExecution> adapterProductLeadTagsListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadTagsListExecution.class));
-            final TypeAdapter<ProductLeadTagCreateExecution> adapterProductLeadTagCreateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadTagCreateExecution.class));
-            final TypeAdapter<ProductLeadTagAssignExecution> adapterProductLeadTagAssignExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadTagAssignExecution.class));
-            final TypeAdapter<ProductLeadTagRemoveExecution> adapterProductLeadTagRemoveExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadTagRemoveExecution.class));
-            final TypeAdapter<ProductCustomAttributesListExecution> adapterProductCustomAttributesListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCustomAttributesListExecution.class));
-            final TypeAdapter<ProductCustomAttributeCreateExecution> adapterProductCustomAttributeCreateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCustomAttributeCreateExecution.class));
-            final TypeAdapter<ProductLeadListsListExecution> adapterProductLeadListsListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadListsListExecution.class));
-            final TypeAdapter<ProductLeadListCreateExecution> adapterProductLeadListCreateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadListCreateExecution.class));
-            final TypeAdapter<ProductLeadListUpdateExecution> adapterProductLeadListUpdateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadListUpdateExecution.class));
-            final TypeAdapter<ProductLeadListDeleteExecution> adapterProductLeadListDeleteExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadListDeleteExecution.class));
-            final TypeAdapter<ProductLeadListAddLeadExecution> adapterProductLeadListAddLeadExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadListAddLeadExecution.class));
-            final TypeAdapter<ProductLeadListRemoveLeadExecution> adapterProductLeadListRemoveLeadExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductLeadListRemoveLeadExecution.class));
-            final TypeAdapter<ProductCompaniesListExecution> adapterProductCompaniesListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompaniesListExecution.class));
-            final TypeAdapter<ProductCompanyTrackExecution> adapterProductCompanyTrackExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyTrackExecution.class));
-            final TypeAdapter<ProductCompanyUpdateExecution> adapterProductCompanyUpdateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyUpdateExecution.class));
-            final TypeAdapter<ProductCompanyDeleteExecution> adapterProductCompanyDeleteExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyDeleteExecution.class));
-            final TypeAdapter<ProductCompanyListsListExecution> adapterProductCompanyListsListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyListsListExecution.class));
-            final TypeAdapter<ProductCompanyListCreateExecution> adapterProductCompanyListCreateExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyListCreateExecution.class));
-            final TypeAdapter<ProductCompanyListAddExecution> adapterProductCompanyListAddExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyListAddExecution.class));
-            final TypeAdapter<ProductCompanyListRemoveExecution> adapterProductCompanyListRemoveExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductCompanyListRemoveExecution.class));
-            final TypeAdapter<ProductSequencesListExecution> adapterProductSequencesListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSequencesListExecution.class));
-            final TypeAdapter<ProductSequenceRecipientsListExecution> adapterProductSequenceRecipientsListExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceRecipientsListExecution.class));
-            final TypeAdapter<ProductSequenceRecipientsAddExecution> adapterProductSequenceRecipientsAddExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceRecipientsAddExecution.class));
-            final TypeAdapter<ProductSequenceRecipientAddExecution> adapterProductSequenceRecipientAddExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceRecipientAddExecution.class));
-            final TypeAdapter<ProductSequenceRecipientCancelExecution> adapterProductSequenceRecipientCancelExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceRecipientCancelExecution.class));
-            final TypeAdapter<ProductSequenceStartExecution> adapterProductSequenceStartExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceStartExecution.class));
-            final TypeAdapter<ProductAccountInfoExecution> adapterProductAccountInfoExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductAccountInfoExecution.class));
-            final TypeAdapter<ProductUsageExecution> adapterProductUsageExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductUsageExecution.class));
-            final TypeAdapter<ProductUsageHistoryExecution> adapterProductUsageHistoryExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductUsageHistoryExecution.class));
-            final TypeAdapter<ProductTeamMembersExecution> adapterProductTeamMembersExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductTeamMembersExecution.class));
-            final TypeAdapter<ProductConnectedAppsExecution> adapterProductConnectedAppsExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductConnectedAppsExecution.class));
-            final TypeAdapter<ProductConnectedAppPushExecution> adapterProductConnectedAppPushExecution = gson.getDelegateAdapter(this, TypeToken.get(ProductConnectedAppPushExecution.class));
+            final TypeAdapter<ProductDiscoverCompaniesExecution> adapterProductDiscoverCompaniesExecution = gson.getAdapter(TypeToken.get(ProductDiscoverCompaniesExecution.class));
+            final TypeAdapter<ProductDiscoverPeopleExecution> adapterProductDiscoverPeopleExecution = gson.getAdapter(TypeToken.get(ProductDiscoverPeopleExecution.class));
+            final TypeAdapter<ProductDomainFinderExecution> adapterProductDomainFinderExecution = gson.getAdapter(TypeToken.get(ProductDomainFinderExecution.class));
+            final TypeAdapter<ProductEmailCountExecution> adapterProductEmailCountExecution = gson.getAdapter(TypeToken.get(ProductEmailCountExecution.class));
+            final TypeAdapter<ProductPersonEnrichExecution> adapterProductPersonEnrichExecution = gson.getAdapter(TypeToken.get(ProductPersonEnrichExecution.class));
+            final TypeAdapter<ProductCompanyEnrichExecution> adapterProductCompanyEnrichExecution = gson.getAdapter(TypeToken.get(ProductCompanyEnrichExecution.class));
+            final TypeAdapter<ProductCombinedEnrichExecution> adapterProductCombinedEnrichExecution = gson.getAdapter(TypeToken.get(ProductCombinedEnrichExecution.class));
+            final TypeAdapter<ProductSavedSearchesListExecution> adapterProductSavedSearchesListExecution = gson.getAdapter(TypeToken.get(ProductSavedSearchesListExecution.class));
+            final TypeAdapter<ProductLeadsListExecution> adapterProductLeadsListExecution = gson.getAdapter(TypeToken.get(ProductLeadsListExecution.class));
+            final TypeAdapter<ProductLeadGetExecution> adapterProductLeadGetExecution = gson.getAdapter(TypeToken.get(ProductLeadGetExecution.class));
+            final TypeAdapter<ProductLeadCreateExecution> adapterProductLeadCreateExecution = gson.getAdapter(TypeToken.get(ProductLeadCreateExecution.class));
+            final TypeAdapter<ProductLeadUpdateExecution> adapterProductLeadUpdateExecution = gson.getAdapter(TypeToken.get(ProductLeadUpdateExecution.class));
+            final TypeAdapter<ProductLeadUpsertExecution> adapterProductLeadUpsertExecution = gson.getAdapter(TypeToken.get(ProductLeadUpsertExecution.class));
+            final TypeAdapter<ProductLeadDeleteExecution> adapterProductLeadDeleteExecution = gson.getAdapter(TypeToken.get(ProductLeadDeleteExecution.class));
+            final TypeAdapter<ProductLeadEnrichExecution> adapterProductLeadEnrichExecution = gson.getAdapter(TypeToken.get(ProductLeadEnrichExecution.class));
+            final TypeAdapter<ProductLeadBulkDeleteExecution> adapterProductLeadBulkDeleteExecution = gson.getAdapter(TypeToken.get(ProductLeadBulkDeleteExecution.class));
+            final TypeAdapter<ProductLeadTagsListExecution> adapterProductLeadTagsListExecution = gson.getAdapter(TypeToken.get(ProductLeadTagsListExecution.class));
+            final TypeAdapter<ProductLeadTagCreateExecution> adapterProductLeadTagCreateExecution = gson.getAdapter(TypeToken.get(ProductLeadTagCreateExecution.class));
+            final TypeAdapter<ProductLeadTagAssignExecution> adapterProductLeadTagAssignExecution = gson.getAdapter(TypeToken.get(ProductLeadTagAssignExecution.class));
+            final TypeAdapter<ProductLeadTagRemoveExecution> adapterProductLeadTagRemoveExecution = gson.getAdapter(TypeToken.get(ProductLeadTagRemoveExecution.class));
+            final TypeAdapter<ProductCustomAttributesListExecution> adapterProductCustomAttributesListExecution = gson.getAdapter(TypeToken.get(ProductCustomAttributesListExecution.class));
+            final TypeAdapter<ProductCustomAttributeCreateExecution> adapterProductCustomAttributeCreateExecution = gson.getAdapter(TypeToken.get(ProductCustomAttributeCreateExecution.class));
+            final TypeAdapter<ProductLeadListsListExecution> adapterProductLeadListsListExecution = gson.getAdapter(TypeToken.get(ProductLeadListsListExecution.class));
+            final TypeAdapter<ProductLeadListCreateExecution> adapterProductLeadListCreateExecution = gson.getAdapter(TypeToken.get(ProductLeadListCreateExecution.class));
+            final TypeAdapter<ProductLeadListUpdateExecution> adapterProductLeadListUpdateExecution = gson.getAdapter(TypeToken.get(ProductLeadListUpdateExecution.class));
+            final TypeAdapter<ProductLeadListDeleteExecution> adapterProductLeadListDeleteExecution = gson.getAdapter(TypeToken.get(ProductLeadListDeleteExecution.class));
+            final TypeAdapter<ProductLeadListAddLeadExecution> adapterProductLeadListAddLeadExecution = gson.getAdapter(TypeToken.get(ProductLeadListAddLeadExecution.class));
+            final TypeAdapter<ProductLeadListRemoveLeadExecution> adapterProductLeadListRemoveLeadExecution = gson.getAdapter(TypeToken.get(ProductLeadListRemoveLeadExecution.class));
+            final TypeAdapter<ProductCompaniesListExecution> adapterProductCompaniesListExecution = gson.getAdapter(TypeToken.get(ProductCompaniesListExecution.class));
+            final TypeAdapter<ProductCompanyTrackExecution> adapterProductCompanyTrackExecution = gson.getAdapter(TypeToken.get(ProductCompanyTrackExecution.class));
+            final TypeAdapter<ProductCompanyUpdateExecution> adapterProductCompanyUpdateExecution = gson.getAdapter(TypeToken.get(ProductCompanyUpdateExecution.class));
+            final TypeAdapter<ProductCompanyDeleteExecution> adapterProductCompanyDeleteExecution = gson.getAdapter(TypeToken.get(ProductCompanyDeleteExecution.class));
+            final TypeAdapter<ProductCompanyListsListExecution> adapterProductCompanyListsListExecution = gson.getAdapter(TypeToken.get(ProductCompanyListsListExecution.class));
+            final TypeAdapter<ProductCompanyListCreateExecution> adapterProductCompanyListCreateExecution = gson.getAdapter(TypeToken.get(ProductCompanyListCreateExecution.class));
+            final TypeAdapter<ProductCompanyListAddExecution> adapterProductCompanyListAddExecution = gson.getAdapter(TypeToken.get(ProductCompanyListAddExecution.class));
+            final TypeAdapter<ProductCompanyListRemoveExecution> adapterProductCompanyListRemoveExecution = gson.getAdapter(TypeToken.get(ProductCompanyListRemoveExecution.class));
+            final TypeAdapter<ProductSequencesListExecution> adapterProductSequencesListExecution = gson.getAdapter(TypeToken.get(ProductSequencesListExecution.class));
+            final TypeAdapter<ProductSequenceRecipientsListExecution> adapterProductSequenceRecipientsListExecution = gson.getAdapter(TypeToken.get(ProductSequenceRecipientsListExecution.class));
+            final TypeAdapter<ProductSequenceRecipientsAddExecution> adapterProductSequenceRecipientsAddExecution = gson.getAdapter(TypeToken.get(ProductSequenceRecipientsAddExecution.class));
+            final TypeAdapter<ProductSequenceRecipientAddExecution> adapterProductSequenceRecipientAddExecution = gson.getAdapter(TypeToken.get(ProductSequenceRecipientAddExecution.class));
+            final TypeAdapter<ProductSequenceRecipientCancelExecution> adapterProductSequenceRecipientCancelExecution = gson.getAdapter(TypeToken.get(ProductSequenceRecipientCancelExecution.class));
+            final TypeAdapter<ProductSequenceStartExecution> adapterProductSequenceStartExecution = gson.getAdapter(TypeToken.get(ProductSequenceStartExecution.class));
+            final TypeAdapter<ProductAccountInfoExecution> adapterProductAccountInfoExecution = gson.getAdapter(TypeToken.get(ProductAccountInfoExecution.class));
+            final TypeAdapter<ProductUsageExecution> adapterProductUsageExecution = gson.getAdapter(TypeToken.get(ProductUsageExecution.class));
+            final TypeAdapter<ProductUsageHistoryExecution> adapterProductUsageHistoryExecution = gson.getAdapter(TypeToken.get(ProductUsageHistoryExecution.class));
+            final TypeAdapter<ProductTeamMembersExecution> adapterProductTeamMembersExecution = gson.getAdapter(TypeToken.get(ProductTeamMembersExecution.class));
+            final TypeAdapter<ProductConnectedAppsExecution> adapterProductConnectedAppsExecution = gson.getAdapter(TypeToken.get(ProductConnectedAppsExecution.class));
+            final TypeAdapter<ProductConnectedAppPushExecution> adapterProductConnectedAppPushExecution = gson.getAdapter(TypeToken.get(ProductConnectedAppPushExecution.class));
 
             return (TypeAdapter<T>) new TypeAdapter<ProductToolExecution>() {
                 @Override
@@ -179,289 +179,433 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `ProductDiscoverCompaniesExecution`
                     if (value.getActualInstance() instanceof ProductDiscoverCompaniesExecution) {
                         JsonElement element = adapterProductDiscoverCompaniesExecution.toJsonTree((ProductDiscoverCompaniesExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductDiscoverPeopleExecution`
                     if (value.getActualInstance() instanceof ProductDiscoverPeopleExecution) {
                         JsonElement element = adapterProductDiscoverPeopleExecution.toJsonTree((ProductDiscoverPeopleExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductDomainFinderExecution`
                     if (value.getActualInstance() instanceof ProductDomainFinderExecution) {
                         JsonElement element = adapterProductDomainFinderExecution.toJsonTree((ProductDomainFinderExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductEmailCountExecution`
                     if (value.getActualInstance() instanceof ProductEmailCountExecution) {
                         JsonElement element = adapterProductEmailCountExecution.toJsonTree((ProductEmailCountExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductPersonEnrichExecution`
                     if (value.getActualInstance() instanceof ProductPersonEnrichExecution) {
                         JsonElement element = adapterProductPersonEnrichExecution.toJsonTree((ProductPersonEnrichExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyEnrichExecution`
                     if (value.getActualInstance() instanceof ProductCompanyEnrichExecution) {
                         JsonElement element = adapterProductCompanyEnrichExecution.toJsonTree((ProductCompanyEnrichExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCombinedEnrichExecution`
                     if (value.getActualInstance() instanceof ProductCombinedEnrichExecution) {
                         JsonElement element = adapterProductCombinedEnrichExecution.toJsonTree((ProductCombinedEnrichExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSavedSearchesListExecution`
                     if (value.getActualInstance() instanceof ProductSavedSearchesListExecution) {
                         JsonElement element = adapterProductSavedSearchesListExecution.toJsonTree((ProductSavedSearchesListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadsListExecution`
                     if (value.getActualInstance() instanceof ProductLeadsListExecution) {
                         JsonElement element = adapterProductLeadsListExecution.toJsonTree((ProductLeadsListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadGetExecution`
                     if (value.getActualInstance() instanceof ProductLeadGetExecution) {
                         JsonElement element = adapterProductLeadGetExecution.toJsonTree((ProductLeadGetExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadCreateExecution`
                     if (value.getActualInstance() instanceof ProductLeadCreateExecution) {
                         JsonElement element = adapterProductLeadCreateExecution.toJsonTree((ProductLeadCreateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadUpdateExecution`
                     if (value.getActualInstance() instanceof ProductLeadUpdateExecution) {
                         JsonElement element = adapterProductLeadUpdateExecution.toJsonTree((ProductLeadUpdateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadUpsertExecution`
                     if (value.getActualInstance() instanceof ProductLeadUpsertExecution) {
                         JsonElement element = adapterProductLeadUpsertExecution.toJsonTree((ProductLeadUpsertExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadDeleteExecution`
                     if (value.getActualInstance() instanceof ProductLeadDeleteExecution) {
                         JsonElement element = adapterProductLeadDeleteExecution.toJsonTree((ProductLeadDeleteExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadEnrichExecution`
                     if (value.getActualInstance() instanceof ProductLeadEnrichExecution) {
                         JsonElement element = adapterProductLeadEnrichExecution.toJsonTree((ProductLeadEnrichExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadBulkDeleteExecution`
                     if (value.getActualInstance() instanceof ProductLeadBulkDeleteExecution) {
                         JsonElement element = adapterProductLeadBulkDeleteExecution.toJsonTree((ProductLeadBulkDeleteExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadTagsListExecution`
                     if (value.getActualInstance() instanceof ProductLeadTagsListExecution) {
                         JsonElement element = adapterProductLeadTagsListExecution.toJsonTree((ProductLeadTagsListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadTagCreateExecution`
                     if (value.getActualInstance() instanceof ProductLeadTagCreateExecution) {
                         JsonElement element = adapterProductLeadTagCreateExecution.toJsonTree((ProductLeadTagCreateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadTagAssignExecution`
                     if (value.getActualInstance() instanceof ProductLeadTagAssignExecution) {
                         JsonElement element = adapterProductLeadTagAssignExecution.toJsonTree((ProductLeadTagAssignExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadTagRemoveExecution`
                     if (value.getActualInstance() instanceof ProductLeadTagRemoveExecution) {
                         JsonElement element = adapterProductLeadTagRemoveExecution.toJsonTree((ProductLeadTagRemoveExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCustomAttributesListExecution`
                     if (value.getActualInstance() instanceof ProductCustomAttributesListExecution) {
                         JsonElement element = adapterProductCustomAttributesListExecution.toJsonTree((ProductCustomAttributesListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCustomAttributeCreateExecution`
                     if (value.getActualInstance() instanceof ProductCustomAttributeCreateExecution) {
                         JsonElement element = adapterProductCustomAttributeCreateExecution.toJsonTree((ProductCustomAttributeCreateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadListsListExecution`
                     if (value.getActualInstance() instanceof ProductLeadListsListExecution) {
                         JsonElement element = adapterProductLeadListsListExecution.toJsonTree((ProductLeadListsListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadListCreateExecution`
                     if (value.getActualInstance() instanceof ProductLeadListCreateExecution) {
                         JsonElement element = adapterProductLeadListCreateExecution.toJsonTree((ProductLeadListCreateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadListUpdateExecution`
                     if (value.getActualInstance() instanceof ProductLeadListUpdateExecution) {
                         JsonElement element = adapterProductLeadListUpdateExecution.toJsonTree((ProductLeadListUpdateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadListDeleteExecution`
                     if (value.getActualInstance() instanceof ProductLeadListDeleteExecution) {
                         JsonElement element = adapterProductLeadListDeleteExecution.toJsonTree((ProductLeadListDeleteExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadListAddLeadExecution`
                     if (value.getActualInstance() instanceof ProductLeadListAddLeadExecution) {
                         JsonElement element = adapterProductLeadListAddLeadExecution.toJsonTree((ProductLeadListAddLeadExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductLeadListRemoveLeadExecution`
                     if (value.getActualInstance() instanceof ProductLeadListRemoveLeadExecution) {
                         JsonElement element = adapterProductLeadListRemoveLeadExecution.toJsonTree((ProductLeadListRemoveLeadExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompaniesListExecution`
                     if (value.getActualInstance() instanceof ProductCompaniesListExecution) {
                         JsonElement element = adapterProductCompaniesListExecution.toJsonTree((ProductCompaniesListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyTrackExecution`
                     if (value.getActualInstance() instanceof ProductCompanyTrackExecution) {
                         JsonElement element = adapterProductCompanyTrackExecution.toJsonTree((ProductCompanyTrackExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyUpdateExecution`
                     if (value.getActualInstance() instanceof ProductCompanyUpdateExecution) {
                         JsonElement element = adapterProductCompanyUpdateExecution.toJsonTree((ProductCompanyUpdateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyDeleteExecution`
                     if (value.getActualInstance() instanceof ProductCompanyDeleteExecution) {
                         JsonElement element = adapterProductCompanyDeleteExecution.toJsonTree((ProductCompanyDeleteExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyListsListExecution`
                     if (value.getActualInstance() instanceof ProductCompanyListsListExecution) {
                         JsonElement element = adapterProductCompanyListsListExecution.toJsonTree((ProductCompanyListsListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyListCreateExecution`
                     if (value.getActualInstance() instanceof ProductCompanyListCreateExecution) {
                         JsonElement element = adapterProductCompanyListCreateExecution.toJsonTree((ProductCompanyListCreateExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyListAddExecution`
                     if (value.getActualInstance() instanceof ProductCompanyListAddExecution) {
                         JsonElement element = adapterProductCompanyListAddExecution.toJsonTree((ProductCompanyListAddExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductCompanyListRemoveExecution`
                     if (value.getActualInstance() instanceof ProductCompanyListRemoveExecution) {
                         JsonElement element = adapterProductCompanyListRemoveExecution.toJsonTree((ProductCompanyListRemoveExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSequencesListExecution`
                     if (value.getActualInstance() instanceof ProductSequencesListExecution) {
                         JsonElement element = adapterProductSequencesListExecution.toJsonTree((ProductSequencesListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSequenceRecipientsListExecution`
                     if (value.getActualInstance() instanceof ProductSequenceRecipientsListExecution) {
                         JsonElement element = adapterProductSequenceRecipientsListExecution.toJsonTree((ProductSequenceRecipientsListExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSequenceRecipientsAddExecution`
                     if (value.getActualInstance() instanceof ProductSequenceRecipientsAddExecution) {
                         JsonElement element = adapterProductSequenceRecipientsAddExecution.toJsonTree((ProductSequenceRecipientsAddExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSequenceRecipientAddExecution`
                     if (value.getActualInstance() instanceof ProductSequenceRecipientAddExecution) {
                         JsonElement element = adapterProductSequenceRecipientAddExecution.toJsonTree((ProductSequenceRecipientAddExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSequenceRecipientCancelExecution`
                     if (value.getActualInstance() instanceof ProductSequenceRecipientCancelExecution) {
                         JsonElement element = adapterProductSequenceRecipientCancelExecution.toJsonTree((ProductSequenceRecipientCancelExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductSequenceStartExecution`
                     if (value.getActualInstance() instanceof ProductSequenceStartExecution) {
                         JsonElement element = adapterProductSequenceStartExecution.toJsonTree((ProductSequenceStartExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductAccountInfoExecution`
                     if (value.getActualInstance() instanceof ProductAccountInfoExecution) {
                         JsonElement element = adapterProductAccountInfoExecution.toJsonTree((ProductAccountInfoExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductUsageExecution`
                     if (value.getActualInstance() instanceof ProductUsageExecution) {
                         JsonElement element = adapterProductUsageExecution.toJsonTree((ProductUsageExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductUsageHistoryExecution`
                     if (value.getActualInstance() instanceof ProductUsageHistoryExecution) {
                         JsonElement element = adapterProductUsageHistoryExecution.toJsonTree((ProductUsageHistoryExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductTeamMembersExecution`
                     if (value.getActualInstance() instanceof ProductTeamMembersExecution) {
                         JsonElement element = adapterProductTeamMembersExecution.toJsonTree((ProductTeamMembersExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductConnectedAppsExecution`
                     if (value.getActualInstance() instanceof ProductConnectedAppsExecution) {
                         JsonElement element = adapterProductConnectedAppsExecution.toJsonTree((ProductConnectedAppsExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `ProductConnectedAppPushExecution`
                     if (value.getActualInstance() instanceof ProductConnectedAppPushExecution) {
                         JsonElement element = adapterProductConnectedAppPushExecution.toJsonTree((ProductConnectedAppPushExecution)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution");

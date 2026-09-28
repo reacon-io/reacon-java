@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailCampaignDraftRecord;
 import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf;
 import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1;
-import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign;
+import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200Campaign;
 import io.reacon.sdk.model.MailSequenceRunRecord;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -76,8 +76,8 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200 extends AbstractOpen
                 return null; // this class only serializes 'MailPostCampaignsByCampaignIdLaunchResponse200' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOf> adapterMailPostCampaignsByCampaignIdLaunchResponse200AnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.class));
-            final TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1> adapterMailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.class));
+            final TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOf> adapterMailPostCampaignsByCampaignIdLaunchResponse200AnyOf = gson.getAdapter(TypeToken.get(MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.class));
+            final TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1> adapterMailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 = gson.getAdapter(TypeToken.get(MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200>() {
                 @Override
@@ -90,13 +90,19 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200 extends AbstractOpen
                     // check if the actual instance is of the type `MailPostCampaignsByCampaignIdLaunchResponse200AnyOf`
                     if (value.getActualInstance() instanceof MailPostCampaignsByCampaignIdLaunchResponse200AnyOf) {
                         JsonElement element = adapterMailPostCampaignsByCampaignIdLaunchResponse200AnyOf.toJsonTree((MailPostCampaignsByCampaignIdLaunchResponse200AnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1`
                     if (value.getActualInstance() instanceof MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1) {
                         JsonElement element = adapterMailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.toJsonTree((MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1");

@@ -78,13 +78,13 @@ public class MailPostCadencesRequestNodesInner extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MailPostCadencesRequestNodesInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf> adapterMailPostCadencesRequestNodesInnerAnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf.class));
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf1> adapterMailPostCadencesRequestNodesInnerAnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf1.class));
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf2> adapterMailPostCadencesRequestNodesInnerAnyOf2 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf2.class));
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf3> adapterMailPostCadencesRequestNodesInnerAnyOf3 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf3.class));
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf4> adapterMailPostCadencesRequestNodesInnerAnyOf4 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf4.class));
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf5> adapterMailPostCadencesRequestNodesInnerAnyOf5 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf5.class));
-            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf6> adapterMailPostCadencesRequestNodesInnerAnyOf6 = gson.getDelegateAdapter(this, TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf6.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf> adapterMailPostCadencesRequestNodesInnerAnyOf = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf1> adapterMailPostCadencesRequestNodesInnerAnyOf1 = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf1.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf2> adapterMailPostCadencesRequestNodesInnerAnyOf2 = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf2.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf3> adapterMailPostCadencesRequestNodesInnerAnyOf3 = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf3.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf4> adapterMailPostCadencesRequestNodesInnerAnyOf4 = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf4.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf5> adapterMailPostCadencesRequestNodesInnerAnyOf5 = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf5.class));
+            final TypeAdapter<MailPostCadencesRequestNodesInnerAnyOf6> adapterMailPostCadencesRequestNodesInnerAnyOf6 = gson.getAdapter(TypeToken.get(MailPostCadencesRequestNodesInnerAnyOf6.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailPostCadencesRequestNodesInner>() {
                 @Override
@@ -97,43 +97,64 @@ public class MailPostCadencesRequestNodesInner extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf1`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf1) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf1.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf2`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf2) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf2.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf2)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf3`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf3) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf3.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf3)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf4`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf4) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf4.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf4)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf5`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf5) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf5.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf5)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailPostCadencesRequestNodesInnerAnyOf6`
                     if (value.getActualInstance() instanceof MailPostCadencesRequestNodesInnerAnyOf6) {
                         JsonElement element = adapterMailPostCadencesRequestNodesInnerAnyOf6.toJsonTree((MailPostCadencesRequestNodesInnerAnyOf6)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailPostCadencesRequestNodesInnerAnyOf, MailPostCadencesRequestNodesInnerAnyOf1, MailPostCadencesRequestNodesInnerAnyOf2, MailPostCadencesRequestNodesInnerAnyOf3, MailPostCadencesRequestNodesInnerAnyOf4, MailPostCadencesRequestNodesInnerAnyOf5, MailPostCadencesRequestNodesInnerAnyOf6");

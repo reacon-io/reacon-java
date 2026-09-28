@@ -73,9 +73,9 @@ public class MailConversationEntryLastError extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MailConversationEntryLastError' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailConversationEntryLastErrorAnyOf> adapterMailConversationEntryLastErrorAnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailConversationEntryLastErrorAnyOf.class));
-            final TypeAdapter<MailConversationEntryLastErrorAnyOf1> adapterMailConversationEntryLastErrorAnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailConversationEntryLastErrorAnyOf1.class));
-            final TypeAdapter<MailConversationEntryLastErrorAnyOf2> adapterMailConversationEntryLastErrorAnyOf2 = gson.getDelegateAdapter(this, TypeToken.get(MailConversationEntryLastErrorAnyOf2.class));
+            final TypeAdapter<MailConversationEntryLastErrorAnyOf> adapterMailConversationEntryLastErrorAnyOf = gson.getAdapter(TypeToken.get(MailConversationEntryLastErrorAnyOf.class));
+            final TypeAdapter<MailConversationEntryLastErrorAnyOf1> adapterMailConversationEntryLastErrorAnyOf1 = gson.getAdapter(TypeToken.get(MailConversationEntryLastErrorAnyOf1.class));
+            final TypeAdapter<MailConversationEntryLastErrorAnyOf2> adapterMailConversationEntryLastErrorAnyOf2 = gson.getAdapter(TypeToken.get(MailConversationEntryLastErrorAnyOf2.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailConversationEntryLastError>() {
                 @Override
@@ -88,19 +88,28 @@ public class MailConversationEntryLastError extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `MailConversationEntryLastErrorAnyOf`
                     if (value.getActualInstance() instanceof MailConversationEntryLastErrorAnyOf) {
                         JsonElement element = adapterMailConversationEntryLastErrorAnyOf.toJsonTree((MailConversationEntryLastErrorAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailConversationEntryLastErrorAnyOf1`
                     if (value.getActualInstance() instanceof MailConversationEntryLastErrorAnyOf1) {
                         JsonElement element = adapterMailConversationEntryLastErrorAnyOf1.toJsonTree((MailConversationEntryLastErrorAnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailConversationEntryLastErrorAnyOf2`
                     if (value.getActualInstance() instanceof MailConversationEntryLastErrorAnyOf2) {
                         JsonElement element = adapterMailConversationEntryLastErrorAnyOf2.toJsonTree((MailConversationEntryLastErrorAnyOf2)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailConversationEntryLastErrorAnyOf, MailConversationEntryLastErrorAnyOf1, MailConversationEntryLastErrorAnyOf2");

@@ -72,8 +72,8 @@ public class MailExperimentReportDecision extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MailExperimentReportDecision' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailExperimentDecisionRecord> adapterMailExperimentDecisionRecord = gson.getDelegateAdapter(this, TypeToken.get(MailExperimentDecisionRecord.class));
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
+            final TypeAdapter<MailExperimentDecisionRecord> adapterMailExperimentDecisionRecord = gson.getAdapter(TypeToken.get(MailExperimentDecisionRecord.class));
+            final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailExperimentReportDecision>() {
                 @Override
@@ -86,7 +86,10 @@ public class MailExperimentReportDecision extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `MailExperimentDecisionRecord`
                     if (value.getActualInstance() instanceof MailExperimentDecisionRecord) {
                         JsonElement element = adapterMailExperimentDecisionRecord.toJsonTree((MailExperimentDecisionRecord)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `Object`

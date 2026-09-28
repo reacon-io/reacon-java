@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.reacon</groupId>
   <artifactId>reacon-java</artifactId>
-  <version>0.1.0-beta.4</version>
+  <version>0.2.0-beta.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.reacon:reacon-java:0.1.0-beta.4"
+     implementation "io.reacon:reacon-java:0.2.0-beta.1"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/reacon-java-0.1.0-beta.4.jar`
+* `target/reacon-java-0.2.0-beta.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -536,6 +536,7 @@ Class | Method | HTTP request | Description
  - [MailGetPortfolioResponse200](docs/MailGetPortfolioResponse200.md)
  - [MailGetPortfolioResponse200AnyOf](docs/MailGetPortfolioResponse200AnyOf.md)
  - [MailGetPortfolioResponse200AnyOf1](docs/MailGetPortfolioResponse200AnyOf1.md)
+ - [MailGetPortfolioResponse200Portfolio](docs/MailGetPortfolioResponse200Portfolio.md)
  - [MailGetQueueResponse200](docs/MailGetQueueResponse200.md)
  - [MailGetReplyAutomationsResponse200](docs/MailGetReplyAutomationsResponse200.md)
  - [MailGetSignaturesResponse200](docs/MailGetSignaturesResponse200.md)
@@ -618,7 +619,7 @@ Class | Method | HTTP request | Description
  - [MailPostCampaignsByCampaignIdLaunchResponse200](docs/MailPostCampaignsByCampaignIdLaunchResponse200.md)
  - [MailPostCampaignsByCampaignIdLaunchResponse200AnyOf](docs/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.md)
  - [MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1](docs/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.md)
- - [MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign](docs/MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.md)
+ - [MailPostCampaignsByCampaignIdLaunchResponse200Campaign](docs/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.md)
  - [MailPostCampaignsByCampaignIdStateRequest](docs/MailPostCampaignsByCampaignIdStateRequest.md)
  - [MailPostCampaignsByCampaignIdStateResponse200](docs/MailPostCampaignsByCampaignIdStateResponse200.md)
  - [MailPostCampaignsRequest](docs/MailPostCampaignsRequest.md)

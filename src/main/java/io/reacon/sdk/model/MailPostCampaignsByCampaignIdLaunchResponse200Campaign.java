@@ -64,23 +64,23 @@ import com.google.gson.JsonParseException;
 import io.reacon.sdk.JSON;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.class.getName());
+public class MailPostCampaignsByCampaignIdLaunchResponse200Campaign extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(MailPostCampaignsByCampaignIdLaunchResponse200Campaign.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign' and its subtypes
+            if (!MailPostCampaignsByCampaignIdLaunchResponse200Campaign.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'MailPostCampaignsByCampaignIdLaunchResponse200Campaign' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailCampaignProgress> adapterMailCampaignProgress = gson.getDelegateAdapter(this, TypeToken.get(MailCampaignProgress.class));
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
+            final TypeAdapter<MailCampaignProgress> adapterMailCampaignProgress = gson.getAdapter(TypeToken.get(MailCampaignProgress.class));
+            final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign>() {
+            return (TypeAdapter<T>) new TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200Campaign>() {
                 @Override
-                public void write(JsonWriter out, MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign value) throws IOException {
+                public void write(JsonWriter out, MailPostCampaignsByCampaignIdLaunchResponse200Campaign value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
@@ -89,7 +89,10 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
                     // check if the actual instance is of the type `MailCampaignProgress`
                     if (value.getActualInstance() instanceof MailCampaignProgress) {
                         JsonElement element = adapterMailCampaignProgress.toJsonTree((MailCampaignProgress)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `Object`
@@ -102,7 +105,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
                 }
 
                 @Override
-                public MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign read(JsonReader in) throws IOException {
+                public MailPostCampaignsByCampaignIdLaunchResponse200Campaign read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
@@ -114,7 +117,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
                         // validate the JSON object to see if any exception is thrown
                         MailCampaignProgress.validateJsonElement(jsonElement);
                         actualAdapter = adapterMailCampaignProgress;
-                        MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign ret = new MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign();
+                        MailPostCampaignsByCampaignIdLaunchResponse200Campaign ret = new MailPostCampaignsByCampaignIdLaunchResponse200Campaign();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -129,7 +132,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
                             throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
                         }
                         actualAdapter = adapterObject;
-                        MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign ret = new MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign();
+                        MailPostCampaignsByCampaignIdLaunchResponse200Campaign ret = new MailPostCampaignsByCampaignIdLaunchResponse200Campaign();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -138,7 +141,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
                         log.log(Level.FINER, "Input data does not match schema 'Object'", e);
                     }
 
-                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for MailPostCampaignsByCampaignIdLaunchResponse200Campaign: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -147,11 +150,11 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign() {
+    public MailPostCampaignsByCampaignIdLaunchResponse200Campaign() {
         super("anyOf", Boolean.FALSE);
     }
 
-    public MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign(Object o) {
+    public MailPostCampaignsByCampaignIdLaunchResponse200Campaign(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -163,7 +166,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.schemas;
+        return MailPostCampaignsByCampaignIdLaunchResponse200Campaign.schemas;
     }
 
     /**
@@ -226,7 +229,7 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+     * @throws IOException if the JSON Element is invalid with respect to MailPostCampaignsByCampaignIdLaunchResponse200Campaign
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
@@ -249,22 +252,22 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign extends
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for Object failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign with anyOf schemas: MailCampaignProgress, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for MailPostCampaignsByCampaignIdLaunchResponse200Campaign with anyOf schemas: MailCampaignProgress, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
-     * Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign given an JSON string
+     * Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200Campaign given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
-     * @throws IOException if the JSON string is invalid with respect to MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+     * @return An instance of MailPostCampaignsByCampaignIdLaunchResponse200Campaign
+     * @throws IOException if the JSON string is invalid with respect to MailPostCampaignsByCampaignIdLaunchResponse200Campaign
      */
-    public static MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.class);
+    public static MailPostCampaignsByCampaignIdLaunchResponse200Campaign fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, MailPostCampaignsByCampaignIdLaunchResponse200Campaign.class);
     }
 
     /**
-     * Convert an instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign to an JSON string
+     * Convert an instance of MailPostCampaignsByCampaignIdLaunchResponse200Campaign to an JSON string
      *
      * @return JSON string
      */

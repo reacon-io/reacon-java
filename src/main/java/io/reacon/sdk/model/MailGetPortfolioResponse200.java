@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailGetPortfolioResponse200AnyOf;
 import io.reacon.sdk.model.MailGetPortfolioResponse200AnyOf1;
+import io.reacon.sdk.model.MailGetPortfolioResponse200Portfolio;
 import io.reacon.sdk.model.MailMailPortfolio;
 import io.reacon.sdk.model.MailMailPortfolioSuppression;
 import io.reacon.sdk.model.MailMailPortfolioTeam;
@@ -76,8 +77,8 @@ public class MailGetPortfolioResponse200 extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MailGetPortfolioResponse200' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailGetPortfolioResponse200AnyOf> adapterMailGetPortfolioResponse200AnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailGetPortfolioResponse200AnyOf.class));
-            final TypeAdapter<MailGetPortfolioResponse200AnyOf1> adapterMailGetPortfolioResponse200AnyOf1 = gson.getDelegateAdapter(this, TypeToken.get(MailGetPortfolioResponse200AnyOf1.class));
+            final TypeAdapter<MailGetPortfolioResponse200AnyOf> adapterMailGetPortfolioResponse200AnyOf = gson.getAdapter(TypeToken.get(MailGetPortfolioResponse200AnyOf.class));
+            final TypeAdapter<MailGetPortfolioResponse200AnyOf1> adapterMailGetPortfolioResponse200AnyOf1 = gson.getAdapter(TypeToken.get(MailGetPortfolioResponse200AnyOf1.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailGetPortfolioResponse200>() {
                 @Override
@@ -90,13 +91,19 @@ public class MailGetPortfolioResponse200 extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `MailGetPortfolioResponse200AnyOf`
                     if (value.getActualInstance() instanceof MailGetPortfolioResponse200AnyOf) {
                         JsonElement element = adapterMailGetPortfolioResponse200AnyOf.toJsonTree((MailGetPortfolioResponse200AnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `MailGetPortfolioResponse200AnyOf1`
                     if (value.getActualInstance() instanceof MailGetPortfolioResponse200AnyOf1) {
                         JsonElement element = adapterMailGetPortfolioResponse200AnyOf1.toJsonTree((MailGetPortfolioResponse200AnyOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: MailGetPortfolioResponse200AnyOf, MailGetPortfolioResponse200AnyOf1");

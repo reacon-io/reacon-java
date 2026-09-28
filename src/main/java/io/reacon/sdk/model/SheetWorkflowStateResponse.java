@@ -72,8 +72,8 @@ public class SheetWorkflowStateResponse extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'SheetWorkflowStateResponse' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<SheetWorkflowResponse> adapterSheetWorkflowResponse = gson.getDelegateAdapter(this, TypeToken.get(SheetWorkflowResponse.class));
-            final TypeAdapter<SheetWorkflowDeleted> adapterSheetWorkflowDeleted = gson.getDelegateAdapter(this, TypeToken.get(SheetWorkflowDeleted.class));
+            final TypeAdapter<SheetWorkflowResponse> adapterSheetWorkflowResponse = gson.getAdapter(TypeToken.get(SheetWorkflowResponse.class));
+            final TypeAdapter<SheetWorkflowDeleted> adapterSheetWorkflowDeleted = gson.getAdapter(TypeToken.get(SheetWorkflowDeleted.class));
 
             return (TypeAdapter<T>) new TypeAdapter<SheetWorkflowStateResponse>() {
                 @Override
@@ -86,13 +86,19 @@ public class SheetWorkflowStateResponse extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `SheetWorkflowResponse`
                     if (value.getActualInstance() instanceof SheetWorkflowResponse) {
                         JsonElement element = adapterSheetWorkflowResponse.toJsonTree((SheetWorkflowResponse)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `SheetWorkflowDeleted`
                     if (value.getActualInstance() instanceof SheetWorkflowDeleted) {
                         JsonElement element = adapterSheetWorkflowDeleted.toJsonTree((SheetWorkflowDeleted)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: SheetWorkflowDeleted, SheetWorkflowResponse");

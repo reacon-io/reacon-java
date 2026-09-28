@@ -77,10 +77,10 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'IntegrationCapabilityResponseOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CapabilityEmailFound> adapterCapabilityEmailFound = gson.getDelegateAdapter(this, TypeToken.get(CapabilityEmailFound.class));
-            final TypeAdapter<CapabilityEmailVerified> adapterCapabilityEmailVerified = gson.getDelegateAdapter(this, TypeToken.get(CapabilityEmailVerified.class));
-            final TypeAdapter<CapabilityDomainSearch> adapterCapabilityDomainSearch = gson.getDelegateAdapter(this, TypeToken.get(CapabilityDomainSearch.class));
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
+            final TypeAdapter<CapabilityEmailFound> adapterCapabilityEmailFound = gson.getAdapter(TypeToken.get(CapabilityEmailFound.class));
+            final TypeAdapter<CapabilityEmailVerified> adapterCapabilityEmailVerified = gson.getAdapter(TypeToken.get(CapabilityEmailVerified.class));
+            final TypeAdapter<CapabilityDomainSearch> adapterCapabilityDomainSearch = gson.getAdapter(TypeToken.get(CapabilityDomainSearch.class));
+            final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
             return (TypeAdapter<T>) new TypeAdapter<IntegrationCapabilityResponseOutput>() {
                 @Override
@@ -93,19 +93,28 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                     // check if the actual instance is of the type `CapabilityEmailFound`
                     if (value.getActualInstance() instanceof CapabilityEmailFound) {
                         JsonElement element = adapterCapabilityEmailFound.toJsonTree((CapabilityEmailFound)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `CapabilityEmailVerified`
                     if (value.getActualInstance() instanceof CapabilityEmailVerified) {
                         JsonElement element = adapterCapabilityEmailVerified.toJsonTree((CapabilityEmailVerified)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `CapabilityDomainSearch`
                     if (value.getActualInstance() instanceof CapabilityDomainSearch) {
                         JsonElement element = adapterCapabilityDomainSearch.toJsonTree((CapabilityDomainSearch)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `Object`

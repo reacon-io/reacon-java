@@ -70,8 +70,8 @@ public class MailPostAnalyticsExportResponse200NextCursor extends AbstractOpenAp
                 return null; // this class only serializes 'MailPostAnalyticsExportResponse200NextCursor' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MailPostAnalyticsExportResponse200NextCursorAnyOf> adapterMailPostAnalyticsExportResponse200NextCursorAnyOf = gson.getDelegateAdapter(this, TypeToken.get(MailPostAnalyticsExportResponse200NextCursorAnyOf.class));
-            final TypeAdapter<Object> adapterObject = gson.getDelegateAdapter(this, TypeToken.get(Object.class));
+            final TypeAdapter<MailPostAnalyticsExportResponse200NextCursorAnyOf> adapterMailPostAnalyticsExportResponse200NextCursorAnyOf = gson.getAdapter(TypeToken.get(MailPostAnalyticsExportResponse200NextCursorAnyOf.class));
+            final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MailPostAnalyticsExportResponse200NextCursor>() {
                 @Override
@@ -84,7 +84,10 @@ public class MailPostAnalyticsExportResponse200NextCursor extends AbstractOpenAp
                     // check if the actual instance is of the type `MailPostAnalyticsExportResponse200NextCursorAnyOf`
                     if (value.getActualInstance() instanceof MailPostAnalyticsExportResponse200NextCursorAnyOf) {
                         JsonElement element = adapterMailPostAnalyticsExportResponse200NextCursorAnyOf.toJsonTree((MailPostAnalyticsExportResponse200NextCursorAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
                     // check if the actual instance is of the type `Object`
