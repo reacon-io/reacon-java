@@ -469,12 +469,7 @@ public class LeadsApi {
         ExportLeadsRequest body = io.reacon.sdk.JSON.getGson().fromJson(io.reacon.sdk.JSON.getGson().toJsonTree(exportLeadsRequest), ExportLeadsRequest.class);
         body.setFormat(ExportLeadsRequest.FormatEnum.CSV);
         okhttp3.Call call = exportLeadsValidateBeforeCall(teamId, body, null);
-        try (okhttp3.Response response = call.execute()) {
-            if (!response.isSuccessful()) return localVarApiClient.handleResponse(response, String.class);
-            String contentType = response.header("Content-Type", "").split(";", 2)[0].trim();
-            if (!contentType.equalsIgnoreCase("text/csv")) throw new ApiException("Expected a CSV export response", response.code(), response.headers().toMultimap(), response.body() == null ? null : response.body().string());
-            return response.body() == null ? "" : response.body().string();
-        } catch (java.io.IOException error) { throw new ApiException(error); }
+        return io.reacon.sdk.HttpPolicy.executeCsv(call);
     }
 
     @SuppressWarnings("rawtypes")
