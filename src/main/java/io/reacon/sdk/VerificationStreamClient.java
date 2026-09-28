@@ -32,8 +32,8 @@ public final class VerificationStreamClient implements AutoCloseable {
         this.key = apiKey;
         this.baseUrl = HttpUrl.get(baseUrl.replaceAll("/+$", "") + "/");
         owned = transport == null;
-        http = (owned ? new OkHttpClient.Builder() : transport.newBuilder())
-            .retryOnConnectionFailure(false).followRedirects(false).followSslRedirects(false).build();
+        http = HttpPolicy.client(owned ? new OkHttpClient() : transport).newBuilder()
+            .callTimeout(0, TimeUnit.MILLISECONDS).build();
         timers = Executors.newSingleThreadScheduledExecutor(r -> { Thread t = new Thread(r, "reacon-stream-timeouts"); t.setDaemon(true); return t; });
     }
     @Override public void close() {
@@ -126,6 +126,7 @@ public final class VerificationStreamClient implements AutoCloseable {
                     @Override public void onClosed(EventSource source) { complete(new ProtocolException("Verification stream ended before a terminal event")); }
                     @Override public void onFailure(EventSource source, Throwable error, Response value) {
                         if (finished.get() || disposed.get()) return;
+                        if (value == null) value = HttpPolicy.responseFromFailure(error);
                         // OkHttp replaces the body with an empty sentinel after opening
                         // an event source; inspect the retained header, not that body.
                         MediaType contentType = value == null || value.header("Content-Type") == null ? null : MediaType.parse(value.header("Content-Type"));
@@ -138,7 +139,7 @@ public final class VerificationStreamClient implements AutoCloseable {
                                 String text = value.peekBody(65536).string(); body = text;
                                 try { body = JsonParser.parseString(text); } catch (RuntimeException ignored) { }
                             } catch (IOException ignored) { }
-                            complete(new StreamApiException(value, body, null)); return;
+                            complete(new StreamApiException(value, body, null)); value.close(); return;
                         }
                         complete(error instanceof SocketTimeoutException ? new StreamTimeoutException("idle") : new TransportException());
                     }

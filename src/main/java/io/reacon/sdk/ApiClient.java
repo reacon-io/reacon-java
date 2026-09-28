@@ -59,7 +59,8 @@ import io.reacon.sdk.auth.ApiKeyAuth;
 /**
  * <p>ApiClient class.</p>
  */
-public class ApiClient {
+public class ApiClient implements AutoCloseable {
+    private boolean reaconOwnsTransport = true;
 
     protected String basePath = "https://api.reacon.io";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
@@ -115,7 +116,8 @@ public class ApiClient {
     public ApiClient(OkHttpClient client) {
         init();
 
-        httpClient = client;
+        httpClient = HttpPolicy.client(Objects.requireNonNull(client, "client"));
+        reaconOwnsTransport = false;
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("ApiKey", new ApiKeyAuth("header", "X-API-Key"));
@@ -135,7 +137,7 @@ public class ApiClient {
             builder.addInterceptor(interceptor);
         }
 
-        httpClient = builder.build();
+        httpClient = HttpPolicy.client(builder.build());
     }
 
     protected void init() {
@@ -144,7 +146,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/0.1.0-beta.1/java");
+        setUserAgent("OpenAPI-Generator/0.1.0-beta.4/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -202,6 +204,17 @@ public class ApiClient {
      *
      * @return An instance of OkHttpClient
      */
+    /** Total request deadline, including async queue and response body reads. */
+    public ApiClient setRequestTimeout(java.time.Duration duration) {
+        httpClient = httpClient.newBuilder().callTimeout(HttpPolicy.timeoutMillis(duration), java.util.concurrent.TimeUnit.MILLISECONDS).build();
+        return this;
+    }
+    public java.time.Duration getRequestTimeout() { return java.time.Duration.ofMillis(httpClient.callTimeoutMillis()); }
+    /** Close this client's owned pool and dispatcher; injected clients remain caller-owned. */
+    @Override public void close() {
+        if (reaconOwnsTransport) { httpClient.dispatcher().cancelAll(); httpClient.connectionPool().evictAll(); httpClient.dispatcher().executorService().shutdown(); }
+    }
+
     public OkHttpClient getHttpClient() {
         return httpClient;
     }
@@ -214,7 +227,8 @@ public class ApiClient {
      * @throws java.lang.NullPointerException when newHttpClient is null
      */
     public ApiClient setHttpClient(OkHttpClient newHttpClient) {
-        this.httpClient = Objects.requireNonNull(newHttpClient, "HttpClient must not be null!");
+        this.httpClient = HttpPolicy.client(Objects.requireNonNull(newHttpClient, "HttpClient must not be null!"));
+        reaconOwnsTransport = false;
         return this;
     }
 
@@ -955,62 +969,7 @@ public class ApiClient {
      */
     @SuppressWarnings("unchecked")
     public <T> T deserialize(Response response, Type returnType) throws ApiException {
-        if (response == null || returnType == null) {
-            return null;
-        }
-
-        if ("byte[]".equals(returnType.toString())) {
-            // Handle binary response (byte array).
-            try {
-                return (T) response.body().bytes();
-            } catch (IOException e) {
-                throw new ApiException(e);
-            }
-        } else if (returnType.equals(File.class)) {
-            // Handle file downloading.
-            return (T) downloadFileFromResponse(response);
-        }
-
-        ResponseBody respBody = response.body();
-        if (respBody == null) {
-            return null;
-        }
-
-        String contentType = response.headers().get("Content-Type");
-        if (contentType == null) {
-            // ensuring a default content type
-            contentType = "application/json";
-        }
-        try {
-            if (isJsonMime(contentType)) {
-                if (returnType.equals(String.class)) {
-                    String respBodyString = respBody.string();
-                    if (respBodyString.isEmpty()) {
-                        return null;
-                    }
-                    // Use String-based deserialize for String return type with fallback
-                    return JSON.deserialize(respBodyString, returnType);
-                } else {
-                    // Use InputStream-based deserialize which supports responses > 2GB
-                    return JSON.deserialize(respBody.byteStream(), returnType);
-                }
-            } else if (returnType.equals(String.class)) {
-                String respBodyString = respBody.string();
-                if (respBodyString.isEmpty()) {
-                    return null;
-                }
-                // Expecting string, return the raw response body.
-                return (T) respBodyString;
-            } else {
-                throw new ApiException(
-                    "Content type \"" + contentType + "\" is not supported for type: " + returnType,
-                    response.code(),
-                    response.headers().toMultimap(),
-                    response.body().string());
-            }
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
+        try (Response owned = response) { return HttpPolicy.read(null, owned, returnType, false); }
     }
 
     /**
@@ -1132,13 +1091,7 @@ public class ApiClient {
      * @throws io.reacon.sdk.ApiException If fail to execute the call
      */
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {
-        try {
-            Response response = call.execute();
-            T data = handleResponse(response, returnType);
-            return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
+        return HttpPolicy.execute(call, returnType);
     }
 
     /**
@@ -1163,27 +1116,7 @@ public class ApiClient {
      */
     @SuppressWarnings("unchecked")
     public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                callback.onFailure(new ApiException(e), 0, null);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                T result;
-                try {
-                    result = (T) handleResponse(response, returnType);
-                } catch (ApiException e) {
-                    callback.onFailure(e, response.code(), response.headers().toMultimap());
-                    return;
-                } catch (Exception e) {
-                    callback.onFailure(new ApiException(e), response.code(), response.headers().toMultimap());
-                    return;
-                }
-                callback.onSuccess(result, response.code(), response.headers().toMultimap());
-            }
-        });
+        HttpPolicy.executeAsync(call, returnType, callback);
     }
 
     /**
@@ -1197,32 +1130,7 @@ public class ApiClient {
      *                      fail to deserialize the response body
      */
     public <T> T handleResponse(Response response, Type returnType) throws ApiException {
-        if (response.isSuccessful()) {
-            if (returnType == null || response.code() == 204) {
-                // returning null if the returnType is not defined,
-                // or the status code is 204 (No Content)
-                if (response.body() != null) {
-                    try {
-                        response.body().close();
-                    } catch (Exception e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                    }
-                }
-                return null;
-            } else {
-                return deserialize(response, returnType);
-            }
-        } else {
-            String respBody = null;
-            if (response.body() != null) {
-                try {
-                    respBody = response.body().string();
-                } catch (IOException e) {
-                    throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                }
-            }
-            throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
-        }
+        try (Response owned = response) { return HttpPolicy.read(null, owned, returnType, false); }
     }
 
     /**
@@ -1245,7 +1153,7 @@ public class ApiClient {
     public Call buildCall(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
         Request request = buildRequest(baseUrl, path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
 
-        return httpClient.newCall(request);
+        return HttpPolicy.call(httpClient, request);
     }
 
     /**

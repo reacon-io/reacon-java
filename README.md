@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.reacon</groupId>
   <artifactId>reacon-java</artifactId>
-  <version>0.1.0-beta.1</version>
+  <version>0.1.0-beta.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.reacon:reacon-java:0.1.0-beta.1"
+     implementation "io.reacon:reacon-java:0.1.0-beta.4"
   }
 ```
 
@@ -70,56 +70,62 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/reacon-java-0.1.0-beta.1.jar`
+* `target/reacon-java-0.1.0-beta.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
 
-Please follow the [installation](#installation) instruction and execute the following Java code:
-
 ```java
-
-// Import classes:
 import io.reacon.sdk.ApiClient;
-import io.reacon.sdk.ApiException;
-import io.reacon.sdk.Configuration;
-import io.reacon.sdk.auth.*;
-import io.reacon.sdk.model.*;
-import io.reacon.sdk.api.CompaniesApi;
+import io.reacon.sdk.api.DomainsApi;
+import java.time.Duration;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reacon.io");
-    
-    // Configure API key authorization: ApiKey
-    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-    ApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKey.setApiKeyPrefix("Token");
-
-    CompaniesApi apiInstance = new CompaniesApi(defaultClient);
-    Integer limit = 56; // Integer | 
-    Integer offset = 56; // Integer | 
-    String domain = "domain_example"; // String | 
-    String name = "name_example"; // String | 
-    String website = "website_example"; // String | 
-    String sort = "created_at"; // String | 
-    String order = "asc"; // String | 
-    try {
-      CompanyList result = apiInstance.listCompanies(limit, offset, domain, name, website, sort, order);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CompaniesApi#listCompanies");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+    public static void main(String[] args) throws Exception {
+        try (ApiClient client = new ApiClient()) {
+            client.setApiKey(System.getenv("REACON_API_KEY"));
+            String base = System.getenv("REACON_BASE_URL");
+            if (base != null) client.setBasePath(base);
+            client.setRequestTimeout(Duration.ofSeconds(30));
+            DomainsApi domains = new DomainsApi(client);
+            System.out.println(domains.getDomainCatchAll("example.com").getCatchAll());
+        }
     }
-  }
 }
-
 ```
+
+Every JSON/CSV request has a default 30-second total network deadline, including
+async dispatcher queue time and complete body reads. Configure a positive
+millisecond-representable `Duration` with `setRequestTimeout`. For one call,
+build it with the generated `...Call(..., null)` method, set its
+`call.timeout().timeout(5, TimeUnit.SECONDS)` or earlier absolute deadline, and
+execute it through `ApiClient.execute(call, ResponseModel.class)`. This leaves
+shared client configuration unchanged. `call.cancel()` cancels pending headers,
+bodies or queued work. Async operation methods return the cancellable `Call`. Callbacks should return
+promptly; deadline cancellation is independent of callback delivery.
+
+`HttpPolicy.RequestTimeoutException`, `RequestCancelledException`,
+`TransportException` and `ResponseDecodeException` extend `ApiException` and
+preserve the native cause. `ResponseException` preserves numeric HTTP status,
+headers, original bytes/text, request ID, parsed JSON and a flat/nested API code.
+These are exposed as `getCode()`, `getResponseHeaders()`, `getResponseBytes()`,
+`getResponseBody()`, `getRequestId()`, `getParsedBody()` and `getErrorCode()`.
+The original cause may contain a URL; redact it before logging.
+
+The derived OkHttp client preserves the supplied pool, dispatcher, TLS trust,
+proxy settings and interceptors, while disabling retries, redirects and challenge
+authentication and selecting HTTP/1.1 to prevent HTTP/2 coalescing retries. A
+`503` with `Retry-After: 0` is surfaced as an HTTP error without OkHttp's implicit
+retry. Low-level raw `Call` users see an `IOException` for that response; use
+`ApiClient.execute` for its inspectable `ResponseException`. Caller-added
+interceptors must preserve the single-attempt policy. Preconfigure proxy
+authentication rather than relying on automatic challenge replay.
+
+`ApiClient` implements `AutoCloseable`: close an owned client after use. Injected
+clients remain caller-owned; closing the SDK does not stop their dispatcher or
+evict their pool. Fully consumed responses allow healthy connection reuse.
+Streaming retains its separate `VerificationStreamClient` limits and lifecycle.
+
 
 ## Documentation for API Endpoints
 
