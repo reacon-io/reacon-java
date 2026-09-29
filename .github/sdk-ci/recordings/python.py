@@ -13,6 +13,8 @@ from reacon_sdk.exceptions import ApiException
 from reacon_sdk.sync_helper import run_sync
 from reacon_sdk.models.mail_get_tracking_domain_response200 import MailGetTrackingDomainResponse200
 from reacon_sdk.models.update_lead_request import UpdateLeadRequest
+from reacon_sdk.models.product_tool_request_input import ProductToolRequestInput
+from reacon_sdk.models.product_lead_create_input import ProductLeadCreateInput
 from pydantic import ValidationError
 
 def snake(value):
@@ -32,6 +34,20 @@ async def main():
     sync='--sync' in sys.argv
     language='python-sync' if sync else 'python'
     assert UpdateLeadRequest.from_dict({'tags':[]}).to_dict()=={'tags':[]}
+    for value in [{}, {'limit':2}, {'leadId':'00000000-0000-4000-8000-000000000001'},
+                  {'email':'sdk@example.invalid','idempotencyKey':'synthetic-regression-1','firstName':'SDK','attributes':{}}]:
+        assert wire(ProductToolRequestInput.from_dict(value))==value
+        assert wire(ProductToolRequestInput.from_json(json.dumps(value)))==value
+        assert wire(ProductToolRequestInput(actual_instance=value))==value
+    native=ProductLeadCreateInput(email='sdk@example.invalid',idempotencyKey='synthetic-regression-1',attributes={})
+    assert ProductToolRequestInput.actual_instance_must_validate_anyof(v=native) is native
+    assert ProductToolRequestInput(native).actual_instance is native
+    assert ProductToolRequestInput(native).to_dict()=={'email':'sdk@example.invalid','idempotencyKey':'synthetic-regression-1','attributes':{}}
+    for invalid in [None, [], 3, {'unknown':True}, {'leadId':'not-a-uuid'}, {'recipientId':'00000000-0000-4000-8000-000000000001'}]:
+        for parse in [ProductToolRequestInput.from_dict, lambda value: ProductToolRequestInput(actual_instance=value)]:
+            try: parse(invalid)
+            except ValueError: pass
+            else: raise AssertionError('Invalid product input accepted: '+repr(invalid))
     assert UpdateLeadRequest.from_dict({'person_first_name':None}).to_dict()=={'person_first_name':None}
     assert MailGetTrackingDomainResponse200.from_dict({'domain':None}).to_dict()=={'domain':None}
     try: MailGetTrackingDomainResponse200.from_dict({})

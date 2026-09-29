@@ -19,11 +19,23 @@ function canonical($value, $expected) {
     return $value;
 }
 function check($condition,$message) { if (!$condition) throw new Exception($message); }
+// Exercise the asynchronous native void path as well as the recorded sync call.
+$voidClient=new GuzzleHttp\Client(['handler'=>new GuzzleHttp\Handler\MockHandler([new GuzzleHttp\Psr7\Response(204)])]);
+$voidApi=new Reacon\Sdk\Api\WebhooksApi($voidClient,new Configuration());
+[$voidValue,$voidStatus]=$voidApi->deleteSegmentInstallationAsyncWithHttpInfo('00000000-0000-4000-8000-000000000001')->wait();
+check($voidValue===null && $voidStatus===204,'Native async bodyless operation attempted JSON decoding');
 $patch=ObjectSerializer::deserialize((object)['person_first_name'=>null],'Reacon\\Sdk\\Model\\UpdateLeadRequest');
 check(json_encode(ObjectSerializer::sanitizeForSerialization($patch))==='{"person_first_name":null}','Patch omitted/null distinction lost');
 $nullable=new Reacon\Sdk\Model\MailGetTrackingDomainResponse200(['domain'=>null]);
 check($nullable->valid(),'Required explicit null must be valid');
 check(!(new Reacon\Sdk\Model\MailGetTrackingDomainResponse200())->valid(),'Missing required nullable field must be invalid');
+foreach ([[], ['0'=>'value'], ['key'=>'value']] as $map) {
+    check(json_encode(ObjectSerializer::sanitizeForSerialization($map,'array<string,string>'))===json_encode((object)$map),'Typed map became a JSON array');
+}
+check(json_encode(ObjectSerializer::sanitizeForSerialization([],'string[]'))==='[]','Empty list became an object');
+$mapInput=(object)['email'=>'sdk@example.invalid','idempotencyKey'=>'synthetic-regression-1','attributes'=>new stdClass()];
+$mapModel=ObjectSerializer::deserialize($mapInput,Reacon\Sdk\Model\ProductToolRequestInput::class);
+check(ObjectSerializer::sanitizeForSerialization($mapModel)->attributes instanceof stdClass,'Nested empty attributes became an array');
 // Preserve JSON object/list identity in requests as well as responses.
 $rawCases=json_decode(file_get_contents(getenv('REACON_CASES_FILE')),false,512,JSON_THROW_ON_ERROR);
 $rawById=[]; foreach($rawCases as $raw) $rawById[$raw->id]=$raw;
@@ -47,6 +59,28 @@ foreach ([Reacon\Sdk\Model\MailCadenceNode::class,Reacon\Sdk\Model\MailPostCaden
         check($rejected,'Invalid cadence accepted');
     }
 }
+// Preserve both primitive branches, including false, through native models.
+foreach ([true,false,'true','false'] as $flag) {
+    $wire=(object)['emails'=>['test@example.invalid'],'onlyIfFree'=>$flag];
+    $model=ObjectSerializer::deserialize($wire,Reacon\Sdk\Model\BatchVerificationRequest::class);
+    check($model->getOnlyIfFree()===$flag,'Primitive flag changed type/value');
+    check(ObjectSerializer::sanitizeForSerialization($model)->onlyIfFree===$flag,'Primitive flag lost on serialization');
+    $native=new Reacon\Sdk\Model\BatchVerificationRequest(['emails'=>['test@example.invalid'],'only_if_free'=>$flag]);
+    check($native->getOnlyIfFree()===$flag,'Native constructor changed flag');
+    $native->setOnlyIfFree($flag);check($native->getOnlyIfFree()===$flag,'Native setter changed flag');
+}
+foreach ([null,0,1,[],new stdClass(),'TRUE','yes',''] as $flag) {
+    foreach (['decode','constructor','setter'] as $mode) {
+        $rejected=false;try {
+            if($mode==='decode')ObjectSerializer::deserialize($flag,Reacon\Sdk\Model\BatchVerificationRequestOnlyIfFree::class);
+            elseif($mode==='constructor')new Reacon\Sdk\Model\BatchVerificationRequest(['emails'=>['test@example.invalid'],'only_if_free'=>$flag]);
+            else (new Reacon\Sdk\Model\BatchVerificationRequest(['emails'=>['test@example.invalid']]))->setOnlyIfFree($flag);
+        }catch(InvalidArgumentException $error){$rejected=true;}
+        check($rejected,'Invalid primitive flag accepted: '.$mode);
+    }
+}
+$withoutFlag=new Reacon\Sdk\Model\BatchVerificationRequest(['emails'=>['test@example.invalid']]);
+check(!property_exists(ObjectSerializer::sanitizeForSerialization($withoutFlag),'onlyIfFree'),'Absent flag became a value');
 $cases=json_decode(file_get_contents(getenv('REACON_CASES_FILE')),true,512,JSON_THROW_ON_ERROR); $results=[];
 foreach($cases as $item) {
     try {
