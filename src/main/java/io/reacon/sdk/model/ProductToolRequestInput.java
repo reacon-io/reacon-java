@@ -187,8 +187,8 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
                         return;
                     }
                     // check if the actual instance is of the type `Object`
-                    if (value.getActualInstance() instanceof Object) {
-                        JsonPrimitive primitive = adapterObject.toJsonTree((Object)value.getActualInstance()).getAsJsonPrimitive();
+                    if (value.getActualInstance() instanceof java.util.Map && ((java.util.Map<?, ?>) value.getActualInstance()).isEmpty()) {
+                        JsonObject primitive = new JsonObject();
                         elementAdapter.write(out, primitive);
                         return;
                     }
@@ -478,8 +478,8 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
                     // deserialize Object
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
+                        if (!jsonElement.isJsonObject() || !jsonElement.getAsJsonObject().entrySet().isEmpty()) {
+                            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected an empty JSON object but got `%s`", jsonElement.toString()));
                         }
                         actualAdapter = adapterObject;
                         ProductToolRequestInput ret = new ProductToolRequestInput();
@@ -879,7 +879,7 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof Object) {
+        if (instance instanceof java.util.Map && ((java.util.Map<?, ?>) instance).isEmpty()) {
             super.setActualInstance(instance);
             return;
         }
@@ -1384,8 +1384,8 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
         }
         // validate the json string with Object
         try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
+            if (!jsonElement.isJsonObject() || !jsonElement.getAsJsonObject().entrySet().isEmpty()) {
+                throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected an empty JSON object but got `%s`", jsonElement.toString()));
             }
             return;
         } catch (Exception e) {

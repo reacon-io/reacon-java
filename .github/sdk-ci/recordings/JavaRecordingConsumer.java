@@ -65,6 +65,19 @@ public class JavaRecordingConsumer {
             check(rejected,"Missing or malformed nullable record accepted");
         }
         check(equalJson(JsonParser.parseString("0"),JsonParser.parseString("0.0")),"Equivalent numbers differ");
+        for(String input:Arrays.asList("{}","{\"limit\":2}","{\"leadId\":\"00000000-0000-4000-8000-000000000001\"}","{\"email\":\"sdk@example.invalid\",\"idempotencyKey\":\"synthetic-regression-1\",\"firstName\":\"SDK\",\"attributes\":{}}")) {
+            io.reacon.sdk.model.ProductToolRequestInput value=GSON.fromJson(input,io.reacon.sdk.model.ProductToolRequestInput.class);
+            check(equalJson(GSON.toJsonTree(value),JsonParser.parseString(input)),"Product input lost fields: "+input);
+        }
+        check(GSON.toJsonTree(new io.reacon.sdk.model.ProductToolRequestInput((Object)Collections.emptyMap())).equals(new JsonObject()),"Empty alternative must serialize as object");
+        for(Object invalid:Arrays.asList((Object)"unexpected",(Object)Collections.singletonMap("unknown",true))) {
+            boolean rejected=false;try{new io.reacon.sdk.model.ProductToolRequestInput(invalid);}catch(RuntimeException expected){rejected=true;}
+            check(rejected,"Unspecified object alternative accepted");
+        }
+        for(String invalid:Arrays.asList("3","[]","{\"unknown\":true}","{\"recipientId\":\"00000000-0000-4000-8000-000000000001\"}")) {
+            boolean rejected=false;try{GSON.fromJson(invalid,io.reacon.sdk.model.ProductToolRequestInput.class);}catch(RuntimeException expected){rejected=true;}
+            check(rejected,"Invalid product input accepted: "+invalid);
+        }
         check(!equalJson(JsonParser.parseString("9007199254740993"),JsonParser.parseString("9007199254740992.0")),"Large integer precision hidden");
         JsonArray cases=JsonParser.parseString(readText(System.getenv("REACON_CASES_FILE"))).getAsJsonArray();
         JsonObject operations=JsonParser.parseString(readText("/results/operations.json")).getAsJsonObject();

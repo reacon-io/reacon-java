@@ -114,7 +114,8 @@ fun main(){
                 } else method.callBy(arguments)
             }catch(invocation:InvocationTargetException){throw invocation.cause?:invocation}
             check(response["status"].asInt()<400){"Expected HTTP error"}
-            val actual=mapper.valueToTree<JsonNode>(value)
+            if(response["status"].asInt()==204)check(value==Unit){"Bodyless operation must return Unit"}
+            val actual=mapper.valueToTree<JsonNode>(if(response["status"].asInt()==204)null else value)
             check(equalJson(actual,response["body"])){"Decoded response differs: $actual"}
             result.put("passed",true)
         }catch(error:Throwable){

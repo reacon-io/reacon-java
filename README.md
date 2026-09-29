@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.reacon</groupId>
   <artifactId>reacon-java</artifactId>
-  <version>0.4.0-beta.1</version>
+  <version>0.4.0-beta.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.reacon:reacon-java:0.4.0-beta.1"
+     implementation "io.reacon:reacon-java:0.4.0-beta.2"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/reacon-java-0.4.0-beta.1.jar`
+* `target/reacon-java-0.4.0-beta.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
