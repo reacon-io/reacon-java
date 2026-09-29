@@ -279,6 +279,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.InspectGoogleSheetRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.IntegrationCapabilityResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.IntegrationCapabilityResponseOutput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.IntegrationCapabilityResponseOutputNonNull.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.IntegrationConnection.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.IntegrationConnectionHealth.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.IntegrationConnectionList.CustomTypeAdapterFactory());

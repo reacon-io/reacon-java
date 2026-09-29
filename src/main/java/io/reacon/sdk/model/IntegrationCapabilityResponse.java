@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.IntegrationCapabilityResponseOutput;
+import io.reacon.sdk.model.IntegrationCapabilityResponseOutputNonNull;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -125,8 +125,8 @@ public class IntegrationCapabilityResponse {
 
   public static final String SERIALIZED_NAME_OUTPUT = "output";
   @SerializedName(SERIALIZED_NAME_OUTPUT)
-  @javax.annotation.Nonnull
-  private IntegrationCapabilityResponseOutput output;
+  @javax.annotation.Nullable
+  private IntegrationCapabilityResponseOutputNonNull output;
 
   public static final String SERIALIZED_NAME_REPLAY = "replay";
   @SerializedName(SERIALIZED_NAME_REPLAY)
@@ -283,7 +283,7 @@ public class IntegrationCapabilityResponse {
   }
 
 
-  public IntegrationCapabilityResponse output(@javax.annotation.Nonnull IntegrationCapabilityResponseOutput output) {
+  public IntegrationCapabilityResponse output(@javax.annotation.Nullable IntegrationCapabilityResponseOutputNonNull output) {
     this.output = output;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTPUT);
     return this;
@@ -293,12 +293,12 @@ public class IntegrationCapabilityResponse {
    * Get output
    * @return output
    */
-  @javax.annotation.Nonnull
-  public IntegrationCapabilityResponseOutput getOutput() {
+  @javax.annotation.Nullable
+  public IntegrationCapabilityResponseOutputNonNull getOutput() {
     return output;
   }
 
-  public void setOutput(@javax.annotation.Nonnull IntegrationCapabilityResponseOutput output) {
+  public void setOutput(@javax.annotation.Nullable IntegrationCapabilityResponseOutputNonNull output) {
     this.output = output;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTPUT);
   }
@@ -464,7 +464,7 @@ public class IntegrationCapabilityResponse {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
       }
       // validate the required field `output`
-      IntegrationCapabilityResponseOutput.validateJsonElement(jsonObj.get("output"));
+      if (!jsonObj.get("output").isJsonNull()) IntegrationCapabilityResponseOutputNonNull.validateJsonElement(jsonObj.get("output"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -19,11 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.CapabilityDomainSearch;
 import io.reacon.sdk.model.CapabilityDomainSearchContactsInner;
-import io.reacon.sdk.model.CapabilityEmailFound;
-import io.reacon.sdk.model.CapabilityEmailVerified;
 import io.reacon.sdk.model.CapabilityEmailVerifiedDetails;
+import io.reacon.sdk.model.IntegrationCapabilityResponseOutputNonNull;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -77,9 +75,7 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'IntegrationCapabilityResponseOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CapabilityEmailFound> adapterCapabilityEmailFound = gson.getAdapter(TypeToken.get(CapabilityEmailFound.class));
-            final TypeAdapter<CapabilityEmailVerified> adapterCapabilityEmailVerified = gson.getAdapter(TypeToken.get(CapabilityEmailVerified.class));
-            final TypeAdapter<CapabilityDomainSearch> adapterCapabilityDomainSearch = gson.getAdapter(TypeToken.get(CapabilityDomainSearch.class));
+            final TypeAdapter<IntegrationCapabilityResponseOutputNonNull> adapterIntegrationCapabilityResponseOutputNonNull = gson.getAdapter(TypeToken.get(IntegrationCapabilityResponseOutputNonNull.class));
             final TypeAdapter<Object> adapterObject = gson.getAdapter(TypeToken.get(Object.class));
 
             return (TypeAdapter<T>) new TypeAdapter<IntegrationCapabilityResponseOutput>() {
@@ -90,27 +86,9 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `CapabilityEmailFound`
-                    if (value.getActualInstance() instanceof CapabilityEmailFound) {
-                        JsonElement element = adapterCapabilityEmailFound.toJsonTree((CapabilityEmailFound)value.getActualInstance());
-                        boolean previousSerializeNulls = out.getSerializeNulls();
-                        out.setSerializeNulls(true);
-                        try { elementAdapter.write(out, element); }
-                        finally { out.setSerializeNulls(previousSerializeNulls); }
-                        return;
-                    }
-                    // check if the actual instance is of the type `CapabilityEmailVerified`
-                    if (value.getActualInstance() instanceof CapabilityEmailVerified) {
-                        JsonElement element = adapterCapabilityEmailVerified.toJsonTree((CapabilityEmailVerified)value.getActualInstance());
-                        boolean previousSerializeNulls = out.getSerializeNulls();
-                        out.setSerializeNulls(true);
-                        try { elementAdapter.write(out, element); }
-                        finally { out.setSerializeNulls(previousSerializeNulls); }
-                        return;
-                    }
-                    // check if the actual instance is of the type `CapabilityDomainSearch`
-                    if (value.getActualInstance() instanceof CapabilityDomainSearch) {
-                        JsonElement element = adapterCapabilityDomainSearch.toJsonTree((CapabilityDomainSearch)value.getActualInstance());
+                    // check if the actual instance is of the type `IntegrationCapabilityResponseOutputNonNull`
+                    if (value.getActualInstance() instanceof IntegrationCapabilityResponseOutputNonNull) {
+                        JsonElement element = adapterIntegrationCapabilityResponseOutputNonNull.toJsonTree((IntegrationCapabilityResponseOutputNonNull)value.getActualInstance());
                         boolean previousSerializeNulls = out.getSerializeNulls();
                         out.setSerializeNulls(true);
                         try { elementAdapter.write(out, element); }
@@ -123,7 +101,7 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                         elementAdapter.write(out, primitive);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CapabilityDomainSearch, CapabilityEmailFound, CapabilityEmailVerified, Object");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: IntegrationCapabilityResponseOutputNonNull, Object");
                 }
 
                 @Override
@@ -131,45 +109,21 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
-                    int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize CapabilityEmailFound
+                    // deserialize IntegrationCapabilityResponseOutputNonNull
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        CapabilityEmailFound.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCapabilityEmailFound;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CapabilityEmailFound'");
+                        IntegrationCapabilityResponseOutputNonNull.validateJsonElement(jsonElement);
+                        actualAdapter = adapterIntegrationCapabilityResponseOutputNonNull;
+                        IntegrationCapabilityResponseOutput ret = new IntegrationCapabilityResponseOutput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CapabilityEmailFound failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CapabilityEmailFound'", e);
-                    }
-                    // deserialize CapabilityEmailVerified
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CapabilityEmailVerified.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCapabilityEmailVerified;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CapabilityEmailVerified'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CapabilityEmailVerified failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CapabilityEmailVerified'", e);
-                    }
-                    // deserialize CapabilityDomainSearch
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CapabilityDomainSearch.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCapabilityDomainSearch;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CapabilityDomainSearch'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CapabilityDomainSearch failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CapabilityDomainSearch'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for IntegrationCapabilityResponseOutputNonNull failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'IntegrationCapabilityResponseOutputNonNull'", e);
                     }
                     // deserialize Object
                     try {
@@ -178,42 +132,35 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
                             throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
                         }
                         actualAdapter = adapterObject;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'Object'");
+                        IntegrationCapabilityResponseOutput ret = new IntegrationCapabilityResponseOutput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for Object failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Object'", e);
                     }
 
-                    if (match == 1) {
-                        IntegrationCapabilityResponseOutput ret = new IntegrationCapabilityResponseOutput();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    }
-
-                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for IntegrationCapabilityResponseOutput: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for IntegrationCapabilityResponseOutput: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
     }
 
-    // store a list of schema names defined in oneOf
+    // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
     public IntegrationCapabilityResponseOutput() {
-        super("oneOf", Boolean.FALSE);
+        super("anyOf", Boolean.FALSE);
     }
 
     public IntegrationCapabilityResponseOutput(Object o) {
-        super("oneOf", Boolean.FALSE);
+        super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("CapabilityEmailFound", CapabilityEmailFound.class);
-        schemas.put("CapabilityEmailVerified", CapabilityEmailVerified.class);
-        schemas.put("CapabilityDomainSearch", CapabilityDomainSearch.class);
+        schemas.put("IntegrationCapabilityResponseOutputNonNull", IntegrationCapabilityResponseOutputNonNull.class);
         schemas.put("Object", Object.class);
     }
 
@@ -223,25 +170,15 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
     }
 
     /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * CapabilityDomainSearch, CapabilityEmailFound, CapabilityEmailVerified, Object
+     * Set the instance that matches the anyOf child schema, check
+     * the instance parameter is valid against the anyOf child schemas:
+     * IntegrationCapabilityResponseOutputNonNull, Object
      *
-     * It could be an instance of the 'oneOf' schemas.
+     * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof CapabilityEmailFound) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof CapabilityEmailVerified) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof CapabilityDomainSearch) {
+        if (instance instanceof IntegrationCapabilityResponseOutputNonNull) {
             super.setActualInstance(instance);
             return;
         }
@@ -251,14 +188,14 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CapabilityDomainSearch, CapabilityEmailFound, CapabilityEmailVerified, Object");
+        throw new RuntimeException("Invalid instance type. Must be IntegrationCapabilityResponseOutputNonNull, Object");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CapabilityDomainSearch, CapabilityEmailFound, CapabilityEmailVerified, Object
+     * IntegrationCapabilityResponseOutputNonNull, Object
      *
-     * @return The actual instance (CapabilityDomainSearch, CapabilityEmailFound, CapabilityEmailVerified, Object)
+     * @return The actual instance (IntegrationCapabilityResponseOutputNonNull, Object)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -267,39 +204,14 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `CapabilityEmailFound`. If the actual instance is not `CapabilityEmailFound`,
+     * Get the actual instance of `IntegrationCapabilityResponseOutputNonNull`. If the actual instance is not `IntegrationCapabilityResponseOutputNonNull`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CapabilityEmailFound`
-     * @throws ClassCastException if the instance is not `CapabilityEmailFound`
+     * @return The actual instance of `IntegrationCapabilityResponseOutputNonNull`
+     * @throws ClassCastException if the instance is not `IntegrationCapabilityResponseOutputNonNull`
      */
-    @SuppressWarnings("unchecked")
-    public CapabilityEmailFound getCapabilityEmailFound() throws ClassCastException {
-        return (CapabilityEmailFound)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `CapabilityEmailVerified`. If the actual instance is not `CapabilityEmailVerified`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `CapabilityEmailVerified`
-     * @throws ClassCastException if the instance is not `CapabilityEmailVerified`
-     */
-    @SuppressWarnings("unchecked")
-    public CapabilityEmailVerified getCapabilityEmailVerified() throws ClassCastException {
-        return (CapabilityEmailVerified)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `CapabilityDomainSearch`. If the actual instance is not `CapabilityDomainSearch`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `CapabilityDomainSearch`
-     * @throws ClassCastException if the instance is not `CapabilityDomainSearch`
-     */
-    @SuppressWarnings("unchecked")
-    public CapabilityDomainSearch getCapabilityDomainSearch() throws ClassCastException {
-        return (CapabilityDomainSearch)super.getActualInstance();
+    public IntegrationCapabilityResponseOutputNonNull getIntegrationCapabilityResponseOutputNonNull() throws ClassCastException {
+        return (IntegrationCapabilityResponseOutputNonNull)super.getActualInstance();
     }
 
     /**
@@ -309,7 +221,6 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
      * @return The actual instance of `Object`
      * @throws ClassCastException if the instance is not `Object`
      */
-    @SuppressWarnings("unchecked")
     public Object getObject() throws ClassCastException {
         return (Object)super.getActualInstance();
     }
@@ -321,31 +232,14 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to IntegrationCapabilityResponseOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate oneOf schemas one by one
-        int validCount = 0;
+        // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with CapabilityEmailFound
+        // validate the json string with IntegrationCapabilityResponseOutputNonNull
         try {
-            CapabilityEmailFound.validateJsonElement(jsonElement);
-            validCount++;
+            IntegrationCapabilityResponseOutputNonNull.validateJsonElement(jsonElement);
+            return;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CapabilityEmailFound failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with CapabilityEmailVerified
-        try {
-            CapabilityEmailVerified.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CapabilityEmailVerified failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with CapabilityDomainSearch
-        try {
-            CapabilityDomainSearch.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for CapabilityDomainSearch failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for IntegrationCapabilityResponseOutputNonNull failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with Object
@@ -353,14 +247,12 @@ public class IntegrationCapabilityResponseOutput extends AbstractOpenApiSchema {
             if (!jsonElement.getAsJsonPrimitive().isNumber()) {
                 throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
             }
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for Object failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for IntegrationCapabilityResponseOutput with oneOf schemas: CapabilityDomainSearch, CapabilityEmailFound, CapabilityEmailVerified, Object. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
-        }
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for IntegrationCapabilityResponseOutput with anyOf schemas: IntegrationCapabilityResponseOutputNonNull, Object. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
