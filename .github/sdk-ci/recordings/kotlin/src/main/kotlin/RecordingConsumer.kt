@@ -21,6 +21,18 @@ fun equalJson(a: JsonNode,b: JsonNode):Boolean = when {
     else -> a==b
 }
 fun main(){
+    for ((input, messageVariant) in listOf(
+        """{"id":"message","name":"Message","weight":1,"templateId":"template","templateVersion":2}""" to true,
+        """{"id":"workflow","name":"Workflow","weight":1,"nextNodeId":"stop","future":{"enabled":true}}""" to false
+    )) {
+        val value = mapper.readValue(input, MailExperimentVariant::class.java)
+        check((value is MailExperimentVariant.MailCadenceMessageExperimentVariant) == messageVariant) { "Experiment selected the wrong branch" }
+        check(equalJson(mapper.valueToTree(value), mapper.readTree(input))) { "Experiment variant lost or injected fields" }
+    }
+    for (input in listOf("null", "[]", "{}", """{"id":"workflow","name":"Workflow","weight":1}""",
+        """{"id":"message","name":"Message","weight":1,"templateId":"template"}""")) {
+        check(runCatching { mapper.readValue(input, MailExperimentVariant::class.java) }.isFailure) { "Incomplete experiment variant accepted" }
+    }
     for (input in listOf("{}", "{\"limit\":2,\"listId\":\"00000000-0000-4000-8000-000000000001\"}", "{\"domain\":\"example.invalid\"}", "{\"email\":\"sdk@example.invalid\",\"idempotencyKey\":\"synthetic-regression-1\",\"firstName\":\"SDK\"}")) {
         val value=mapper.readValue(input,ProductToolRequestInput::class.java)
         check(equalJson(mapper.valueToTree(value),mapper.readTree(input))) { "Product input lost fields" }

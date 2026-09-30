@@ -18,60 +18,47 @@ Building the API client library requires:
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
+Reacon publishes this SDK to its Maven repository. Add the repository and the
+dependency below. Maven Central remains available for third-party dependencies.
 
-```shell
-mvn clean install
+### Gradle (Kotlin DSL)
+
+```kotlin
+repositories {
+    exclusiveContent {
+        forRepository { maven { url = uri("https://packages.reacon.io/maven") } }
+        filter { includeGroup("io.reacon") }
+    }
+    mavenCentral()
+}
+dependencies {
+    implementation("io.reacon:reacon-java:0.4.0-beta.6")
+}
 ```
 
-To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
+### Maven
 
-```shell
-mvn clean deploy
-```
-
-Refer to the [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html) for more information.
-
-### Maven users
-
-Add this dependency to your project's POM:
+Add these entries to your project's POM:
 
 ```xml
-<dependency>
-  <groupId>io.reacon</groupId>
-  <artifactId>reacon-java</artifactId>
-  <version>0.4.0-beta.2</version>
-  <scope>compile</scope>
-</dependency>
+<repositories>
+    <repository>
+        <id>reacon</id>
+        <url>https://packages.reacon.io/maven</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+</repositories>
+<dependencies>
+    <dependency>
+        <groupId>io.reacon</groupId>
+        <artifactId>reacon-java</artifactId>
+        <version>0.4.0-beta.6</version>
+    </dependency>
+</dependencies>
 ```
 
-### Gradle users
-
-Add this dependency to your project's build file:
-
-```groovy
-  repositories {
-    mavenCentral()     // Needed if the 'reacon-java' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'reacon-java' jar has been published to the local maven repo.
-  }
-
-  dependencies {
-     implementation "io.reacon:reacon-java:0.4.0-beta.2"
-  }
-```
-
-### Others
-
-At first generate the JAR by executing:
-
-```shell
-mvn clean package
-```
-
-Then manually install the following JARs:
-
-* `target/reacon-java-0.4.0-beta.2.jar`
-* `target/lib/*.jar`
+API reference and examples: [Reacon documentation](https://docs.reacon.io).
 
 ## Getting Started
 
