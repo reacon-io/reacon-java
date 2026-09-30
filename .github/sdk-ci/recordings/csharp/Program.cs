@@ -135,7 +135,7 @@ foreach(var item in cases.RootElement.EnumerateArray()) {
             Check((bool)response.GetType().GetProperty("IsNoContent")!.GetValue(response)!,"Missing native NoContent status");
             results.Add(new{id,passed=true});passed++;continue;
         }
-        var decoder=(int)response.StatusCode switch {200=>"Ok",201=>"Created",400=>"BadRequest",401=>"Unauthorized",402=>"PaymentRequired",422=>"UnprocessableContent",404=>"NotFound",409=>"Conflict",_=>throw new Exception("Add explicit status decoder")};
+        var decoder=(int)response.StatusCode switch {200=>"Ok",201=>"Created",400=>"BadRequest",401=>"Unauthorized",402=>"PaymentRequired",422=>"UnprocessableContent",404=>"NotFound",409=>"Conflict",412=>"PreconditionFailed",_=>throw new Exception("Add explicit status decoder")};
         var body=response.GetType().GetMethod(decoder,Type.EmptyTypes)!.Invoke(response,null);
         var actual=JsonSerializer.SerializeToElement(body,body?.GetType()??typeof(object),options);
         Check(Equal(actual,expected.GetProperty("body")),"Decoded response differs: "+actual.GetRawText());
