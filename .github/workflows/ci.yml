@@ -27,6 +27,7 @@ jobs:
           node-version: 24.11.0
       - name: Download approved package bytes
         id: prebuilt
+        if: ${{ hashFiles('.github/sdk-ci/approved-package.json') != '' }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: node .github/sdk-ci/approved-package.mjs
