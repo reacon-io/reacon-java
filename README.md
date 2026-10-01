@@ -32,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:0.4.0-beta.6")
+    implementation("io.reacon:reacon-java:0.5.0-beta.1")
 }
 ```
 
@@ -53,7 +53,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>0.4.0-beta.6</version>
+        <version>0.5.0-beta.1</version>
     </dependency>
 </dependencies>
 ```
@@ -71,8 +71,6 @@ public class Example {
     public static void main(String[] args) throws Exception {
         try (ApiClient client = new ApiClient()) {
             client.setApiKey(System.getenv("REACON_API_KEY"));
-            String base = System.getenv("REACON_BASE_URL");
-            if (base != null) client.setBasePath(base);
             client.setRequestTimeout(Duration.ofSeconds(30));
             DomainsApi domains = new DomainsApi(client);
             System.out.println(domains.getDomainCatchAll("example.com").getCatchAll());
@@ -930,3 +928,5 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 
 
+
+The service URL is fixed to https://api.reacon.io. SDKs do not accept a service URL override.

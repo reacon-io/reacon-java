@@ -40,7 +40,6 @@ import java.util.Map;
 public class NamesApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
-    private String localCustomBaseUrl;
 
     public NamesApi() {
         this(Configuration.getDefaultApiClient());
@@ -66,13 +65,7 @@ public class NamesApi {
         this.localHostIndex = hostIndex;
     }
 
-    public String getCustomBaseUrl() {
-        return localCustomBaseUrl;
-    }
 
-    public void setCustomBaseUrl(String customBaseUrl) {
-        this.localCustomBaseUrl = customBaseUrl;
-    }
 
     /**
      * Build call for listNamePatterns
@@ -96,19 +89,6 @@ public class NamesApi {
      </table>
      */
     public okhttp3.Call listNamePatternsCall(@javax.annotation.Nonnull String domain, @javax.annotation.Nullable String first, @javax.annotation.Nullable String last, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -148,7 +128,7 @@ public class NamesApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -270,19 +250,6 @@ public class NamesApi {
      </table>
      */
     public okhttp3.Call verifyNameCall(@javax.annotation.Nonnull String domain, @javax.annotation.Nullable String first, @javax.annotation.Nullable String last, @javax.annotation.Nullable String cacheMaxAge, @javax.annotation.Nullable String onlyIfFree, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -330,7 +297,7 @@ public class NamesApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")

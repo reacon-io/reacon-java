@@ -1,3 +1,8 @@
+from pathlib import Path
+import sys
+_fixture_root = next(p for p in [Path(__file__).resolve().parent, Path(__file__).resolve().parent.parent, Path('/sdk/conformance'), Path('/')] if (p/'fixed-origin'/'httpx_fixture.py').exists())
+sys.path.insert(0, str(_fixture_root/'fixed-origin'))
+from httpx_fixture import route_api, route_http
 import asyncio
 import importlib
 import importlib.metadata
@@ -60,8 +65,8 @@ async def main():
     for item in cases:
         client=None
         try:
-            config=Configuration(host=os.environ['REACON_TEST_URL']+'/'+item['id'], api_key={'ApiKey':'recording-'+language} if item['record']['request']['authentication'] != 'none' else {})
-            client=ApiClient(config)
+            config=Configuration(api_key={'ApiKey':'recording-'+language} if item['record']['request']['authentication'] != 'none' else {})
+            client=route_api(ApiClient(config), os.environ['REACON_TEST_URL']+'/'+item['id'])
             api_type=getattr(importlib.import_module('reacon_sdk.api.'+snake(item['apiClass'])),item['apiClass'])
             api=api_type(client)
             signature=inspect.signature(getattr(api,snake(item['record']['operationId'])))

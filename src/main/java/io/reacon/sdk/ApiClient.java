@@ -146,7 +146,7 @@ public class ApiClient implements AutoCloseable {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/0.4.0-beta.6/java");
+        setUserAgent("OpenAPI-Generator/0.5.0-beta.1/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -157,7 +157,7 @@ public class ApiClient implements AutoCloseable {
      * @return Base path
      */
     public String getBasePath() {
-        return basePath;
+        return "https://api.reacon.io";
     }
 
     /**
@@ -166,38 +166,21 @@ public class ApiClient implements AutoCloseable {
      * @param basePath Base path of the URL (e.g https://api.reacon.io)
      * @return An instance of ApiClient
      */
-    public ApiClient setBasePath(String basePath) {
-        this.basePath = basePath;
-        this.serverIndex = null;
-        return this;
-    }
 
     public List<ServerConfiguration> getServers() {
         return servers;
     }
 
-    public ApiClient setServers(List<ServerConfiguration> servers) {
-        this.servers = servers;
-        return this;
-    }
 
     public Integer getServerIndex() {
         return serverIndex;
     }
 
-    public ApiClient setServerIndex(Integer serverIndex) {
-        this.serverIndex = serverIndex;
-        return this;
-    }
 
     public Map<String, String> getServerVariables() {
         return serverVariables;
     }
 
-    public ApiClient setServerVariables(Map<String, String> serverVariables) {
-        this.serverVariables = serverVariables;
-        return this;
-    }
 
     /**
      * Get HTTP client
@@ -1136,7 +1119,6 @@ public class ApiClient implements AutoCloseable {
     /**
      * Build HTTP call with the given options.
      *
-     * @param baseUrl The base URL
      * @param path The sub-path of the HTTP URL
      * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
      * @param queryParams The query parameters
@@ -1150,8 +1132,8 @@ public class ApiClient implements AutoCloseable {
      * @return The HTTP call
      * @throws io.reacon.sdk.ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
-        Request request = buildRequest(baseUrl, path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
+    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
+        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, cookieParams, formParams, authNames, callback);
 
         return HttpPolicy.call(httpClient, request);
     }
@@ -1159,7 +1141,6 @@ public class ApiClient implements AutoCloseable {
     /**
      * Build an HTTP request with the given options.
      *
-     * @param baseUrl The base URL
      * @param path The sub-path of the HTTP URL
      * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
      * @param queryParams The query parameters
@@ -1173,8 +1154,8 @@ public class ApiClient implements AutoCloseable {
      * @return The HTTP request
      * @throws io.reacon.sdk.ApiException If fail to serialize the request body object
      */
-    public Request buildRequest(String baseUrl, String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
-        final String url = buildUrl(baseUrl, path, queryParams, collectionQueryParams);
+    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String[] authNames, ApiCallback callback) throws ApiException {
+        final String url = buildUrl(path, queryParams, collectionQueryParams);
 
         // prepare HTTP request body
         RequestBody reqBody;
@@ -1206,7 +1187,7 @@ public class ApiClient implements AutoCloseable {
         // update parameters with authentication settings
         updateParamsForAuth(authNames, updatedQueryParams, headerParams, cookieParams, requestBodyToString(reqBody), method, URI.create(url));
 
-        final Request.Builder reqBuilder = new Request.Builder().url(buildUrl(baseUrl, path, updatedQueryParams, collectionQueryParams));
+        final Request.Builder reqBuilder = new Request.Builder().url(buildUrl(path, updatedQueryParams, collectionQueryParams));
         processHeaderParams(headerParams, reqBuilder);
         processCookieParams(cookieParams, reqBuilder);
 
@@ -1229,31 +1210,14 @@ public class ApiClient implements AutoCloseable {
     /**
      * Build full URL by concatenating base path, the given sub path and query parameters.
      *
-     * @param baseUrl The base URL
      * @param path The sub path
      * @param queryParams The query parameters
      * @param collectionQueryParams The collection query parameters
      * @return The full URL
      */
-    public String buildUrl(String baseUrl, String path, List<Pair> queryParams, List<Pair> collectionQueryParams) {
+    public String buildUrl(String path, List<Pair> queryParams, List<Pair> collectionQueryParams) {
         final StringBuilder url = new StringBuilder();
-        if (baseUrl != null) {
-            url.append(baseUrl).append(path);
-        } else {
-            String baseURL;
-            if (serverIndex != null) {
-                if (serverIndex < 0 || serverIndex >= servers.size()) {
-                    throw new ArrayIndexOutOfBoundsException(String.format(
-                        java.util.Locale.ROOT,
-                        "Invalid index %d when selecting the host settings. Must be less than %d", serverIndex, servers.size()
-                    ));
-                }
-                baseURL = servers.get(serverIndex).URL(serverVariables);
-            } else {
-                baseURL = basePath;
-            }
-            url.append(baseURL).append(path);
-        }
+        url.append("https://api.reacon.io").append(path);
 
         if (queryParams != null && !queryParams.isEmpty()) {
             // support (constant) query string in `path`, e.g. "/posts?draft=1"

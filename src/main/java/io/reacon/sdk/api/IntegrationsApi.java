@@ -95,7 +95,6 @@ import java.util.Map;
 public class IntegrationsApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
-    private String localCustomBaseUrl;
 
     public IntegrationsApi() {
         this(Configuration.getDefaultApiClient());
@@ -121,13 +120,7 @@ public class IntegrationsApi {
         this.localHostIndex = hostIndex;
     }
 
-    public String getCustomBaseUrl() {
-        return localCustomBaseUrl;
-    }
 
-    public void setCustomBaseUrl(String customBaseUrl) {
-        this.localCustomBaseUrl = customBaseUrl;
-    }
 
     /**
      * Build call for bindTypeformForm
@@ -152,19 +145,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call bindTypeformFormCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull BindTypeformFormRequest bindTypeformFormRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = bindTypeformFormRequest;
 
         // create path and map variables
@@ -194,7 +174,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -321,19 +301,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call bindWebflowFormCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull BindWebflowFormRequest bindWebflowFormRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = bindWebflowFormRequest;
 
         // create path and map variables
@@ -363,7 +330,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -490,19 +457,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call cancelIntegrationJobCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull UUID jobId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -532,7 +486,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -660,19 +614,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureAirtableMappingCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull ConfigureAirtableMappingRequest configureAirtableMappingRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureAirtableMappingRequest;
 
         // create path and map variables
@@ -703,7 +644,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -838,19 +779,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureCodaCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull ConfigureCodaRequest configureCodaRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureCodaRequest;
 
         // create path and map variables
@@ -880,7 +808,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1008,19 +936,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureCrmMappingCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull ConfigureCrmMappingRequest configureCrmMappingRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureCrmMappingRequest;
 
         // create path and map variables
@@ -1051,7 +966,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1187,19 +1102,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureCrmSyncCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull UUID connectionId, @javax.annotation.Nonnull ConfigureCrmSyncRequest configureCrmSyncRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureCrmSyncRequest;
 
         // create path and map variables
@@ -1230,7 +1132,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1365,19 +1267,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureFreshsalesCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull ConfigureFreshsalesRequest configureFreshsalesRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureFreshsalesRequest;
 
         // create path and map variables
@@ -1407,7 +1296,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1535,19 +1424,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureNotificationRoutesCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull ConfigureNotificationRoutesRequest configureNotificationRoutesRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureNotificationRoutesRequest;
 
         // create path and map variables
@@ -1578,7 +1454,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1714,19 +1590,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureSlackDestinationCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull ConfigureSlackDestinationRequest configureSlackDestinationRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureSlackDestinationRequest;
 
         // create path and map variables
@@ -1757,7 +1620,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1892,19 +1755,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureTeamsWorkflowCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull ConfigureTeamsWorkflowRequest configureTeamsWorkflowRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureTeamsWorkflowRequest;
 
         // create path and map variables
@@ -1934,7 +1784,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2061,19 +1911,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureTypeformFormCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull ConfigureTypeformFormRequest configureTypeformFormRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureTypeformFormRequest;
 
         // create path and map variables
@@ -2103,7 +1940,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2230,19 +2067,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureWarehouseCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull ConfigureWarehouseRequest configureWarehouseRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureWarehouseRequest;
 
         // create path and map variables
@@ -2272,7 +2096,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2399,19 +2223,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call configureWebflowFormCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull ConfigureWebflowFormRequest configureWebflowFormRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = configureWebflowFormRequest;
 
         // create path and map variables
@@ -2441,7 +2252,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2567,19 +2378,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call disableMcpIdentityCall(@javax.annotation.Nonnull UUID teamId, @javax.annotation.Nonnull UUID identityId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2609,7 +2407,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2734,19 +2532,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call executeIntegrationCapabilityCall(@javax.annotation.Nonnull String capability, @javax.annotation.Nonnull ExecuteIntegrationCapabilityRequest executeIntegrationCapabilityRequest, @javax.annotation.Nullable String xLumenreachIntegration, @javax.annotation.Nullable String xLumenreachInstallId, @javax.annotation.Nullable String xLumenreachTimestamp, @javax.annotation.Nullable String xLumenreachEventId, @javax.annotation.Nullable String xLumenreachSignature, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = executeIntegrationCapabilityRequest;
 
         // create path and map variables
@@ -2801,7 +2586,7 @@ public class IntegrationsApi {
 
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -2944,19 +2729,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call getAirtableMappingOptionsCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nullable String baseId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2990,7 +2762,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -3121,19 +2893,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call getCrmMappingOptionsCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nullable String resourceId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3167,7 +2926,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -3297,19 +3056,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call getHubSpotConfigurationOptionsCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3339,7 +3085,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -3466,19 +3212,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call getIntegrationJobCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull UUID jobId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3508,7 +3241,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -3635,19 +3368,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call inspectCodaTableCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull InspectCodaTableRequest inspectCodaTableRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = inspectCodaTableRequest;
 
         // create path and map variables
@@ -3677,7 +3397,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -3804,19 +3524,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call inspectExcelWorkbookCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull InspectExcelWorkbookRequest inspectExcelWorkbookRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = inspectExcelWorkbookRequest;
 
         // create path and map variables
@@ -3846,7 +3553,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -3973,19 +3680,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call inspectGoogleSheetCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull InspectGoogleSheetRequest inspectGoogleSheetRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = inspectGoogleSheetRequest;
 
         // create path and map variables
@@ -4015,7 +3709,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -4142,19 +3836,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call linkMcpIdentityCall(@javax.annotation.Nonnull UUID teamId, @javax.annotation.Nullable LinkMcpIdentityRequest linkMcpIdentityRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = linkMcpIdentityRequest;
 
         // create path and map variables
@@ -4184,7 +3865,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey", "McpIdentityToken" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -4305,19 +3986,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call listIntegrationConnectionsCall(@javax.annotation.Nonnull String teamId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4346,7 +4014,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -4468,19 +4136,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call listIntegrationJobsCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable UUID connectionId, @javax.annotation.Nullable String status, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4525,7 +4180,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -4652,19 +4307,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call listIntegrationProvidersCall(final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4692,7 +4334,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -4794,19 +4436,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call listMcpIdentitiesCall(@javax.annotation.Nonnull UUID teamId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4835,7 +4464,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -4947,19 +4576,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call listSheetWorkflowsCall(@javax.annotation.Nonnull String teamId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4988,7 +4604,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5108,19 +4724,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call previewSheetWorkflowCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String workflowId, @javax.annotation.Nullable PreviewSheetWorkflowRequest previewSheetWorkflowRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = previewSheetWorkflowRequest;
 
         // create path and map variables
@@ -5151,7 +4754,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5282,19 +4885,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call queueIntegrationLeadExportCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nullable QueueIntegrationLeadExportRequest queueIntegrationLeadExportRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = queueIntegrationLeadExportRequest;
 
         // create path and map variables
@@ -5325,7 +4915,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5456,19 +5046,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call queueNotificationTestCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nullable QueueNotificationTestRequest queueNotificationTestRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = queueNotificationTestRequest;
 
         // create path and map variables
@@ -5499,7 +5076,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5630,19 +5207,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call rotateCodaCredentialCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull RotateCodaCredentialRequest rotateCodaCredentialRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = rotateCodaCredentialRequest;
 
         // create path and map variables
@@ -5673,7 +5237,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5809,19 +5373,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call rotateFreshsalesCredentialCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull RotateFreshsalesCredentialRequest rotateFreshsalesCredentialRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = rotateFreshsalesCredentialRequest;
 
         // create path and map variables
@@ -5852,7 +5403,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -5988,19 +5539,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call runSheetWorkflowCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String workflowId, @javax.annotation.Nullable RunSheetWorkflowRequest runSheetWorkflowRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = runSheetWorkflowRequest;
 
         // create path and map variables
@@ -6031,7 +5569,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -6162,19 +5700,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call saveSheetWorkflowCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull SaveSheetWorkflowRequest saveSheetWorkflowRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = saveSheetWorkflowRequest;
 
         // create path and map variables
@@ -6204,7 +5729,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -6334,19 +5859,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call startAttioOAuthCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable StartAttioOAuthRequest startAttioOAuthRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = startAttioOAuthRequest;
 
         // create path and map variables
@@ -6376,7 +5888,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -6498,19 +6010,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call startGoogleSheetsOAuthCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable StartGoogleSheetsOAuthRequest startGoogleSheetsOAuthRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = startGoogleSheetsOAuthRequest;
 
         // create path and map variables
@@ -6540,7 +6039,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -6663,19 +6162,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call startIntegrationOAuthCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String provider, @javax.annotation.Nullable StartIntegrationOAuthRequest startIntegrationOAuthRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = startIntegrationOAuthRequest;
 
         // create path and map variables
@@ -6706,7 +6192,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -6836,19 +6322,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call testIntegrationConnectionCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6878,7 +6351,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -7006,19 +6479,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call updateIntegrationConnectionStateCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String connectionId, @javax.annotation.Nonnull UpdateIntegrationConnectionStateRequest updateIntegrationConnectionStateRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = updateIntegrationConnectionStateRequest;
 
         // create path and map variables
@@ -7049,7 +6509,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -7185,19 +6645,6 @@ public class IntegrationsApi {
      </table>
      */
     public okhttp3.Call updateSheetWorkflowStateCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nonnull String workflowId, @javax.annotation.Nonnull UpdateSheetWorkflowStateRequest updateSheetWorkflowStateRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = updateSheetWorkflowStateRequest;
 
         // create path and map variables
@@ -7228,7 +6675,7 @@ public class IntegrationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")

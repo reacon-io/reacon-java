@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const sdk = globalThis.REACON_RECORDING_SDK ?? require(process.env.SDK_DIRECTORY);
+const { fixtureFetch } = require([__dirname + '/../fixed-origin/fetch.cjs', __dirname + '/fixed-origin/fetch.cjs', '/fixed-origin/fetch.cjs', '/sdk/conformance/fixed-origin/fetch.cjs'].find(file => fs.existsSync(file)));
 const language = process.env.REACON_TEST_LANGUAGE ?? 'typescript';
 const cases = JSON.parse(fs.readFileSync(process.env.REACON_CASES_FILE));
 function toWire(schema, value) {
@@ -35,7 +36,7 @@ function toWire(schema, value) {
   const results = [];
   for (const item of cases) {
     try {
-      const config = new sdk.Configuration({ basePath: process.env.REACON_TEST_URL + '/' + item.id, ...(item.record.request.authentication !== 'none' ? { apiKey: 'recording-' + language } : {}) });
+      const config = new sdk.Configuration({ fetchApi: fixtureFetch(process.env.REACON_TEST_URL + '/' + item.id), ...(item.record.request.authentication !== 'none' ? { apiKey: 'recording-' + language } : {}) });
       const api = new sdk[item.apiClass](config);
       const params = { ...item.parameters };
       if (item.record.request.body !== undefined) params[item.requestModel[0].toLowerCase() + item.requestModel.slice(1)] = sdk[item.requestModel + 'FromJSON'](item.record.request.body);

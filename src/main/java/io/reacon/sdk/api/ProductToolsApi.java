@@ -40,7 +40,6 @@ import java.util.Map;
 public class ProductToolsApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
-    private String localCustomBaseUrl;
 
     public ProductToolsApi() {
         this(Configuration.getDefaultApiClient());
@@ -66,13 +65,7 @@ public class ProductToolsApi {
         this.localHostIndex = hostIndex;
     }
 
-    public String getCustomBaseUrl() {
-        return localCustomBaseUrl;
-    }
 
-    public void setCustomBaseUrl(String customBaseUrl) {
-        this.localCustomBaseUrl = customBaseUrl;
-    }
 
     /**
      * Build call for executeProductTool
@@ -96,19 +89,6 @@ public class ProductToolsApi {
      </table>
      */
     public okhttp3.Call executeProductToolCall(@javax.annotation.Nonnull String tool, @javax.annotation.Nonnull ProductToolRequest productToolRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
         Object localVarPostBody = productToolRequest;
 
         // create path and map variables
@@ -138,7 +118,7 @@ public class ProductToolsApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")

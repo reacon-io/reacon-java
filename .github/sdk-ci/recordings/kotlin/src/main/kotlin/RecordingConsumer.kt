@@ -1,3 +1,4 @@
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import io.reacon.sdk.kotlin.infrastructure.*
 import io.reacon.sdk.kotlin.models.*
 import com.fasterxml.jackson.databind.JsonNode
@@ -96,7 +97,7 @@ fun main(){
             val record=item["record"];val request=record["request"];val response=record["response"]
             val clazz=Class.forName("io.reacon.sdk.kotlin.apis."+item["apiClass"].asText()).kotlin
             val constructor=clazz.primaryConstructor!!
-            val api=constructor.callBy(mapOf(constructor.parameters.first{it.name=="basePath"} to (System.getenv("REACON_TEST_URL")+"/"+item["id"].asText()))) as ApiClient
+            val api=constructor.callBy(mapOf(constructor.parameters.first{it.name=="client"} to fixtureHttp(System.getenv("REACON_TEST_URL")+"/"+item["id"].asText()))) as ApiClient
             if(request["authentication"].asText()!="none")api.apiKey["X-API-Key"]="recording-kotlin"
             val operation=record["operationId"].asText()
             val method=clazz.memberFunctions.single{it.name==operation}
@@ -146,4 +147,17 @@ fun main(){
     println("$passed/${cases.size()} recorded responses passed through Kotlin methods")
     results.filter{!it["passed"].asBoolean()}.forEach{System.err.println(it)}
     if(passed!=cases.size())kotlin.system.exitProcess(1)
+}
+
+// Test-only HTTP routing; the SDK must emit its fixed production origin.
+fun fixtureHttp(target: String): okhttp3.OkHttpClient {
+    val base = target.toHttpUrl()
+    require(base.host == "127.0.0.1" || base.host == "localhost")
+    val executor = java.util.concurrent.Executors.newCachedThreadPool { runnable -> Thread(runnable, "reacon-fixture-http").apply { isDaemon = true } }
+    return okhttp3.OkHttpClient.Builder().dispatcher(okhttp3.Dispatcher(executor)).addInterceptor { chain ->
+        val request = chain.request()
+        check(request.url.scheme == "https" && request.url.host == "api.reacon.io")
+        val url = base.newBuilder().encodedPath(base.encodedPath.trimEnd('/') + request.url.encodedPath).encodedQuery(request.url.encodedQuery).build()
+        chain.proceed(request.newBuilder().url(url).build())
+    }.build()
 }

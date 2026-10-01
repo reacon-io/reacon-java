@@ -24,13 +24,12 @@ public final class VerificationStreamClient implements AutoCloseable {
     private final Set<VerificationStream> streams = ConcurrentHashMap.newKeySet();
     private volatile boolean closed;
 
-    public VerificationStreamClient(String apiKey, String baseUrl) { this(apiKey, baseUrl, null); }
-    public VerificationStreamClient(String apiKey) { this(apiKey, "https://api.reacon.io", null); }
+    public VerificationStreamClient(String apiKey) { this(apiKey, (OkHttpClient) null); }
     /** Injected transport's pool and dispatcher remain caller-owned. Request policies are overridden on a derived client. */
-    public VerificationStreamClient(String apiKey, String baseUrl, OkHttpClient transport) {
+    public VerificationStreamClient(String apiKey, OkHttpClient transport) {
         if (apiKey == null || apiKey.trim().isEmpty()) throw new IllegalArgumentException("apiKey is required");
         this.key = apiKey;
-        this.baseUrl = HttpUrl.get(baseUrl.replaceAll("/+$", "") + "/");
+        this.baseUrl = HttpUrl.get("https://api.reacon.io/");
         owned = transport == null;
         http = HttpPolicy.client(owned ? new OkHttpClient() : transport).newBuilder()
             .callTimeout(0, TimeUnit.MILLISECONDS).build();
