@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -124,7 +126,7 @@ public class MailExperimentDecisionRecord {
   public static final String SERIALIZED_NAME_RESULT_SNAPSHOT = "resultSnapshot";
   @SerializedName(SERIALIZED_NAME_RESULT_SNAPSHOT)
   @javax.annotation.Nonnull
-  private Object resultSnapshot;
+  private Map<String, Object> resultSnapshot = new HashMap<>();
 
   public static final String SERIALIZED_NAME_REVISION = "revision";
   @SerializedName(SERIALIZED_NAME_REVISION)
@@ -270,9 +272,17 @@ public class MailExperimentDecisionRecord {
   }
 
 
-  public MailExperimentDecisionRecord resultSnapshot(@javax.annotation.Nonnull Object resultSnapshot) {
+  public MailExperimentDecisionRecord resultSnapshot(@javax.annotation.Nonnull Map<String, Object> resultSnapshot) {
     this.resultSnapshot = resultSnapshot;
     this.reaconPresentFields.add(SERIALIZED_NAME_RESULT_SNAPSHOT);
+    return this;
+  }
+
+  public MailExperimentDecisionRecord putResultSnapshotItem(String key, Object resultSnapshotItem) {
+    if (this.resultSnapshot == null) {
+      this.resultSnapshot = new HashMap<>();
+    }
+    this.resultSnapshot.put(key, resultSnapshotItem);
     return this;
   }
 
@@ -281,11 +291,11 @@ public class MailExperimentDecisionRecord {
    * @return resultSnapshot
    */
   @javax.annotation.Nonnull
-  public Object getResultSnapshot() {
+  public Map<String, Object> getResultSnapshot() {
     return resultSnapshot;
   }
 
-  public void setResultSnapshot(@javax.annotation.Nonnull Object resultSnapshot) {
+  public void setResultSnapshot(@javax.annotation.Nonnull Map<String, Object> resultSnapshot) {
     this.resultSnapshot = resultSnapshot;
     this.reaconPresentFields.add(SERIALIZED_NAME_RESULT_SNAPSHOT);
   }

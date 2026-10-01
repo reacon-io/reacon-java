@@ -406,6 +406,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetTrackingDomainResponse200Domain.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetWebhooksResponse200.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailGetWebhooksResponse200SubscriptionsInner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailImapCursor.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailInboxMessageRecord.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailMailAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailMailPortfolio.CustomTypeAdapterFactory());
@@ -476,8 +477,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdDuplicateResponse201.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200Campaign.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdStateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.MailPostCampaignsByCampaignIdStateResponse200.CustomTypeAdapterFactory());
