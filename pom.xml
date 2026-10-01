@@ -5,7 +5,7 @@
     <artifactId>reacon-java</artifactId>
     <packaging>jar</packaging>
     <name>reacon-java</name>
-    <version>0.7.0-beta.1</version>
+    <version>1.0.0-beta.1</version>
     <url>https://github.com/reacon-io/reacon-java</url>
     <description>Official Reacon API client for Java</description>
     <scm>
@@ -32,7 +32,7 @@
     </developers>
 
     <distributionManagement>
-        <downloadUrl>https://packages.reacon.io/maven/io/reacon/reacon-java/0.7.0-beta.1/reacon-java-0.7.0-beta.1.jar</downloadUrl>
+        <downloadUrl>https://packages.reacon.io/maven/io/reacon/reacon-java/1.0.0-beta.1/reacon-java-1.0.0-beta.1.jar</downloadUrl>
     </distributionManagement>
 
     <build>

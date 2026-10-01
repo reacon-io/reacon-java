@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -105,7 +107,7 @@ public class MailMessageVariantInput {
   public static final String SERIALIZED_NAME_VARIABLES = "variables";
   @SerializedName(SERIALIZED_NAME_VARIABLES)
   @javax.annotation.Nullable
-  private Object variables;
+  private Map<String, Object> variables;
 
   public static final String SERIALIZED_NAME_WEIGHT = "weight";
   @SerializedName(SERIALIZED_NAME_WEIGHT)
@@ -199,9 +201,17 @@ public class MailMessageVariantInput {
   }
 
 
-  public MailMessageVariantInput variables(@javax.annotation.Nullable Object variables) {
+  public MailMessageVariantInput variables(@javax.annotation.Nullable Map<String, Object> variables) {
     this.variables = variables;
     this.reaconPresentFields.add(SERIALIZED_NAME_VARIABLES);
+    return this;
+  }
+
+  public MailMessageVariantInput putVariablesItem(String key, Object variablesItem) {
+    if (this.variables == null) {
+      this.variables = new HashMap<>();
+    }
+    this.variables.put(key, variablesItem);
     return this;
   }
 
@@ -210,11 +220,11 @@ public class MailMessageVariantInput {
    * @return variables
    */
   @javax.annotation.Nullable
-  public Object getVariables() {
+  public Map<String, Object> getVariables() {
     return variables;
   }
 
-  public void setVariables(@javax.annotation.Nullable Object variables) {
+  public void setVariables(@javax.annotation.Nullable Map<String, Object> variables) {
     this.variables = variables;
     this.reaconPresentFields.add(SERIALIZED_NAME_VARIABLES);
   }

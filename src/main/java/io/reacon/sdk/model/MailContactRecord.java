@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -92,7 +94,7 @@ public class MailContactRecord {
   public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "customFields";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
   @javax.annotation.Nonnull
-  private Object customFields;
+  private Map<String, String> customFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -143,9 +145,17 @@ public class MailContactRecord {
   }
 
 
-  public MailContactRecord customFields(@javax.annotation.Nonnull Object customFields) {
+  public MailContactRecord customFields(@javax.annotation.Nonnull Map<String, String> customFields) {
     this.customFields = customFields;
     this.reaconPresentFields.add(SERIALIZED_NAME_CUSTOM_FIELDS);
+    return this;
+  }
+
+  public MailContactRecord putCustomFieldsItem(String key, String customFieldsItem) {
+    if (this.customFields == null) {
+      this.customFields = new HashMap<>();
+    }
+    this.customFields.put(key, customFieldsItem);
     return this;
   }
 
@@ -154,11 +164,11 @@ public class MailContactRecord {
    * @return customFields
    */
   @javax.annotation.Nonnull
-  public Object getCustomFields() {
+  public Map<String, String> getCustomFields() {
     return customFields;
   }
 
-  public void setCustomFields(@javax.annotation.Nonnull Object customFields) {
+  public void setCustomFields(@javax.annotation.Nonnull Map<String, String> customFields) {
     this.customFields = customFields;
     this.reaconPresentFields.add(SERIALIZED_NAME_CUSTOM_FIELDS);
   }

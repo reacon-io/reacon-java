@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -97,7 +99,7 @@ public class MailExperimentOutcomeRecord {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   @javax.annotation.Nonnull
-  private Object metadata;
+  private Map<String, Object> metadata = new HashMap<>();
 
   public static final String SERIALIZED_NAME_OCCURRED_AT = "occurredAt";
   @SerializedName(SERIALIZED_NAME_OCCURRED_AT)
@@ -158,9 +160,17 @@ public class MailExperimentOutcomeRecord {
   }
 
 
-  public MailExperimentOutcomeRecord metadata(@javax.annotation.Nonnull Object metadata) {
+  public MailExperimentOutcomeRecord metadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
     this.metadata = metadata;
     this.reaconPresentFields.add(SERIALIZED_NAME_METADATA);
+    return this;
+  }
+
+  public MailExperimentOutcomeRecord putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -169,11 +179,11 @@ public class MailExperimentOutcomeRecord {
    * @return metadata
    */
   @javax.annotation.Nonnull
-  public Object getMetadata() {
+  public Map<String, Object> getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(@javax.annotation.Nonnull Object metadata) {
+  public void setMetadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
     this.metadata = metadata;
     this.reaconPresentFields.add(SERIALIZED_NAME_METADATA);
   }

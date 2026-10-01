@@ -19,13 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.MailCampaignDraftRecord;
-import io.reacon.sdk.model.MailPostCampaignsByCampaignIdLaunchResponse200Campaign;
-import io.reacon.sdk.model.MailSequenceRunRecord;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,18 +48,18 @@ import java.util.Set;
 import io.reacon.sdk.JSON;
 
 /**
- * MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
+ * MailImapCursor
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
+public class MailImapCursor {
   private transient java.util.Set<String> reaconPresentFields = new java.util.HashSet<>();
 
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
-      case SERIALIZED_NAME_CAMPAIGN: return reaconPresentFields.contains(SERIALIZED_NAME_CAMPAIGN) || this.campaign != null;
-      case SERIALIZED_NAME_DRAFT: return reaconPresentFields.contains(SERIALIZED_NAME_DRAFT) || this.draft != null;
-      case SERIALIZED_NAME_SEQUENCES: return reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCES) || this.sequences != null;
+      case SERIALIZED_NAME_LAST_UID: return reaconPresentFields.contains(SERIALIZED_NAME_LAST_UID) || this.lastUid != null;
+      case SERIALIZED_NAME_MAILBOX_PATH: return reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_PATH) || this.mailboxPath != null;
+      case SERIALIZED_NAME_UID_VALIDITY: return reaconPresentFields.contains(SERIALIZED_NAME_UID_VALIDITY) || this.uidValidity != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -72,100 +68,92 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
-      case SERIALIZED_NAME_CAMPAIGN: this.campaign = null; break;
-      case SERIALIZED_NAME_DRAFT: this.draft = null; break;
-      case SERIALIZED_NAME_SEQUENCES: this.sequences = null; break;
+      case SERIALIZED_NAME_LAST_UID: this.lastUid = null; break;
+      case SERIALIZED_NAME_MAILBOX_PATH: this.mailboxPath = null; break;
+      case SERIALIZED_NAME_UID_VALIDITY: this.uidValidity = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
 
-  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
+  public static final String SERIALIZED_NAME_LAST_UID = "lastUid";
+  @SerializedName(SERIALIZED_NAME_LAST_UID)
   @javax.annotation.Nonnull
-  private MailPostCampaignsByCampaignIdLaunchResponse200Campaign campaign;
+  private BigDecimal lastUid;
 
-  public static final String SERIALIZED_NAME_DRAFT = "draft";
-  @SerializedName(SERIALIZED_NAME_DRAFT)
+  public static final String SERIALIZED_NAME_MAILBOX_PATH = "mailboxPath";
+  @SerializedName(SERIALIZED_NAME_MAILBOX_PATH)
   @javax.annotation.Nonnull
-  private MailCampaignDraftRecord draft;
+  private String mailboxPath;
 
-  public static final String SERIALIZED_NAME_SEQUENCES = "sequences";
-  @SerializedName(SERIALIZED_NAME_SEQUENCES)
+  public static final String SERIALIZED_NAME_UID_VALIDITY = "uidValidity";
+  @SerializedName(SERIALIZED_NAME_UID_VALIDITY)
   @javax.annotation.Nonnull
-  private List<MailSequenceRunRecord> sequences = new ArrayList<>();
+  private String uidValidity;
 
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1() {
+  public MailImapCursor() {
   }
 
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 campaign(@javax.annotation.Nonnull MailPostCampaignsByCampaignIdLaunchResponse200Campaign campaign) {
-    this.campaign = campaign;
-    this.reaconPresentFields.add(SERIALIZED_NAME_CAMPAIGN);
+  public MailImapCursor lastUid(@javax.annotation.Nonnull BigDecimal lastUid) {
+    this.lastUid = lastUid;
+    this.reaconPresentFields.add(SERIALIZED_NAME_LAST_UID);
     return this;
   }
 
   /**
-   * Get campaign
-   * @return campaign
+   * Get lastUid
+   * @return lastUid
    */
   @javax.annotation.Nonnull
-  public MailPostCampaignsByCampaignIdLaunchResponse200Campaign getCampaign() {
-    return campaign;
+  public BigDecimal getLastUid() {
+    return lastUid;
   }
 
-  public void setCampaign(@javax.annotation.Nonnull MailPostCampaignsByCampaignIdLaunchResponse200Campaign campaign) {
-    this.campaign = campaign;
-    this.reaconPresentFields.add(SERIALIZED_NAME_CAMPAIGN);
+  public void setLastUid(@javax.annotation.Nonnull BigDecimal lastUid) {
+    this.lastUid = lastUid;
+    this.reaconPresentFields.add(SERIALIZED_NAME_LAST_UID);
   }
 
 
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 draft(@javax.annotation.Nonnull MailCampaignDraftRecord draft) {
-    this.draft = draft;
-    this.reaconPresentFields.add(SERIALIZED_NAME_DRAFT);
+  public MailImapCursor mailboxPath(@javax.annotation.Nonnull String mailboxPath) {
+    this.mailboxPath = mailboxPath;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MAILBOX_PATH);
     return this;
   }
 
   /**
-   * Get draft
-   * @return draft
+   * Get mailboxPath
+   * @return mailboxPath
    */
   @javax.annotation.Nonnull
-  public MailCampaignDraftRecord getDraft() {
-    return draft;
+  public String getMailboxPath() {
+    return mailboxPath;
   }
 
-  public void setDraft(@javax.annotation.Nonnull MailCampaignDraftRecord draft) {
-    this.draft = draft;
-    this.reaconPresentFields.add(SERIALIZED_NAME_DRAFT);
+  public void setMailboxPath(@javax.annotation.Nonnull String mailboxPath) {
+    this.mailboxPath = mailboxPath;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MAILBOX_PATH);
   }
 
 
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 sequences(@javax.annotation.Nonnull List<MailSequenceRunRecord> sequences) {
-    this.sequences = sequences;
-    this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCES);
-    return this;
-  }
-
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 addSequencesItem(MailSequenceRunRecord sequencesItem) {
-    if (this.sequences == null) {
-      this.sequences = new ArrayList<>();
-    }
-    this.sequences.add(sequencesItem);
+  public MailImapCursor uidValidity(@javax.annotation.Nonnull String uidValidity) {
+    this.uidValidity = uidValidity;
+    this.reaconPresentFields.add(SERIALIZED_NAME_UID_VALIDITY);
     return this;
   }
 
   /**
-   * Get sequences
-   * @return sequences
+   * Get uidValidity
+   * @return uidValidity
    */
   @javax.annotation.Nonnull
-  public List<MailSequenceRunRecord> getSequences() {
-    return sequences;
+  public String getUidValidity() {
+    return uidValidity;
   }
 
-  public void setSequences(@javax.annotation.Nonnull List<MailSequenceRunRecord> sequences) {
-    this.sequences = sequences;
-    this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCES);
+  public void setUidValidity(@javax.annotation.Nonnull String uidValidity) {
+    this.uidValidity = uidValidity;
+    this.reaconPresentFields.add(SERIALIZED_NAME_UID_VALIDITY);
   }
 
   /**
@@ -181,9 +169,9 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 instance itself
+   * @return the MailImapCursor instance itself
    */
-  public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 putAdditionalProperty(String key, Object value) {
+  public MailImapCursor putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -222,25 +210,25 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 mailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 = (MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1) o;
-    return Objects.equals(this.campaign, mailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.campaign) &&
-        Objects.equals(this.draft, mailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.draft) &&
-        Objects.equals(this.sequences, mailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.sequences)&&
-        Objects.equals(this.additionalProperties, mailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.additionalProperties);
+    MailImapCursor mailImapCursor = (MailImapCursor) o;
+    return Objects.equals(this.lastUid, mailImapCursor.lastUid) &&
+        Objects.equals(this.mailboxPath, mailImapCursor.mailboxPath) &&
+        Objects.equals(this.uidValidity, mailImapCursor.uidValidity)&&
+        Objects.equals(this.additionalProperties, mailImapCursor.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaign, draft, sequences, additionalProperties);
+    return Objects.hash(lastUid, mailboxPath, uidValidity, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {\n");
-    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
-    sb.append("    draft: ").append(toIndentedString(draft)).append("\n");
-    sb.append("    sequences: ").append(toIndentedString(sequences)).append("\n");
+    sb.append("class MailImapCursor {\n");
+    sb.append("    lastUid: ").append(toIndentedString(lastUid)).append("\n");
+    sb.append("    mailboxPath: ").append(toIndentedString(mailboxPath)).append("\n");
+    sb.append("    uidValidity: ").append(toIndentedString(uidValidity)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -260,45 +248,37 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("campaign", "draft", "sequences"));
+    openapiFields = new HashSet<String>(Arrays.asList("lastUid", "mailboxPath", "uidValidity"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("campaign", "draft", "sequences"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("lastUid", "mailboxPath", "uidValidity"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
+   * @throws IOException if the JSON Element is invalid with respect to MailImapCursor
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 is not found in the empty JSON string", MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.openapiRequiredFields.toString()));
+        if (!MailImapCursor.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailImapCursor is not found in the empty JSON string", MailImapCursor.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.openapiRequiredFields) {
+      for (String requiredField : MailImapCursor.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `campaign`
-      MailPostCampaignsByCampaignIdLaunchResponse200Campaign.validateJsonElement(jsonObj.get("campaign"));
-      // validate the required field `draft`
-      MailCampaignDraftRecord.validateJsonElement(jsonObj.get("draft"));
-      if (jsonObj.get("sequences") != null) {
-        if (!jsonObj.get("sequences").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sequences` to be an array in the JSON string but got `%s`", jsonObj.get("sequences").toString()));
-        }
-        JsonArray jsonArraysequences = jsonObj.getAsJsonArray("sequences");
-        // validate the required field `sequences` (array)
-        for (int i = 0; i < jsonArraysequences.size(); i++) {
-          MailSequenceRunRecord.validateJsonElement(jsonArraysequences.get(i));
-        }
+      if (!jsonObj.get("mailboxPath").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mailboxPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailboxPath").toString()));
+      }
+      if (!jsonObj.get("uidValidity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uidValidity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uidValidity").toString()));
       }
   }
 
@@ -306,28 +286,28 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1' and its subtypes
+       if (!MailImapCursor.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MailImapCursor' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.class));
+       final TypeAdapter<MailImapCursor> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MailImapCursor.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1>() {
+       return (TypeAdapter<T>) new TypeAdapter<MailImapCursor>() {
            @Override
-           public void write(JsonWriter out, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 value) throws IOException {
+           public void write(JsonWriter out, MailImapCursor value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             if (value.campaign == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CAMPAIGN)) obj.add(SERIALIZED_NAME_CAMPAIGN, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_CAMPAIGN);
+             if (value.lastUid == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_LAST_UID)) obj.add(SERIALIZED_NAME_LAST_UID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_LAST_UID);
              }
-             if (value.draft == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_DRAFT)) obj.add(SERIALIZED_NAME_DRAFT, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_DRAFT);
+             if (value.mailboxPath == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_PATH)) obj.add(SERIALIZED_NAME_MAILBOX_PATH, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_MAILBOX_PATH);
              }
-             if (value.sequences == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCES)) obj.add(SERIALIZED_NAME_SEQUENCES, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_SEQUENCES);
+             if (value.uidValidity == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_UID_VALIDITY)) obj.add(SERIALIZED_NAME_UID_VALIDITY, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_UID_VALIDITY);
              }
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -360,12 +340,12 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
            }
 
            @Override
-           public MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 read(JsonReader in) throws IOException {
+           public MailImapCursor read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 instance = thisAdapter.fromJsonTree(jsonObj);
+             MailImapCursor instance = thisAdapter.fromJsonTree(jsonObj);
              instance.reaconPresentFields.addAll(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
@@ -393,18 +373,18 @@ public class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 {
   }
 
   /**
-   * Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 given an JSON string
+   * Create an instance of MailImapCursor given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
-   * @throws IOException if the JSON string is invalid with respect to MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
+   * @return An instance of MailImapCursor
+   * @throws IOException if the JSON string is invalid with respect to MailImapCursor
    */
-  public static MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.class);
+  public static MailImapCursor fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MailImapCursor.class);
   }
 
   /**
-   * Convert an instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 to an JSON string
+   * Convert an instance of MailImapCursor to an JSON string
    *
    * @return JSON string
    */

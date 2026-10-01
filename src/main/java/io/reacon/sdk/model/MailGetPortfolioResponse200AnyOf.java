@@ -19,6 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailMailPortfolioSuppression;
+import io.reacon.sdk.model.MailMailPortfolioTeam;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,12 +87,12 @@ public class MailGetPortfolioResponse200AnyOf {
   public static final String SERIALIZED_NAME_SUPPRESSIONS = "suppressions";
   @SerializedName(SERIALIZED_NAME_SUPPRESSIONS)
   @javax.annotation.Nonnull
-  private List<Object> suppressions = new ArrayList<>();
+  private List<MailMailPortfolioSuppression> suppressions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TEAMS = "teams";
   @SerializedName(SERIALIZED_NAME_TEAMS)
   @javax.annotation.Nonnull
-  private List<Object> teams = new ArrayList<>();
+  private List<MailMailPortfolioTeam> teams = new ArrayList<>();
 
   public MailGetPortfolioResponse200AnyOf() {
   }
@@ -116,13 +118,13 @@ public class MailGetPortfolioResponse200AnyOf {
   }
 
 
-  public MailGetPortfolioResponse200AnyOf suppressions(@javax.annotation.Nonnull List<Object> suppressions) {
+  public MailGetPortfolioResponse200AnyOf suppressions(@javax.annotation.Nonnull List<MailMailPortfolioSuppression> suppressions) {
     this.suppressions = suppressions;
     this.reaconPresentFields.add(SERIALIZED_NAME_SUPPRESSIONS);
     return this;
   }
 
-  public MailGetPortfolioResponse200AnyOf addSuppressionsItem(Object suppressionsItem) {
+  public MailGetPortfolioResponse200AnyOf addSuppressionsItem(MailMailPortfolioSuppression suppressionsItem) {
     if (this.suppressions == null) {
       this.suppressions = new ArrayList<>();
     }
@@ -135,23 +137,23 @@ public class MailGetPortfolioResponse200AnyOf {
    * @return suppressions
    */
   @javax.annotation.Nonnull
-  public List<Object> getSuppressions() {
+  public List<MailMailPortfolioSuppression> getSuppressions() {
     return suppressions;
   }
 
-  public void setSuppressions(@javax.annotation.Nonnull List<Object> suppressions) {
+  public void setSuppressions(@javax.annotation.Nonnull List<MailMailPortfolioSuppression> suppressions) {
     this.suppressions = suppressions;
     this.reaconPresentFields.add(SERIALIZED_NAME_SUPPRESSIONS);
   }
 
 
-  public MailGetPortfolioResponse200AnyOf teams(@javax.annotation.Nonnull List<Object> teams) {
+  public MailGetPortfolioResponse200AnyOf teams(@javax.annotation.Nonnull List<MailMailPortfolioTeam> teams) {
     this.teams = teams;
     this.reaconPresentFields.add(SERIALIZED_NAME_TEAMS);
     return this;
   }
 
-  public MailGetPortfolioResponse200AnyOf addTeamsItem(Object teamsItem) {
+  public MailGetPortfolioResponse200AnyOf addTeamsItem(MailMailPortfolioTeam teamsItem) {
     if (this.teams == null) {
       this.teams = new ArrayList<>();
     }
@@ -164,11 +166,11 @@ public class MailGetPortfolioResponse200AnyOf {
    * @return teams
    */
   @javax.annotation.Nonnull
-  public List<Object> getTeams() {
+  public List<MailMailPortfolioTeam> getTeams() {
     return teams;
   }
 
-  public void setTeams(@javax.annotation.Nonnull List<Object> teams) {
+  public void setTeams(@javax.annotation.Nonnull List<MailMailPortfolioTeam> teams) {
     this.teams = teams;
     this.reaconPresentFields.add(SERIALIZED_NAME_TEAMS);
   }
@@ -291,17 +293,25 @@ public class MailGetPortfolioResponse200AnyOf {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("suppressions") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("suppressions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `suppressions` to be an array in the JSON string but got `%s`", jsonObj.get("suppressions").toString()));
+      if (jsonObj.get("suppressions") != null) {
+        if (!jsonObj.get("suppressions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `suppressions` to be an array in the JSON string but got `%s`", jsonObj.get("suppressions").toString()));
+        }
+        JsonArray jsonArraysuppressions = jsonObj.getAsJsonArray("suppressions");
+        // validate the required field `suppressions` (array)
+        for (int i = 0; i < jsonArraysuppressions.size(); i++) {
+          MailMailPortfolioSuppression.validateJsonElement(jsonArraysuppressions.get(i));
+        }
       }
-      // ensure the required json array is present
-      if (jsonObj.get("teams") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("teams").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
+      if (jsonObj.get("teams") != null) {
+        if (!jsonObj.get("teams").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
+        }
+        JsonArray jsonArrayteams = jsonObj.getAsJsonArray("teams");
+        // validate the required field `teams` (array)
+        for (int i = 0; i < jsonArrayteams.size(); i++) {
+          MailMailPortfolioTeam.validateJsonElement(jsonArrayteams.get(i));
+        }
       }
   }
 

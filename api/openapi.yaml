@@ -20590,13 +20590,15 @@ components:
             id: id
             subject: subject
             text: text
-            variables: "{}"
+            variables:
+              key: ""
             weight: 7.061401241503109
           - html: html
             id: id
             subject: subject
             text: text
-            variables: "{}"
+            variables:
+              key: ""
             weight: 7.061401241503109
         - delayMs: 2.3021358869347655
           html: html
@@ -20608,13 +20610,15 @@ components:
             id: id
             subject: subject
             text: text
-            variables: "{}"
+            variables:
+              key: ""
             weight: 7.061401241503109
           - html: html
             id: id
             subject: subject
             text: text
-            variables: "{}"
+            variables:
+              key: ""
             weight: 7.061401241503109
         tenantId: tenantId
         updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -20687,13 +20691,15 @@ components:
           id: id
           subject: subject
           text: text
-          variables: "{}"
+          variables:
+            key: ""
           weight: 7.061401241503109
         - html: html
           id: id
           subject: subject
           text: text
-          variables: "{}"
+          variables:
+            key: ""
           weight: 7.061401241503109
       properties:
         delayMs:
@@ -20855,7 +20861,8 @@ components:
     MailContactRecord:
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
-        customFields: "{}"
+        customFields:
+          key: customFields
         email: email
         id: id
         name: name
@@ -20866,6 +20873,8 @@ components:
           format: date-time
           type: string
         customFields:
+          additionalProperties:
+            type: string
           type: object
         email:
           type: string
@@ -21207,7 +21216,8 @@ components:
         contactId: contactId
         id: id
         occurredAt: 2000-01-23T04:56:07.000+00:00
-        payload: "{}"
+        payload:
+          key: ""
         tenantId: tenantId
         type: type
       properties:
@@ -21221,6 +21231,7 @@ components:
           format: date-time
           type: string
         payload:
+          additionalProperties: true
           type: object
         tenantId:
           type: string
@@ -21426,7 +21437,8 @@ components:
         id: id
         method: method
         reason: reason
-        resultSnapshot: "{}"
+        resultSnapshot:
+          key: ""
         revision: 6.027456183070403
         tenantId: tenantId
         winnerVariantId: winnerVariantId
@@ -21448,6 +21460,7 @@ components:
         reason:
           type: string
         resultSnapshot:
+          additionalProperties: true
           type: object
         revision:
           type: number
@@ -21565,7 +21578,8 @@ components:
     MailExperimentOutcomeRecord:
       example:
         experimentKey: experimentKey
-        metadata: "{}"
+        metadata:
+          key: ""
         occurredAt: 2000-01-23T04:56:07.000+00:00
         outcome: outcome
         revision: 0.8008281904610115
@@ -21577,6 +21591,7 @@ components:
         experimentKey:
           type: string
         metadata:
+          additionalProperties: true
           type: object
         occurredAt:
           format: date-time
@@ -21632,7 +21647,8 @@ components:
           id: id
           method: method
           reason: reason
-          resultSnapshot: "{}"
+          resultSnapshot:
+            key: ""
           revision: 6.027456183070403
           tenantId: tenantId
           winnerVariantId: winnerVariantId
@@ -22052,10 +22068,13 @@ components:
             eventType: eventType
             nodeId: nodeId
             total: 7.143538047012306
-          replyLabels: "{}"
+          replyLabels:
+            key: 0.8851374739011653
           sampleLimited: true
-          stages: "{}"
-          taskOutcomes: "{}"
+          stages:
+            key: 7.058770351582356
+          taskOutcomes:
+            key: 6.519180951018382
       properties:
         messages:
           $ref: "#/components/schemas/MailMessageAnalyticsOverview"
@@ -22423,13 +22442,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -22441,13 +22462,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -22519,13 +22542,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -22537,13 +22562,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -22606,13 +22633,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -22624,13 +22653,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -22748,14 +22779,16 @@ components:
           contactId: contactId
           id: id
           occurredAt: 2000-01-23T04:56:07.000+00:00
-          payload: "{}"
+          payload:
+            key: ""
           tenantId: tenantId
           type: type
         - actorId: actorId
           contactId: contactId
           id: id
           occurredAt: 2000-01-23T04:56:07.000+00:00
-          payload: "{}"
+          payload:
+            key: ""
           tenantId: tenantId
           type: type
       properties:
@@ -22917,7 +22950,8 @@ components:
             id: id
             method: method
             reason: reason
-            resultSnapshot: "{}"
+            resultSnapshot:
+              key: ""
             revision: 6.027456183070403
             tenantId: tenantId
             winnerVariantId: winnerVariantId
@@ -23047,7 +23081,8 @@ components:
             id: id
             method: method
             reason: reason
-            resultSnapshot: "{}"
+            resultSnapshot:
+              key: ""
             revision: 6.027456183070403
             tenantId: tenantId
             winnerVariantId: winnerVariantId
@@ -23168,7 +23203,8 @@ components:
             id: id
             method: method
             reason: reason
-            resultSnapshot: "{}"
+            resultSnapshot:
+              key: ""
             revision: 6.027456183070403
             tenantId: tenantId
             winnerVariantId: winnerVariantId
@@ -23682,13 +23718,17 @@ components:
         connections:
         - createdAt: 2000-01-23T04:56:07.000+00:00
           credentialId: credentialId
-          cursors: "{}"
+          cursors:
+            key:
+              lastUid: 0.8008281904610115
+              mailboxPath: mailboxPath
+              uidValidity: uidValidity
           imap:
             host: host
             mailboxPaths:
             - mailboxPaths
             - mailboxPaths
-            port: 0.8008281904610115
+            port: 6.027456183070403
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -23703,7 +23743,7 @@ components:
           smtp:
             host: host
             messageIdDomain: messageIdDomain
-            port: 6.027456183070403
+            port: 1.4658129805029452
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -23711,16 +23751,20 @@ components:
           status: status
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 1.4658129805029452
+          version: 5.962133916683182
         - createdAt: 2000-01-23T04:56:07.000+00:00
           credentialId: credentialId
-          cursors: "{}"
+          cursors:
+            key:
+              lastUid: 0.8008281904610115
+              mailboxPath: mailboxPath
+              uidValidity: uidValidity
           imap:
             host: host
             mailboxPaths:
             - mailboxPaths
             - mailboxPaths
-            port: 0.8008281904610115
+            port: 6.027456183070403
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -23735,7 +23779,7 @@ components:
           smtp:
             host: host
             messageIdDomain: messageIdDomain
-            port: 6.027456183070403
+            port: 1.4658129805029452
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -23743,7 +23787,7 @@ components:
           status: status
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 1.4658129805029452
+          version: 5.962133916683182
         mailboxes:
         - address:
             email: email
@@ -23807,7 +23851,8 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
-          metadata: "{}"
+          metadata:
+            key: metadata
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
           parentMessageId: parentMessageId
           policy:
@@ -23890,7 +23935,8 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
-          metadata: "{}"
+          metadata:
+            key: metadata
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
           parentMessageId: parentMessageId
           policy:
@@ -24173,13 +24219,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -24191,13 +24239,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -24260,13 +24310,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -24278,13 +24330,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -24292,13 +24346,17 @@ components:
         connections:
         - createdAt: 2000-01-23T04:56:07.000+00:00
           credentialId: credentialId
-          cursors: "{}"
+          cursors:
+            key:
+              lastUid: 0.8008281904610115
+              mailboxPath: mailboxPath
+              uidValidity: uidValidity
           imap:
             host: host
             mailboxPaths:
             - mailboxPaths
             - mailboxPaths
-            port: 0.8008281904610115
+            port: 6.027456183070403
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -24313,7 +24371,7 @@ components:
           smtp:
             host: host
             messageIdDomain: messageIdDomain
-            port: 6.027456183070403
+            port: 1.4658129805029452
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -24321,16 +24379,20 @@ components:
           status: status
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 1.4658129805029452
+          version: 5.962133916683182
         - createdAt: 2000-01-23T04:56:07.000+00:00
           credentialId: credentialId
-          cursors: "{}"
+          cursors:
+            key:
+              lastUid: 0.8008281904610115
+              mailboxPath: mailboxPath
+              uidValidity: uidValidity
           imap:
             host: host
             mailboxPaths:
             - mailboxPaths
             - mailboxPaths
-            port: 0.8008281904610115
+            port: 6.027456183070403
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -24345,7 +24407,7 @@ components:
           smtp:
             host: host
             messageIdDomain: messageIdDomain
-            port: 6.027456183070403
+            port: 1.4658129805029452
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -24353,7 +24415,7 @@ components:
           status: status
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 1.4658129805029452
+          version: 5.962133916683182
         health:
         - accepted7d: 0.8008281904610115
           bounced7d: 6.027456183070403
@@ -25006,7 +25068,8 @@ components:
             aggregateId: aggregateId
             id: id
             occurredAt: 2000-01-23T04:56:07.000+00:00
-            payload: "{}"
+            payload:
+              key: ""
             type: type
           id: id
           lastErrorCode: lastErrorCode
@@ -25030,7 +25093,8 @@ components:
             aggregateId: aggregateId
             id: id
             occurredAt: 2000-01-23T04:56:07.000+00:00
-            payload: "{}"
+            payload:
+              key: ""
             type: type
           id: id
           lastErrorCode: lastErrorCode
@@ -25081,6 +25145,23 @@ components:
       required:
       - deliveries
       - subscriptions
+      type: object
+    MailImapCursor:
+      example:
+        lastUid: 0.8008281904610115
+        mailboxPath: mailboxPath
+        uidValidity: uidValidity
+      properties:
+        lastUid:
+          type: number
+        mailboxPath:
+          type: string
+        uidValidity:
+          type: string
+      required:
+      - lastUid
+      - mailboxPath
+      - uidValidity
       type: object
     MailInboxMessageRecord:
       example:
@@ -25186,13 +25267,17 @@ components:
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         credentialId: credentialId
-        cursors: "{}"
+        cursors:
+          key:
+            lastUid: 0.8008281904610115
+            mailboxPath: mailboxPath
+            uidValidity: uidValidity
         imap:
           host: host
           mailboxPaths:
           - mailboxPaths
           - mailboxPaths
-          port: 0.8008281904610115
+          port: 6.027456183070403
           security: security
           serverName: serverName
           tlsCa: tlsCa
@@ -25207,7 +25292,7 @@ components:
         smtp:
           host: host
           messageIdDomain: messageIdDomain
-          port: 6.027456183070403
+          port: 1.4658129805029452
           security: security
           serverName: serverName
           tlsCa: tlsCa
@@ -25215,7 +25300,7 @@ components:
         status: status
         tenantId: tenantId
         updatedAt: 2000-01-23T04:56:07.000+00:00
-        version: 1.4658129805029452
+        version: 5.962133916683182
       properties:
         createdAt:
           format: date-time
@@ -25223,6 +25308,8 @@ components:
         credentialId:
           type: string
         cursors:
+          additionalProperties:
+            $ref: "#/components/schemas/MailImapCursor"
           type: object
         imap:
           $ref: "#/components/schemas/MailStoredImapSettings"
@@ -25911,7 +25998,8 @@ components:
         leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
         leaseOwner: leaseOwner
         mailboxId: mailboxId
-        metadata: "{}"
+        metadata:
+          key: metadata
         nextAttemptAt: 2000-01-23T04:56:07.000+00:00
         parentMessageId: parentMessageId
         policy:
@@ -26003,6 +26091,8 @@ components:
         mailboxId:
           type: string
         metadata:
+          additionalProperties:
+            type: string
           type: object
         nextAttemptAt:
           format: date-time
@@ -26149,7 +26239,8 @@ components:
         id: id
         subject: subject
         text: text
-        variables: "{}"
+        variables:
+          key: ""
         weight: 7.061401241503109
       properties:
         html:
@@ -26161,6 +26252,7 @@ components:
         text:
           type: string
         variables:
+          additionalProperties: true
           type: object
         weight:
           type: number
@@ -26181,22 +26273,31 @@ components:
           eventType: eventType
           nodeId: nodeId
           total: 7.143538047012306
-        replyLabels: "{}"
+        replyLabels:
+          key: 0.8851374739011653
         sampleLimited: true
-        stages: "{}"
-        taskOutcomes: "{}"
+        stages:
+          key: 7.058770351582356
+        taskOutcomes:
+          key: 6.519180951018382
       properties:
         cadenceSteps:
           items:
             $ref: "#/components/schemas/MailOperationalAnalyticsOverview_cadenceSteps_inner"
           type: array
         replyLabels:
+          additionalProperties:
+            type: number
           type: object
         sampleLimited:
           type: boolean
         stages:
+          additionalProperties:
+            type: number
           type: object
         taskOutcomes:
+          additionalProperties:
+            type: number
           type: object
       required:
       - cadenceSteps
@@ -26573,13 +26674,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -26591,13 +26694,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -27456,13 +27561,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -27474,13 +27581,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -27504,9 +27613,6 @@ components:
       - expectedVersion
       type: object
     MailPostCampaignsByCampaignIdLaunchResponse200:
-      anyOf:
-      - $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_anyOf"
-      - $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_1"
       example:
         campaign:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -27593,13 +27699,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -27611,13 +27719,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -28075,13 +28185,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           - delayMs: 2.3021358869347655
             html: html
@@ -28093,13 +28205,15 @@ components:
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
             - html: html
               id: id
               subject: subject
               text: text
-              variables: "{}"
+              variables:
+                key: ""
               weight: 7.061401241503109
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -28171,14 +28285,16 @@ components:
       example:
         results:
         - createdAt: 2000-01-23T04:56:07.000+00:00
-          customFields: "{}"
+          customFields:
+            key: customFields
           email: email
           id: id
           name: name
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - createdAt: 2000-01-23T04:56:07.000+00:00
-          customFields: "{}"
+          customFields:
+            key: customFields
           email: email
           id: id
           name: name
@@ -28711,7 +28827,8 @@ components:
       example:
         outcome:
           experimentKey: experimentKey
-          metadata: "{}"
+          metadata:
+            key: ""
           occurredAt: 2000-01-23T04:56:07.000+00:00
           outcome: outcome
           revision: 0.8008281904610115
@@ -28768,7 +28885,8 @@ components:
           id: id
           method: method
           reason: reason
-          resultSnapshot: "{}"
+          resultSnapshot:
+            key: ""
           revision: 6.027456183070403
           tenantId: tenantId
           winnerVariantId: winnerVariantId
@@ -28877,7 +28995,8 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
-          metadata: "{}"
+          metadata:
+            key: metadata
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
           parentMessageId: parentMessageId
           policy:
@@ -29086,13 +29205,17 @@ components:
         connection:
           createdAt: 2000-01-23T04:56:07.000+00:00
           credentialId: credentialId
-          cursors: "{}"
+          cursors:
+            key:
+              lastUid: 0.8008281904610115
+              mailboxPath: mailboxPath
+              uidValidity: uidValidity
           imap:
             host: host
             mailboxPaths:
             - mailboxPaths
             - mailboxPaths
-            port: 0.8008281904610115
+            port: 6.027456183070403
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -29107,7 +29230,7 @@ components:
           smtp:
             host: host
             messageIdDomain: messageIdDomain
-            port: 6.027456183070403
+            port: 1.4658129805029452
             security: security
             serverName: serverName
             tlsCa: tlsCa
@@ -29115,7 +29238,7 @@ components:
           status: status
           tenantId: tenantId
           updatedAt: 2000-01-23T04:56:07.000+00:00
-          version: 1.4658129805029452
+          version: 5.962133916683182
         mailbox:
           address:
             email: email
@@ -29164,7 +29287,8 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
-          metadata: "{}"
+          metadata:
+            key: metadata
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
           parentMessageId: parentMessageId
           policy:
@@ -29256,7 +29380,8 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
-          metadata: "{}"
+          metadata:
+            key: metadata
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
           parentMessageId: parentMessageId
           policy:
@@ -29394,7 +29519,8 @@ components:
           leaseExpiresAt: 2000-01-23T04:56:07.000+00:00
           leaseOwner: leaseOwner
           mailboxId: mailboxId
-          metadata: "{}"
+          metadata:
+            key: metadata
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
           parentMessageId: parentMessageId
           policy:
@@ -30017,7 +30143,8 @@ components:
             aggregateId: aggregateId
             id: id
             occurredAt: 2000-01-23T04:56:07.000+00:00
-            payload: "{}"
+            payload:
+              key: ""
             type: type
           id: id
           lastErrorCode: lastErrorCode
@@ -30636,7 +30763,7 @@ components:
         mailboxPaths:
         - mailboxPaths
         - mailboxPaths
-        port: 0.8008281904610115
+        port: 6.027456183070403
         security: security
         serverName: serverName
         tlsCa: tlsCa
@@ -30673,7 +30800,7 @@ components:
       example:
         host: host
         messageIdDomain: messageIdDomain
-        port: 6.027456183070403
+        port: 1.4658129805029452
         security: security
         serverName: serverName
         tlsCa: tlsCa
@@ -30790,7 +30917,8 @@ components:
           aggregateId: aggregateId
           id: id
           occurredAt: 2000-01-23T04:56:07.000+00:00
-          payload: "{}"
+          payload:
+            key: ""
           type: type
         id: id
         lastErrorCode: lastErrorCode
@@ -30874,7 +31002,8 @@ components:
         aggregateId: aggregateId
         id: id
         occurredAt: 2000-01-23T04:56:07.000+00:00
-        payload: "{}"
+        payload:
+          key: ""
         type: type
       properties:
         aggregateId:
@@ -30885,6 +31014,7 @@ components:
           format: date-time
           type: string
         payload:
+          additionalProperties: true
           type: object
         type:
           type: string
@@ -38123,13 +38253,13 @@ components:
           x-reacon-null-only: true
         suppressions:
           items:
-            type: object
+            $ref: "#/components/schemas/MailMailPortfolioSuppression"
           maxItems: 0
           minItems: 0
           type: array
         teams:
           items:
-            type: object
+            $ref: "#/components/schemas/MailMailPortfolioTeam"
           maxItems: 0
           minItems: 0
           type: array
@@ -39356,38 +39486,6 @@ components:
         nullable: true
         type: object
         x-reacon-null-only: true
-    MailPostCampaignsByCampaignIdLaunchResponse200_anyOf:
-      properties:
-        campaign:
-          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_campaign"
-        draft:
-          $ref: "#/components/schemas/MailCampaignDraftRecord"
-        sequences:
-          items:
-            type: object
-          maxItems: 0
-          minItems: 0
-          type: array
-      required:
-      - campaign
-      - draft
-      - sequences
-      type: object
-    MailPostCampaignsByCampaignIdLaunchResponse200_anyOf_1:
-      properties:
-        campaign:
-          $ref: "#/components/schemas/MailPostCampaignsByCampaignIdLaunchResponse200_campaign"
-        draft:
-          $ref: "#/components/schemas/MailCampaignDraftRecord"
-        sequences:
-          items:
-            $ref: "#/components/schemas/MailSequenceRunRecord"
-          type: array
-      required:
-      - campaign
-      - draft
-      - sequences
-      type: object
     MailPostCrmNotesResponse200_event_payload:
       example:
         text: text

@@ -19,12 +19,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailImapCursor;
 import io.reacon.sdk.model.MailStoredImapSettings;
 import io.reacon.sdk.model.MailStoredSmtpSettings;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -118,7 +121,7 @@ public class MailMailboxConnectionRecord {
   public static final String SERIALIZED_NAME_CURSORS = "cursors";
   @SerializedName(SERIALIZED_NAME_CURSORS)
   @javax.annotation.Nonnull
-  private Object cursors;
+  private Map<String, MailImapCursor> cursors = new HashMap<>();
 
   public static final String SERIALIZED_NAME_IMAP = "imap";
   @SerializedName(SERIALIZED_NAME_IMAP)
@@ -230,9 +233,17 @@ public class MailMailboxConnectionRecord {
   }
 
 
-  public MailMailboxConnectionRecord cursors(@javax.annotation.Nonnull Object cursors) {
+  public MailMailboxConnectionRecord cursors(@javax.annotation.Nonnull Map<String, MailImapCursor> cursors) {
     this.cursors = cursors;
     this.reaconPresentFields.add(SERIALIZED_NAME_CURSORS);
+    return this;
+  }
+
+  public MailMailboxConnectionRecord putCursorsItem(String key, MailImapCursor cursorsItem) {
+    if (this.cursors == null) {
+      this.cursors = new HashMap<>();
+    }
+    this.cursors.put(key, cursorsItem);
     return this;
   }
 
@@ -241,11 +252,11 @@ public class MailMailboxConnectionRecord {
    * @return cursors
    */
   @javax.annotation.Nonnull
-  public Object getCursors() {
+  public Map<String, MailImapCursor> getCursors() {
     return cursors;
   }
 
-  public void setCursors(@javax.annotation.Nonnull Object cursors) {
+  public void setCursors(@javax.annotation.Nonnull Map<String, MailImapCursor> cursors) {
     this.cursors = cursors;
     this.reaconPresentFields.add(SERIALIZED_NAME_CURSORS);
   }

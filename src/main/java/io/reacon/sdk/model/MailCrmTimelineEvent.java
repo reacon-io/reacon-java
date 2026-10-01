@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -107,7 +109,7 @@ public class MailCrmTimelineEvent {
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   @javax.annotation.Nonnull
-  private Object payload;
+  private Map<String, Object> payload = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -206,9 +208,17 @@ public class MailCrmTimelineEvent {
   }
 
 
-  public MailCrmTimelineEvent payload(@javax.annotation.Nonnull Object payload) {
+  public MailCrmTimelineEvent payload(@javax.annotation.Nonnull Map<String, Object> payload) {
     this.payload = payload;
     this.reaconPresentFields.add(SERIALIZED_NAME_PAYLOAD);
+    return this;
+  }
+
+  public MailCrmTimelineEvent putPayloadItem(String key, Object payloadItem) {
+    if (this.payload == null) {
+      this.payload = new HashMap<>();
+    }
+    this.payload.put(key, payloadItem);
     return this;
   }
 
@@ -217,11 +227,11 @@ public class MailCrmTimelineEvent {
    * @return payload
    */
   @javax.annotation.Nonnull
-  public Object getPayload() {
+  public Map<String, Object> getPayload() {
     return payload;
   }
 
-  public void setPayload(@javax.annotation.Nonnull Object payload) {
+  public void setPayload(@javax.annotation.Nonnull Map<String, Object> payload) {
     this.payload = payload;
     this.reaconPresentFields.add(SERIALIZED_NAME_PAYLOAD);
   }

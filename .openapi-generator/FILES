@@ -295,6 +295,7 @@ src/main/java/io/reacon/sdk/model/MailGetTrackingDomainResponse200.java
 src/main/java/io/reacon/sdk/model/MailGetTrackingDomainResponse200Domain.java
 src/main/java/io/reacon/sdk/model/MailGetWebhooksResponse200.java
 src/main/java/io/reacon/sdk/model/MailGetWebhooksResponse200SubscriptionsInner.java
+src/main/java/io/reacon/sdk/model/MailImapCursor.java
 src/main/java/io/reacon/sdk/model/MailInboxMessageRecord.java
 src/main/java/io/reacon/sdk/model/MailMailAddress.java
 src/main/java/io/reacon/sdk/model/MailMailPortfolio.java
@@ -365,8 +366,6 @@ src/main/java/io/reacon/sdk/model/MailPostCadencesResponse200.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdDuplicateResponse201.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchRequest.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200.java
-src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.java
-src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdStateRequest.java
 src/main/java/io/reacon/sdk/model/MailPostCampaignsByCampaignIdStateResponse200.java

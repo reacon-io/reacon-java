@@ -21,9 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailOperationalAnalyticsOverviewCadenceStepsInner;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -90,7 +93,7 @@ public class MailOperationalAnalyticsOverview {
   public static final String SERIALIZED_NAME_REPLY_LABELS = "replyLabels";
   @SerializedName(SERIALIZED_NAME_REPLY_LABELS)
   @javax.annotation.Nonnull
-  private Object replyLabels;
+  private Map<String, BigDecimal> replyLabels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_SAMPLE_LIMITED = "sampleLimited";
   @SerializedName(SERIALIZED_NAME_SAMPLE_LIMITED)
@@ -100,12 +103,12 @@ public class MailOperationalAnalyticsOverview {
   public static final String SERIALIZED_NAME_STAGES = "stages";
   @SerializedName(SERIALIZED_NAME_STAGES)
   @javax.annotation.Nonnull
-  private Object stages;
+  private Map<String, BigDecimal> stages = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TASK_OUTCOMES = "taskOutcomes";
   @SerializedName(SERIALIZED_NAME_TASK_OUTCOMES)
   @javax.annotation.Nonnull
-  private Object taskOutcomes;
+  private Map<String, BigDecimal> taskOutcomes = new HashMap<>();
 
   public MailOperationalAnalyticsOverview() {
   }
@@ -139,9 +142,17 @@ public class MailOperationalAnalyticsOverview {
   }
 
 
-  public MailOperationalAnalyticsOverview replyLabels(@javax.annotation.Nonnull Object replyLabels) {
+  public MailOperationalAnalyticsOverview replyLabels(@javax.annotation.Nonnull Map<String, BigDecimal> replyLabels) {
     this.replyLabels = replyLabels;
     this.reaconPresentFields.add(SERIALIZED_NAME_REPLY_LABELS);
+    return this;
+  }
+
+  public MailOperationalAnalyticsOverview putReplyLabelsItem(String key, BigDecimal replyLabelsItem) {
+    if (this.replyLabels == null) {
+      this.replyLabels = new HashMap<>();
+    }
+    this.replyLabels.put(key, replyLabelsItem);
     return this;
   }
 
@@ -150,11 +161,11 @@ public class MailOperationalAnalyticsOverview {
    * @return replyLabels
    */
   @javax.annotation.Nonnull
-  public Object getReplyLabels() {
+  public Map<String, BigDecimal> getReplyLabels() {
     return replyLabels;
   }
 
-  public void setReplyLabels(@javax.annotation.Nonnull Object replyLabels) {
+  public void setReplyLabels(@javax.annotation.Nonnull Map<String, BigDecimal> replyLabels) {
     this.replyLabels = replyLabels;
     this.reaconPresentFields.add(SERIALIZED_NAME_REPLY_LABELS);
   }
@@ -181,9 +192,17 @@ public class MailOperationalAnalyticsOverview {
   }
 
 
-  public MailOperationalAnalyticsOverview stages(@javax.annotation.Nonnull Object stages) {
+  public MailOperationalAnalyticsOverview stages(@javax.annotation.Nonnull Map<String, BigDecimal> stages) {
     this.stages = stages;
     this.reaconPresentFields.add(SERIALIZED_NAME_STAGES);
+    return this;
+  }
+
+  public MailOperationalAnalyticsOverview putStagesItem(String key, BigDecimal stagesItem) {
+    if (this.stages == null) {
+      this.stages = new HashMap<>();
+    }
+    this.stages.put(key, stagesItem);
     return this;
   }
 
@@ -192,19 +211,27 @@ public class MailOperationalAnalyticsOverview {
    * @return stages
    */
   @javax.annotation.Nonnull
-  public Object getStages() {
+  public Map<String, BigDecimal> getStages() {
     return stages;
   }
 
-  public void setStages(@javax.annotation.Nonnull Object stages) {
+  public void setStages(@javax.annotation.Nonnull Map<String, BigDecimal> stages) {
     this.stages = stages;
     this.reaconPresentFields.add(SERIALIZED_NAME_STAGES);
   }
 
 
-  public MailOperationalAnalyticsOverview taskOutcomes(@javax.annotation.Nonnull Object taskOutcomes) {
+  public MailOperationalAnalyticsOverview taskOutcomes(@javax.annotation.Nonnull Map<String, BigDecimal> taskOutcomes) {
     this.taskOutcomes = taskOutcomes;
     this.reaconPresentFields.add(SERIALIZED_NAME_TASK_OUTCOMES);
+    return this;
+  }
+
+  public MailOperationalAnalyticsOverview putTaskOutcomesItem(String key, BigDecimal taskOutcomesItem) {
+    if (this.taskOutcomes == null) {
+      this.taskOutcomes = new HashMap<>();
+    }
+    this.taskOutcomes.put(key, taskOutcomesItem);
     return this;
   }
 
@@ -213,11 +240,11 @@ public class MailOperationalAnalyticsOverview {
    * @return taskOutcomes
    */
   @javax.annotation.Nonnull
-  public Object getTaskOutcomes() {
+  public Map<String, BigDecimal> getTaskOutcomes() {
     return taskOutcomes;
   }
 
-  public void setTaskOutcomes(@javax.annotation.Nonnull Object taskOutcomes) {
+  public void setTaskOutcomes(@javax.annotation.Nonnull Map<String, BigDecimal> taskOutcomes) {
     this.taskOutcomes = taskOutcomes;
     this.reaconPresentFields.add(SERIALIZED_NAME_TASK_OUTCOMES);
   }

@@ -32,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:0.7.0-beta.1")
+    implementation("io.reacon:reacon-java:1.0.0-beta.1")
 }
 ```
 
@@ -53,7 +53,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>0.7.0-beta.1</version>
+        <version>1.0.0-beta.1</version>
     </dependency>
 </dependencies>
 ```
@@ -532,6 +532,7 @@ Class | Method | HTTP request | Description
  - [MailGetTrackingDomainResponse200Domain](docs/MailGetTrackingDomainResponse200Domain.md)
  - [MailGetWebhooksResponse200](docs/MailGetWebhooksResponse200.md)
  - [MailGetWebhooksResponse200SubscriptionsInner](docs/MailGetWebhooksResponse200SubscriptionsInner.md)
+ - [MailImapCursor](docs/MailImapCursor.md)
  - [MailInboxMessageRecord](docs/MailInboxMessageRecord.md)
  - [MailMailAddress](docs/MailMailAddress.md)
  - [MailMailPortfolio](docs/MailMailPortfolio.md)
@@ -602,8 +603,6 @@ Class | Method | HTTP request | Description
  - [MailPostCampaignsByCampaignIdDuplicateResponse201](docs/MailPostCampaignsByCampaignIdDuplicateResponse201.md)
  - [MailPostCampaignsByCampaignIdLaunchRequest](docs/MailPostCampaignsByCampaignIdLaunchRequest.md)
  - [MailPostCampaignsByCampaignIdLaunchResponse200](docs/MailPostCampaignsByCampaignIdLaunchResponse200.md)
- - [MailPostCampaignsByCampaignIdLaunchResponse200AnyOf](docs/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.md)
- - [MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1](docs/MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.md)
  - [MailPostCampaignsByCampaignIdLaunchResponse200Campaign](docs/MailPostCampaignsByCampaignIdLaunchResponse200Campaign.md)
  - [MailPostCampaignsByCampaignIdStateRequest](docs/MailPostCampaignsByCampaignIdStateRequest.md)
  - [MailPostCampaignsByCampaignIdStateResponse200](docs/MailPostCampaignsByCampaignIdStateResponse200.md)
