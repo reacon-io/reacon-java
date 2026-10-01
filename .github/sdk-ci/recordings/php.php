@@ -1,5 +1,6 @@
 <?php
 require getenv('REACON_PHP_AUTOLOAD') ?: getenv('SDK_DIRECTORY') . '/vendor/autoload.php';
+require array_values(array_filter([__DIR__.'/../fixed-origin/http.php', __DIR__.'/fixed-origin/http.php', '/fixed-origin/http.php'], 'is_file'))[0];
 use Reacon\Sdk\{Configuration, ObjectSerializer, ApiException};
 function snake($s) { return strtolower(preg_replace('/([a-z0-9])([A-Z])/', '$1_$2', $s)); }
 function canonical($value, $expected) {
@@ -84,9 +85,9 @@ check(!property_exists(ObjectSerializer::sanitizeForSerialization($withoutFlag),
 $cases=json_decode(file_get_contents(getenv('REACON_CASES_FILE')),true,512,JSON_THROW_ON_ERROR); $results=[];
 foreach($cases as $item) {
     try {
-        $config=(new Configuration())->setHost(getenv('REACON_TEST_URL').'/'.$item['id']);
+        $config=new Configuration();
         if($item['record']['request']['authentication']!=='none') $config->setApiKey('X-API-Key','recording-php');
-        $class='Reacon\\Sdk\\Api\\'.$item['apiClass']; $api=new $class(null,$config);
+        $class='Reacon\\Sdk\\Api\\'.$item['apiClass']; $api=new $class(fixtureHttp(getenv('REACON_TEST_URL').'/'.$item['id']),$config);
         $params=[];foreach($item['parameters'] as $key=>$value) $params[snake($key)]=$value;
         if(array_key_exists('body',$item['record']['request'])) $params[snake($item['requestModel'])]=ObjectSerializer::deserialize($rawById[$item['id']]->record->request->body,'Reacon\\Sdk\\Model\\'.$item['requestModel']);
         $csv=$item['record']['operationId']==='exportLeads' && ($item['record']['request']['body']['format']??null)==='csv';

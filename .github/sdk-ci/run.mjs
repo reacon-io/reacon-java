@@ -1,3 +1,4 @@
+import { fixtureProxyDockerArgs } from './fixed-origin/proxy.mjs';
 import { readFile, writeFile, mkdir, cp, readdir } from 'node:fs/promises';
 import { createWriteStream } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -72,7 +73,7 @@ try {
     ...(prebuilt ? {REACON_REUSE_ARTIFACTS: '/prebuilt/artifacts'} : {}),
     DOTNET_CLI_HOME: '/cache/dotnet', NUGET_PACKAGES: '/cache/nuget', DOTNET_CLI_TELEMETRY_OPTOUT: '1',
   };
-  const args = ['run', '--rm', '--network', 'host', '--user', `${process.getuid()}:${process.getgid()}`,
+  const args = ['run', '--rm', '--network', 'host', ...fixtureProxyDockerArgs(), '--user', `${process.getuid()}:${process.getgid()}`,
     ...(prebuilt ? ['-v', `${prebuiltDirectory}:/prebuilt:ro`] : []),
     '-v', `${suite}:/ci:ro`, '-v', `${suite}/recordings:/suite:ro`, '-v', `${suite}/streams:/sdk/conformance:ro`,
     '-v', `${work}:/work`, '-v', `${cache}:/cache`, '-v', `${output}:/results`, '-w', '/work',
@@ -97,7 +98,7 @@ try {
       const streamEnv = {...env, SDK_DIRECTORY: '', REACON_TEST_URL: `${streams.url}/${family}`, REACON_STREAM_BASE_URL: streams.url};
       delete streamEnv.REACON_REUSE_ARTIFACTS;
       // No /work or parent output mount: the SDK checkout is unavailable.
-      const streamArgs = ['run','--rm','--network','host','--user',`${process.getuid()}:${process.getgid()}`,
+      const streamArgs = ['run','--rm','--network', 'host', ...fixtureProxyDockerArgs(),'--user',`${process.getuid()}:${process.getgid()}`,
         '-v',`${suite}:/ci:ro`,'-v',`${suite}/recordings:/suite:ro`,'-v',`${suite}/streams:/sdk/conformance:ro`,
         '-v',`${resolve(output,'artifacts')}:/artifacts:ro`,'-v',`${cache}:/cache`,
         '-v',`${streamOutput}:/results`,'-w','/results',

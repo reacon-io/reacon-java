@@ -39,8 +39,8 @@ public class Consumer {
         }
         String url = System.getenv("REACON_TEST_URL");
         ExecutorService executor = Executors.newFixedThreadPool(2);
-        try (VerificationStreamClient client = new VerificationStreamClient("synthetic-java", url);
-             VerificationStreamClient isolated = new VerificationStreamClient("isolated-java", url)) {
+        try (VerificationStreamClient client = new VerificationStreamClient("synthetic-java", fixtureHttp(url, new okhttp3.OkHttpClient()));
+             VerificationStreamClient isolated = new VerificationStreamClient("isolated-java", fixtureHttp(url, new okhttp3.OkHttpClient()))) {
             try (VerificationStream unused = client.streamVerification("never@example.test", options)) { }
             Future<List<Event>> first = executor.submit(() -> collect(client, "success", options));
             Future<List<Event>> second = executor.submit(() -> collect(isolated, "isolated", options));
@@ -73,6 +73,28 @@ public class Consumer {
             HttpURLConnection control = (HttpURLConnection) new URL(url + "/_assert_closed").openConnection();
             try { check(control.getResponseCode() == 200, "closure while clients remain alive"); } finally { control.disconnect(); }
             System.out.println("Java streaming protocol, cancellation and live closure assertions passed");
-        } finally { executor.shutdownNow(); }
+        } finally { executor.shutdownNow(); closeFixtureClients(); }
     }
+    // Test-only transport interception; request construction must use the fixed service URL.
+    static final java.util.List<okhttp3.OkHttpClient> fixtureClients = new java.util.ArrayList<>();
+    static class FixtureRoute implements okhttp3.Interceptor {
+        final okhttp3.HttpUrl target;
+        FixtureRoute(String url) { target=okhttp3.HttpUrl.get(url); if (!target.host().equals("127.0.0.1") && !target.host().equals("localhost")) throw new IllegalArgumentException("Loopback fixtures only"); }
+        public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws java.io.IOException {
+            okhttp3.Request request=chain.request();
+            if (!request.url().scheme().equals("https") || !request.url().host().equals("api.reacon.io")) throw new AssertionError("SDK changed its fixed API origin");
+            okhttp3.HttpUrl url=target.newBuilder().encodedPath(target.encodedPath().replaceAll("/$", "")+request.url().encodedPath()).encodedQuery(request.url().encodedQuery()).build();
+            return chain.proceed(request.newBuilder().url(url).build());
+        }
+    }
+    public static okhttp3.OkHttpClient fixtureHttp(String target, okhttp3.OkHttpClient original) {
+        okhttp3.OkHttpClient.Builder builder=original.newBuilder();
+        builder.interceptors().removeIf(value->value instanceof FixtureRoute);
+        okhttp3.OkHttpClient client=builder.addInterceptor(new FixtureRoute(target)).build();
+        fixtureClients.add(client); return client;
+    }
+    public static io.reacon.sdk.ApiClient fixtureClient(io.reacon.sdk.ApiClient client, String target) {
+        return client.setHttpClient(fixtureHttp(target, client.getHttpClient()));
+    }
+    static void closeFixtureClients() { for (okhttp3.OkHttpClient client:fixtureClients) {client.dispatcher().executorService().shutdownNow();client.connectionPool().evictAll();} }
 }

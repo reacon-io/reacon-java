@@ -86,7 +86,7 @@ public class JavaRecordingConsumer {
             JsonObject item=element.getAsJsonObject();JsonObject result=new JsonObject();result.addProperty("id",item.get("id").getAsString());
             try{
                 JsonObject record=item.getAsJsonObject("record");JsonObject request=record.getAsJsonObject("request");JsonObject response=record.getAsJsonObject("response");
-                ApiClient client=new ApiClient().setBasePath(System.getenv("REACON_TEST_URL")+"/"+item.get("id").getAsString());
+                ApiClient client=fixtureClient(new ApiClient(),System.getenv("REACON_TEST_URL")+"/"+item.get("id").getAsString());
                 if(!request.get("authentication").getAsString().equals("none"))client.setApiKey("recording-java");
                 Class<?> apiClass=Class.forName("io.reacon.sdk.api."+item.get("apiClass").getAsString());Object api=apiClass.getConstructor(ApiClient.class).newInstance(client);
                 String operation=record.get("operationId").getAsString();JsonArray names=operations.getAsJsonArray(operation);
@@ -131,6 +131,28 @@ public class JavaRecordingConsumer {
         Files.write(Paths.get(System.getenv("REACON_RESULTS_FILE")),new GsonBuilder().setPrettyPrinting().create().toJson(results).getBytes(java.nio.charset.StandardCharsets.UTF_8));
         System.out.println(passed+"/"+cases.size()+" recorded responses passed through Java methods");
         for(JsonElement result:results) if(!result.getAsJsonObject().get("passed").getAsBoolean()) System.err.println(result);
-        if(passed!=cases.size())System.exit(1);
+        closeFixtureClients(); if(passed!=cases.size())System.exit(1);
     }
+    // Test-only transport interception; request construction must use the fixed service URL.
+    static final java.util.List<okhttp3.OkHttpClient> fixtureClients = new java.util.ArrayList<>();
+    static class FixtureRoute implements okhttp3.Interceptor {
+        final okhttp3.HttpUrl target;
+        FixtureRoute(String url) { target=okhttp3.HttpUrl.get(url); if (!target.host().equals("127.0.0.1") && !target.host().equals("localhost")) throw new IllegalArgumentException("Loopback fixtures only"); }
+        public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws java.io.IOException {
+            okhttp3.Request request=chain.request();
+            if (!request.url().scheme().equals("https") || !request.url().host().equals("api.reacon.io")) throw new AssertionError("SDK changed its fixed API origin");
+            okhttp3.HttpUrl url=target.newBuilder().encodedPath(target.encodedPath().replaceAll("/$", "")+request.url().encodedPath()).encodedQuery(request.url().encodedQuery()).build();
+            return chain.proceed(request.newBuilder().url(url).build());
+        }
+    }
+    public static okhttp3.OkHttpClient fixtureHttp(String target, okhttp3.OkHttpClient original) {
+        okhttp3.OkHttpClient.Builder builder=original.newBuilder();
+        builder.interceptors().removeIf(value->value instanceof FixtureRoute);
+        okhttp3.OkHttpClient client=builder.addInterceptor(new FixtureRoute(target)).build();
+        fixtureClients.add(client); return client;
+    }
+    public static io.reacon.sdk.ApiClient fixtureClient(io.reacon.sdk.ApiClient client, String target) {
+        return client.setHttpClient(fixtureHttp(target, client.getHttpClient()));
+    }
+    static void closeFixtureClients() { for (okhttp3.OkHttpClient client:fixtureClients) {client.dispatcher().executorService().shutdownNow();client.connectionPool().evictAll();} }
 }
