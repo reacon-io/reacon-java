@@ -32,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:1.0.0-beta.1")
+    implementation("io.reacon:reacon-java:2.0.0-beta.1")
 }
 ```
 
@@ -53,7 +53,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>2.0.0-beta.1</version>
     </dependency>
 </dependencies>
 ```
@@ -290,6 +290,7 @@ Class | Method | HTTP request | Description
  - [AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner](docs/AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner.md)
  - [ApiError](docs/ApiError.md)
  - [ApiKeyIdentity](docs/ApiKeyIdentity.md)
+ - [ApiValidationIssue](docs/ApiValidationIssue.md)
  - [AutomationHookCreated](docs/AutomationHookCreated.md)
  - [BatchVerificationError](docs/BatchVerificationError.md)
  - [BatchVerificationItem](docs/BatchVerificationItem.md)
