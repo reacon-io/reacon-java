@@ -32,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:2.0.0-beta.1")
+    implementation("io.reacon:reacon-java:2.0.0-beta.2")
 }
 ```
 
@@ -53,7 +53,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>2.0.0-beta.1</version>
+        <version>2.0.0-beta.2</version>
     </dependency>
 </dependencies>
 ```
