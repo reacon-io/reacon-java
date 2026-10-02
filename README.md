@@ -32,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:2.0.0-beta.2")
+    implementation("io.reacon:reacon-java:2.0.1-beta.1")
 }
 ```
 
@@ -53,7 +53,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>2.0.0-beta.2</version>
+        <version>2.0.1-beta.1</version>
     </dependency>
 </dependencies>
 ```
@@ -930,3 +930,7 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 
 The service URL is fixed to https://api.reacon.io. SDKs do not accept a service URL override.
+
+## Retrying requests
+
+A timeout or dropped connection does not prove that the server rejected a request. Before retrying a write or credit-consuming operation, check its outcome. Only retry when the operation is safe to repeat; when present, respect the Retry-After response header.
