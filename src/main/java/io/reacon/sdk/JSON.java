@@ -164,6 +164,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.ApiError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.ApiKeyIdentity.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.ApiValidationIssue.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.AutomationHookCreated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.BatchVerificationError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.reacon.sdk.model.BatchVerificationItem.CustomTypeAdapterFactory());

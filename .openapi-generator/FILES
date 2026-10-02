@@ -53,6 +53,7 @@ src/main/java/io/reacon/sdk/model/AirtableMappingOptionsResponseOptionsTablesInn
 src/main/java/io/reacon/sdk/model/AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner.java
 src/main/java/io/reacon/sdk/model/ApiError.java
 src/main/java/io/reacon/sdk/model/ApiKeyIdentity.java
+src/main/java/io/reacon/sdk/model/ApiValidationIssue.java
 src/main/java/io/reacon/sdk/model/AutomationHookCreated.java
 src/main/java/io/reacon/sdk/model/BatchVerificationError.java
 src/main/java/io/reacon/sdk/model/BatchVerificationItem.java

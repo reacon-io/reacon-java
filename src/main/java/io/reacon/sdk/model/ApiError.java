@@ -19,13 +19,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.ApiValidationIssue;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -110,7 +110,7 @@ public class ApiError {
   public static final String SERIALIZED_NAME_ISSUES = "issues";
   @SerializedName(SERIALIZED_NAME_ISSUES)
   @javax.annotation.Nullable
-  private List<Map<String, Object>> issues;
+  private List<ApiValidationIssue> issues;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -203,13 +203,13 @@ public class ApiError {
   }
 
 
-  public ApiError issues(@javax.annotation.Nullable List<Map<String, Object>> issues) {
+  public ApiError issues(@javax.annotation.Nullable List<ApiValidationIssue> issues) {
     this.issues = issues;
     this.reaconPresentFields.add(SERIALIZED_NAME_ISSUES);
     return this;
   }
 
-  public ApiError addIssuesItem(Map<String, Object> issuesItem) {
+  public ApiError addIssuesItem(ApiValidationIssue issuesItem) {
     if (this.issues == null) {
       this.issues = new ArrayList<>();
     }
@@ -222,11 +222,11 @@ public class ApiError {
    * @return issues
    */
   @javax.annotation.Nullable
-  public List<Map<String, Object>> getIssues() {
+  public List<ApiValidationIssue> getIssues() {
     return issues;
   }
 
-  public void setIssues(@javax.annotation.Nullable List<Map<String, Object>> issues) {
+  public void setIssues(@javax.annotation.Nullable List<ApiValidationIssue> issues) {
     this.issues = issues;
     this.reaconPresentFields.add(SERIALIZED_NAME_ISSUES);
   }
