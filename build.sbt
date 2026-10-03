@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "io.reacon",
     name := "reacon-java",
-    version := "2.0.9-beta.1",
+    version := "2.0.10-beta.1",
     scalaVersion := "2.13.6",
     scalacOptions ++= Seq("-feature"),
     compile / javacOptions ++= Seq("-Xlint:deprecation"),
