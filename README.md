@@ -32,7 +32,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:2.0.4-beta.1")
+    implementation("io.reacon:reacon-java:2.0.5-beta.1")
 }
 ```
 
@@ -53,7 +53,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>2.0.4-beta.1</version>
+        <version>2.0.5-beta.1</version>
     </dependency>
 </dependencies>
 ```
@@ -937,4 +937,4 @@ A timeout or dropped connection does not prove that the server rejected a reques
 
 ## Reporting failures
 
-When reporting a failure, include the SDK package version and HTTP status. Include a request identifier if the response supplies one. Remove API keys and customer data from logs and bug reports. Redact Authorization and X-API-Key headers before sharing a request.
+When reporting a failure, include the SDK package version and HTTP status. Include a request identifier if the response supplies one. Remove API keys and customer data from logs and bug reports. Redact Authorization and X-API-Key headers before sharing a request. Never include the API key in a URL or a screenshot.
