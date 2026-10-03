@@ -1,8 +1,10 @@
 # Reacon Java SDK
 
-Package `io.reacon:reacon-java`, version `2.0.7-beta.1`.
+Package `io.reacon:reacon-java`, version `2.0.8-beta.1`.
 
 [API reference and SDK examples](https://docs.reacon.io). Select your language on an endpoint page for SDK calls and response schemas.
+
+The SDK connects to `https://api.reacon.io`. The API address is built in and cannot be overridden. Configure your API key as shown in your language’s examples; do not pass a base URL.
 
 Reacon API
 - API version: 0.1.0
@@ -35,7 +37,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:2.0.7-beta.1")
+    implementation("io.reacon:reacon-java:2.0.8-beta.1")
 }
 ```
 
@@ -56,7 +58,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>2.0.7-beta.1</version>
+        <version>2.0.8-beta.1</version>
     </dependency>
 </dependencies>
 ```
