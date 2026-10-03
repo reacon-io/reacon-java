@@ -1,6 +1,6 @@
 # Reacon Java SDK
 
-Package `io.reacon:reacon-java`, version `2.0.11-beta.1`.
+Package `io.reacon:reacon-java`, version `2.0.12-beta.1`.
 
 Minimum runtime: **Java 8**.
 
@@ -9,6 +9,8 @@ Minimum runtime: **Java 8**.
 The SDK connects to `https://api.reacon.io`. The API address is built in and cannot be overridden. Configure your API key as shown in your language’s examples; do not pass a base URL.
 
 API keys are secrets. Load your key from an environment variable or secret manager and pass it through the SDK authentication configuration. Do not commit keys or include them in browser or mobile application bundles. The examples use `REACON_API_KEY`; the SDK does not load this environment variable automatically.
+
+SDK package versions and API path versions are separate. The generated methods already select their API paths; do not derive an API path such as `/v2` from the package’s major version.
 
 For reproducible deployments, commit your dependency lockfile or pin the package version in your build configuration. Review the API reference and run your application’s integration tests before upgrading the SDK.
 
@@ -43,7 +45,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:2.0.11-beta.1")
+    implementation("io.reacon:reacon-java:2.0.12-beta.1")
 }
 ```
 
@@ -64,7 +66,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>2.0.11-beta.1</version>
+        <version>2.0.12-beta.1</version>
     </dependency>
 </dependencies>
 ```
