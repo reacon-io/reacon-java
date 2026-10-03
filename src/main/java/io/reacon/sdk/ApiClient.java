@@ -146,7 +146,7 @@ public class ApiClient implements AutoCloseable {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/2.0.8-beta.1/java");
+        setUserAgent("OpenAPI-Generator/2.0.9-beta.1/java");
 
         authentications = new HashMap<String, Authentication>();
     }
