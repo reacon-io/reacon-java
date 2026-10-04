@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailMailboxPoolMember;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class MailPostDeliverabilityPoolsResponse201Pool {
   public static final String SERIALIZED_NAME_MEMBERS = "members";
   @SerializedName(SERIALIZED_NAME_MEMBERS)
   @javax.annotation.Nonnull
-  private List<Object> members = new ArrayList<>();
+  private List<MailMailboxPoolMember> members = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -166,13 +167,13 @@ public class MailPostDeliverabilityPoolsResponse201Pool {
   }
 
 
-  public MailPostDeliverabilityPoolsResponse201Pool members(@javax.annotation.Nonnull List<Object> members) {
+  public MailPostDeliverabilityPoolsResponse201Pool members(@javax.annotation.Nonnull List<MailMailboxPoolMember> members) {
     this.members = members;
     this.reaconPresentFields.add(SERIALIZED_NAME_MEMBERS);
     return this;
   }
 
-  public MailPostDeliverabilityPoolsResponse201Pool addMembersItem(Object membersItem) {
+  public MailPostDeliverabilityPoolsResponse201Pool addMembersItem(MailMailboxPoolMember membersItem) {
     if (this.members == null) {
       this.members = new ArrayList<>();
     }
@@ -185,11 +186,11 @@ public class MailPostDeliverabilityPoolsResponse201Pool {
    * @return members
    */
   @javax.annotation.Nonnull
-  public List<Object> getMembers() {
+  public List<MailMailboxPoolMember> getMembers() {
     return members;
   }
 
-  public void setMembers(@javax.annotation.Nonnull List<Object> members) {
+  public void setMembers(@javax.annotation.Nonnull List<MailMailboxPoolMember> members) {
     this.members = members;
     this.reaconPresentFields.add(SERIALIZED_NAME_MEMBERS);
   }
@@ -407,11 +408,15 @@ public class MailPostDeliverabilityPoolsResponse201Pool {
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("members") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("members").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
+      if (jsonObj.get("members") != null) {
+        if (!jsonObj.get("members").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `members` to be an array in the JSON string but got `%s`", jsonObj.get("members").toString()));
+        }
+        JsonArray jsonArraymembers = jsonObj.getAsJsonArray("members");
+        // validate the required field `members` (array)
+        for (int i = 0; i < jsonArraymembers.size(); i++) {
+          MailMailboxPoolMember.validateJsonElement(jsonArraymembers.get(i));
+        }
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
