@@ -56,6 +56,7 @@ public class PublicStats {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_API_PROTOCOL_VERSION: return reaconPresentFields.contains(SERIALIZED_NAME_API_PROTOCOL_VERSION) || this.apiProtocolVersion != null;
       case SERIALIZED_NAME_EMAILS: return reaconPresentFields.contains(SERIALIZED_NAME_EMAILS) || this.emails != null;
       case SERIALIZED_NAME_MENTIONS: return reaconPresentFields.contains(SERIALIZED_NAME_MENTIONS) || this.mentions != null;
       case SERIALIZED_NAME_VERSION: return reaconPresentFields.contains(SERIALIZED_NAME_VERSION) || this.version != null;
@@ -67,6 +68,7 @@ public class PublicStats {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_API_PROTOCOL_VERSION: this.apiProtocolVersion = null; break;
       case SERIALIZED_NAME_EMAILS: this.emails = null; break;
       case SERIALIZED_NAME_MENTIONS: this.mentions = null; break;
       case SERIALIZED_NAME_VERSION: this.version = null; break;
@@ -74,6 +76,11 @@ public class PublicStats {
     }
     reaconPresentFields.remove(wireName);
   }
+
+  public static final String SERIALIZED_NAME_API_PROTOCOL_VERSION = "apiProtocolVersion";
+  @SerializedName(SERIALIZED_NAME_API_PROTOCOL_VERSION)
+  @javax.annotation.Nullable
+  private Integer apiProtocolVersion;
 
   public static final String SERIALIZED_NAME_EMAILS = "emails";
   @SerializedName(SERIALIZED_NAME_EMAILS)
@@ -92,6 +99,28 @@ public class PublicStats {
 
   public PublicStats() {
   }
+
+  public PublicStats apiProtocolVersion(@javax.annotation.Nullable Integer apiProtocolVersion) {
+    this.apiProtocolVersion = apiProtocolVersion;
+    this.reaconPresentFields.add(SERIALIZED_NAME_API_PROTOCOL_VERSION);
+    return this;
+  }
+
+  /**
+   * Wire protocol major version, independent of SDK and actions-package versions.
+   * minimum: 1
+   * @return apiProtocolVersion
+   */
+  @javax.annotation.Nullable
+  public Integer getApiProtocolVersion() {
+    return apiProtocolVersion;
+  }
+
+  public void setApiProtocolVersion(@javax.annotation.Nullable Integer apiProtocolVersion) {
+    this.apiProtocolVersion = apiProtocolVersion;
+    this.reaconPresentFields.add(SERIALIZED_NAME_API_PROTOCOL_VERSION);
+  }
+
 
   public PublicStats emails(@javax.annotation.Nonnull Integer emails) {
     this.emails = emails;
@@ -210,7 +239,8 @@ public class PublicStats {
       return false;
     }
     PublicStats publicStats = (PublicStats) o;
-    return Objects.equals(this.emails, publicStats.emails) &&
+    return Objects.equals(this.apiProtocolVersion, publicStats.apiProtocolVersion) &&
+        Objects.equals(this.emails, publicStats.emails) &&
         Objects.equals(this.mentions, publicStats.mentions) &&
         Objects.equals(this.version, publicStats.version)&&
         Objects.equals(this.additionalProperties, publicStats.additionalProperties);
@@ -218,13 +248,14 @@ public class PublicStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails, mentions, version, additionalProperties);
+    return Objects.hash(apiProtocolVersion, emails, mentions, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PublicStats {\n");
+    sb.append("    apiProtocolVersion: ").append(toIndentedString(apiProtocolVersion)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    mentions: ").append(toIndentedString(mentions)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -247,7 +278,7 @@ public class PublicStats {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("emails", "mentions", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("apiProtocolVersion", "emails", "mentions", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("emails", "mentions", "version"));
@@ -293,6 +324,10 @@ public class PublicStats {
            @Override
            public void write(JsonWriter out, PublicStats value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.apiProtocolVersion == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_API_PROTOCOL_VERSION)) obj.add(SERIALIZED_NAME_API_PROTOCOL_VERSION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_API_PROTOCOL_VERSION);
+             }
              if (value.emails == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAILS)) obj.add(SERIALIZED_NAME_EMAILS, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_EMAILS);
