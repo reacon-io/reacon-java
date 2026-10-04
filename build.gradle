@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'io.reacon'
-version = '2.0.12-beta.1'
+version = '2.0.13-beta.1'
 
 buildscript {
     repositories {
