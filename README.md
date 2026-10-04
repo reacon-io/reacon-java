@@ -1,6 +1,6 @@
 # Reacon Java SDK
 
-Package `io.reacon:reacon-java`, version `3.0.0-beta.1`.
+Package `io.reacon:reacon-java`, version `4.0.0-beta.1`.
 
 Minimum runtime: **Java 8**.
 
@@ -51,7 +51,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:3.0.0-beta.1")
+    implementation("io.reacon:reacon-java:4.0.0-beta.1")
 }
 ```
 
@@ -72,7 +72,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>3.0.0-beta.1</version>
+        <version>4.0.0-beta.1</version>
     </dependency>
 </dependencies>
 ```

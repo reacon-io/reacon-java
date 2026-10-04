@@ -29694,7 +29694,7 @@ components:
           $ref: "#/components/schemas/MailMailPortfolio"
         suppressions:
           items:
-            type: object
+            $ref: "#/components/schemas/MailMailPortfolioSuppression"
           maxItems: 0
           minItems: 0
           type: array
@@ -39568,7 +39568,7 @@ components:
           type: string
         members:
           items:
-            type: object
+            $ref: "#/components/schemas/MailMailboxPoolMember"
           maxItems: 0
           minItems: 0
           type: array
