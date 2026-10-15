@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,21 +48,17 @@ import java.util.Set;
 import io.reacon.sdk.JSON;
 
 /**
- * ProductSequence
+ * MailContactRecordVerification
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class ProductSequence {
+public class MailContactRecordVerification {
   private transient java.util.Set<String> reaconPresentFields = new java.util.HashSet<>();
 
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
-      case SERIALIZED_NAME_CREATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT) || this.createdAt != null;
-      case SERIALIZED_NAME_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ID) || this.id != null;
-      case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
-      case SERIALIZED_NAME_RECIPIENT_COUNT: return reaconPresentFields.contains(SERIALIZED_NAME_RECIPIENT_COUNT) || this.recipientCount != null;
+      case SERIALIZED_NAME_LAST_VERIFIED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_LAST_VERIFIED_AT) || this.lastVerifiedAt != null;
       case SERIALIZED_NAME_STATUS: return reaconPresentFields.contains(SERIALIZED_NAME_STATUS) || this.status != null;
-      case SERIALIZED_NAME_UPDATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_UPDATED_AT) || this.updatedAt != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -72,135 +67,48 @@ public class ProductSequence {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
-      case SERIALIZED_NAME_CREATED_AT: this.createdAt = null; break;
-      case SERIALIZED_NAME_ID: this.id = null; break;
-      case SERIALIZED_NAME_NAME: this.name = null; break;
-      case SERIALIZED_NAME_RECIPIENT_COUNT: this.recipientCount = null; break;
+      case SERIALIZED_NAME_LAST_VERIFIED_AT: this.lastVerifiedAt = null; break;
       case SERIALIZED_NAME_STATUS: this.status = null; break;
-      case SERIALIZED_NAME_UPDATED_AT: this.updatedAt = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @javax.annotation.Nonnull
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private UUID id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
-
-  public static final String SERIALIZED_NAME_RECIPIENT_COUNT = "recipientCount";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_COUNT)
-  @javax.annotation.Nonnull
-  private Integer recipientCount;
+  public static final String SERIALIZED_NAME_LAST_VERIFIED_AT = "lastVerifiedAt";
+  @SerializedName(SERIALIZED_NAME_LAST_VERIFIED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime lastVerifiedAt;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String status;
 
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  @javax.annotation.Nonnull
-  private OffsetDateTime updatedAt;
-
-  public ProductSequence() {
+  public MailContactRecordVerification() {
   }
 
-  public ProductSequence createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    this.reaconPresentFields.add(SERIALIZED_NAME_CREATED_AT);
+  public MailContactRecordVerification lastVerifiedAt(@javax.annotation.Nullable OffsetDateTime lastVerifiedAt) {
+    this.lastVerifiedAt = lastVerifiedAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_LAST_VERIFIED_AT);
     return this;
   }
 
   /**
-   * Get createdAt
-   * @return createdAt
+   * Get lastVerifiedAt
+   * @return lastVerifiedAt
    */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
+  @javax.annotation.Nullable
+  public OffsetDateTime getLastVerifiedAt() {
+    return lastVerifiedAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    this.reaconPresentFields.add(SERIALIZED_NAME_CREATED_AT);
-  }
-
-
-  public ProductSequence id(@javax.annotation.Nonnull UUID id) {
-    this.id = id;
-    this.reaconPresentFields.add(SERIALIZED_NAME_ID);
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull UUID id) {
-    this.id = id;
-    this.reaconPresentFields.add(SERIALIZED_NAME_ID);
+  public void setLastVerifiedAt(@javax.annotation.Nullable OffsetDateTime lastVerifiedAt) {
+    this.lastVerifiedAt = lastVerifiedAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_LAST_VERIFIED_AT);
   }
 
 
-  public ProductSequence name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    this.reaconPresentFields.add(SERIALIZED_NAME_NAME);
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    this.reaconPresentFields.add(SERIALIZED_NAME_NAME);
-  }
-
-
-  public ProductSequence recipientCount(@javax.annotation.Nonnull Integer recipientCount) {
-    this.recipientCount = recipientCount;
-    this.reaconPresentFields.add(SERIALIZED_NAME_RECIPIENT_COUNT);
-    return this;
-  }
-
-  /**
-   * Get recipientCount
-   * @return recipientCount
-   */
-  @javax.annotation.Nonnull
-  public Integer getRecipientCount() {
-    return recipientCount;
-  }
-
-  public void setRecipientCount(@javax.annotation.Nonnull Integer recipientCount) {
-    this.recipientCount = recipientCount;
-    this.reaconPresentFields.add(SERIALIZED_NAME_RECIPIENT_COUNT);
-  }
-
-
-  public ProductSequence status(@javax.annotation.Nonnull String status) {
+  public MailContactRecordVerification status(@javax.annotation.Nullable String status) {
     this.status = status;
     this.reaconPresentFields.add(SERIALIZED_NAME_STATUS);
     return this;
@@ -210,35 +118,14 @@ public class ProductSequence {
    * Get status
    * @return status
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
+  public void setStatus(@javax.annotation.Nullable String status) {
     this.status = status;
     this.reaconPresentFields.add(SERIALIZED_NAME_STATUS);
-  }
-
-
-  public ProductSequence updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-    this.reaconPresentFields.add(SERIALIZED_NAME_UPDATED_AT);
-    return this;
-  }
-
-  /**
-   * Get updatedAt
-   * @return updatedAt
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-    this.reaconPresentFields.add(SERIALIZED_NAME_UPDATED_AT);
   }
 
   /**
@@ -254,9 +141,9 @@ public class ProductSequence {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ProductSequence instance itself
+   * @return the MailContactRecordVerification instance itself
    */
-  public ProductSequence putAdditionalProperty(String key, Object value) {
+  public MailContactRecordVerification putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -295,31 +182,23 @@ public class ProductSequence {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductSequence productSequence = (ProductSequence) o;
-    return Objects.equals(this.createdAt, productSequence.createdAt) &&
-        Objects.equals(this.id, productSequence.id) &&
-        Objects.equals(this.name, productSequence.name) &&
-        Objects.equals(this.recipientCount, productSequence.recipientCount) &&
-        Objects.equals(this.status, productSequence.status) &&
-        Objects.equals(this.updatedAt, productSequence.updatedAt)&&
-        Objects.equals(this.additionalProperties, productSequence.additionalProperties);
+    MailContactRecordVerification mailContactRecordVerification = (MailContactRecordVerification) o;
+    return Objects.equals(this.lastVerifiedAt, mailContactRecordVerification.lastVerifiedAt) &&
+        Objects.equals(this.status, mailContactRecordVerification.status)&&
+        Objects.equals(this.additionalProperties, mailContactRecordVerification.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, id, name, recipientCount, status, updatedAt, additionalProperties);
+    return Objects.hash(lastVerifiedAt, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProductSequence {\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    recipientCount: ").append(toIndentedString(recipientCount)).append("\n");
+    sb.append("class MailContactRecordVerification {\n");
+    sb.append("    lastVerifiedAt: ").append(toIndentedString(lastVerifiedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -339,39 +218,33 @@ public class ProductSequence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("createdAt", "id", "name", "recipientCount", "status", "updatedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("lastVerifiedAt", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("createdAt", "id", "name", "recipientCount", "status", "updatedAt"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("lastVerifiedAt", "status"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProductSequence
+   * @throws IOException if the JSON Element is invalid with respect to MailContactRecordVerification
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ProductSequence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ProductSequence is not found in the empty JSON string", ProductSequence.openapiRequiredFields.toString()));
+        if (!MailContactRecordVerification.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailContactRecordVerification is not found in the empty JSON string", MailContactRecordVerification.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProductSequence.openapiRequiredFields) {
+      for (String requiredField : MailContactRecordVerification.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
   }
@@ -380,40 +253,24 @@ public class ProductSequence {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProductSequence.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProductSequence' and its subtypes
+       if (!MailContactRecordVerification.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MailContactRecordVerification' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProductSequence> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProductSequence.class));
+       final TypeAdapter<MailContactRecordVerification> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MailContactRecordVerification.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ProductSequence>() {
+       return (TypeAdapter<T>) new TypeAdapter<MailContactRecordVerification>() {
            @Override
-           public void write(JsonWriter out, ProductSequence value) throws IOException {
+           public void write(JsonWriter out, MailContactRecordVerification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             if (value.createdAt == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT)) obj.add(SERIALIZED_NAME_CREATED_AT, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_CREATED_AT);
-             }
-             if (value.id == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ID)) obj.add(SERIALIZED_NAME_ID, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_ID);
-             }
-             if (value.name == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_NAME)) obj.add(SERIALIZED_NAME_NAME, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_NAME);
-             }
-             if (value.recipientCount == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_RECIPIENT_COUNT)) obj.add(SERIALIZED_NAME_RECIPIENT_COUNT, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_RECIPIENT_COUNT);
+             if (value.lastVerifiedAt == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_LAST_VERIFIED_AT)) obj.add(SERIALIZED_NAME_LAST_VERIFIED_AT, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_LAST_VERIFIED_AT);
              }
              if (value.status == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_STATUS)) obj.add(SERIALIZED_NAME_STATUS, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_STATUS);
-             }
-             if (value.updatedAt == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_UPDATED_AT)) obj.add(SERIALIZED_NAME_UPDATED_AT, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_UPDATED_AT);
              }
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -446,12 +303,12 @@ public class ProductSequence {
            }
 
            @Override
-           public ProductSequence read(JsonReader in) throws IOException {
+           public MailContactRecordVerification read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ProductSequence instance = thisAdapter.fromJsonTree(jsonObj);
+             MailContactRecordVerification instance = thisAdapter.fromJsonTree(jsonObj);
              instance.reaconPresentFields.addAll(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
@@ -479,18 +336,18 @@ public class ProductSequence {
   }
 
   /**
-   * Create an instance of ProductSequence given an JSON string
+   * Create an instance of MailContactRecordVerification given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ProductSequence
-   * @throws IOException if the JSON string is invalid with respect to ProductSequence
+   * @return An instance of MailContactRecordVerification
+   * @throws IOException if the JSON string is invalid with respect to MailContactRecordVerification
    */
-  public static ProductSequence fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProductSequence.class);
+  public static MailContactRecordVerification fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MailContactRecordVerification.class);
   }
 
   /**
-   * Convert an instance of ProductSequence to an JSON string
+   * Convert an instance of MailContactRecordVerification to an JSON string
    *
    * @return JSON string
    */

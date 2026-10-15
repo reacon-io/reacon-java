@@ -19,11 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.ProductDatedRecipient;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,16 +47,18 @@ import java.util.Set;
 import io.reacon.sdk.JSON;
 
 /**
- * ProductSequenceRecipientsListOutput
+ * MailEmailAssetReference
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class ProductSequenceRecipientsListOutput {
+public class MailEmailAssetReference {
   private transient java.util.Set<String> reaconPresentFields = new java.util.HashSet<>();
 
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
-      case SERIALIZED_NAME_ITEMS: return reaconPresentFields.contains(SERIALIZED_NAME_ITEMS) || this.items != null;
+      case SERIALIZED_NAME_ASSET_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ASSET_ID) || this.assetId != null;
+      case SERIALIZED_NAME_CID: return reaconPresentFields.contains(SERIALIZED_NAME_CID) || this.cid != null;
+      case SERIALIZED_NAME_DISPOSITION: return reaconPresentFields.contains(SERIALIZED_NAME_DISPOSITION) || this.disposition != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -68,46 +67,92 @@ public class ProductSequenceRecipientsListOutput {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
-      case SERIALIZED_NAME_ITEMS: this.items = null; break;
+      case SERIALIZED_NAME_ASSET_ID: this.assetId = null; break;
+      case SERIALIZED_NAME_CID: this.cid = null; break;
+      case SERIALIZED_NAME_DISPOSITION: this.disposition = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
 
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
+  public static final String SERIALIZED_NAME_ASSET_ID = "assetId";
+  @SerializedName(SERIALIZED_NAME_ASSET_ID)
   @javax.annotation.Nonnull
-  private List<ProductDatedRecipient> items = new ArrayList<>();
+  private String assetId;
 
-  public ProductSequenceRecipientsListOutput() {
+  public static final String SERIALIZED_NAME_CID = "cid";
+  @SerializedName(SERIALIZED_NAME_CID)
+  @javax.annotation.Nullable
+  private String cid;
+
+  public static final String SERIALIZED_NAME_DISPOSITION = "disposition";
+  @SerializedName(SERIALIZED_NAME_DISPOSITION)
+  @javax.annotation.Nonnull
+  private String disposition;
+
+  public MailEmailAssetReference() {
   }
 
-  public ProductSequenceRecipientsListOutput items(@javax.annotation.Nonnull List<ProductDatedRecipient> items) {
-    this.items = items;
-    this.reaconPresentFields.add(SERIALIZED_NAME_ITEMS);
-    return this;
-  }
-
-  public ProductSequenceRecipientsListOutput addItemsItem(ProductDatedRecipient itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
+  public MailEmailAssetReference assetId(@javax.annotation.Nonnull String assetId) {
+    this.assetId = assetId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ASSET_ID);
     return this;
   }
 
   /**
-   * Get items
-   * @return items
+   * Get assetId
+   * @return assetId
    */
   @javax.annotation.Nonnull
-  public List<ProductDatedRecipient> getItems() {
-    return items;
+  public String getAssetId() {
+    return assetId;
   }
 
-  public void setItems(@javax.annotation.Nonnull List<ProductDatedRecipient> items) {
-    this.items = items;
-    this.reaconPresentFields.add(SERIALIZED_NAME_ITEMS);
+  public void setAssetId(@javax.annotation.Nonnull String assetId) {
+    this.assetId = assetId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ASSET_ID);
+  }
+
+
+  public MailEmailAssetReference cid(@javax.annotation.Nullable String cid) {
+    this.cid = cid;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CID);
+    return this;
+  }
+
+  /**
+   * Get cid
+   * @return cid
+   */
+  @javax.annotation.Nullable
+  public String getCid() {
+    return cid;
+  }
+
+  public void setCid(@javax.annotation.Nullable String cid) {
+    this.cid = cid;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CID);
+  }
+
+
+  public MailEmailAssetReference disposition(@javax.annotation.Nonnull String disposition) {
+    this.disposition = disposition;
+    this.reaconPresentFields.add(SERIALIZED_NAME_DISPOSITION);
+    return this;
+  }
+
+  /**
+   * Get disposition
+   * @return disposition
+   */
+  @javax.annotation.Nonnull
+  public String getDisposition() {
+    return disposition;
+  }
+
+  public void setDisposition(@javax.annotation.Nonnull String disposition) {
+    this.disposition = disposition;
+    this.reaconPresentFields.add(SERIALIZED_NAME_DISPOSITION);
   }
 
   /**
@@ -123,9 +168,9 @@ public class ProductSequenceRecipientsListOutput {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ProductSequenceRecipientsListOutput instance itself
+   * @return the MailEmailAssetReference instance itself
    */
-  public ProductSequenceRecipientsListOutput putAdditionalProperty(String key, Object value) {
+  public MailEmailAssetReference putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -164,21 +209,25 @@ public class ProductSequenceRecipientsListOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductSequenceRecipientsListOutput productSequenceRecipientsListOutput = (ProductSequenceRecipientsListOutput) o;
-    return Objects.equals(this.items, productSequenceRecipientsListOutput.items)&&
-        Objects.equals(this.additionalProperties, productSequenceRecipientsListOutput.additionalProperties);
+    MailEmailAssetReference mailEmailAssetReference = (MailEmailAssetReference) o;
+    return Objects.equals(this.assetId, mailEmailAssetReference.assetId) &&
+        Objects.equals(this.cid, mailEmailAssetReference.cid) &&
+        Objects.equals(this.disposition, mailEmailAssetReference.disposition)&&
+        Objects.equals(this.additionalProperties, mailEmailAssetReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, additionalProperties);
+    return Objects.hash(assetId, cid, disposition, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProductSequenceRecipientsListOutput {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("class MailEmailAssetReference {\n");
+    sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
+    sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
+    sb.append("    disposition: ").append(toIndentedString(disposition)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -198,41 +247,40 @@ public class ProductSequenceRecipientsListOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("items"));
+    openapiFields = new HashSet<String>(Arrays.asList("assetId", "cid", "disposition"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("items"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("assetId", "disposition"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProductSequenceRecipientsListOutput
+   * @throws IOException if the JSON Element is invalid with respect to MailEmailAssetReference
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ProductSequenceRecipientsListOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ProductSequenceRecipientsListOutput is not found in the empty JSON string", ProductSequenceRecipientsListOutput.openapiRequiredFields.toString()));
+        if (!MailEmailAssetReference.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailEmailAssetReference is not found in the empty JSON string", MailEmailAssetReference.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProductSequenceRecipientsListOutput.openapiRequiredFields) {
+      for (String requiredField : MailEmailAssetReference.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("items") != null) {
-        if (!jsonObj.get("items").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
-        }
-        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-        // validate the required field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-          ProductDatedRecipient.validateJsonElement(jsonArrayitems.get(i));
-        }
+      if (!jsonObj.get("assetId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `assetId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("assetId").toString()));
+      }
+      if ((jsonObj.get("cid") != null && !jsonObj.get("cid").isJsonNull()) && !jsonObj.get("cid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cid").toString()));
+      }
+      if (!jsonObj.get("disposition").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `disposition` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disposition").toString()));
       }
   }
 
@@ -240,20 +288,28 @@ public class ProductSequenceRecipientsListOutput {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProductSequenceRecipientsListOutput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProductSequenceRecipientsListOutput' and its subtypes
+       if (!MailEmailAssetReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MailEmailAssetReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProductSequenceRecipientsListOutput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceRecipientsListOutput.class));
+       final TypeAdapter<MailEmailAssetReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MailEmailAssetReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ProductSequenceRecipientsListOutput>() {
+       return (TypeAdapter<T>) new TypeAdapter<MailEmailAssetReference>() {
            @Override
-           public void write(JsonWriter out, ProductSequenceRecipientsListOutput value) throws IOException {
+           public void write(JsonWriter out, MailEmailAssetReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             if (value.items == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ITEMS)) obj.add(SERIALIZED_NAME_ITEMS, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_ITEMS);
+             if (value.assetId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ASSET_ID)) obj.add(SERIALIZED_NAME_ASSET_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ASSET_ID);
+             }
+             if (value.cid == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CID)) obj.add(SERIALIZED_NAME_CID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CID);
+             }
+             if (value.disposition == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_DISPOSITION)) obj.add(SERIALIZED_NAME_DISPOSITION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_DISPOSITION);
              }
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -286,12 +342,12 @@ public class ProductSequenceRecipientsListOutput {
            }
 
            @Override
-           public ProductSequenceRecipientsListOutput read(JsonReader in) throws IOException {
+           public MailEmailAssetReference read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ProductSequenceRecipientsListOutput instance = thisAdapter.fromJsonTree(jsonObj);
+             MailEmailAssetReference instance = thisAdapter.fromJsonTree(jsonObj);
              instance.reaconPresentFields.addAll(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
@@ -319,18 +375,18 @@ public class ProductSequenceRecipientsListOutput {
   }
 
   /**
-   * Create an instance of ProductSequenceRecipientsListOutput given an JSON string
+   * Create an instance of MailEmailAssetReference given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ProductSequenceRecipientsListOutput
-   * @throws IOException if the JSON string is invalid with respect to ProductSequenceRecipientsListOutput
+   * @return An instance of MailEmailAssetReference
+   * @throws IOException if the JSON string is invalid with respect to MailEmailAssetReference
    */
-  public static ProductSequenceRecipientsListOutput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProductSequenceRecipientsListOutput.class);
+  public static MailEmailAssetReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MailEmailAssetReference.class);
   }
 
   /**
-   * Convert an instance of ProductSequenceRecipientsListOutput to an JSON string
+   * Convert an instance of MailEmailAssetReference to an JSON string
    *
    * @return JSON string
    */

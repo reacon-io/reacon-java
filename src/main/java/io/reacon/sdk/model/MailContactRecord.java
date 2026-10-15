@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailContactRecordVerification;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -66,6 +67,7 @@ public class MailContactRecord {
       case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
       case SERIALIZED_NAME_TENANT_ID: return reaconPresentFields.contains(SERIALIZED_NAME_TENANT_ID) || this.tenantId != null;
       case SERIALIZED_NAME_UPDATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_UPDATED_AT) || this.updatedAt != null;
+      case SERIALIZED_NAME_VERIFICATION: return reaconPresentFields.contains(SERIALIZED_NAME_VERIFICATION) || this.verification != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -81,6 +83,7 @@ public class MailContactRecord {
       case SERIALIZED_NAME_NAME: this.name = null; break;
       case SERIALIZED_NAME_TENANT_ID: this.tenantId = null; break;
       case SERIALIZED_NAME_UPDATED_AT: this.updatedAt = null; break;
+      case SERIALIZED_NAME_VERIFICATION: this.verification = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
@@ -120,6 +123,11 @@ public class MailContactRecord {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  @javax.annotation.Nullable
+  private MailContactRecordVerification verification;
 
   public MailContactRecord() {
   }
@@ -278,6 +286,27 @@ public class MailContactRecord {
     this.reaconPresentFields.add(SERIALIZED_NAME_UPDATED_AT);
   }
 
+
+  public MailContactRecord verification(@javax.annotation.Nullable MailContactRecordVerification verification) {
+    this.verification = verification;
+    this.reaconPresentFields.add(SERIALIZED_NAME_VERIFICATION);
+    return this;
+  }
+
+  /**
+   * Get verification
+   * @return verification
+   */
+  @javax.annotation.Nullable
+  public MailContactRecordVerification getVerification() {
+    return verification;
+  }
+
+  public void setVerification(@javax.annotation.Nullable MailContactRecordVerification verification) {
+    this.verification = verification;
+    this.reaconPresentFields.add(SERIALIZED_NAME_VERIFICATION);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -339,13 +368,14 @@ public class MailContactRecord {
         Objects.equals(this.id, mailContactRecord.id) &&
         Objects.equals(this.name, mailContactRecord.name) &&
         Objects.equals(this.tenantId, mailContactRecord.tenantId) &&
-        Objects.equals(this.updatedAt, mailContactRecord.updatedAt)&&
+        Objects.equals(this.updatedAt, mailContactRecord.updatedAt) &&
+        Objects.equals(this.verification, mailContactRecord.verification)&&
         Objects.equals(this.additionalProperties, mailContactRecord.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, customFields, email, id, name, tenantId, updatedAt, additionalProperties);
+    return Objects.hash(createdAt, customFields, email, id, name, tenantId, updatedAt, verification, additionalProperties);
   }
 
   @Override
@@ -359,6 +389,7 @@ public class MailContactRecord {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -378,7 +409,7 @@ public class MailContactRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("createdAt", "customFields", "email", "id", "name", "tenantId", "updatedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("createdAt", "customFields", "email", "id", "name", "tenantId", "updatedAt", "verification"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("createdAt", "customFields", "email", "id", "tenantId", "updatedAt"));
@@ -415,6 +446,10 @@ public class MailContactRecord {
       }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
+      // validate the optional field `verification`
+      if (jsonObj.get("verification") != null && !jsonObj.get("verification").isJsonNull()) {
+        MailContactRecordVerification.validateJsonElement(jsonObj.get("verification"));
       }
   }
 
@@ -460,6 +495,10 @@ public class MailContactRecord {
              if (value.updatedAt == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_UPDATED_AT)) obj.add(SERIALIZED_NAME_UPDATED_AT, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_UPDATED_AT);
+             }
+             if (value.verification == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_VERIFICATION)) obj.add(SERIALIZED_NAME_VERIFICATION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_VERIFICATION);
              }
              obj.remove("additionalProperties");
              // serialize additional properties

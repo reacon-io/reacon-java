@@ -19,12 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailPostCadencesRequestEmailRecipientOverridesInner;
 import io.reacon.sdk.model.MailPostCadencesRequestNodesInner;
 import io.reacon.sdk.model.MailPostCadencesRequestStopConditions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,6 +62,8 @@ public class MailPostCadencesRequest {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS) || this.emailExcludedContactIds != null;
+      case SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES) || this.emailRecipientOverrides != null;
       case SERIALIZED_NAME_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ID) || this.id != null;
       case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
       case SERIALIZED_NAME_NODES: return reaconPresentFields.contains(SERIALIZED_NAME_NODES) || this.nodes != null;
@@ -73,6 +77,8 @@ public class MailPostCadencesRequest {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS: this.emailExcludedContactIds = null; break;
+      case SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES: this.emailRecipientOverrides = null; break;
       case SERIALIZED_NAME_ID: this.id = null; break;
       case SERIALIZED_NAME_NAME: this.name = null; break;
       case SERIALIZED_NAME_NODES: this.nodes = null; break;
@@ -82,6 +88,16 @@ public class MailPostCadencesRequest {
     }
     reaconPresentFields.remove(wireName);
   }
+
+  public static final String SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS = "emailExcludedContactIds";
+  @SerializedName(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS)
+  @javax.annotation.Nullable
+  private List<UUID> emailExcludedContactIds;
+
+  public static final String SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES = "emailRecipientOverrides";
+  @SerializedName(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES)
+  @javax.annotation.Nullable
+  private List<MailPostCadencesRequestEmailRecipientOverridesInner> emailRecipientOverrides;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -164,6 +180,64 @@ public class MailPostCadencesRequest {
 
   public MailPostCadencesRequest() {
   }
+
+  public MailPostCadencesRequest emailExcludedContactIds(@javax.annotation.Nullable List<UUID> emailExcludedContactIds) {
+    this.emailExcludedContactIds = emailExcludedContactIds;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS);
+    return this;
+  }
+
+  public MailPostCadencesRequest addEmailExcludedContactIdsItem(UUID emailExcludedContactIdsItem) {
+    if (this.emailExcludedContactIds == null) {
+      this.emailExcludedContactIds = new ArrayList<>();
+    }
+    this.emailExcludedContactIds.add(emailExcludedContactIdsItem);
+    return this;
+  }
+
+  /**
+   * Get emailExcludedContactIds
+   * @return emailExcludedContactIds
+   */
+  @javax.annotation.Nullable
+  public List<UUID> getEmailExcludedContactIds() {
+    return emailExcludedContactIds;
+  }
+
+  public void setEmailExcludedContactIds(@javax.annotation.Nullable List<UUID> emailExcludedContactIds) {
+    this.emailExcludedContactIds = emailExcludedContactIds;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS);
+  }
+
+
+  public MailPostCadencesRequest emailRecipientOverrides(@javax.annotation.Nullable List<MailPostCadencesRequestEmailRecipientOverridesInner> emailRecipientOverrides) {
+    this.emailRecipientOverrides = emailRecipientOverrides;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES);
+    return this;
+  }
+
+  public MailPostCadencesRequest addEmailRecipientOverridesItem(MailPostCadencesRequestEmailRecipientOverridesInner emailRecipientOverridesItem) {
+    if (this.emailRecipientOverrides == null) {
+      this.emailRecipientOverrides = new ArrayList<>();
+    }
+    this.emailRecipientOverrides.add(emailRecipientOverridesItem);
+    return this;
+  }
+
+  /**
+   * Get emailRecipientOverrides
+   * @return emailRecipientOverrides
+   */
+  @javax.annotation.Nullable
+  public List<MailPostCadencesRequestEmailRecipientOverridesInner> getEmailRecipientOverrides() {
+    return emailRecipientOverrides;
+  }
+
+  public void setEmailRecipientOverrides(@javax.annotation.Nullable List<MailPostCadencesRequestEmailRecipientOverridesInner> emailRecipientOverrides) {
+    this.emailRecipientOverrides = emailRecipientOverrides;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES);
+  }
+
 
   public MailPostCadencesRequest id(@javax.annotation.Nullable String id) {
     this.id = id;
@@ -288,7 +362,9 @@ public class MailPostCadencesRequest {
       return false;
     }
     MailPostCadencesRequest mailPostCadencesRequest = (MailPostCadencesRequest) o;
-    return Objects.equals(this.id, mailPostCadencesRequest.id) &&
+    return Objects.equals(this.emailExcludedContactIds, mailPostCadencesRequest.emailExcludedContactIds) &&
+        Objects.equals(this.emailRecipientOverrides, mailPostCadencesRequest.emailRecipientOverrides) &&
+        Objects.equals(this.id, mailPostCadencesRequest.id) &&
         Objects.equals(this.name, mailPostCadencesRequest.name) &&
         Objects.equals(this.nodes, mailPostCadencesRequest.nodes) &&
         Objects.equals(this.status, mailPostCadencesRequest.status) &&
@@ -297,13 +373,15 @@ public class MailPostCadencesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, nodes, status, stopConditions);
+    return Objects.hash(emailExcludedContactIds, emailRecipientOverrides, id, name, nodes, status, stopConditions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MailPostCadencesRequest {\n");
+    sb.append("    emailExcludedContactIds: ").append(toIndentedString(emailExcludedContactIds)).append("\n");
+    sb.append("    emailRecipientOverrides: ").append(toIndentedString(emailRecipientOverrides)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
@@ -327,7 +405,7 @@ public class MailPostCadencesRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "nodes", "status", "stopConditions"));
+    openapiFields = new HashSet<String>(Arrays.asList("emailExcludedContactIds", "emailRecipientOverrides", "id", "name", "nodes", "status", "stopConditions"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "nodes", "status"));
@@ -361,6 +439,24 @@ public class MailPostCadencesRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("emailExcludedContactIds") != null && !jsonObj.get("emailExcludedContactIds").isJsonNull() && !jsonObj.get("emailExcludedContactIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailExcludedContactIds` to be an array in the JSON string but got `%s`", jsonObj.get("emailExcludedContactIds").toString()));
+      }
+      if (jsonObj.get("emailRecipientOverrides") != null && !jsonObj.get("emailRecipientOverrides").isJsonNull()) {
+        JsonArray jsonArrayemailRecipientOverrides = jsonObj.getAsJsonArray("emailRecipientOverrides");
+        if (jsonArrayemailRecipientOverrides != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("emailRecipientOverrides").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailRecipientOverrides` to be an array in the JSON string but got `%s`", jsonObj.get("emailRecipientOverrides").toString()));
+          }
+
+          // validate the optional field `emailRecipientOverrides` (array)
+          for (int i = 0; i < jsonArrayemailRecipientOverrides.size(); i++) {
+            MailPostCadencesRequestEmailRecipientOverridesInner.validateJsonElement(jsonArrayemailRecipientOverrides.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -403,6 +499,14 @@ public class MailPostCadencesRequest {
            @Override
            public void write(JsonWriter out, MailPostCadencesRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.emailExcludedContactIds == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS)) obj.add(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS);
+             }
+             if (value.emailRecipientOverrides == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES)) obj.add(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES);
+             }
              if (value.id == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ID)) obj.add(SERIALIZED_NAME_ID, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_ID);

@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailCadenceEnrollmentVariableGap;
+import io.reacon.sdk.model.MailRecipientEligibilitySummary;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ public class MailPostCadenceRunsPreflightResponse200 {
       case SERIALIZED_NAME_AUDIENCE_COUNT: return reaconPresentFields.contains(SERIALIZED_NAME_AUDIENCE_COUNT) || this.audienceCount != null;
       case SERIALIZED_NAME_CADENCE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_ID) || this.cadenceId != null;
       case SERIALIZED_NAME_CADENCE_VERSION: return reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_VERSION) || this.cadenceVersion != null;
+      case SERIALIZED_NAME_ELIGIBILITY: return reaconPresentFields.contains(SERIALIZED_NAME_ELIGIBILITY) || this.eligibility != null;
       case SERIALIZED_NAME_MISSING_VARIABLES: return reaconPresentFields.contains(SERIALIZED_NAME_MISSING_VARIABLES) || this.missingVariables != null;
       case SERIALIZED_NAME_READY: return reaconPresentFields.contains(SERIALIZED_NAME_READY) || this.ready != null;
       case SERIALIZED_NAME_REQUIRED_VARIABLES: return reaconPresentFields.contains(SERIALIZED_NAME_REQUIRED_VARIABLES) || this.requiredVariables != null;
@@ -78,6 +80,7 @@ public class MailPostCadenceRunsPreflightResponse200 {
       case SERIALIZED_NAME_AUDIENCE_COUNT: this.audienceCount = null; break;
       case SERIALIZED_NAME_CADENCE_ID: this.cadenceId = null; break;
       case SERIALIZED_NAME_CADENCE_VERSION: this.cadenceVersion = null; break;
+      case SERIALIZED_NAME_ELIGIBILITY: this.eligibility = null; break;
       case SERIALIZED_NAME_MISSING_VARIABLES: this.missingVariables = null; break;
       case SERIALIZED_NAME_READY: this.ready = null; break;
       case SERIALIZED_NAME_REQUIRED_VARIABLES: this.requiredVariables = null; break;
@@ -101,6 +104,11 @@ public class MailPostCadenceRunsPreflightResponse200 {
   @SerializedName(SERIALIZED_NAME_CADENCE_VERSION)
   @javax.annotation.Nonnull
   private BigDecimal cadenceVersion;
+
+  public static final String SERIALIZED_NAME_ELIGIBILITY = "eligibility";
+  @SerializedName(SERIALIZED_NAME_ELIGIBILITY)
+  @javax.annotation.Nullable
+  private MailRecipientEligibilitySummary eligibility;
 
   public static final String SERIALIZED_NAME_MISSING_VARIABLES = "missingVariables";
   @SerializedName(SERIALIZED_NAME_MISSING_VARIABLES)
@@ -185,6 +193,27 @@ public class MailPostCadenceRunsPreflightResponse200 {
   public void setCadenceVersion(@javax.annotation.Nonnull BigDecimal cadenceVersion) {
     this.cadenceVersion = cadenceVersion;
     this.reaconPresentFields.add(SERIALIZED_NAME_CADENCE_VERSION);
+  }
+
+
+  public MailPostCadenceRunsPreflightResponse200 eligibility(@javax.annotation.Nullable MailRecipientEligibilitySummary eligibility) {
+    this.eligibility = eligibility;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ELIGIBILITY);
+    return this;
+  }
+
+  /**
+   * Get eligibility
+   * @return eligibility
+   */
+  @javax.annotation.Nullable
+  public MailRecipientEligibilitySummary getEligibility() {
+    return eligibility;
+  }
+
+  public void setEligibility(@javax.annotation.Nullable MailRecipientEligibilitySummary eligibility) {
+    this.eligibility = eligibility;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ELIGIBILITY);
   }
 
 
@@ -345,6 +374,7 @@ public class MailPostCadenceRunsPreflightResponse200 {
     return Objects.equals(this.audienceCount, mailPostCadenceRunsPreflightResponse200.audienceCount) &&
         Objects.equals(this.cadenceId, mailPostCadenceRunsPreflightResponse200.cadenceId) &&
         Objects.equals(this.cadenceVersion, mailPostCadenceRunsPreflightResponse200.cadenceVersion) &&
+        Objects.equals(this.eligibility, mailPostCadenceRunsPreflightResponse200.eligibility) &&
         Objects.equals(this.missingVariables, mailPostCadenceRunsPreflightResponse200.missingVariables) &&
         Objects.equals(this.ready, mailPostCadenceRunsPreflightResponse200.ready) &&
         Objects.equals(this.requiredVariables, mailPostCadenceRunsPreflightResponse200.requiredVariables) &&
@@ -354,7 +384,7 @@ public class MailPostCadenceRunsPreflightResponse200 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audienceCount, cadenceId, cadenceVersion, missingVariables, ready, requiredVariables, senderCount, additionalProperties);
+    return Objects.hash(audienceCount, cadenceId, cadenceVersion, eligibility, missingVariables, ready, requiredVariables, senderCount, additionalProperties);
   }
 
   @Override
@@ -364,6 +394,7 @@ public class MailPostCadenceRunsPreflightResponse200 {
     sb.append("    audienceCount: ").append(toIndentedString(audienceCount)).append("\n");
     sb.append("    cadenceId: ").append(toIndentedString(cadenceId)).append("\n");
     sb.append("    cadenceVersion: ").append(toIndentedString(cadenceVersion)).append("\n");
+    sb.append("    eligibility: ").append(toIndentedString(eligibility)).append("\n");
     sb.append("    missingVariables: ").append(toIndentedString(missingVariables)).append("\n");
     sb.append("    ready: ").append(toIndentedString(ready)).append("\n");
     sb.append("    requiredVariables: ").append(toIndentedString(requiredVariables)).append("\n");
@@ -387,7 +418,7 @@ public class MailPostCadenceRunsPreflightResponse200 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("audienceCount", "cadenceId", "cadenceVersion", "missingVariables", "ready", "requiredVariables", "senderCount"));
+    openapiFields = new HashSet<String>(Arrays.asList("audienceCount", "cadenceId", "cadenceVersion", "eligibility", "missingVariables", "ready", "requiredVariables", "senderCount"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("audienceCount", "cadenceId", "cadenceVersion", "missingVariables", "ready", "requiredVariables", "senderCount"));
@@ -415,6 +446,10 @@ public class MailPostCadenceRunsPreflightResponse200 {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("cadenceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cadenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cadenceId").toString()));
+      }
+      // validate the optional field `eligibility`
+      if (jsonObj.get("eligibility") != null && !jsonObj.get("eligibility").isJsonNull()) {
+        MailRecipientEligibilitySummary.validateJsonElement(jsonObj.get("eligibility"));
       }
       if (jsonObj.get("missingVariables") != null) {
         if (!jsonObj.get("missingVariables").isJsonArray()) {
@@ -460,6 +495,10 @@ public class MailPostCadenceRunsPreflightResponse200 {
              if (value.cadenceVersion == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_VERSION)) obj.add(SERIALIZED_NAME_CADENCE_VERSION, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_CADENCE_VERSION);
+             }
+             if (value.eligibility == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ELIGIBILITY)) obj.add(SERIALIZED_NAME_ELIGIBILITY, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ELIGIBILITY);
              }
              if (value.missingVariables == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_MISSING_VARIABLES)) obj.add(SERIALIZED_NAME_MISSING_VARIABLES, com.google.gson.JsonNull.INSTANCE);

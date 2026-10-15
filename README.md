@@ -1,6 +1,6 @@
 # Reacon Java SDK
 
-Package `io.reacon:reacon-java`, version `4.0.0-beta.1`.
+Package `io.reacon:reacon-java`, version `6.0.0-beta.1`.
 
 Minimum runtime: **Java 8**.
 
@@ -51,7 +51,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:4.0.0-beta.1")
+    implementation("io.reacon:reacon-java:6.0.0-beta.1")
 }
 ```
 
@@ -72,7 +72,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>4.0.0-beta.1</version>
+        <version>6.0.0-beta.1</version>
     </dependency>
 </dependencies>
 ```
@@ -480,6 +480,7 @@ Class | Method | HTTP request | Description
  - MailContactCrmState
  - MailContactListSummaryRecord
  - MailContactRecord
+ - MailContactRecordVerification
  - MailConversationEntry
  - MailConversationEntryFrom
  - MailConversationEntryLastError
@@ -499,6 +500,9 @@ Class | Method | HTTP request | Description
  - MailDeleteWebhooksBySubscriptionIdResponse200
  - MailDomainHealthCheck
  - MailDomainHealthReport
+ - MailEmailAssetReference
+ - MailEmailSequenceDeliverySettings
+ - MailEmailSequenceRecipientOverride
  - MailEvidenceField
  - MailExperimentDecisionRecord
  - MailExperimentDefinitionRecord
@@ -546,6 +550,9 @@ Class | Method | HTTP request | Description
  - MailGetQueueResponse200
  - MailGetReplyAutomationsResponse200
  - MailGetSignaturesResponse200
+ - MailGetSignaturesResponse200CandidatesInner
+ - MailGetSignaturesResponse200CandidatesInnerFields
+ - MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner
  - MailGetSuppressionsResponse200
  - MailGetTemplatesResponse200
  - MailGetTrackingDomainResponse200
@@ -555,6 +562,8 @@ Class | Method | HTTP request | Description
  - MailImapCursor
  - MailInboxMessageRecord
  - MailMailAddress
+ - MailMailAttachmentReference
+ - MailMailExecutionWorkerStatus
  - MailMailPortfolio
  - MailMailPortfolioOverviewRow
  - MailMailPortfolioSuppression
@@ -605,6 +614,7 @@ Class | Method | HTTP request | Description
  - MailPostCadencesByCadenceIdCopyRequest
  - MailPostCadencesByCadenceIdCopyResponse200
  - MailPostCadencesRequest
+ - MailPostCadencesRequestEmailRecipientOverridesInner
  - MailPostCadencesRequestNodesInner
  - MailPostCadencesRequestNodesInnerAnyOf
  - MailPostCadencesRequestNodesInnerAnyOf1
@@ -715,16 +725,18 @@ Class | Method | HTTP request | Description
  - MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200
  - MailQueueSnapshot
  - MailQuotaRule
+ - MailRecipientEligibilitySummary
+ - MailRecipientEligibilitySummaryExclusions
+ - MailRecipientEligibilitySummaryVerification
+ - MailRecipientEngagement
  - MailRenderedMessage
  - MailReplyAutomationRule
  - MailReplyAutomationRuleActions
  - MailReplyAutomationRuleActionsTask
  - MailReplyClassificationResult
  - MailSendingWindow
+ - MailSequenceRecipientEngagement
  - MailSequenceRunRecord
- - MailSignatureCandidate
- - MailSignatureCandidateFields
- - MailSignatureCandidateFieldsPhonesInner
  - MailStoredImapSettings
  - MailStoredSmtpSettings
  - MailSuppressionRecord
@@ -784,7 +796,6 @@ Class | Method | HTTP request | Description
  - ProductCustomAttributeCreateInput
  - ProductCustomAttributesListExecution
  - ProductCustomAttributesListOutput
- - ProductDatedRecipient
  - ProductDiscoverCompaniesExecution
  - ProductDiscoverCompaniesInput
  - ProductDiscoverCompaniesOutput
@@ -844,6 +855,27 @@ Class | Method | HTTP request | Description
  - ProductLeadsListExecution
  - ProductLeadsListInput
  - ProductLeadsListOutput
+ - ProductMailSequenceAddAbExecution
+ - ProductMailSequenceAddAbInput
+ - ProductMailSequenceAddAbInputVariantB
+ - ProductMailSequenceAddAudienceExecution
+ - ProductMailSequenceAddAudienceInput
+ - ProductMailSequenceCampaignsListExecution
+ - ProductMailSequenceDraftSaveExecution
+ - ProductMailSequenceDraftSaveInput
+ - ProductMailSequenceDraftsListExecution
+ - ProductMailSequenceLaunchExecution
+ - ProductMailSequenceLaunchInput
+ - ProductMailSequencePublishExecution
+ - ProductMailSequencePublishInput
+ - ProductMailSequenceReadinessExecution
+ - ProductMailSequenceReadinessInput
+ - ProductMailSequenceRecipientsListExecution
+ - ProductMailSequenceRecipientsListInput
+ - ProductMailSequenceResultsExecution
+ - ProductMailSequenceResultsInput
+ - ProductMailSequenceStateExecution
+ - ProductMailSequenceStateInput
  - ProductNamedResource
  - ProductPerson
  - ProductPersonEnrichExecution
@@ -852,7 +884,6 @@ Class | Method | HTTP request | Description
  - ProductRecipient
  - ProductSavedSearchesListExecution
  - ProductSavedSearchesListOutput
- - ProductSequence
  - ProductSequenceRecipientAddExecution
  - ProductSequenceRecipientAddInput
  - ProductSequenceRecipientAddOutput
@@ -864,10 +895,8 @@ Class | Method | HTTP request | Description
  - ProductSequenceRecipientsAddOutput
  - ProductSequenceRecipientsListExecution
  - ProductSequenceRecipientsListInput
- - ProductSequenceRecipientsListOutput
  - ProductSequenceStartExecution
  - ProductSequenceStartInput
- - ProductSequenceStartOutput
  - ProductSequencesListExecution
  - ProductSequencesListOutput
  - ProductTeamMember

@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +56,8 @@ public class ProductSequenceRecipientsListInput {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_LIMIT: return reaconPresentFields.contains(SERIALIZED_NAME_LIMIT) || this.limit != null;
+      case SERIALIZED_NAME_OFFSET: return reaconPresentFields.contains(SERIALIZED_NAME_OFFSET) || this.offset != null;
       case SERIALIZED_NAME_SEQUENCE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCE_ID) || this.sequenceId != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
@@ -66,21 +67,79 @@ public class ProductSequenceRecipientsListInput {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_LIMIT: this.limit = null; break;
+      case SERIALIZED_NAME_OFFSET: this.offset = null; break;
       case SERIALIZED_NAME_SEQUENCE_ID: this.sequenceId = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
 
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  @javax.annotation.Nullable
+  private Integer limit;
+
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
+  @javax.annotation.Nullable
+  private Integer offset;
+
   public static final String SERIALIZED_NAME_SEQUENCE_ID = "sequenceId";
   @SerializedName(SERIALIZED_NAME_SEQUENCE_ID)
   @javax.annotation.Nonnull
-  private UUID sequenceId;
+  private String sequenceId;
 
   public ProductSequenceRecipientsListInput() {
   }
 
-  public ProductSequenceRecipientsListInput sequenceId(@javax.annotation.Nonnull UUID sequenceId) {
+  public ProductSequenceRecipientsListInput limit(@javax.annotation.Nullable Integer limit) {
+    this.limit = limit;
+    this.reaconPresentFields.add(SERIALIZED_NAME_LIMIT);
+    return this;
+  }
+
+  /**
+   * Get limit
+   * minimum: 1
+   * maximum: 100
+   * @return limit
+   */
+  @javax.annotation.Nullable
+  public Integer getLimit() {
+    return limit;
+  }
+
+  public void setLimit(@javax.annotation.Nullable Integer limit) {
+    this.limit = limit;
+    this.reaconPresentFields.add(SERIALIZED_NAME_LIMIT);
+  }
+
+
+  public ProductSequenceRecipientsListInput offset(@javax.annotation.Nullable Integer offset) {
+    this.offset = offset;
+    this.reaconPresentFields.add(SERIALIZED_NAME_OFFSET);
+    return this;
+  }
+
+  /**
+   * Get offset
+   * minimum: 0
+   * maximum: 10000
+   * @return offset
+   */
+  @javax.annotation.Nullable
+  public Integer getOffset() {
+    return offset;
+  }
+
+  public void setOffset(@javax.annotation.Nullable Integer offset) {
+    this.offset = offset;
+    this.reaconPresentFields.add(SERIALIZED_NAME_OFFSET);
+  }
+
+
+  public ProductSequenceRecipientsListInput sequenceId(@javax.annotation.Nonnull String sequenceId) {
     this.sequenceId = sequenceId;
     this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCE_ID);
     return this;
@@ -91,11 +150,11 @@ public class ProductSequenceRecipientsListInput {
    * @return sequenceId
    */
   @javax.annotation.Nonnull
-  public UUID getSequenceId() {
+  public String getSequenceId() {
     return sequenceId;
   }
 
-  public void setSequenceId(@javax.annotation.Nonnull UUID sequenceId) {
+  public void setSequenceId(@javax.annotation.Nonnull String sequenceId) {
     this.sequenceId = sequenceId;
     this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCE_ID);
   }
@@ -111,18 +170,22 @@ public class ProductSequenceRecipientsListInput {
       return false;
     }
     ProductSequenceRecipientsListInput productSequenceRecipientsListInput = (ProductSequenceRecipientsListInput) o;
-    return Objects.equals(this.sequenceId, productSequenceRecipientsListInput.sequenceId);
+    return Objects.equals(this.limit, productSequenceRecipientsListInput.limit) &&
+        Objects.equals(this.offset, productSequenceRecipientsListInput.offset) &&
+        Objects.equals(this.sequenceId, productSequenceRecipientsListInput.sequenceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sequenceId);
+    return Objects.hash(limit, offset, sequenceId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductSequenceRecipientsListInput {\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    sequenceId: ").append(toIndentedString(sequenceId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -142,7 +205,7 @@ public class ProductSequenceRecipientsListInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sequenceId"));
+    openapiFields = new HashSet<String>(Arrays.asList("limit", "offset", "sequenceId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("sequenceId"));
@@ -196,6 +259,14 @@ public class ProductSequenceRecipientsListInput {
            @Override
            public void write(JsonWriter out, ProductSequenceRecipientsListInput value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.limit == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_LIMIT)) obj.add(SERIALIZED_NAME_LIMIT, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_LIMIT);
+             }
+             if (value.offset == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_OFFSET)) obj.add(SERIALIZED_NAME_OFFSET, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_OFFSET);
+             }
              if (value.sequenceId == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCE_ID)) obj.add(SERIALIZED_NAME_SEQUENCE_ID, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_SEQUENCE_ID);

@@ -57,6 +57,7 @@ public class MailPostInboxByMessageIdReplyRequest {
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
       case SERIALIZED_NAME_CLIENT_REQUEST_ID: return reaconPresentFields.contains(SERIALIZED_NAME_CLIENT_REQUEST_ID) || this.clientRequestId != null;
+      case SERIALIZED_NAME_DRAFT_REVISION: return reaconPresentFields.contains(SERIALIZED_NAME_DRAFT_REVISION) || this.draftRevision != null;
       case SERIALIZED_NAME_TEXT: return reaconPresentFields.contains(SERIALIZED_NAME_TEXT) || this.text != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
@@ -67,6 +68,7 @@ public class MailPostInboxByMessageIdReplyRequest {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
       case SERIALIZED_NAME_CLIENT_REQUEST_ID: this.clientRequestId = null; break;
+      case SERIALIZED_NAME_DRAFT_REVISION: this.draftRevision = null; break;
       case SERIALIZED_NAME_TEXT: this.text = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
@@ -77,6 +79,11 @@ public class MailPostInboxByMessageIdReplyRequest {
   @SerializedName(SERIALIZED_NAME_CLIENT_REQUEST_ID)
   @javax.annotation.Nonnull
   private String clientRequestId;
+
+  public static final String SERIALIZED_NAME_DRAFT_REVISION = "draftRevision";
+  @SerializedName(SERIALIZED_NAME_DRAFT_REVISION)
+  @javax.annotation.Nullable
+  private Integer draftRevision;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
@@ -104,6 +111,28 @@ public class MailPostInboxByMessageIdReplyRequest {
   public void setClientRequestId(@javax.annotation.Nonnull String clientRequestId) {
     this.clientRequestId = clientRequestId;
     this.reaconPresentFields.add(SERIALIZED_NAME_CLIENT_REQUEST_ID);
+  }
+
+
+  public MailPostInboxByMessageIdReplyRequest draftRevision(@javax.annotation.Nullable Integer draftRevision) {
+    this.draftRevision = draftRevision;
+    this.reaconPresentFields.add(SERIALIZED_NAME_DRAFT_REVISION);
+    return this;
+  }
+
+  /**
+   * Get draftRevision
+   * minimum: 0
+   * @return draftRevision
+   */
+  @javax.annotation.Nullable
+  public Integer getDraftRevision() {
+    return draftRevision;
+  }
+
+  public void setDraftRevision(@javax.annotation.Nullable Integer draftRevision) {
+    this.draftRevision = draftRevision;
+    this.reaconPresentFields.add(SERIALIZED_NAME_DRAFT_REVISION);
   }
 
 
@@ -139,12 +168,13 @@ public class MailPostInboxByMessageIdReplyRequest {
     }
     MailPostInboxByMessageIdReplyRequest mailPostInboxByMessageIdReplyRequest = (MailPostInboxByMessageIdReplyRequest) o;
     return Objects.equals(this.clientRequestId, mailPostInboxByMessageIdReplyRequest.clientRequestId) &&
+        Objects.equals(this.draftRevision, mailPostInboxByMessageIdReplyRequest.draftRevision) &&
         Objects.equals(this.text, mailPostInboxByMessageIdReplyRequest.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientRequestId, text);
+    return Objects.hash(clientRequestId, draftRevision, text);
   }
 
   @Override
@@ -152,6 +182,7 @@ public class MailPostInboxByMessageIdReplyRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class MailPostInboxByMessageIdReplyRequest {\n");
     sb.append("    clientRequestId: ").append(toIndentedString(clientRequestId)).append("\n");
+    sb.append("    draftRevision: ").append(toIndentedString(draftRevision)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -171,7 +202,7 @@ public class MailPostInboxByMessageIdReplyRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("clientRequestId", "text"));
+    openapiFields = new HashSet<String>(Arrays.asList("clientRequestId", "draftRevision", "text"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("clientRequestId", "text"));
@@ -231,6 +262,10 @@ public class MailPostInboxByMessageIdReplyRequest {
              if (value.clientRequestId == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_CLIENT_REQUEST_ID)) obj.add(SERIALIZED_NAME_CLIENT_REQUEST_ID, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_CLIENT_REQUEST_ID);
+             }
+             if (value.draftRevision == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_DRAFT_REVISION)) obj.add(SERIALIZED_NAME_DRAFT_REVISION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_DRAFT_REVISION);
              }
              if (value.text == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_TEXT)) obj.add(SERIALIZED_NAME_TEXT, com.google.gson.JsonNull.INSTANCE);

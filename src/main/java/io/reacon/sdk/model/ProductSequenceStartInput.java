@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,8 +57,15 @@ public class ProductSequenceStartInput {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_AUDIENCE_LIST_ID: return reaconPresentFields.contains(SERIALIZED_NAME_AUDIENCE_LIST_ID) || this.audienceListId != null;
+      case SERIALIZED_NAME_CADENCE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_ID) || this.cadenceId != null;
+      case SERIALIZED_NAME_CADENCE_VERSION: return reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_VERSION) || this.cadenceVersion != null;
+      case SERIALIZED_NAME_ENROLLMENT_MODE: return reaconPresentFields.contains(SERIALIZED_NAME_ENROLLMENT_MODE) || this.enrollmentMode != null;
       case SERIALIZED_NAME_IDEMPOTENCY_KEY: return reaconPresentFields.contains(SERIALIZED_NAME_IDEMPOTENCY_KEY) || this.idempotencyKey != null;
-      case SERIALIZED_NAME_SEQUENCE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCE_ID) || this.sequenceId != null;
+      case SERIALIZED_NAME_MAILBOX_ID: return reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_ID) || this.mailboxId != null;
+      case SERIALIZED_NAME_MAILBOX_POOL_ID: return reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_POOL_ID) || this.mailboxPoolId != null;
+      case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
+      case SERIALIZED_NAME_SCHEDULED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_SCHEDULED_AT) || this.scheduledAt != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -67,25 +74,205 @@ public class ProductSequenceStartInput {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_AUDIENCE_LIST_ID: this.audienceListId = null; break;
+      case SERIALIZED_NAME_CADENCE_ID: this.cadenceId = null; break;
+      case SERIALIZED_NAME_CADENCE_VERSION: this.cadenceVersion = null; break;
+      case SERIALIZED_NAME_ENROLLMENT_MODE: this.enrollmentMode = null; break;
       case SERIALIZED_NAME_IDEMPOTENCY_KEY: this.idempotencyKey = null; break;
-      case SERIALIZED_NAME_SEQUENCE_ID: this.sequenceId = null; break;
+      case SERIALIZED_NAME_MAILBOX_ID: this.mailboxId = null; break;
+      case SERIALIZED_NAME_MAILBOX_POOL_ID: this.mailboxPoolId = null; break;
+      case SERIALIZED_NAME_NAME: this.name = null; break;
+      case SERIALIZED_NAME_SCHEDULED_AT: this.scheduledAt = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
+
+  public static final String SERIALIZED_NAME_AUDIENCE_LIST_ID = "audienceListId";
+  @SerializedName(SERIALIZED_NAME_AUDIENCE_LIST_ID)
+  @javax.annotation.Nonnull
+  private String audienceListId;
+
+  public static final String SERIALIZED_NAME_CADENCE_ID = "cadenceId";
+  @SerializedName(SERIALIZED_NAME_CADENCE_ID)
+  @javax.annotation.Nonnull
+  private String cadenceId;
+
+  public static final String SERIALIZED_NAME_CADENCE_VERSION = "cadenceVersion";
+  @SerializedName(SERIALIZED_NAME_CADENCE_VERSION)
+  @javax.annotation.Nonnull
+  private Integer cadenceVersion;
+
+  /**
+   * Gets or Sets enrollmentMode
+   */
+  @JsonAdapter(EnrollmentModeEnum.Adapter.class)
+  public enum EnrollmentModeEnum {
+    NEW_ONLY("new_only"),
+    
+    REENROLL("reenroll");
+
+    private String value;
+
+    EnrollmentModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EnrollmentModeEnum fromValue(String value) {
+      for (EnrollmentModeEnum b : EnrollmentModeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EnrollmentModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnrollmentModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EnrollmentModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EnrollmentModeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EnrollmentModeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ENROLLMENT_MODE = "enrollmentMode";
+  @SerializedName(SERIALIZED_NAME_ENROLLMENT_MODE)
+  @javax.annotation.Nullable
+  private EnrollmentModeEnum enrollmentMode;
 
   public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotencyKey";
   @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
   @javax.annotation.Nonnull
   private String idempotencyKey;
 
-  public static final String SERIALIZED_NAME_SEQUENCE_ID = "sequenceId";
-  @SerializedName(SERIALIZED_NAME_SEQUENCE_ID)
+  public static final String SERIALIZED_NAME_MAILBOX_ID = "mailboxId";
+  @SerializedName(SERIALIZED_NAME_MAILBOX_ID)
+  @javax.annotation.Nullable
+  private String mailboxId;
+
+  public static final String SERIALIZED_NAME_MAILBOX_POOL_ID = "mailboxPoolId";
+  @SerializedName(SERIALIZED_NAME_MAILBOX_POOL_ID)
+  @javax.annotation.Nullable
+  private String mailboxPoolId;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
-  private UUID sequenceId;
+  private String name;
+
+  public static final String SERIALIZED_NAME_SCHEDULED_AT = "scheduledAt";
+  @SerializedName(SERIALIZED_NAME_SCHEDULED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime scheduledAt;
 
   public ProductSequenceStartInput() {
   }
+
+  public ProductSequenceStartInput audienceListId(@javax.annotation.Nonnull String audienceListId) {
+    this.audienceListId = audienceListId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_AUDIENCE_LIST_ID);
+    return this;
+  }
+
+  /**
+   * Get audienceListId
+   * @return audienceListId
+   */
+  @javax.annotation.Nonnull
+  public String getAudienceListId() {
+    return audienceListId;
+  }
+
+  public void setAudienceListId(@javax.annotation.Nonnull String audienceListId) {
+    this.audienceListId = audienceListId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_AUDIENCE_LIST_ID);
+  }
+
+
+  public ProductSequenceStartInput cadenceId(@javax.annotation.Nonnull String cadenceId) {
+    this.cadenceId = cadenceId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CADENCE_ID);
+    return this;
+  }
+
+  /**
+   * Get cadenceId
+   * @return cadenceId
+   */
+  @javax.annotation.Nonnull
+  public String getCadenceId() {
+    return cadenceId;
+  }
+
+  public void setCadenceId(@javax.annotation.Nonnull String cadenceId) {
+    this.cadenceId = cadenceId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CADENCE_ID);
+  }
+
+
+  public ProductSequenceStartInput cadenceVersion(@javax.annotation.Nonnull Integer cadenceVersion) {
+    this.cadenceVersion = cadenceVersion;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CADENCE_VERSION);
+    return this;
+  }
+
+  /**
+   * Get cadenceVersion
+   * minimum: 0
+   * maximum: 9007199254740991
+   * @return cadenceVersion
+   */
+  @javax.annotation.Nonnull
+  public Integer getCadenceVersion() {
+    return cadenceVersion;
+  }
+
+  public void setCadenceVersion(@javax.annotation.Nonnull Integer cadenceVersion) {
+    this.cadenceVersion = cadenceVersion;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CADENCE_VERSION);
+  }
+
+
+  public ProductSequenceStartInput enrollmentMode(@javax.annotation.Nullable EnrollmentModeEnum enrollmentMode) {
+    this.enrollmentMode = enrollmentMode;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ENROLLMENT_MODE);
+    return this;
+  }
+
+  /**
+   * Get enrollmentMode
+   * @return enrollmentMode
+   */
+  @javax.annotation.Nullable
+  public EnrollmentModeEnum getEnrollmentMode() {
+    return enrollmentMode;
+  }
+
+  public void setEnrollmentMode(@javax.annotation.Nullable EnrollmentModeEnum enrollmentMode) {
+    this.enrollmentMode = enrollmentMode;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ENROLLMENT_MODE);
+  }
+
 
   public ProductSequenceStartInput idempotencyKey(@javax.annotation.Nonnull String idempotencyKey) {
     this.idempotencyKey = idempotencyKey;
@@ -108,24 +295,87 @@ public class ProductSequenceStartInput {
   }
 
 
-  public ProductSequenceStartInput sequenceId(@javax.annotation.Nonnull UUID sequenceId) {
-    this.sequenceId = sequenceId;
-    this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCE_ID);
+  public ProductSequenceStartInput mailboxId(@javax.annotation.Nullable String mailboxId) {
+    this.mailboxId = mailboxId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MAILBOX_ID);
     return this;
   }
 
   /**
-   * Get sequenceId
-   * @return sequenceId
+   * Get mailboxId
+   * @return mailboxId
    */
-  @javax.annotation.Nonnull
-  public UUID getSequenceId() {
-    return sequenceId;
+  @javax.annotation.Nullable
+  public String getMailboxId() {
+    return mailboxId;
   }
 
-  public void setSequenceId(@javax.annotation.Nonnull UUID sequenceId) {
-    this.sequenceId = sequenceId;
-    this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCE_ID);
+  public void setMailboxId(@javax.annotation.Nullable String mailboxId) {
+    this.mailboxId = mailboxId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MAILBOX_ID);
+  }
+
+
+  public ProductSequenceStartInput mailboxPoolId(@javax.annotation.Nullable String mailboxPoolId) {
+    this.mailboxPoolId = mailboxPoolId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MAILBOX_POOL_ID);
+    return this;
+  }
+
+  /**
+   * Get mailboxPoolId
+   * @return mailboxPoolId
+   */
+  @javax.annotation.Nullable
+  public String getMailboxPoolId() {
+    return mailboxPoolId;
+  }
+
+  public void setMailboxPoolId(@javax.annotation.Nullable String mailboxPoolId) {
+    this.mailboxPoolId = mailboxPoolId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MAILBOX_POOL_ID);
+  }
+
+
+  public ProductSequenceStartInput name(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    this.reaconPresentFields.add(SERIALIZED_NAME_NAME);
+    return this;
+  }
+
+  /**
+   * The server applies trim before validating {\&quot;type\&quot;:\&quot;string\&quot;,\&quot;minLength\&quot;:1,\&quot;maxLength\&quot;:200}.
+   * @return name
+   */
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    this.reaconPresentFields.add(SERIALIZED_NAME_NAME);
+  }
+
+
+  public ProductSequenceStartInput scheduledAt(@javax.annotation.Nullable OffsetDateTime scheduledAt) {
+    this.scheduledAt = scheduledAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SCHEDULED_AT);
+    return this;
+  }
+
+  /**
+   * Get scheduledAt
+   * @return scheduledAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getScheduledAt() {
+    return scheduledAt;
+  }
+
+  public void setScheduledAt(@javax.annotation.Nullable OffsetDateTime scheduledAt) {
+    this.scheduledAt = scheduledAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SCHEDULED_AT);
   }
 
 
@@ -139,21 +389,35 @@ public class ProductSequenceStartInput {
       return false;
     }
     ProductSequenceStartInput productSequenceStartInput = (ProductSequenceStartInput) o;
-    return Objects.equals(this.idempotencyKey, productSequenceStartInput.idempotencyKey) &&
-        Objects.equals(this.sequenceId, productSequenceStartInput.sequenceId);
+    return Objects.equals(this.audienceListId, productSequenceStartInput.audienceListId) &&
+        Objects.equals(this.cadenceId, productSequenceStartInput.cadenceId) &&
+        Objects.equals(this.cadenceVersion, productSequenceStartInput.cadenceVersion) &&
+        Objects.equals(this.enrollmentMode, productSequenceStartInput.enrollmentMode) &&
+        Objects.equals(this.idempotencyKey, productSequenceStartInput.idempotencyKey) &&
+        Objects.equals(this.mailboxId, productSequenceStartInput.mailboxId) &&
+        Objects.equals(this.mailboxPoolId, productSequenceStartInput.mailboxPoolId) &&
+        Objects.equals(this.name, productSequenceStartInput.name) &&
+        Objects.equals(this.scheduledAt, productSequenceStartInput.scheduledAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(idempotencyKey, sequenceId);
+    return Objects.hash(audienceListId, cadenceId, cadenceVersion, enrollmentMode, idempotencyKey, mailboxId, mailboxPoolId, name, scheduledAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductSequenceStartInput {\n");
+    sb.append("    audienceListId: ").append(toIndentedString(audienceListId)).append("\n");
+    sb.append("    cadenceId: ").append(toIndentedString(cadenceId)).append("\n");
+    sb.append("    cadenceVersion: ").append(toIndentedString(cadenceVersion)).append("\n");
+    sb.append("    enrollmentMode: ").append(toIndentedString(enrollmentMode)).append("\n");
     sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
-    sb.append("    sequenceId: ").append(toIndentedString(sequenceId)).append("\n");
+    sb.append("    mailboxId: ").append(toIndentedString(mailboxId)).append("\n");
+    sb.append("    mailboxPoolId: ").append(toIndentedString(mailboxPoolId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,10 +436,10 @@ public class ProductSequenceStartInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("idempotencyKey", "sequenceId"));
+    openapiFields = new HashSet<String>(Arrays.asList("audienceListId", "cadenceId", "cadenceVersion", "enrollmentMode", "idempotencyKey", "mailboxId", "mailboxPoolId", "name", "scheduledAt"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("idempotencyKey", "sequenceId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("audienceListId", "cadenceId", "cadenceVersion", "idempotencyKey", "name"));
   }
 
   /**
@@ -206,11 +470,30 @@ public class ProductSequenceStartInput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("audienceListId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audienceListId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audienceListId").toString()));
+      }
+      if (!jsonObj.get("cadenceId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cadenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cadenceId").toString()));
+      }
+      if ((jsonObj.get("enrollmentMode") != null && !jsonObj.get("enrollmentMode").isJsonNull()) && !jsonObj.get("enrollmentMode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enrollmentMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enrollmentMode").toString()));
+      }
+      // validate the optional field `enrollmentMode`
+      if (jsonObj.get("enrollmentMode") != null && !jsonObj.get("enrollmentMode").isJsonNull()) {
+        EnrollmentModeEnum.validateJsonElement(jsonObj.get("enrollmentMode"));
+      }
       if (!jsonObj.get("idempotencyKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `idempotencyKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idempotencyKey").toString()));
       }
-      if (!jsonObj.get("sequenceId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sequenceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sequenceId").toString()));
+      if ((jsonObj.get("mailboxId") != null && !jsonObj.get("mailboxId").isJsonNull()) && !jsonObj.get("mailboxId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mailboxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailboxId").toString()));
+      }
+      if ((jsonObj.get("mailboxPoolId") != null && !jsonObj.get("mailboxPoolId").isJsonNull()) && !jsonObj.get("mailboxPoolId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mailboxPoolId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailboxPoolId").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 
@@ -229,13 +512,41 @@ public class ProductSequenceStartInput {
            @Override
            public void write(JsonWriter out, ProductSequenceStartInput value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.audienceListId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_AUDIENCE_LIST_ID)) obj.add(SERIALIZED_NAME_AUDIENCE_LIST_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_AUDIENCE_LIST_ID);
+             }
+             if (value.cadenceId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_ID)) obj.add(SERIALIZED_NAME_CADENCE_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CADENCE_ID);
+             }
+             if (value.cadenceVersion == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CADENCE_VERSION)) obj.add(SERIALIZED_NAME_CADENCE_VERSION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CADENCE_VERSION);
+             }
+             if (value.enrollmentMode == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ENROLLMENT_MODE)) obj.add(SERIALIZED_NAME_ENROLLMENT_MODE, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ENROLLMENT_MODE);
+             }
              if (value.idempotencyKey == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_IDEMPOTENCY_KEY)) obj.add(SERIALIZED_NAME_IDEMPOTENCY_KEY, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_IDEMPOTENCY_KEY);
              }
-             if (value.sequenceId == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCE_ID)) obj.add(SERIALIZED_NAME_SEQUENCE_ID, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_SEQUENCE_ID);
+             if (value.mailboxId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_ID)) obj.add(SERIALIZED_NAME_MAILBOX_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_MAILBOX_ID);
+             }
+             if (value.mailboxPoolId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_POOL_ID)) obj.add(SERIALIZED_NAME_MAILBOX_POOL_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_MAILBOX_POOL_ID);
+             }
+             if (value.name == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_NAME)) obj.add(SERIALIZED_NAME_NAME, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_NAME);
+             }
+             if (value.scheduledAt == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SCHEDULED_AT)) obj.add(SERIALIZED_NAME_SCHEDULED_AT, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_SCHEDULED_AT);
              }
              boolean previousSerializeNulls = out.getSerializeNulls();
              out.setSerializeNulls(true);

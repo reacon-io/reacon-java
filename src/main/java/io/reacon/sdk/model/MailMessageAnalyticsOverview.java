@@ -23,6 +23,8 @@ import io.reacon.sdk.model.MailCampaignProgressMessageCounts;
 import io.reacon.sdk.model.MailMessageAnalyticsOverviewDailyInner;
 import io.reacon.sdk.model.MailMessageAnalyticsOverviewMailboxesInner;
 import io.reacon.sdk.model.MailMessageAnalyticsOverviewVariantsInner;
+import io.reacon.sdk.model.MailRecipientEngagement;
+import io.reacon.sdk.model.MailSequenceRecipientEngagement;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -73,7 +75,9 @@ public class MailMessageAnalyticsOverview {
       case SERIALIZED_NAME_DELIVERY_RATE: return reaconPresentFields.contains(SERIALIZED_NAME_DELIVERY_RATE) || this.deliveryRate != null;
       case SERIALIZED_NAME_FROM: return reaconPresentFields.contains(SERIALIZED_NAME_FROM) || this.from != null;
       case SERIALIZED_NAME_MAILBOXES: return reaconPresentFields.contains(SERIALIZED_NAME_MAILBOXES) || this.mailboxes != null;
+      case SERIALIZED_NAME_RECIPIENTS: return reaconPresentFields.contains(SERIALIZED_NAME_RECIPIENTS) || this.recipients != null;
       case SERIALIZED_NAME_REPLY_RATE: return reaconPresentFields.contains(SERIALIZED_NAME_REPLY_RATE) || this.replyRate != null;
+      case SERIALIZED_NAME_SEQUENCES: return reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCES) || this.sequences != null;
       case SERIALIZED_NAME_TO: return reaconPresentFields.contains(SERIALIZED_NAME_TO) || this.to != null;
       case SERIALIZED_NAME_TOTAL: return reaconPresentFields.contains(SERIALIZED_NAME_TOTAL) || this.total != null;
       case SERIALIZED_NAME_VARIANTS: return reaconPresentFields.contains(SERIALIZED_NAME_VARIANTS) || this.variants != null;
@@ -94,7 +98,9 @@ public class MailMessageAnalyticsOverview {
       case SERIALIZED_NAME_DELIVERY_RATE: this.deliveryRate = null; break;
       case SERIALIZED_NAME_FROM: this.from = null; break;
       case SERIALIZED_NAME_MAILBOXES: this.mailboxes = null; break;
+      case SERIALIZED_NAME_RECIPIENTS: this.recipients = null; break;
       case SERIALIZED_NAME_REPLY_RATE: this.replyRate = null; break;
+      case SERIALIZED_NAME_SEQUENCES: this.sequences = null; break;
       case SERIALIZED_NAME_TO: this.to = null; break;
       case SERIALIZED_NAME_TOTAL: this.total = null; break;
       case SERIALIZED_NAME_VARIANTS: this.variants = null; break;
@@ -148,10 +154,20 @@ public class MailMessageAnalyticsOverview {
   @javax.annotation.Nonnull
   private List<MailMessageAnalyticsOverviewMailboxesInner> mailboxes = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_RECIPIENTS = "recipients";
+  @SerializedName(SERIALIZED_NAME_RECIPIENTS)
+  @javax.annotation.Nullable
+  private MailRecipientEngagement recipients;
+
   public static final String SERIALIZED_NAME_REPLY_RATE = "replyRate";
   @SerializedName(SERIALIZED_NAME_REPLY_RATE)
   @javax.annotation.Nonnull
   private BigDecimal replyRate;
+
+  public static final String SERIALIZED_NAME_SEQUENCES = "sequences";
+  @SerializedName(SERIALIZED_NAME_SEQUENCES)
+  @javax.annotation.Nullable
+  private List<MailSequenceRecipientEngagement> sequences;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
@@ -376,6 +392,27 @@ public class MailMessageAnalyticsOverview {
   }
 
 
+  public MailMessageAnalyticsOverview recipients(@javax.annotation.Nullable MailRecipientEngagement recipients) {
+    this.recipients = recipients;
+    this.reaconPresentFields.add(SERIALIZED_NAME_RECIPIENTS);
+    return this;
+  }
+
+  /**
+   * Get recipients
+   * @return recipients
+   */
+  @javax.annotation.Nullable
+  public MailRecipientEngagement getRecipients() {
+    return recipients;
+  }
+
+  public void setRecipients(@javax.annotation.Nullable MailRecipientEngagement recipients) {
+    this.recipients = recipients;
+    this.reaconPresentFields.add(SERIALIZED_NAME_RECIPIENTS);
+  }
+
+
   public MailMessageAnalyticsOverview replyRate(@javax.annotation.Nonnull BigDecimal replyRate) {
     this.replyRate = replyRate;
     this.reaconPresentFields.add(SERIALIZED_NAME_REPLY_RATE);
@@ -383,7 +420,7 @@ public class MailMessageAnalyticsOverview {
   }
 
   /**
-   * Get replyRate
+   * Legacy message-based rate, retained for API compatibility.
    * @return replyRate
    */
   @javax.annotation.Nonnull
@@ -394,6 +431,35 @@ public class MailMessageAnalyticsOverview {
   public void setReplyRate(@javax.annotation.Nonnull BigDecimal replyRate) {
     this.replyRate = replyRate;
     this.reaconPresentFields.add(SERIALIZED_NAME_REPLY_RATE);
+  }
+
+
+  public MailMessageAnalyticsOverview sequences(@javax.annotation.Nullable List<MailSequenceRecipientEngagement> sequences) {
+    this.sequences = sequences;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCES);
+    return this;
+  }
+
+  public MailMessageAnalyticsOverview addSequencesItem(MailSequenceRecipientEngagement sequencesItem) {
+    if (this.sequences == null) {
+      this.sequences = new ArrayList<>();
+    }
+    this.sequences.add(sequencesItem);
+    return this;
+  }
+
+  /**
+   * Get sequences
+   * @return sequences
+   */
+  @javax.annotation.Nullable
+  public List<MailSequenceRecipientEngagement> getSequences() {
+    return sequences;
+  }
+
+  public void setSequences(@javax.annotation.Nullable List<MailSequenceRecipientEngagement> sequences) {
+    this.sequences = sequences;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SEQUENCES);
   }
 
 
@@ -531,7 +597,9 @@ public class MailMessageAnalyticsOverview {
         Objects.equals(this.deliveryRate, mailMessageAnalyticsOverview.deliveryRate) &&
         Objects.equals(this.from, mailMessageAnalyticsOverview.from) &&
         Objects.equals(this.mailboxes, mailMessageAnalyticsOverview.mailboxes) &&
+        Objects.equals(this.recipients, mailMessageAnalyticsOverview.recipients) &&
         Objects.equals(this.replyRate, mailMessageAnalyticsOverview.replyRate) &&
+        Objects.equals(this.sequences, mailMessageAnalyticsOverview.sequences) &&
         Objects.equals(this.to, mailMessageAnalyticsOverview.to) &&
         Objects.equals(this.total, mailMessageAnalyticsOverview.total) &&
         Objects.equals(this.variants, mailMessageAnalyticsOverview.variants)&&
@@ -540,7 +608,7 @@ public class MailMessageAnalyticsOverview {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptanceRate, averageAcceptanceLatencyMs, bounceRate, complaintRate, counts, daily, deliveryRate, from, mailboxes, replyRate, to, total, variants, additionalProperties);
+    return Objects.hash(acceptanceRate, averageAcceptanceLatencyMs, bounceRate, complaintRate, counts, daily, deliveryRate, from, mailboxes, recipients, replyRate, sequences, to, total, variants, additionalProperties);
   }
 
   @Override
@@ -556,7 +624,9 @@ public class MailMessageAnalyticsOverview {
     sb.append("    deliveryRate: ").append(toIndentedString(deliveryRate)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    mailboxes: ").append(toIndentedString(mailboxes)).append("\n");
+    sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    replyRate: ").append(toIndentedString(replyRate)).append("\n");
+    sb.append("    sequences: ").append(toIndentedString(sequences)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    variants: ").append(toIndentedString(variants)).append("\n");
@@ -579,7 +649,7 @@ public class MailMessageAnalyticsOverview {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acceptanceRate", "averageAcceptanceLatencyMs", "bounceRate", "complaintRate", "counts", "daily", "deliveryRate", "from", "mailboxes", "replyRate", "to", "total", "variants"));
+    openapiFields = new HashSet<String>(Arrays.asList("acceptanceRate", "averageAcceptanceLatencyMs", "bounceRate", "complaintRate", "counts", "daily", "deliveryRate", "from", "mailboxes", "recipients", "replyRate", "sequences", "to", "total", "variants"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("acceptanceRate", "averageAcceptanceLatencyMs", "bounceRate", "complaintRate", "counts", "daily", "deliveryRate", "from", "mailboxes", "replyRate", "to", "total", "variants"));
@@ -625,6 +695,24 @@ public class MailMessageAnalyticsOverview {
         // validate the required field `mailboxes` (array)
         for (int i = 0; i < jsonArraymailboxes.size(); i++) {
           MailMessageAnalyticsOverviewMailboxesInner.validateJsonElement(jsonArraymailboxes.get(i));
+        }
+      }
+      // validate the optional field `recipients`
+      if (jsonObj.get("recipients") != null && !jsonObj.get("recipients").isJsonNull()) {
+        MailRecipientEngagement.validateJsonElement(jsonObj.get("recipients"));
+      }
+      if (jsonObj.get("sequences") != null && !jsonObj.get("sequences").isJsonNull()) {
+        JsonArray jsonArraysequences = jsonObj.getAsJsonArray("sequences");
+        if (jsonArraysequences != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("sequences").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sequences` to be an array in the JSON string but got `%s`", jsonObj.get("sequences").toString()));
+          }
+
+          // validate the optional field `sequences` (array)
+          for (int i = 0; i < jsonArraysequences.size(); i++) {
+            MailSequenceRecipientEngagement.validateJsonElement(jsonArraysequences.get(i));
+          };
         }
       }
       if (jsonObj.get("variants") != null) {
@@ -690,9 +778,17 @@ public class MailMessageAnalyticsOverview {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_MAILBOXES)) obj.add(SERIALIZED_NAME_MAILBOXES, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_MAILBOXES);
              }
+             if (value.recipients == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_RECIPIENTS)) obj.add(SERIALIZED_NAME_RECIPIENTS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_RECIPIENTS);
+             }
              if (value.replyRate == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_REPLY_RATE)) obj.add(SERIALIZED_NAME_REPLY_RATE, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_REPLY_RATE);
+             }
+             if (value.sequences == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SEQUENCES)) obj.add(SERIALIZED_NAME_SEQUENCES, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_SEQUENCES);
              }
              if (value.to == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_TO)) obj.add(SERIALIZED_NAME_TO, com.google.gson.JsonNull.INSTANCE);

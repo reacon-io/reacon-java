@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailEvidenceField;
-import io.reacon.sdk.model.MailSignatureCandidateFieldsPhonesInner;
+import io.reacon.sdk.model.MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,10 +51,10 @@ import java.util.Set;
 import io.reacon.sdk.JSON;
 
 /**
- * MailSignatureCandidateFields
+ * MailGetSignaturesResponse200CandidatesInnerFields
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class MailSignatureCandidateFields {
+public class MailGetSignaturesResponse200CandidatesInnerFields {
   private transient java.util.Set<String> reaconPresentFields = new java.util.HashSet<>();
 
   /** Whether a wire property was supplied, including an explicit null. */
@@ -117,7 +117,7 @@ public class MailSignatureCandidateFields {
   public static final String SERIALIZED_NAME_PHONES = "phones";
   @SerializedName(SERIALIZED_NAME_PHONES)
   @javax.annotation.Nonnull
-  private List<MailSignatureCandidateFieldsPhonesInner> phones = new ArrayList<>();
+  private List<MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner> phones = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SOCIAL_PROFILES = "socialProfiles";
   @SerializedName(SERIALIZED_NAME_SOCIAL_PROFILES)
@@ -129,10 +129,10 @@ public class MailSignatureCandidateFields {
   @javax.annotation.Nonnull
   private List<MailEvidenceField> websites = new ArrayList<>();
 
-  public MailSignatureCandidateFields() {
+  public MailGetSignaturesResponse200CandidatesInnerFields() {
   }
 
-  public MailSignatureCandidateFields address(@javax.annotation.Nullable MailEvidenceField address) {
+  public MailGetSignaturesResponse200CandidatesInnerFields address(@javax.annotation.Nullable MailEvidenceField address) {
     this.address = address;
     this.reaconPresentFields.add(SERIALIZED_NAME_ADDRESS);
     return this;
@@ -153,7 +153,7 @@ public class MailSignatureCandidateFields {
   }
 
 
-  public MailSignatureCandidateFields company(@javax.annotation.Nullable MailEvidenceField company) {
+  public MailGetSignaturesResponse200CandidatesInnerFields company(@javax.annotation.Nullable MailEvidenceField company) {
     this.company = company;
     this.reaconPresentFields.add(SERIALIZED_NAME_COMPANY);
     return this;
@@ -174,13 +174,13 @@ public class MailSignatureCandidateFields {
   }
 
 
-  public MailSignatureCandidateFields emails(@javax.annotation.Nonnull List<MailEvidenceField> emails) {
+  public MailGetSignaturesResponse200CandidatesInnerFields emails(@javax.annotation.Nonnull List<MailEvidenceField> emails) {
     this.emails = emails;
     this.reaconPresentFields.add(SERIALIZED_NAME_EMAILS);
     return this;
   }
 
-  public MailSignatureCandidateFields addEmailsItem(MailEvidenceField emailsItem) {
+  public MailGetSignaturesResponse200CandidatesInnerFields addEmailsItem(MailEvidenceField emailsItem) {
     if (this.emails == null) {
       this.emails = new ArrayList<>();
     }
@@ -203,7 +203,7 @@ public class MailSignatureCandidateFields {
   }
 
 
-  public MailSignatureCandidateFields jobTitle(@javax.annotation.Nullable MailEvidenceField jobTitle) {
+  public MailGetSignaturesResponse200CandidatesInnerFields jobTitle(@javax.annotation.Nullable MailEvidenceField jobTitle) {
     this.jobTitle = jobTitle;
     this.reaconPresentFields.add(SERIALIZED_NAME_JOB_TITLE);
     return this;
@@ -224,7 +224,7 @@ public class MailSignatureCandidateFields {
   }
 
 
-  public MailSignatureCandidateFields personName(@javax.annotation.Nullable MailEvidenceField personName) {
+  public MailGetSignaturesResponse200CandidatesInnerFields personName(@javax.annotation.Nullable MailEvidenceField personName) {
     this.personName = personName;
     this.reaconPresentFields.add(SERIALIZED_NAME_PERSON_NAME);
     return this;
@@ -245,13 +245,13 @@ public class MailSignatureCandidateFields {
   }
 
 
-  public MailSignatureCandidateFields phones(@javax.annotation.Nonnull List<MailSignatureCandidateFieldsPhonesInner> phones) {
+  public MailGetSignaturesResponse200CandidatesInnerFields phones(@javax.annotation.Nonnull List<MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner> phones) {
     this.phones = phones;
     this.reaconPresentFields.add(SERIALIZED_NAME_PHONES);
     return this;
   }
 
-  public MailSignatureCandidateFields addPhonesItem(MailSignatureCandidateFieldsPhonesInner phonesItem) {
+  public MailGetSignaturesResponse200CandidatesInnerFields addPhonesItem(MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner phonesItem) {
     if (this.phones == null) {
       this.phones = new ArrayList<>();
     }
@@ -264,23 +264,23 @@ public class MailSignatureCandidateFields {
    * @return phones
    */
   @javax.annotation.Nonnull
-  public List<MailSignatureCandidateFieldsPhonesInner> getPhones() {
+  public List<MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner> getPhones() {
     return phones;
   }
 
-  public void setPhones(@javax.annotation.Nonnull List<MailSignatureCandidateFieldsPhonesInner> phones) {
+  public void setPhones(@javax.annotation.Nonnull List<MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner> phones) {
     this.phones = phones;
     this.reaconPresentFields.add(SERIALIZED_NAME_PHONES);
   }
 
 
-  public MailSignatureCandidateFields socialProfiles(@javax.annotation.Nonnull List<MailEvidenceField> socialProfiles) {
+  public MailGetSignaturesResponse200CandidatesInnerFields socialProfiles(@javax.annotation.Nonnull List<MailEvidenceField> socialProfiles) {
     this.socialProfiles = socialProfiles;
     this.reaconPresentFields.add(SERIALIZED_NAME_SOCIAL_PROFILES);
     return this;
   }
 
-  public MailSignatureCandidateFields addSocialProfilesItem(MailEvidenceField socialProfilesItem) {
+  public MailGetSignaturesResponse200CandidatesInnerFields addSocialProfilesItem(MailEvidenceField socialProfilesItem) {
     if (this.socialProfiles == null) {
       this.socialProfiles = new ArrayList<>();
     }
@@ -303,13 +303,13 @@ public class MailSignatureCandidateFields {
   }
 
 
-  public MailSignatureCandidateFields websites(@javax.annotation.Nonnull List<MailEvidenceField> websites) {
+  public MailGetSignaturesResponse200CandidatesInnerFields websites(@javax.annotation.Nonnull List<MailEvidenceField> websites) {
     this.websites = websites;
     this.reaconPresentFields.add(SERIALIZED_NAME_WEBSITES);
     return this;
   }
 
-  public MailSignatureCandidateFields addWebsitesItem(MailEvidenceField websitesItem) {
+  public MailGetSignaturesResponse200CandidatesInnerFields addWebsitesItem(MailEvidenceField websitesItem) {
     if (this.websites == null) {
       this.websites = new ArrayList<>();
     }
@@ -344,9 +344,9 @@ public class MailSignatureCandidateFields {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the MailSignatureCandidateFields instance itself
+   * @return the MailGetSignaturesResponse200CandidatesInnerFields instance itself
    */
-  public MailSignatureCandidateFields putAdditionalProperty(String key, Object value) {
+  public MailGetSignaturesResponse200CandidatesInnerFields putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -385,16 +385,16 @@ public class MailSignatureCandidateFields {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MailSignatureCandidateFields mailSignatureCandidateFields = (MailSignatureCandidateFields) o;
-    return Objects.equals(this.address, mailSignatureCandidateFields.address) &&
-        Objects.equals(this.company, mailSignatureCandidateFields.company) &&
-        Objects.equals(this.emails, mailSignatureCandidateFields.emails) &&
-        Objects.equals(this.jobTitle, mailSignatureCandidateFields.jobTitle) &&
-        Objects.equals(this.personName, mailSignatureCandidateFields.personName) &&
-        Objects.equals(this.phones, mailSignatureCandidateFields.phones) &&
-        Objects.equals(this.socialProfiles, mailSignatureCandidateFields.socialProfiles) &&
-        Objects.equals(this.websites, mailSignatureCandidateFields.websites)&&
-        Objects.equals(this.additionalProperties, mailSignatureCandidateFields.additionalProperties);
+    MailGetSignaturesResponse200CandidatesInnerFields mailGetSignaturesResponse200CandidatesInnerFields = (MailGetSignaturesResponse200CandidatesInnerFields) o;
+    return Objects.equals(this.address, mailGetSignaturesResponse200CandidatesInnerFields.address) &&
+        Objects.equals(this.company, mailGetSignaturesResponse200CandidatesInnerFields.company) &&
+        Objects.equals(this.emails, mailGetSignaturesResponse200CandidatesInnerFields.emails) &&
+        Objects.equals(this.jobTitle, mailGetSignaturesResponse200CandidatesInnerFields.jobTitle) &&
+        Objects.equals(this.personName, mailGetSignaturesResponse200CandidatesInnerFields.personName) &&
+        Objects.equals(this.phones, mailGetSignaturesResponse200CandidatesInnerFields.phones) &&
+        Objects.equals(this.socialProfiles, mailGetSignaturesResponse200CandidatesInnerFields.socialProfiles) &&
+        Objects.equals(this.websites, mailGetSignaturesResponse200CandidatesInnerFields.websites)&&
+        Objects.equals(this.additionalProperties, mailGetSignaturesResponse200CandidatesInnerFields.additionalProperties);
   }
 
   @Override
@@ -405,7 +405,7 @@ public class MailSignatureCandidateFields {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MailSignatureCandidateFields {\n");
+    sb.append("class MailGetSignaturesResponse200CandidatesInnerFields {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
@@ -443,17 +443,17 @@ public class MailSignatureCandidateFields {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to MailSignatureCandidateFields
+   * @throws IOException if the JSON Element is invalid with respect to MailGetSignaturesResponse200CandidatesInnerFields
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!MailSignatureCandidateFields.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailSignatureCandidateFields is not found in the empty JSON string", MailSignatureCandidateFields.openapiRequiredFields.toString()));
+        if (!MailGetSignaturesResponse200CandidatesInnerFields.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailGetSignaturesResponse200CandidatesInnerFields is not found in the empty JSON string", MailGetSignaturesResponse200CandidatesInnerFields.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MailSignatureCandidateFields.openapiRequiredFields) {
+      for (String requiredField : MailGetSignaturesResponse200CandidatesInnerFields.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -492,7 +492,7 @@ public class MailSignatureCandidateFields {
         JsonArray jsonArrayphones = jsonObj.getAsJsonArray("phones");
         // validate the required field `phones` (array)
         for (int i = 0; i < jsonArrayphones.size(); i++) {
-          MailSignatureCandidateFieldsPhonesInner.validateJsonElement(jsonArrayphones.get(i));
+          MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner.validateJsonElement(jsonArrayphones.get(i));
         }
       }
       if (jsonObj.get("socialProfiles") != null) {
@@ -521,16 +521,16 @@ public class MailSignatureCandidateFields {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MailSignatureCandidateFields.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MailSignatureCandidateFields' and its subtypes
+       if (!MailGetSignaturesResponse200CandidatesInnerFields.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MailGetSignaturesResponse200CandidatesInnerFields' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MailSignatureCandidateFields> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MailSignatureCandidateFields.class));
+       final TypeAdapter<MailGetSignaturesResponse200CandidatesInnerFields> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MailGetSignaturesResponse200CandidatesInnerFields.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MailSignatureCandidateFields>() {
+       return (TypeAdapter<T>) new TypeAdapter<MailGetSignaturesResponse200CandidatesInnerFields>() {
            @Override
-           public void write(JsonWriter out, MailSignatureCandidateFields value) throws IOException {
+           public void write(JsonWriter out, MailGetSignaturesResponse200CandidatesInnerFields value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              if (value.address == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ADDRESS)) obj.add(SERIALIZED_NAME_ADDRESS, com.google.gson.JsonNull.INSTANCE);
@@ -595,12 +595,12 @@ public class MailSignatureCandidateFields {
            }
 
            @Override
-           public MailSignatureCandidateFields read(JsonReader in) throws IOException {
+           public MailGetSignaturesResponse200CandidatesInnerFields read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             MailSignatureCandidateFields instance = thisAdapter.fromJsonTree(jsonObj);
+             MailGetSignaturesResponse200CandidatesInnerFields instance = thisAdapter.fromJsonTree(jsonObj);
              instance.reaconPresentFields.addAll(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
@@ -628,18 +628,18 @@ public class MailSignatureCandidateFields {
   }
 
   /**
-   * Create an instance of MailSignatureCandidateFields given an JSON string
+   * Create an instance of MailGetSignaturesResponse200CandidatesInnerFields given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of MailSignatureCandidateFields
-   * @throws IOException if the JSON string is invalid with respect to MailSignatureCandidateFields
+   * @return An instance of MailGetSignaturesResponse200CandidatesInnerFields
+   * @throws IOException if the JSON string is invalid with respect to MailGetSignaturesResponse200CandidatesInnerFields
    */
-  public static MailSignatureCandidateFields fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MailSignatureCandidateFields.class);
+  public static MailGetSignaturesResponse200CandidatesInnerFields fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MailGetSignaturesResponse200CandidatesInnerFields.class);
   }
 
   /**
-   * Convert an instance of MailSignatureCandidateFields to an JSON string
+   * Convert an instance of MailGetSignaturesResponse200CandidatesInnerFields to an JSON string
    *
    * @return JSON string
    */
