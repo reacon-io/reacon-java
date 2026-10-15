@@ -19,9 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.ProductSequenceStartOutput;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -87,7 +88,7 @@ public class ProductSequenceStartExecution {
   public static final String SERIALIZED_NAME_OUTPUT = "output";
   @SerializedName(SERIALIZED_NAME_OUTPUT)
   @javax.annotation.Nonnull
-  private ProductSequenceStartOutput output;
+  private Map<String, Object> output = new HashMap<>();
 
   public static final String SERIALIZED_NAME_REPLAY = "replay";
   @SerializedName(SERIALIZED_NAME_REPLAY)
@@ -173,22 +174,30 @@ public class ProductSequenceStartExecution {
   }
 
 
-  public ProductSequenceStartExecution output(@javax.annotation.Nonnull ProductSequenceStartOutput output) {
+  public ProductSequenceStartExecution output(@javax.annotation.Nonnull Map<String, Object> output) {
     this.output = output;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTPUT);
     return this;
   }
 
+  public ProductSequenceStartExecution putOutputItem(String key, Object outputItem) {
+    if (this.output == null) {
+      this.output = new HashMap<>();
+    }
+    this.output.put(key, outputItem);
+    return this;
+  }
+
   /**
-   * Get output
+   * Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns, returned unchanged.
    * @return output
    */
   @javax.annotation.Nonnull
-  public ProductSequenceStartOutput getOutput() {
+  public Map<String, Object> getOutput() {
     return output;
   }
 
-  public void setOutput(@javax.annotation.Nonnull ProductSequenceStartOutput output) {
+  public void setOutput(@javax.annotation.Nonnull Map<String, Object> output) {
     this.output = output;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTPUT);
   }
@@ -358,8 +367,6 @@ public class ProductSequenceStartExecution {
       if (!jsonObj.get("executionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `executionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executionId").toString()));
       }
-      // validate the required field `output`
-      ProductSequenceStartOutput.validateJsonElement(jsonObj.get("output"));
       if (!jsonObj.get("tool").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tool` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tool").toString()));
       }

@@ -23,6 +23,7 @@ import io.reacon.sdk.model.MailGetChannelsResponse200Email;
 import io.reacon.sdk.model.MailGetChannelsResponse200Execution;
 import io.reacon.sdk.model.MailGetChannelsResponse200Sms;
 import io.reacon.sdk.model.MailGetChannelsResponse200Whatsapp;
+import io.reacon.sdk.model.MailMailExecutionWorkerStatus;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -64,6 +65,7 @@ public class MailGetChannelsResponse200 {
       case SERIALIZED_NAME_EXECUTION: return reaconPresentFields.contains(SERIALIZED_NAME_EXECUTION) || this.execution != null;
       case SERIALIZED_NAME_SMS: return reaconPresentFields.contains(SERIALIZED_NAME_SMS) || this.sms != null;
       case SERIALIZED_NAME_WHATSAPP: return reaconPresentFields.contains(SERIALIZED_NAME_WHATSAPP) || this.whatsapp != null;
+      case SERIALIZED_NAME_WORKER: return reaconPresentFields.contains(SERIALIZED_NAME_WORKER) || this.worker != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -76,6 +78,7 @@ public class MailGetChannelsResponse200 {
       case SERIALIZED_NAME_EXECUTION: this.execution = null; break;
       case SERIALIZED_NAME_SMS: this.sms = null; break;
       case SERIALIZED_NAME_WHATSAPP: this.whatsapp = null; break;
+      case SERIALIZED_NAME_WORKER: this.worker = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
@@ -100,6 +103,11 @@ public class MailGetChannelsResponse200 {
   @SerializedName(SERIALIZED_NAME_WHATSAPP)
   @javax.annotation.Nonnull
   private MailGetChannelsResponse200Whatsapp whatsapp;
+
+  public static final String SERIALIZED_NAME_WORKER = "worker";
+  @SerializedName(SERIALIZED_NAME_WORKER)
+  @javax.annotation.Nonnull
+  private MailMailExecutionWorkerStatus worker;
 
   public MailGetChannelsResponse200() {
   }
@@ -187,6 +195,27 @@ public class MailGetChannelsResponse200 {
     this.reaconPresentFields.add(SERIALIZED_NAME_WHATSAPP);
   }
 
+
+  public MailGetChannelsResponse200 worker(@javax.annotation.Nonnull MailMailExecutionWorkerStatus worker) {
+    this.worker = worker;
+    this.reaconPresentFields.add(SERIALIZED_NAME_WORKER);
+    return this;
+  }
+
+  /**
+   * Get worker
+   * @return worker
+   */
+  @javax.annotation.Nonnull
+  public MailMailExecutionWorkerStatus getWorker() {
+    return worker;
+  }
+
+  public void setWorker(@javax.annotation.Nonnull MailMailExecutionWorkerStatus worker) {
+    this.worker = worker;
+    this.reaconPresentFields.add(SERIALIZED_NAME_WORKER);
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -245,13 +274,14 @@ public class MailGetChannelsResponse200 {
     return Objects.equals(this.email, mailGetChannelsResponse200.email) &&
         Objects.equals(this.execution, mailGetChannelsResponse200.execution) &&
         Objects.equals(this.sms, mailGetChannelsResponse200.sms) &&
-        Objects.equals(this.whatsapp, mailGetChannelsResponse200.whatsapp)&&
+        Objects.equals(this.whatsapp, mailGetChannelsResponse200.whatsapp) &&
+        Objects.equals(this.worker, mailGetChannelsResponse200.worker)&&
         Objects.equals(this.additionalProperties, mailGetChannelsResponse200.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, execution, sms, whatsapp, additionalProperties);
+    return Objects.hash(email, execution, sms, whatsapp, worker, additionalProperties);
   }
 
   @Override
@@ -262,6 +292,7 @@ public class MailGetChannelsResponse200 {
     sb.append("    execution: ").append(toIndentedString(execution)).append("\n");
     sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
     sb.append("    whatsapp: ").append(toIndentedString(whatsapp)).append("\n");
+    sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -281,10 +312,10 @@ public class MailGetChannelsResponse200 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("email", "execution", "sms", "whatsapp"));
+    openapiFields = new HashSet<String>(Arrays.asList("email", "execution", "sms", "whatsapp", "worker"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "execution", "sms", "whatsapp"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "execution", "sms", "whatsapp", "worker"));
   }
 
   /**
@@ -315,6 +346,8 @@ public class MailGetChannelsResponse200 {
       MailGetChannelsResponse200Sms.validateJsonElement(jsonObj.get("sms"));
       // validate the required field `whatsapp`
       MailGetChannelsResponse200Whatsapp.validateJsonElement(jsonObj.get("whatsapp"));
+      // validate the required field `worker`
+      MailMailExecutionWorkerStatus.validateJsonElement(jsonObj.get("worker"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -347,6 +380,10 @@ public class MailGetChannelsResponse200 {
              if (value.whatsapp == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_WHATSAPP)) obj.add(SERIALIZED_NAME_WHATSAPP, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_WHATSAPP);
+             }
+             if (value.worker == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_WORKER)) obj.add(SERIALIZED_NAME_WORKER, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_WORKER);
              }
              obj.remove("additionalProperties");
              // serialize additional properties

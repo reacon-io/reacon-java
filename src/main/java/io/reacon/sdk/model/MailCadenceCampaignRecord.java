@@ -60,6 +60,7 @@ public class MailCadenceCampaignRecord {
     switch (wireName) {
       case SERIALIZED_NAME_ACTIVATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_ACTIVATED_AT) || this.activatedAt != null;
       case SERIALIZED_NAME_ACTOR_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ACTOR_ID) || this.actorId != null;
+      case SERIALIZED_NAME_ARCHIVED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_ARCHIVED_AT) || this.archivedAt != null;
       case SERIALIZED_NAME_ATTEMPT_COUNT: return reaconPresentFields.contains(SERIALIZED_NAME_ATTEMPT_COUNT) || this.attemptCount != null;
       case SERIALIZED_NAME_AUDIENCE_COUNT: return reaconPresentFields.contains(SERIALIZED_NAME_AUDIENCE_COUNT) || this.audienceCount != null;
       case SERIALIZED_NAME_AUDIENCE_LIST_ID: return reaconPresentFields.contains(SERIALIZED_NAME_AUDIENCE_LIST_ID) || this.audienceListId != null;
@@ -97,6 +98,7 @@ public class MailCadenceCampaignRecord {
     switch (wireName) {
       case SERIALIZED_NAME_ACTIVATED_AT: this.activatedAt = null; break;
       case SERIALIZED_NAME_ACTOR_ID: this.actorId = null; break;
+      case SERIALIZED_NAME_ARCHIVED_AT: this.archivedAt = null; break;
       case SERIALIZED_NAME_ATTEMPT_COUNT: this.attemptCount = null; break;
       case SERIALIZED_NAME_AUDIENCE_COUNT: this.audienceCount = null; break;
       case SERIALIZED_NAME_AUDIENCE_LIST_ID: this.audienceListId = null; break;
@@ -138,6 +140,11 @@ public class MailCadenceCampaignRecord {
   @SerializedName(SERIALIZED_NAME_ACTOR_ID)
   @javax.annotation.Nonnull
   private String actorId;
+
+  public static final String SERIALIZED_NAME_ARCHIVED_AT = "archivedAt";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime archivedAt;
 
   public static final String SERIALIZED_NAME_ATTEMPT_COUNT = "attemptCount";
   @SerializedName(SERIALIZED_NAME_ATTEMPT_COUNT)
@@ -316,6 +323,27 @@ public class MailCadenceCampaignRecord {
   public void setActorId(@javax.annotation.Nonnull String actorId) {
     this.actorId = actorId;
     this.reaconPresentFields.add(SERIALIZED_NAME_ACTOR_ID);
+  }
+
+
+  public MailCadenceCampaignRecord archivedAt(@javax.annotation.Nullable OffsetDateTime archivedAt) {
+    this.archivedAt = archivedAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ARCHIVED_AT);
+    return this;
+  }
+
+  /**
+   * Get archivedAt
+   * @return archivedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getArchivedAt() {
+    return archivedAt;
+  }
+
+  public void setArchivedAt(@javax.annotation.Nullable OffsetDateTime archivedAt) {
+    this.archivedAt = archivedAt;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ARCHIVED_AT);
   }
 
 
@@ -942,6 +970,7 @@ public class MailCadenceCampaignRecord {
     MailCadenceCampaignRecord mailCadenceCampaignRecord = (MailCadenceCampaignRecord) o;
     return Objects.equals(this.activatedAt, mailCadenceCampaignRecord.activatedAt) &&
         Objects.equals(this.actorId, mailCadenceCampaignRecord.actorId) &&
+        Objects.equals(this.archivedAt, mailCadenceCampaignRecord.archivedAt) &&
         Objects.equals(this.attemptCount, mailCadenceCampaignRecord.attemptCount) &&
         Objects.equals(this.audienceCount, mailCadenceCampaignRecord.audienceCount) &&
         Objects.equals(this.audienceListId, mailCadenceCampaignRecord.audienceListId) &&
@@ -974,7 +1003,7 @@ public class MailCadenceCampaignRecord {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedAt, actorId, attemptCount, audienceCount, audienceListId, cadenceId, cadenceVersion, completedAt, createdAt, enrolledCount, enrollmentMode, failedCount, id, idempotencyKey, invalidCount, lastError, leaseExpiresAt, leaseOwner, mailboxId, mailboxPoolId, name, nextAttemptAt, scheduledAt, skippedCount, status, tenantId, updatedAt, validatedCount, version, additionalProperties);
+    return Objects.hash(activatedAt, actorId, archivedAt, attemptCount, audienceCount, audienceListId, cadenceId, cadenceVersion, completedAt, createdAt, enrolledCount, enrollmentMode, failedCount, id, idempotencyKey, invalidCount, lastError, leaseExpiresAt, leaseOwner, mailboxId, mailboxPoolId, name, nextAttemptAt, scheduledAt, skippedCount, status, tenantId, updatedAt, validatedCount, version, additionalProperties);
   }
 
   @Override
@@ -983,6 +1012,7 @@ public class MailCadenceCampaignRecord {
     sb.append("class MailCadenceCampaignRecord {\n");
     sb.append("    activatedAt: ").append(toIndentedString(activatedAt)).append("\n");
     sb.append("    actorId: ").append(toIndentedString(actorId)).append("\n");
+    sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
     sb.append("    attemptCount: ").append(toIndentedString(attemptCount)).append("\n");
     sb.append("    audienceCount: ").append(toIndentedString(audienceCount)).append("\n");
     sb.append("    audienceListId: ").append(toIndentedString(audienceListId)).append("\n");
@@ -1029,7 +1059,7 @@ public class MailCadenceCampaignRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("activatedAt", "actorId", "attemptCount", "audienceCount", "audienceListId", "cadenceId", "cadenceVersion", "completedAt", "createdAt", "enrolledCount", "enrollmentMode", "failedCount", "id", "idempotencyKey", "invalidCount", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "mailboxPoolId", "name", "nextAttemptAt", "scheduledAt", "skippedCount", "status", "tenantId", "updatedAt", "validatedCount", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("activatedAt", "actorId", "archivedAt", "attemptCount", "audienceCount", "audienceListId", "cadenceId", "cadenceVersion", "completedAt", "createdAt", "enrolledCount", "enrollmentMode", "failedCount", "id", "idempotencyKey", "invalidCount", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "mailboxPoolId", "name", "nextAttemptAt", "scheduledAt", "skippedCount", "status", "tenantId", "updatedAt", "validatedCount", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("actorId", "attemptCount", "audienceCount", "audienceListId", "cadenceId", "cadenceVersion", "createdAt", "enrolledCount", "enrollmentMode", "failedCount", "id", "idempotencyKey", "invalidCount", "name", "nextAttemptAt", "scheduledAt", "skippedCount", "status", "tenantId", "updatedAt", "validatedCount", "version"));
@@ -1118,6 +1148,10 @@ public class MailCadenceCampaignRecord {
              if (value.actorId == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ACTOR_ID)) obj.add(SERIALIZED_NAME_ACTOR_ID, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_ACTOR_ID);
+             }
+             if (value.archivedAt == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ARCHIVED_AT)) obj.add(SERIALIZED_NAME_ARCHIVED_AT, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ARCHIVED_AT);
              }
              if (value.attemptCount == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ATTEMPT_COUNT)) obj.add(SERIALIZED_NAME_ATTEMPT_COUNT, com.google.gson.JsonNull.INSTANCE);

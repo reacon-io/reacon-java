@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailEmailAssetReference;
 import io.reacon.sdk.model.MailMessageTemplateVersionWhatsappApproval;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -61,6 +62,7 @@ public class MailMessageTemplateVersion {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_ATTACHMENTS: return reaconPresentFields.contains(SERIALIZED_NAME_ATTACHMENTS) || this.attachments != null;
       case SERIALIZED_NAME_BODY: return reaconPresentFields.contains(SERIALIZED_NAME_BODY) || this.body != null;
       case SERIALIZED_NAME_CHANNEL: return reaconPresentFields.contains(SERIALIZED_NAME_CHANNEL) || this.channel != null;
       case SERIALIZED_NAME_CREATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT) || this.createdAt != null;
@@ -81,6 +83,7 @@ public class MailMessageTemplateVersion {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_ATTACHMENTS: this.attachments = null; break;
       case SERIALIZED_NAME_BODY: this.body = null; break;
       case SERIALIZED_NAME_CHANNEL: this.channel = null; break;
       case SERIALIZED_NAME_CREATED_AT: this.createdAt = null; break;
@@ -97,6 +100,11 @@ public class MailMessageTemplateVersion {
     }
     reaconPresentFields.remove(wireName);
   }
+
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
+  private List<MailEmailAssetReference> attachments;
 
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
@@ -160,6 +168,35 @@ public class MailMessageTemplateVersion {
 
   public MailMessageTemplateVersion() {
   }
+
+  public MailMessageTemplateVersion attachments(@javax.annotation.Nullable List<MailEmailAssetReference> attachments) {
+    this.attachments = attachments;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ATTACHMENTS);
+    return this;
+  }
+
+  public MailMessageTemplateVersion addAttachmentsItem(MailEmailAssetReference attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+  /**
+   * Get attachments
+   * @return attachments
+   */
+  @javax.annotation.Nullable
+  public List<MailEmailAssetReference> getAttachments() {
+    return attachments;
+  }
+
+  public void setAttachments(@javax.annotation.Nullable List<MailEmailAssetReference> attachments) {
+    this.attachments = attachments;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ATTACHMENTS);
+  }
+
 
   public MailMessageTemplateVersion body(@javax.annotation.Nonnull String body) {
     this.body = body;
@@ -475,7 +512,8 @@ public class MailMessageTemplateVersion {
       return false;
     }
     MailMessageTemplateVersion mailMessageTemplateVersion = (MailMessageTemplateVersion) o;
-    return Objects.equals(this.body, mailMessageTemplateVersion.body) &&
+    return Objects.equals(this.attachments, mailMessageTemplateVersion.attachments) &&
+        Objects.equals(this.body, mailMessageTemplateVersion.body) &&
         Objects.equals(this.channel, mailMessageTemplateVersion.channel) &&
         Objects.equals(this.createdAt, mailMessageTemplateVersion.createdAt) &&
         Objects.equals(this.createdByActorId, mailMessageTemplateVersion.createdByActorId) &&
@@ -492,13 +530,14 @@ public class MailMessageTemplateVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, channel, createdAt, createdByActorId, id, name, status, subject, tenantId, variables, version, whatsappApproval, additionalProperties);
+    return Objects.hash(attachments, body, channel, createdAt, createdByActorId, id, name, status, subject, tenantId, variables, version, whatsappApproval, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MailMessageTemplateVersion {\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -530,7 +569,7 @@ public class MailMessageTemplateVersion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("body", "channel", "createdAt", "createdByActorId", "id", "name", "status", "subject", "tenantId", "variables", "version", "whatsappApproval"));
+    openapiFields = new HashSet<String>(Arrays.asList("attachments", "body", "channel", "createdAt", "createdByActorId", "id", "name", "status", "subject", "tenantId", "variables", "version", "whatsappApproval"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("body", "channel", "createdAt", "createdByActorId", "id", "name", "status", "tenantId", "variables", "version"));
@@ -556,6 +595,20 @@ public class MailMessageTemplateVersion {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            MailEmailAssetReference.validateJsonElement(jsonArrayattachments.get(i));
+          };
+        }
+      }
       if (!jsonObj.get("body").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
       }
@@ -607,6 +660,10 @@ public class MailMessageTemplateVersion {
            @Override
            public void write(JsonWriter out, MailMessageTemplateVersion value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.attachments == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ATTACHMENTS)) obj.add(SERIALIZED_NAME_ATTACHMENTS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ATTACHMENTS);
+             }
              if (value.body == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_BODY)) obj.add(SERIALIZED_NAME_BODY, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_BODY);

@@ -57,6 +57,17 @@ import io.reacon.sdk.model.ProductLeadTagsListExecution;
 import io.reacon.sdk.model.ProductLeadUpdateExecution;
 import io.reacon.sdk.model.ProductLeadUpsertExecution;
 import io.reacon.sdk.model.ProductLeadsListExecution;
+import io.reacon.sdk.model.ProductMailSequenceAddAbExecution;
+import io.reacon.sdk.model.ProductMailSequenceAddAudienceExecution;
+import io.reacon.sdk.model.ProductMailSequenceCampaignsListExecution;
+import io.reacon.sdk.model.ProductMailSequenceDraftSaveExecution;
+import io.reacon.sdk.model.ProductMailSequenceDraftsListExecution;
+import io.reacon.sdk.model.ProductMailSequenceLaunchExecution;
+import io.reacon.sdk.model.ProductMailSequencePublishExecution;
+import io.reacon.sdk.model.ProductMailSequenceReadinessExecution;
+import io.reacon.sdk.model.ProductMailSequenceRecipientsListExecution;
+import io.reacon.sdk.model.ProductMailSequenceResultsExecution;
+import io.reacon.sdk.model.ProductMailSequenceStateExecution;
 import io.reacon.sdk.model.ProductPersonEnrichExecution;
 import io.reacon.sdk.model.ProductSavedSearchesListExecution;
 import io.reacon.sdk.model.ProductSequenceRecipientAddExecution;
@@ -161,6 +172,17 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
             final TypeAdapter<ProductSequenceRecipientAddExecution> adapterProductSequenceRecipientAddExecution = gson.getAdapter(TypeToken.get(ProductSequenceRecipientAddExecution.class));
             final TypeAdapter<ProductSequenceRecipientCancelExecution> adapterProductSequenceRecipientCancelExecution = gson.getAdapter(TypeToken.get(ProductSequenceRecipientCancelExecution.class));
             final TypeAdapter<ProductSequenceStartExecution> adapterProductSequenceStartExecution = gson.getAdapter(TypeToken.get(ProductSequenceStartExecution.class));
+            final TypeAdapter<ProductMailSequenceDraftsListExecution> adapterProductMailSequenceDraftsListExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceDraftsListExecution.class));
+            final TypeAdapter<ProductMailSequenceDraftSaveExecution> adapterProductMailSequenceDraftSaveExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceDraftSaveExecution.class));
+            final TypeAdapter<ProductMailSequenceAddAudienceExecution> adapterProductMailSequenceAddAudienceExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceAddAudienceExecution.class));
+            final TypeAdapter<ProductMailSequenceReadinessExecution> adapterProductMailSequenceReadinessExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceReadinessExecution.class));
+            final TypeAdapter<ProductMailSequencePublishExecution> adapterProductMailSequencePublishExecution = gson.getAdapter(TypeToken.get(ProductMailSequencePublishExecution.class));
+            final TypeAdapter<ProductMailSequenceLaunchExecution> adapterProductMailSequenceLaunchExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceLaunchExecution.class));
+            final TypeAdapter<ProductMailSequenceCampaignsListExecution> adapterProductMailSequenceCampaignsListExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceCampaignsListExecution.class));
+            final TypeAdapter<ProductMailSequenceRecipientsListExecution> adapterProductMailSequenceRecipientsListExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceRecipientsListExecution.class));
+            final TypeAdapter<ProductMailSequenceAddAbExecution> adapterProductMailSequenceAddAbExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceAddAbExecution.class));
+            final TypeAdapter<ProductMailSequenceStateExecution> adapterProductMailSequenceStateExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceStateExecution.class));
+            final TypeAdapter<ProductMailSequenceResultsExecution> adapterProductMailSequenceResultsExecution = gson.getAdapter(TypeToken.get(ProductMailSequenceResultsExecution.class));
             final TypeAdapter<ProductAccountInfoExecution> adapterProductAccountInfoExecution = gson.getAdapter(TypeToken.get(ProductAccountInfoExecution.class));
             final TypeAdapter<ProductUsageExecution> adapterProductUsageExecution = gson.getAdapter(TypeToken.get(ProductUsageExecution.class));
             final TypeAdapter<ProductUsageHistoryExecution> adapterProductUsageHistoryExecution = gson.getAdapter(TypeToken.get(ProductUsageHistoryExecution.class));
@@ -554,6 +576,105 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
                         finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
+                    // check if the actual instance is of the type `ProductMailSequenceDraftsListExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceDraftsListExecution) {
+                        JsonElement element = adapterProductMailSequenceDraftsListExecution.toJsonTree((ProductMailSequenceDraftsListExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceDraftSaveExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceDraftSaveExecution) {
+                        JsonElement element = adapterProductMailSequenceDraftSaveExecution.toJsonTree((ProductMailSequenceDraftSaveExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceAddAudienceExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceAddAudienceExecution) {
+                        JsonElement element = adapterProductMailSequenceAddAudienceExecution.toJsonTree((ProductMailSequenceAddAudienceExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceReadinessExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceReadinessExecution) {
+                        JsonElement element = adapterProductMailSequenceReadinessExecution.toJsonTree((ProductMailSequenceReadinessExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequencePublishExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequencePublishExecution) {
+                        JsonElement element = adapterProductMailSequencePublishExecution.toJsonTree((ProductMailSequencePublishExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceLaunchExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceLaunchExecution) {
+                        JsonElement element = adapterProductMailSequenceLaunchExecution.toJsonTree((ProductMailSequenceLaunchExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceCampaignsListExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceCampaignsListExecution) {
+                        JsonElement element = adapterProductMailSequenceCampaignsListExecution.toJsonTree((ProductMailSequenceCampaignsListExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceRecipientsListExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceRecipientsListExecution) {
+                        JsonElement element = adapterProductMailSequenceRecipientsListExecution.toJsonTree((ProductMailSequenceRecipientsListExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceAddAbExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceAddAbExecution) {
+                        JsonElement element = adapterProductMailSequenceAddAbExecution.toJsonTree((ProductMailSequenceAddAbExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceStateExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceStateExecution) {
+                        JsonElement element = adapterProductMailSequenceStateExecution.toJsonTree((ProductMailSequenceStateExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceResultsExecution`
+                    if (value.getActualInstance() instanceof ProductMailSequenceResultsExecution) {
+                        JsonElement element = adapterProductMailSequenceResultsExecution.toJsonTree((ProductMailSequenceResultsExecution)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
                     // check if the actual instance is of the type `ProductAccountInfoExecution`
                     if (value.getActualInstance() instanceof ProductAccountInfoExecution) {
                         JsonElement element = adapterProductAccountInfoExecution.toJsonTree((ProductAccountInfoExecution)value.getActualInstance());
@@ -608,7 +729,7 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
                         finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution");
                 }
 
                 @Override
@@ -1124,6 +1245,138 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductSequenceStartExecution failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'ProductSequenceStartExecution'", e);
                     }
+                    // deserialize ProductMailSequenceDraftsListExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceDraftsListExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceDraftsListExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceDraftsListExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceDraftsListExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceDraftsListExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceDraftSaveExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceDraftSaveExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceDraftSaveExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceDraftSaveExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceDraftSaveExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceDraftSaveExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceAddAudienceExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceAddAudienceExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceAddAudienceExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceAddAudienceExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAudienceExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceAddAudienceExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceReadinessExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceReadinessExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceReadinessExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceReadinessExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceReadinessExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceReadinessExecution'", e);
+                    }
+                    // deserialize ProductMailSequencePublishExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequencePublishExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequencePublishExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequencePublishExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequencePublishExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequencePublishExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceLaunchExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceLaunchExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceLaunchExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceLaunchExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceLaunchExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceLaunchExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceCampaignsListExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceCampaignsListExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceCampaignsListExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceCampaignsListExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceCampaignsListExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceCampaignsListExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceRecipientsListExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceRecipientsListExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceRecipientsListExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceRecipientsListExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceRecipientsListExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceRecipientsListExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceAddAbExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceAddAbExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceAddAbExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceAddAbExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAbExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceAddAbExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceStateExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceStateExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceStateExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceStateExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceStateExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceStateExecution'", e);
+                    }
+                    // deserialize ProductMailSequenceResultsExecution
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceResultsExecution.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceResultsExecution;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ProductMailSequenceResultsExecution'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceResultsExecution failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceResultsExecution'", e);
+                    }
                     // deserialize ProductAccountInfoExecution
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -1264,6 +1517,17 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
         schemas.put("ProductSequenceRecipientAddExecution", ProductSequenceRecipientAddExecution.class);
         schemas.put("ProductSequenceRecipientCancelExecution", ProductSequenceRecipientCancelExecution.class);
         schemas.put("ProductSequenceStartExecution", ProductSequenceStartExecution.class);
+        schemas.put("ProductMailSequenceDraftsListExecution", ProductMailSequenceDraftsListExecution.class);
+        schemas.put("ProductMailSequenceDraftSaveExecution", ProductMailSequenceDraftSaveExecution.class);
+        schemas.put("ProductMailSequenceAddAudienceExecution", ProductMailSequenceAddAudienceExecution.class);
+        schemas.put("ProductMailSequenceReadinessExecution", ProductMailSequenceReadinessExecution.class);
+        schemas.put("ProductMailSequencePublishExecution", ProductMailSequencePublishExecution.class);
+        schemas.put("ProductMailSequenceLaunchExecution", ProductMailSequenceLaunchExecution.class);
+        schemas.put("ProductMailSequenceCampaignsListExecution", ProductMailSequenceCampaignsListExecution.class);
+        schemas.put("ProductMailSequenceRecipientsListExecution", ProductMailSequenceRecipientsListExecution.class);
+        schemas.put("ProductMailSequenceAddAbExecution", ProductMailSequenceAddAbExecution.class);
+        schemas.put("ProductMailSequenceStateExecution", ProductMailSequenceStateExecution.class);
+        schemas.put("ProductMailSequenceResultsExecution", ProductMailSequenceResultsExecution.class);
         schemas.put("ProductAccountInfoExecution", ProductAccountInfoExecution.class);
         schemas.put("ProductUsageExecution", ProductUsageExecution.class);
         schemas.put("ProductUsageHistoryExecution", ProductUsageHistoryExecution.class);
@@ -1280,7 +1544,7 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution
+     * ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -1496,6 +1760,61 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof ProductMailSequenceDraftsListExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceDraftSaveExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceAddAudienceExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceReadinessExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequencePublishExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceLaunchExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceCampaignsListExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceRecipientsListExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceAddAbExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceStateExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceResultsExecution) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ProductAccountInfoExecution) {
             super.setActualInstance(instance);
             return;
@@ -1526,14 +1845,14 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution");
+        throw new RuntimeException("Invalid instance type. Must be ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution
+     * ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution
      *
-     * @return The actual instance (ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution)
+     * @return The actual instance (ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -2046,6 +2365,138 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `ProductMailSequenceDraftsListExecution`. If the actual instance is not `ProductMailSequenceDraftsListExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceDraftsListExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceDraftsListExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceDraftsListExecution getProductMailSequenceDraftsListExecution() throws ClassCastException {
+        return (ProductMailSequenceDraftsListExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceDraftSaveExecution`. If the actual instance is not `ProductMailSequenceDraftSaveExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceDraftSaveExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceDraftSaveExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceDraftSaveExecution getProductMailSequenceDraftSaveExecution() throws ClassCastException {
+        return (ProductMailSequenceDraftSaveExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceAddAudienceExecution`. If the actual instance is not `ProductMailSequenceAddAudienceExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceAddAudienceExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceAddAudienceExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceAddAudienceExecution getProductMailSequenceAddAudienceExecution() throws ClassCastException {
+        return (ProductMailSequenceAddAudienceExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceReadinessExecution`. If the actual instance is not `ProductMailSequenceReadinessExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceReadinessExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceReadinessExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceReadinessExecution getProductMailSequenceReadinessExecution() throws ClassCastException {
+        return (ProductMailSequenceReadinessExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequencePublishExecution`. If the actual instance is not `ProductMailSequencePublishExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequencePublishExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequencePublishExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequencePublishExecution getProductMailSequencePublishExecution() throws ClassCastException {
+        return (ProductMailSequencePublishExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceLaunchExecution`. If the actual instance is not `ProductMailSequenceLaunchExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceLaunchExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceLaunchExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceLaunchExecution getProductMailSequenceLaunchExecution() throws ClassCastException {
+        return (ProductMailSequenceLaunchExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceCampaignsListExecution`. If the actual instance is not `ProductMailSequenceCampaignsListExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceCampaignsListExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceCampaignsListExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceCampaignsListExecution getProductMailSequenceCampaignsListExecution() throws ClassCastException {
+        return (ProductMailSequenceCampaignsListExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceRecipientsListExecution`. If the actual instance is not `ProductMailSequenceRecipientsListExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceRecipientsListExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceRecipientsListExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceRecipientsListExecution getProductMailSequenceRecipientsListExecution() throws ClassCastException {
+        return (ProductMailSequenceRecipientsListExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceAddAbExecution`. If the actual instance is not `ProductMailSequenceAddAbExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceAddAbExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceAddAbExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceAddAbExecution getProductMailSequenceAddAbExecution() throws ClassCastException {
+        return (ProductMailSequenceAddAbExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceStateExecution`. If the actual instance is not `ProductMailSequenceStateExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceStateExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceStateExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceStateExecution getProductMailSequenceStateExecution() throws ClassCastException {
+        return (ProductMailSequenceStateExecution)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceResultsExecution`. If the actual instance is not `ProductMailSequenceResultsExecution`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceResultsExecution`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceResultsExecution`
+     */
+    @SuppressWarnings("unchecked")
+    public ProductMailSequenceResultsExecution getProductMailSequenceResultsExecution() throws ClassCastException {
+        return (ProductMailSequenceResultsExecution)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `ProductAccountInfoExecution`. If the actual instance is not `ProductAccountInfoExecution`,
      * the ClassCastException will be thrown.
      *
@@ -2463,6 +2914,94 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductSequenceStartExecution failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with ProductMailSequenceDraftsListExecution
+        try {
+            ProductMailSequenceDraftsListExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceDraftsListExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceDraftSaveExecution
+        try {
+            ProductMailSequenceDraftSaveExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceDraftSaveExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceAddAudienceExecution
+        try {
+            ProductMailSequenceAddAudienceExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAudienceExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceReadinessExecution
+        try {
+            ProductMailSequenceReadinessExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceReadinessExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequencePublishExecution
+        try {
+            ProductMailSequencePublishExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequencePublishExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceLaunchExecution
+        try {
+            ProductMailSequenceLaunchExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceLaunchExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceCampaignsListExecution
+        try {
+            ProductMailSequenceCampaignsListExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceCampaignsListExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceRecipientsListExecution
+        try {
+            ProductMailSequenceRecipientsListExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceRecipientsListExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceAddAbExecution
+        try {
+            ProductMailSequenceAddAbExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAbExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceStateExecution
+        try {
+            ProductMailSequenceStateExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceStateExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceResultsExecution
+        try {
+            ProductMailSequenceResultsExecution.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceResultsExecution failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with ProductAccountInfoExecution
         try {
             ProductAccountInfoExecution.validateJsonElement(jsonElement);
@@ -2512,7 +3051,7 @@ public class ProductToolExecution extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

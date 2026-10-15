@@ -9855,6 +9855,9 @@ public class MailApi {
      * @param teamId  (required)
      * @param limit  (optional, default to 100)
      * @param cursor  (optional)
+     * @param query  (optional)
+     * @param status  (optional)
+     * @param sequenceId  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -9874,7 +9877,7 @@ public class MailApi {
         <tr><td> 0 </td><td> Unexpected API error; SDKs also retain the raw body when a proxy returns non-JSON content. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMailMessagesCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listMailMessagesCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, @javax.annotation.Nullable String status, @javax.annotation.Nullable String sequenceId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9893,6 +9896,18 @@ public class MailApi {
 
         if (cursor != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (sequenceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sequenceId", sequenceId));
         }
 
         final String[] localVarAccepts = {
@@ -9915,13 +9930,13 @@ public class MailApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMailMessagesValidateBeforeCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMailMessagesValidateBeforeCall(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, @javax.annotation.Nullable String status, @javax.annotation.Nullable String sequenceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'teamId' is set
         if (teamId == null) {
             throw new ApiException("Missing the required parameter 'teamId' when calling listMailMessages(Async)");
         }
 
-        return listMailMessagesCall(teamId, limit, cursor, _callback);
+        return listMailMessagesCall(teamId, limit, cursor, query, status, sequenceId, _callback);
 
     }
 
@@ -9931,6 +9946,9 @@ public class MailApi {
      * @param teamId  (required)
      * @param limit  (optional, default to 100)
      * @param cursor  (optional)
+     * @param query  (optional)
+     * @param status  (optional)
+     * @param sequenceId  (optional)
      * @return MailGetMessagesResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9949,8 +9967,8 @@ public class MailApi {
         <tr><td> 0 </td><td> Unexpected API error; SDKs also retain the raw body when a proxy returns non-JSON content. </td><td>  -  </td></tr>
      </table>
      */
-    public MailGetMessagesResponse200 listMailMessages(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor) throws ApiException {
-        ApiResponse<MailGetMessagesResponse200> localVarResp = listMailMessagesWithHttpInfo(teamId, limit, cursor);
+    public MailGetMessagesResponse200 listMailMessages(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, @javax.annotation.Nullable String status, @javax.annotation.Nullable String sequenceId) throws ApiException {
+        ApiResponse<MailGetMessagesResponse200> localVarResp = listMailMessagesWithHttpInfo(teamId, limit, cursor, query, status, sequenceId);
         return localVarResp.getData();
     }
 
@@ -9960,6 +9978,9 @@ public class MailApi {
      * @param teamId  (required)
      * @param limit  (optional, default to 100)
      * @param cursor  (optional)
+     * @param query  (optional)
+     * @param status  (optional)
+     * @param sequenceId  (optional)
      * @return ApiResponse&lt;MailGetMessagesResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9978,8 +9999,8 @@ public class MailApi {
         <tr><td> 0 </td><td> Unexpected API error; SDKs also retain the raw body when a proxy returns non-JSON content. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MailGetMessagesResponse200> listMailMessagesWithHttpInfo(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor) throws ApiException {
-        okhttp3.Call localVarCall = listMailMessagesValidateBeforeCall(teamId, limit, cursor, null);
+    public ApiResponse<MailGetMessagesResponse200> listMailMessagesWithHttpInfo(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, @javax.annotation.Nullable String status, @javax.annotation.Nullable String sequenceId) throws ApiException {
+        okhttp3.Call localVarCall = listMailMessagesValidateBeforeCall(teamId, limit, cursor, query, status, sequenceId, null);
         Type localVarReturnType = new TypeToken<MailGetMessagesResponse200>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -9990,6 +10011,9 @@ public class MailApi {
      * @param teamId  (required)
      * @param limit  (optional, default to 100)
      * @param cursor  (optional)
+     * @param query  (optional)
+     * @param status  (optional)
+     * @param sequenceId  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10009,9 +10033,9 @@ public class MailApi {
         <tr><td> 0 </td><td> Unexpected API error; SDKs also retain the raw body when a proxy returns non-JSON content. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMailMessagesAsync(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, final ApiCallback<MailGetMessagesResponse200> _callback) throws ApiException {
+    public okhttp3.Call listMailMessagesAsync(@javax.annotation.Nonnull String teamId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable String cursor, @javax.annotation.Nullable String query, @javax.annotation.Nullable String status, @javax.annotation.Nullable String sequenceId, final ApiCallback<MailGetMessagesResponse200> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMailMessagesValidateBeforeCall(teamId, limit, cursor, _callback);
+        okhttp3.Call localVarCall = listMailMessagesValidateBeforeCall(teamId, limit, cursor, query, status, sequenceId, _callback);
         Type localVarReturnType = new TypeToken<MailGetMessagesResponse200>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

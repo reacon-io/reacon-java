@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.ProductSequence;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,7 +59,11 @@ public class ProductSequencesListOutput {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_CADENCES: return reaconPresentFields.contains(SERIALIZED_NAME_CADENCES) || this.cadences != null;
+      case SERIALIZED_NAME_CAMPAIGNS: return reaconPresentFields.contains(SERIALIZED_NAME_CAMPAIGNS) || this.campaigns != null;
+      case SERIALIZED_NAME_DRAFTS: return reaconPresentFields.contains(SERIALIZED_NAME_DRAFTS) || this.drafts != null;
       case SERIALIZED_NAME_ITEMS: return reaconPresentFields.contains(SERIALIZED_NAME_ITEMS) || this.items != null;
+      case SERIALIZED_NAME_SOURCE: return reaconPresentFields.contains(SERIALIZED_NAME_SOURCE) || this.source != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -68,27 +72,188 @@ public class ProductSequencesListOutput {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_CADENCES: this.cadences = null; break;
+      case SERIALIZED_NAME_CAMPAIGNS: this.campaigns = null; break;
+      case SERIALIZED_NAME_DRAFTS: this.drafts = null; break;
       case SERIALIZED_NAME_ITEMS: this.items = null; break;
+      case SERIALIZED_NAME_SOURCE: this.source = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
 
+  public static final String SERIALIZED_NAME_CADENCES = "cadences";
+  @SerializedName(SERIALIZED_NAME_CADENCES)
+  @javax.annotation.Nonnull
+  private List<Map<String, Object>> cadences = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CAMPAIGNS = "campaigns";
+  @SerializedName(SERIALIZED_NAME_CAMPAIGNS)
+  @javax.annotation.Nonnull
+  private List<Map<String, Object>> campaigns = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_DRAFTS = "drafts";
+  @SerializedName(SERIALIZED_NAME_DRAFTS)
+  @javax.annotation.Nonnull
+  private List<Map<String, Object>> drafts = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
   @javax.annotation.Nonnull
-  private List<ProductSequence> items = new ArrayList<>();
+  private List<Map<String, Object>> items = new ArrayList<>();
+
+  /**
+   * Gets or Sets source
+   */
+  @JsonAdapter(SourceEnum.Adapter.class)
+  public enum SourceEnum {
+    CANONICAL_MAIL("canonical_mail");
+
+    private String value;
+
+    SourceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SourceEnum fromValue(String value) {
+      for (SourceEnum b : SourceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SourceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SourceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SourceEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SourceEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nonnull
+  private SourceEnum source;
 
   public ProductSequencesListOutput() {
   }
 
-  public ProductSequencesListOutput items(@javax.annotation.Nonnull List<ProductSequence> items) {
+  public ProductSequencesListOutput cadences(@javax.annotation.Nonnull List<Map<String, Object>> cadences) {
+    this.cadences = cadences;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CADENCES);
+    return this;
+  }
+
+  public ProductSequencesListOutput addCadencesItem(Map<String, Object> cadencesItem) {
+    if (this.cadences == null) {
+      this.cadences = new ArrayList<>();
+    }
+    this.cadences.add(cadencesItem);
+    return this;
+  }
+
+  /**
+   * Get cadences
+   * @return cadences
+   */
+  @javax.annotation.Nonnull
+  public List<Map<String, Object>> getCadences() {
+    return cadences;
+  }
+
+  public void setCadences(@javax.annotation.Nonnull List<Map<String, Object>> cadences) {
+    this.cadences = cadences;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CADENCES);
+  }
+
+
+  public ProductSequencesListOutput campaigns(@javax.annotation.Nonnull List<Map<String, Object>> campaigns) {
+    this.campaigns = campaigns;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CAMPAIGNS);
+    return this;
+  }
+
+  public ProductSequencesListOutput addCampaignsItem(Map<String, Object> campaignsItem) {
+    if (this.campaigns == null) {
+      this.campaigns = new ArrayList<>();
+    }
+    this.campaigns.add(campaignsItem);
+    return this;
+  }
+
+  /**
+   * Get campaigns
+   * @return campaigns
+   */
+  @javax.annotation.Nonnull
+  public List<Map<String, Object>> getCampaigns() {
+    return campaigns;
+  }
+
+  public void setCampaigns(@javax.annotation.Nonnull List<Map<String, Object>> campaigns) {
+    this.campaigns = campaigns;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CAMPAIGNS);
+  }
+
+
+  public ProductSequencesListOutput drafts(@javax.annotation.Nonnull List<Map<String, Object>> drafts) {
+    this.drafts = drafts;
+    this.reaconPresentFields.add(SERIALIZED_NAME_DRAFTS);
+    return this;
+  }
+
+  public ProductSequencesListOutput addDraftsItem(Map<String, Object> draftsItem) {
+    if (this.drafts == null) {
+      this.drafts = new ArrayList<>();
+    }
+    this.drafts.add(draftsItem);
+    return this;
+  }
+
+  /**
+   * Get drafts
+   * @return drafts
+   */
+  @javax.annotation.Nonnull
+  public List<Map<String, Object>> getDrafts() {
+    return drafts;
+  }
+
+  public void setDrafts(@javax.annotation.Nonnull List<Map<String, Object>> drafts) {
+    this.drafts = drafts;
+    this.reaconPresentFields.add(SERIALIZED_NAME_DRAFTS);
+  }
+
+
+  public ProductSequencesListOutput items(@javax.annotation.Nonnull List<Map<String, Object>> items) {
     this.items = items;
     this.reaconPresentFields.add(SERIALIZED_NAME_ITEMS);
     return this;
   }
 
-  public ProductSequencesListOutput addItemsItem(ProductSequence itemsItem) {
+  public ProductSequencesListOutput addItemsItem(Map<String, Object> itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -101,13 +266,34 @@ public class ProductSequencesListOutput {
    * @return items
    */
   @javax.annotation.Nonnull
-  public List<ProductSequence> getItems() {
+  public List<Map<String, Object>> getItems() {
     return items;
   }
 
-  public void setItems(@javax.annotation.Nonnull List<ProductSequence> items) {
+  public void setItems(@javax.annotation.Nonnull List<Map<String, Object>> items) {
     this.items = items;
     this.reaconPresentFields.add(SERIALIZED_NAME_ITEMS);
+  }
+
+
+  public ProductSequencesListOutput source(@javax.annotation.Nonnull SourceEnum source) {
+    this.source = source;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SOURCE);
+    return this;
+  }
+
+  /**
+   * Get source
+   * @return source
+   */
+  @javax.annotation.Nonnull
+  public SourceEnum getSource() {
+    return source;
+  }
+
+  public void setSource(@javax.annotation.Nonnull SourceEnum source) {
+    this.source = source;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SOURCE);
   }
 
   /**
@@ -165,20 +351,28 @@ public class ProductSequencesListOutput {
       return false;
     }
     ProductSequencesListOutput productSequencesListOutput = (ProductSequencesListOutput) o;
-    return Objects.equals(this.items, productSequencesListOutput.items)&&
+    return Objects.equals(this.cadences, productSequencesListOutput.cadences) &&
+        Objects.equals(this.campaigns, productSequencesListOutput.campaigns) &&
+        Objects.equals(this.drafts, productSequencesListOutput.drafts) &&
+        Objects.equals(this.items, productSequencesListOutput.items) &&
+        Objects.equals(this.source, productSequencesListOutput.source)&&
         Objects.equals(this.additionalProperties, productSequencesListOutput.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, additionalProperties);
+    return Objects.hash(cadences, campaigns, drafts, items, source, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductSequencesListOutput {\n");
+    sb.append("    cadences: ").append(toIndentedString(cadences)).append("\n");
+    sb.append("    campaigns: ").append(toIndentedString(campaigns)).append("\n");
+    sb.append("    drafts: ").append(toIndentedString(drafts)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -198,10 +392,10 @@ public class ProductSequencesListOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("items"));
+    openapiFields = new HashSet<String>(Arrays.asList("cadences", "campaigns", "drafts", "items", "source"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("items"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("cadences", "campaigns", "drafts", "items", "source"));
   }
 
   /**
@@ -224,16 +418,35 @@ public class ProductSequencesListOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("items") != null) {
-        if (!jsonObj.get("items").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
-        }
-        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-        // validate the required field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-          ProductSequence.validateJsonElement(jsonArrayitems.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("cadences") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("cadences").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cadences` to be an array in the JSON string but got `%s`", jsonObj.get("cadences").toString()));
       }
+      // ensure the required json array is present
+      if (jsonObj.get("campaigns") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("campaigns").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `campaigns` to be an array in the JSON string but got `%s`", jsonObj.get("campaigns").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("drafts") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("drafts").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `drafts` to be an array in the JSON string but got `%s`", jsonObj.get("drafts").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("items") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("items").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+      }
+      if (!jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+      }
+      // validate the required field `source`
+      SourceEnum.validateJsonElement(jsonObj.get("source"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -251,9 +464,25 @@ public class ProductSequencesListOutput {
            @Override
            public void write(JsonWriter out, ProductSequencesListOutput value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.cadences == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CADENCES)) obj.add(SERIALIZED_NAME_CADENCES, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CADENCES);
+             }
+             if (value.campaigns == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CAMPAIGNS)) obj.add(SERIALIZED_NAME_CAMPAIGNS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CAMPAIGNS);
+             }
+             if (value.drafts == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_DRAFTS)) obj.add(SERIALIZED_NAME_DRAFTS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_DRAFTS);
+             }
              if (value.items == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ITEMS)) obj.add(SERIALIZED_NAME_ITEMS, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_ITEMS);
+             }
+             if (value.source == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SOURCE)) obj.add(SERIALIZED_NAME_SOURCE, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_SOURCE);
              }
              obj.remove("additionalProperties");
              // serialize additional properties

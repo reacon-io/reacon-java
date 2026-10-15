@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,18 +47,19 @@ import java.util.Set;
 import io.reacon.sdk.JSON;
 
 /**
- * ProductSequenceStartOutput
+ * MailEmailSequenceRecipientOverride
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.25.0")
-public class ProductSequenceStartOutput {
+public class MailEmailSequenceRecipientOverride {
   private transient java.util.Set<String> reaconPresentFields = new java.util.HashSet<>();
 
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
-      case SERIALIZED_NAME_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ID) || this.id != null;
-      case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
-      case SERIALIZED_NAME_STATUS: return reaconPresentFields.contains(SERIALIZED_NAME_STATUS) || this.status != null;
+      case SERIALIZED_NAME_BODY: return reaconPresentFields.contains(SERIALIZED_NAME_BODY) || this.body != null;
+      case SERIALIZED_NAME_CONTACT_ID: return reaconPresentFields.contains(SERIALIZED_NAME_CONTACT_ID) || this.contactId != null;
+      case SERIALIZED_NAME_STEP_ID: return reaconPresentFields.contains(SERIALIZED_NAME_STEP_ID) || this.stepId != null;
+      case SERIALIZED_NAME_SUBJECT: return reaconPresentFields.contains(SERIALIZED_NAME_SUBJECT) || this.subject != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -68,92 +68,119 @@ public class ProductSequenceStartOutput {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
-      case SERIALIZED_NAME_ID: this.id = null; break;
-      case SERIALIZED_NAME_NAME: this.name = null; break;
-      case SERIALIZED_NAME_STATUS: this.status = null; break;
+      case SERIALIZED_NAME_BODY: this.body = null; break;
+      case SERIALIZED_NAME_CONTACT_ID: this.contactId = null; break;
+      case SERIALIZED_NAME_STEP_ID: this.stepId = null; break;
+      case SERIALIZED_NAME_SUBJECT: this.subject = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
   }
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String SERIALIZED_NAME_BODY = "body";
+  @SerializedName(SERIALIZED_NAME_BODY)
   @javax.annotation.Nonnull
-  private UUID id;
+  private String body;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String SERIALIZED_NAME_CONTACT_ID = "contactId";
+  @SerializedName(SERIALIZED_NAME_CONTACT_ID)
   @javax.annotation.Nonnull
-  private String name;
+  private String contactId;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String SERIALIZED_NAME_STEP_ID = "stepId";
+  @SerializedName(SERIALIZED_NAME_STEP_ID)
   @javax.annotation.Nonnull
-  private String status;
+  private String stepId;
 
-  public ProductSequenceStartOutput() {
+  public static final String SERIALIZED_NAME_SUBJECT = "subject";
+  @SerializedName(SERIALIZED_NAME_SUBJECT)
+  @javax.annotation.Nonnull
+  private String subject;
+
+  public MailEmailSequenceRecipientOverride() {
   }
 
-  public ProductSequenceStartOutput id(@javax.annotation.Nonnull UUID id) {
-    this.id = id;
-    this.reaconPresentFields.add(SERIALIZED_NAME_ID);
+  public MailEmailSequenceRecipientOverride body(@javax.annotation.Nonnull String body) {
+    this.body = body;
+    this.reaconPresentFields.add(SERIALIZED_NAME_BODY);
     return this;
   }
 
   /**
-   * Get id
-   * @return id
+   * Get body
+   * @return body
    */
   @javax.annotation.Nonnull
-  public UUID getId() {
-    return id;
+  public String getBody() {
+    return body;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
-    this.id = id;
-    this.reaconPresentFields.add(SERIALIZED_NAME_ID);
+  public void setBody(@javax.annotation.Nonnull String body) {
+    this.body = body;
+    this.reaconPresentFields.add(SERIALIZED_NAME_BODY);
   }
 
 
-  public ProductSequenceStartOutput name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    this.reaconPresentFields.add(SERIALIZED_NAME_NAME);
+  public MailEmailSequenceRecipientOverride contactId(@javax.annotation.Nonnull String contactId) {
+    this.contactId = contactId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CONTACT_ID);
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Get contactId
+   * @return contactId
    */
   @javax.annotation.Nonnull
-  public String getName() {
-    return name;
+  public String getContactId() {
+    return contactId;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    this.reaconPresentFields.add(SERIALIZED_NAME_NAME);
+  public void setContactId(@javax.annotation.Nonnull String contactId) {
+    this.contactId = contactId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_CONTACT_ID);
   }
 
 
-  public ProductSequenceStartOutput status(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    this.reaconPresentFields.add(SERIALIZED_NAME_STATUS);
+  public MailEmailSequenceRecipientOverride stepId(@javax.annotation.Nonnull String stepId) {
+    this.stepId = stepId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_STEP_ID);
     return this;
   }
 
   /**
-   * Get status
-   * @return status
+   * Get stepId
+   * @return stepId
    */
   @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
+  public String getStepId() {
+    return stepId;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    this.reaconPresentFields.add(SERIALIZED_NAME_STATUS);
+  public void setStepId(@javax.annotation.Nonnull String stepId) {
+    this.stepId = stepId;
+    this.reaconPresentFields.add(SERIALIZED_NAME_STEP_ID);
+  }
+
+
+  public MailEmailSequenceRecipientOverride subject(@javax.annotation.Nonnull String subject) {
+    this.subject = subject;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SUBJECT);
+    return this;
+  }
+
+  /**
+   * Get subject
+   * @return subject
+   */
+  @javax.annotation.Nonnull
+  public String getSubject() {
+    return subject;
+  }
+
+  public void setSubject(@javax.annotation.Nonnull String subject) {
+    this.subject = subject;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SUBJECT);
   }
 
   /**
@@ -169,9 +196,9 @@ public class ProductSequenceStartOutput {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ProductSequenceStartOutput instance itself
+   * @return the MailEmailSequenceRecipientOverride instance itself
    */
-  public ProductSequenceStartOutput putAdditionalProperty(String key, Object value) {
+  public MailEmailSequenceRecipientOverride putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -210,25 +237,27 @@ public class ProductSequenceStartOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProductSequenceStartOutput productSequenceStartOutput = (ProductSequenceStartOutput) o;
-    return Objects.equals(this.id, productSequenceStartOutput.id) &&
-        Objects.equals(this.name, productSequenceStartOutput.name) &&
-        Objects.equals(this.status, productSequenceStartOutput.status)&&
-        Objects.equals(this.additionalProperties, productSequenceStartOutput.additionalProperties);
+    MailEmailSequenceRecipientOverride mailEmailSequenceRecipientOverride = (MailEmailSequenceRecipientOverride) o;
+    return Objects.equals(this.body, mailEmailSequenceRecipientOverride.body) &&
+        Objects.equals(this.contactId, mailEmailSequenceRecipientOverride.contactId) &&
+        Objects.equals(this.stepId, mailEmailSequenceRecipientOverride.stepId) &&
+        Objects.equals(this.subject, mailEmailSequenceRecipientOverride.subject)&&
+        Objects.equals(this.additionalProperties, mailEmailSequenceRecipientOverride.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, status, additionalProperties);
+    return Objects.hash(body, contactId, stepId, subject, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProductSequenceStartOutput {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class MailEmailSequenceRecipientOverride {\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
+    sb.append("    stepId: ").append(toIndentedString(stepId)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,40 +277,43 @@ public class ProductSequenceStartOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("body", "contactId", "stepId", "subject"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("body", "contactId", "stepId", "subject"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProductSequenceStartOutput
+   * @throws IOException if the JSON Element is invalid with respect to MailEmailSequenceRecipientOverride
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ProductSequenceStartOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ProductSequenceStartOutput is not found in the empty JSON string", ProductSequenceStartOutput.openapiRequiredFields.toString()));
+        if (!MailEmailSequenceRecipientOverride.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MailEmailSequenceRecipientOverride is not found in the empty JSON string", MailEmailSequenceRecipientOverride.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProductSequenceStartOutput.openapiRequiredFields) {
+      for (String requiredField : MailEmailSequenceRecipientOverride.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if (!jsonObj.get("body").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if (!jsonObj.get("contactId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `contactId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contactId").toString()));
       }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      if (!jsonObj.get("stepId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stepId").toString()));
+      }
+      if (!jsonObj.get("subject").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
       }
   }
 
@@ -289,28 +321,32 @@ public class ProductSequenceStartOutput {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProductSequenceStartOutput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProductSequenceStartOutput' and its subtypes
+       if (!MailEmailSequenceRecipientOverride.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MailEmailSequenceRecipientOverride' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProductSequenceStartOutput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProductSequenceStartOutput.class));
+       final TypeAdapter<MailEmailSequenceRecipientOverride> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MailEmailSequenceRecipientOverride.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ProductSequenceStartOutput>() {
+       return (TypeAdapter<T>) new TypeAdapter<MailEmailSequenceRecipientOverride>() {
            @Override
-           public void write(JsonWriter out, ProductSequenceStartOutput value) throws IOException {
+           public void write(JsonWriter out, MailEmailSequenceRecipientOverride value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             if (value.id == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ID)) obj.add(SERIALIZED_NAME_ID, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_ID);
+             if (value.body == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_BODY)) obj.add(SERIALIZED_NAME_BODY, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_BODY);
              }
-             if (value.name == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_NAME)) obj.add(SERIALIZED_NAME_NAME, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_NAME);
+             if (value.contactId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_CONTACT_ID)) obj.add(SERIALIZED_NAME_CONTACT_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_CONTACT_ID);
              }
-             if (value.status == null) {
-               if (value.reaconPresentFields.contains(SERIALIZED_NAME_STATUS)) obj.add(SERIALIZED_NAME_STATUS, com.google.gson.JsonNull.INSTANCE);
-               else obj.remove(SERIALIZED_NAME_STATUS);
+             if (value.stepId == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_STEP_ID)) obj.add(SERIALIZED_NAME_STEP_ID, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_STEP_ID);
+             }
+             if (value.subject == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SUBJECT)) obj.add(SERIALIZED_NAME_SUBJECT, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_SUBJECT);
              }
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -343,12 +379,12 @@ public class ProductSequenceStartOutput {
            }
 
            @Override
-           public ProductSequenceStartOutput read(JsonReader in) throws IOException {
+           public MailEmailSequenceRecipientOverride read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ProductSequenceStartOutput instance = thisAdapter.fromJsonTree(jsonObj);
+             MailEmailSequenceRecipientOverride instance = thisAdapter.fromJsonTree(jsonObj);
              instance.reaconPresentFields.addAll(jsonObj.keySet());
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
@@ -376,18 +412,18 @@ public class ProductSequenceStartOutput {
   }
 
   /**
-   * Create an instance of ProductSequenceStartOutput given an JSON string
+   * Create an instance of MailEmailSequenceRecipientOverride given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ProductSequenceStartOutput
-   * @throws IOException if the JSON string is invalid with respect to ProductSequenceStartOutput
+   * @return An instance of MailEmailSequenceRecipientOverride
+   * @throws IOException if the JSON string is invalid with respect to MailEmailSequenceRecipientOverride
    */
-  public static ProductSequenceStartOutput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProductSequenceStartOutput.class);
+  public static MailEmailSequenceRecipientOverride fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MailEmailSequenceRecipientOverride.class);
   }
 
   /**
-   * Convert an instance of ProductSequenceStartOutput to an JSON string
+   * Convert an instance of MailEmailSequenceRecipientOverride to an JSON string
    *
    * @return JSON string
    */

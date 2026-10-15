@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.reacon.sdk.model.MailMailAttachmentReference;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,6 +59,7 @@ public class MailRenderedMessage {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_ATTACHMENTS: return reaconPresentFields.contains(SERIALIZED_NAME_ATTACHMENTS) || this.attachments != null;
       case SERIALIZED_NAME_HTML: return reaconPresentFields.contains(SERIALIZED_NAME_HTML) || this.html != null;
       case SERIALIZED_NAME_SUBJECT: return reaconPresentFields.contains(SERIALIZED_NAME_SUBJECT) || this.subject != null;
       case SERIALIZED_NAME_TEXT: return reaconPresentFields.contains(SERIALIZED_NAME_TEXT) || this.text != null;
@@ -67,6 +71,7 @@ public class MailRenderedMessage {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_ATTACHMENTS: this.attachments = null; break;
       case SERIALIZED_NAME_HTML: this.html = null; break;
       case SERIALIZED_NAME_SUBJECT: this.subject = null; break;
       case SERIALIZED_NAME_TEXT: this.text = null; break;
@@ -74,6 +79,11 @@ public class MailRenderedMessage {
     }
     reaconPresentFields.remove(wireName);
   }
+
+  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
+  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  @javax.annotation.Nullable
+  private List<MailMailAttachmentReference> attachments;
 
   public static final String SERIALIZED_NAME_HTML = "html";
   @SerializedName(SERIALIZED_NAME_HTML)
@@ -92,6 +102,35 @@ public class MailRenderedMessage {
 
   public MailRenderedMessage() {
   }
+
+  public MailRenderedMessage attachments(@javax.annotation.Nullable List<MailMailAttachmentReference> attachments) {
+    this.attachments = attachments;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ATTACHMENTS);
+    return this;
+  }
+
+  public MailRenderedMessage addAttachmentsItem(MailMailAttachmentReference attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+  /**
+   * Get attachments
+   * @return attachments
+   */
+  @javax.annotation.Nullable
+  public List<MailMailAttachmentReference> getAttachments() {
+    return attachments;
+  }
+
+  public void setAttachments(@javax.annotation.Nullable List<MailMailAttachmentReference> attachments) {
+    this.attachments = attachments;
+    this.reaconPresentFields.add(SERIALIZED_NAME_ATTACHMENTS);
+  }
+
 
   public MailRenderedMessage html(@javax.annotation.Nullable String html) {
     this.html = html;
@@ -210,7 +249,8 @@ public class MailRenderedMessage {
       return false;
     }
     MailRenderedMessage mailRenderedMessage = (MailRenderedMessage) o;
-    return Objects.equals(this.html, mailRenderedMessage.html) &&
+    return Objects.equals(this.attachments, mailRenderedMessage.attachments) &&
+        Objects.equals(this.html, mailRenderedMessage.html) &&
         Objects.equals(this.subject, mailRenderedMessage.subject) &&
         Objects.equals(this.text, mailRenderedMessage.text)&&
         Objects.equals(this.additionalProperties, mailRenderedMessage.additionalProperties);
@@ -218,13 +258,14 @@ public class MailRenderedMessage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(html, subject, text, additionalProperties);
+    return Objects.hash(attachments, html, subject, text, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MailRenderedMessage {\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
@@ -247,7 +288,7 @@ public class MailRenderedMessage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("html", "subject", "text"));
+    openapiFields = new HashSet<String>(Arrays.asList("attachments", "html", "subject", "text"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("subject", "text"));
@@ -273,6 +314,20 @@ public class MailRenderedMessage {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
+        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
+        if (jsonArrayattachments != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attachments").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
+          }
+
+          // validate the optional field `attachments` (array)
+          for (int i = 0; i < jsonArrayattachments.size(); i++) {
+            MailMailAttachmentReference.validateJsonElement(jsonArrayattachments.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("html") != null && !jsonObj.get("html").isJsonNull()) && !jsonObj.get("html").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `html` to be a primitive type in the JSON string but got `%s`", jsonObj.get("html").toString()));
       }
@@ -299,6 +354,10 @@ public class MailRenderedMessage {
            @Override
            public void write(JsonWriter out, MailRenderedMessage value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.attachments == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_ATTACHMENTS)) obj.add(SERIALIZED_NAME_ATTACHMENTS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_ATTACHMENTS);
+             }
              if (value.html == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_HTML)) obj.add(SERIALIZED_NAME_HTML, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_HTML);

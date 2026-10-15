@@ -59,6 +59,8 @@ public class ProductSavedSearchesListOutput {
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
       case SERIALIZED_NAME_ITEMS: return reaconPresentFields.contains(SERIALIZED_NAME_ITEMS) || this.items != null;
+      case SERIALIZED_NAME_REASON: return reaconPresentFields.contains(SERIALIZED_NAME_REASON) || this.reason != null;
+      case SERIALIZED_NAME_SUPPORTED: return reaconPresentFields.contains(SERIALIZED_NAME_SUPPORTED) || this.supported != null;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
   }
@@ -68,6 +70,8 @@ public class ProductSavedSearchesListOutput {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
       case SERIALIZED_NAME_ITEMS: this.items = null; break;
+      case SERIALIZED_NAME_REASON: this.reason = null; break;
+      case SERIALIZED_NAME_SUPPORTED: this.supported = null; break;
       default: throw new IllegalArgumentException("Unknown wire property: " + wireName);
     }
     reaconPresentFields.remove(wireName);
@@ -77,6 +81,16 @@ public class ProductSavedSearchesListOutput {
   @SerializedName(SERIALIZED_NAME_ITEMS)
   @javax.annotation.Nonnull
   private List<Object> items = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_REASON = "reason";
+  @SerializedName(SERIALIZED_NAME_REASON)
+  @javax.annotation.Nonnull
+  private String reason;
+
+  public static final String SERIALIZED_NAME_SUPPORTED = "supported";
+  @SerializedName(SERIALIZED_NAME_SUPPORTED)
+  @javax.annotation.Nonnull
+  private Boolean supported;
 
   public ProductSavedSearchesListOutput() {
   }
@@ -107,6 +121,48 @@ public class ProductSavedSearchesListOutput {
   public void setItems(@javax.annotation.Nonnull List<Object> items) {
     this.items = items;
     this.reaconPresentFields.add(SERIALIZED_NAME_ITEMS);
+  }
+
+
+  public ProductSavedSearchesListOutput reason(@javax.annotation.Nonnull String reason) {
+    this.reason = reason;
+    this.reaconPresentFields.add(SERIALIZED_NAME_REASON);
+    return this;
+  }
+
+  /**
+   * Get reason
+   * @return reason
+   */
+  @javax.annotation.Nonnull
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(@javax.annotation.Nonnull String reason) {
+    this.reason = reason;
+    this.reaconPresentFields.add(SERIALIZED_NAME_REASON);
+  }
+
+
+  public ProductSavedSearchesListOutput supported(@javax.annotation.Nonnull Boolean supported) {
+    this.supported = supported;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SUPPORTED);
+    return this;
+  }
+
+  /**
+   * Get supported
+   * @return supported
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSupported() {
+    return supported;
+  }
+
+  public void setSupported(@javax.annotation.Nonnull Boolean supported) {
+    this.supported = supported;
+    this.reaconPresentFields.add(SERIALIZED_NAME_SUPPORTED);
   }
 
   /**
@@ -164,13 +220,15 @@ public class ProductSavedSearchesListOutput {
       return false;
     }
     ProductSavedSearchesListOutput productSavedSearchesListOutput = (ProductSavedSearchesListOutput) o;
-    return Objects.equals(this.items, productSavedSearchesListOutput.items)&&
+    return Objects.equals(this.items, productSavedSearchesListOutput.items) &&
+        Objects.equals(this.reason, productSavedSearchesListOutput.reason) &&
+        Objects.equals(this.supported, productSavedSearchesListOutput.supported)&&
         Objects.equals(this.additionalProperties, productSavedSearchesListOutput.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, additionalProperties);
+    return Objects.hash(items, reason, supported, additionalProperties);
   }
 
   @Override
@@ -178,6 +236,8 @@ public class ProductSavedSearchesListOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductSavedSearchesListOutput {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    supported: ").append(toIndentedString(supported)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -197,10 +257,10 @@ public class ProductSavedSearchesListOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("items"));
+    openapiFields = new HashSet<String>(Arrays.asList("items", "reason", "supported"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("items"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("items", "reason", "supported"));
   }
 
   /**
@@ -229,6 +289,9 @@ public class ProductSavedSearchesListOutput {
       } else if (!jsonObj.get("items").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
       }
+      if (!jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -249,6 +312,14 @@ public class ProductSavedSearchesListOutput {
              if (value.items == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ITEMS)) obj.add(SERIALIZED_NAME_ITEMS, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_ITEMS);
+             }
+             if (value.reason == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_REASON)) obj.add(SERIALIZED_NAME_REASON, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_REASON);
+             }
+             if (value.supported == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_SUPPORTED)) obj.add(SERIALIZED_NAME_SUPPORTED, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_SUPPORTED);
              }
              obj.remove("additionalProperties");
              // serialize additional properties

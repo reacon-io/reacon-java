@@ -80,6 +80,7 @@ public class MailCadenceRunRecord {
       case SERIALIZED_NAME_LEASE_EXPIRES_AT: return reaconPresentFields.contains(SERIALIZED_NAME_LEASE_EXPIRES_AT) || this.leaseExpiresAt != null;
       case SERIALIZED_NAME_LEASE_OWNER: return reaconPresentFields.contains(SERIALIZED_NAME_LEASE_OWNER) || this.leaseOwner != null;
       case SERIALIZED_NAME_MAILBOX_ID: return reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_ID) || this.mailboxId != null;
+      case SERIALIZED_NAME_MESSAGE_EDIT_REVISION: return reaconPresentFields.contains(SERIALIZED_NAME_MESSAGE_EDIT_REVISION) || this.messageEditRevision != null;
       case SERIALIZED_NAME_OUTCOME: return reaconPresentFields.contains(SERIALIZED_NAME_OUTCOME) || this.outcome != null;
       case SERIALIZED_NAME_PENDING_MESSAGE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_PENDING_MESSAGE_ID) || this.pendingMessageId != null;
       case SERIALIZED_NAME_PENDING_NEXT_NODE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_PENDING_NEXT_NODE_ID) || this.pendingNextNodeId != null;
@@ -115,6 +116,7 @@ public class MailCadenceRunRecord {
       case SERIALIZED_NAME_LEASE_EXPIRES_AT: this.leaseExpiresAt = null; break;
       case SERIALIZED_NAME_LEASE_OWNER: this.leaseOwner = null; break;
       case SERIALIZED_NAME_MAILBOX_ID: this.mailboxId = null; break;
+      case SERIALIZED_NAME_MESSAGE_EDIT_REVISION: this.messageEditRevision = null; break;
       case SERIALIZED_NAME_OUTCOME: this.outcome = null; break;
       case SERIALIZED_NAME_PENDING_MESSAGE_ID: this.pendingMessageId = null; break;
       case SERIALIZED_NAME_PENDING_NEXT_NODE_ID: this.pendingNextNodeId = null; break;
@@ -222,6 +224,11 @@ public class MailCadenceRunRecord {
   @SerializedName(SERIALIZED_NAME_MAILBOX_ID)
   @javax.annotation.Nonnull
   private String mailboxId;
+
+  public static final String SERIALIZED_NAME_MESSAGE_EDIT_REVISION = "messageEditRevision";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_EDIT_REVISION)
+  @javax.annotation.Nullable
+  private BigDecimal messageEditRevision;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
@@ -673,6 +680,27 @@ public class MailCadenceRunRecord {
   }
 
 
+  public MailCadenceRunRecord messageEditRevision(@javax.annotation.Nullable BigDecimal messageEditRevision) {
+    this.messageEditRevision = messageEditRevision;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MESSAGE_EDIT_REVISION);
+    return this;
+  }
+
+  /**
+   * Get messageEditRevision
+   * @return messageEditRevision
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getMessageEditRevision() {
+    return messageEditRevision;
+  }
+
+  public void setMessageEditRevision(@javax.annotation.Nullable BigDecimal messageEditRevision) {
+    this.messageEditRevision = messageEditRevision;
+    this.reaconPresentFields.add(SERIALIZED_NAME_MESSAGE_EDIT_REVISION);
+  }
+
+
   public MailCadenceRunRecord outcome(@javax.annotation.Nullable String outcome) {
     this.outcome = outcome;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTCOME);
@@ -914,6 +942,7 @@ public class MailCadenceRunRecord {
         Objects.equals(this.leaseExpiresAt, mailCadenceRunRecord.leaseExpiresAt) &&
         Objects.equals(this.leaseOwner, mailCadenceRunRecord.leaseOwner) &&
         Objects.equals(this.mailboxId, mailCadenceRunRecord.mailboxId) &&
+        Objects.equals(this.messageEditRevision, mailCadenceRunRecord.messageEditRevision) &&
         Objects.equals(this.outcome, mailCadenceRunRecord.outcome) &&
         Objects.equals(this.pendingMessageId, mailCadenceRunRecord.pendingMessageId) &&
         Objects.equals(this.pendingNextNodeId, mailCadenceRunRecord.pendingNextNodeId) &&
@@ -927,7 +956,7 @@ public class MailCadenceRunRecord {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actorId, attemptCount, audienceListId, cadenceId, cadenceVersion, campaignId, campaignName, contactId, createdAt, currentNodeId, dueAt, experimentContexts, id, idempotencyKey, lastAcceptedMessageId, lastError, leaseExpiresAt, leaseOwner, mailboxId, outcome, pendingMessageId, pendingNextNodeId, status, taskId, tenantId, updatedAt, version, additionalProperties);
+    return Objects.hash(actorId, attemptCount, audienceListId, cadenceId, cadenceVersion, campaignId, campaignName, contactId, createdAt, currentNodeId, dueAt, experimentContexts, id, idempotencyKey, lastAcceptedMessageId, lastError, leaseExpiresAt, leaseOwner, mailboxId, messageEditRevision, outcome, pendingMessageId, pendingNextNodeId, status, taskId, tenantId, updatedAt, version, additionalProperties);
   }
 
   @Override
@@ -953,6 +982,7 @@ public class MailCadenceRunRecord {
     sb.append("    leaseExpiresAt: ").append(toIndentedString(leaseExpiresAt)).append("\n");
     sb.append("    leaseOwner: ").append(toIndentedString(leaseOwner)).append("\n");
     sb.append("    mailboxId: ").append(toIndentedString(mailboxId)).append("\n");
+    sb.append("    messageEditRevision: ").append(toIndentedString(messageEditRevision)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    pendingMessageId: ").append(toIndentedString(pendingMessageId)).append("\n");
     sb.append("    pendingNextNodeId: ").append(toIndentedString(pendingNextNodeId)).append("\n");
@@ -980,7 +1010,7 @@ public class MailCadenceRunRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("actorId", "attemptCount", "audienceListId", "cadenceId", "cadenceVersion", "campaignId", "campaignName", "contactId", "createdAt", "currentNodeId", "dueAt", "experimentContexts", "id", "idempotencyKey", "lastAcceptedMessageId", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "outcome", "pendingMessageId", "pendingNextNodeId", "status", "taskId", "tenantId", "updatedAt", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("actorId", "attemptCount", "audienceListId", "cadenceId", "cadenceVersion", "campaignId", "campaignName", "contactId", "createdAt", "currentNodeId", "dueAt", "experimentContexts", "id", "idempotencyKey", "lastAcceptedMessageId", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "messageEditRevision", "outcome", "pendingMessageId", "pendingNextNodeId", "status", "taskId", "tenantId", "updatedAt", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("actorId", "attemptCount", "cadenceId", "cadenceVersion", "contactId", "createdAt", "currentNodeId", "dueAt", "id", "idempotencyKey", "mailboxId", "status", "tenantId", "updatedAt", "version"));
@@ -1169,6 +1199,10 @@ public class MailCadenceRunRecord {
              if (value.mailboxId == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_MAILBOX_ID)) obj.add(SERIALIZED_NAME_MAILBOX_ID, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_MAILBOX_ID);
+             }
+             if (value.messageEditRevision == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_MESSAGE_EDIT_REVISION)) obj.add(SERIALIZED_NAME_MESSAGE_EDIT_REVISION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_MESSAGE_EDIT_REVISION);
              }
              if (value.outcome == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_OUTCOME)) obj.add(SERIALIZED_NAME_OUTCOME, com.google.gson.JsonNull.INSTANCE);

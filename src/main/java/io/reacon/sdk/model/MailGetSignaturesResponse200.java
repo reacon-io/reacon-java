@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.MailSignatureCandidate;
+import io.reacon.sdk.model.MailGetSignaturesResponse200CandidatesInner;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -79,7 +79,7 @@ public class MailGetSignaturesResponse200 {
   public static final String SERIALIZED_NAME_CANDIDATES = "candidates";
   @SerializedName(SERIALIZED_NAME_CANDIDATES)
   @javax.annotation.Nonnull
-  private List<MailSignatureCandidate> candidates = new ArrayList<>();
+  private List<MailGetSignaturesResponse200CandidatesInner> candidates = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NEXT_CURSOR = "nextCursor";
   @SerializedName(SERIALIZED_NAME_NEXT_CURSOR)
@@ -89,13 +89,13 @@ public class MailGetSignaturesResponse200 {
   public MailGetSignaturesResponse200() {
   }
 
-  public MailGetSignaturesResponse200 candidates(@javax.annotation.Nonnull List<MailSignatureCandidate> candidates) {
+  public MailGetSignaturesResponse200 candidates(@javax.annotation.Nonnull List<MailGetSignaturesResponse200CandidatesInner> candidates) {
     this.candidates = candidates;
     this.reaconPresentFields.add(SERIALIZED_NAME_CANDIDATES);
     return this;
   }
 
-  public MailGetSignaturesResponse200 addCandidatesItem(MailSignatureCandidate candidatesItem) {
+  public MailGetSignaturesResponse200 addCandidatesItem(MailGetSignaturesResponse200CandidatesInner candidatesItem) {
     if (this.candidates == null) {
       this.candidates = new ArrayList<>();
     }
@@ -108,11 +108,11 @@ public class MailGetSignaturesResponse200 {
    * @return candidates
    */
   @javax.annotation.Nonnull
-  public List<MailSignatureCandidate> getCandidates() {
+  public List<MailGetSignaturesResponse200CandidatesInner> getCandidates() {
     return candidates;
   }
 
-  public void setCandidates(@javax.annotation.Nonnull List<MailSignatureCandidate> candidates) {
+  public void setCandidates(@javax.annotation.Nonnull List<MailGetSignaturesResponse200CandidatesInner> candidates) {
     this.candidates = candidates;
     this.reaconPresentFields.add(SERIALIZED_NAME_CANDIDATES);
   }
@@ -261,7 +261,7 @@ public class MailGetSignaturesResponse200 {
         JsonArray jsonArraycandidates = jsonObj.getAsJsonArray("candidates");
         // validate the required field `candidates` (array)
         for (int i = 0; i < jsonArraycandidates.size(); i++) {
-          MailSignatureCandidate.validateJsonElement(jsonArraycandidates.get(i));
+          MailGetSignaturesResponse200CandidatesInner.validateJsonElement(jsonArraycandidates.get(i));
         }
       }
       if ((jsonObj.get("nextCursor") != null && !jsonObj.get("nextCursor").isJsonNull()) && !jsonObj.get("nextCursor").isJsonPrimitive()) {

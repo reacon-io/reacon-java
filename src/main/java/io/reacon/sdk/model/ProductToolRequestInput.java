@@ -41,6 +41,15 @@ import io.reacon.sdk.model.ProductLeadTagAssignInput;
 import io.reacon.sdk.model.ProductLeadTagCreateInput;
 import io.reacon.sdk.model.ProductLeadUpdateInput;
 import io.reacon.sdk.model.ProductLeadsListInput;
+import io.reacon.sdk.model.ProductMailSequenceAddAbInput;
+import io.reacon.sdk.model.ProductMailSequenceAddAbInputVariantB;
+import io.reacon.sdk.model.ProductMailSequenceAddAudienceInput;
+import io.reacon.sdk.model.ProductMailSequenceDraftSaveInput;
+import io.reacon.sdk.model.ProductMailSequencePublishInput;
+import io.reacon.sdk.model.ProductMailSequenceReadinessInput;
+import io.reacon.sdk.model.ProductMailSequenceRecipientsListInput;
+import io.reacon.sdk.model.ProductMailSequenceResultsInput;
+import io.reacon.sdk.model.ProductMailSequenceStateInput;
 import io.reacon.sdk.model.ProductPersonEnrichInput;
 import io.reacon.sdk.model.ProductSequenceRecipientAddInput;
 import io.reacon.sdk.model.ProductSequenceRecipientCancelInput;
@@ -49,6 +58,7 @@ import io.reacon.sdk.model.ProductSequenceRecipientsAddInputRecipientsInner;
 import io.reacon.sdk.model.ProductSequenceRecipientsListInput;
 import io.reacon.sdk.model.ProductSequenceStartInput;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -131,6 +141,14 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
             final TypeAdapter<ProductSequenceRecipientAddInput> adapterProductSequenceRecipientAddInput = gson.getAdapter(TypeToken.get(ProductSequenceRecipientAddInput.class));
             final TypeAdapter<ProductSequenceRecipientCancelInput> adapterProductSequenceRecipientCancelInput = gson.getAdapter(TypeToken.get(ProductSequenceRecipientCancelInput.class));
             final TypeAdapter<ProductSequenceStartInput> adapterProductSequenceStartInput = gson.getAdapter(TypeToken.get(ProductSequenceStartInput.class));
+            final TypeAdapter<ProductMailSequenceDraftSaveInput> adapterProductMailSequenceDraftSaveInput = gson.getAdapter(TypeToken.get(ProductMailSequenceDraftSaveInput.class));
+            final TypeAdapter<ProductMailSequenceAddAudienceInput> adapterProductMailSequenceAddAudienceInput = gson.getAdapter(TypeToken.get(ProductMailSequenceAddAudienceInput.class));
+            final TypeAdapter<ProductMailSequenceReadinessInput> adapterProductMailSequenceReadinessInput = gson.getAdapter(TypeToken.get(ProductMailSequenceReadinessInput.class));
+            final TypeAdapter<ProductMailSequencePublishInput> adapterProductMailSequencePublishInput = gson.getAdapter(TypeToken.get(ProductMailSequencePublishInput.class));
+            final TypeAdapter<ProductMailSequenceRecipientsListInput> adapterProductMailSequenceRecipientsListInput = gson.getAdapter(TypeToken.get(ProductMailSequenceRecipientsListInput.class));
+            final TypeAdapter<ProductMailSequenceAddAbInput> adapterProductMailSequenceAddAbInput = gson.getAdapter(TypeToken.get(ProductMailSequenceAddAbInput.class));
+            final TypeAdapter<ProductMailSequenceStateInput> adapterProductMailSequenceStateInput = gson.getAdapter(TypeToken.get(ProductMailSequenceStateInput.class));
+            final TypeAdapter<ProductMailSequenceResultsInput> adapterProductMailSequenceResultsInput = gson.getAdapter(TypeToken.get(ProductMailSequenceResultsInput.class));
             final TypeAdapter<ProductConnectedAppPushInput> adapterProductConnectedAppPushInput = gson.getAdapter(TypeToken.get(ProductConnectedAppPushInput.class));
 
             return (TypeAdapter<T>) new TypeAdapter<ProductToolRequestInput>() {
@@ -390,6 +408,78 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
                         finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
+                    // check if the actual instance is of the type `ProductMailSequenceDraftSaveInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceDraftSaveInput) {
+                        JsonElement element = adapterProductMailSequenceDraftSaveInput.toJsonTree((ProductMailSequenceDraftSaveInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceAddAudienceInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceAddAudienceInput) {
+                        JsonElement element = adapterProductMailSequenceAddAudienceInput.toJsonTree((ProductMailSequenceAddAudienceInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceReadinessInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceReadinessInput) {
+                        JsonElement element = adapterProductMailSequenceReadinessInput.toJsonTree((ProductMailSequenceReadinessInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequencePublishInput`
+                    if (value.getActualInstance() instanceof ProductMailSequencePublishInput) {
+                        JsonElement element = adapterProductMailSequencePublishInput.toJsonTree((ProductMailSequencePublishInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceRecipientsListInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceRecipientsListInput) {
+                        JsonElement element = adapterProductMailSequenceRecipientsListInput.toJsonTree((ProductMailSequenceRecipientsListInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceAddAbInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceAddAbInput) {
+                        JsonElement element = adapterProductMailSequenceAddAbInput.toJsonTree((ProductMailSequenceAddAbInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceStateInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceStateInput) {
+                        JsonElement element = adapterProductMailSequenceStateInput.toJsonTree((ProductMailSequenceStateInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
+                    // check if the actual instance is of the type `ProductMailSequenceResultsInput`
+                    if (value.getActualInstance() instanceof ProductMailSequenceResultsInput) {
+                        JsonElement element = adapterProductMailSequenceResultsInput.toJsonTree((ProductMailSequenceResultsInput)value.getActualInstance());
+                        boolean previousSerializeNulls = out.getSerializeNulls();
+                        out.setSerializeNulls(true);
+                        try { elementAdapter.write(out, element); }
+                        finally { out.setSerializeNulls(previousSerializeNulls); }
+                        return;
+                    }
                     // check if the actual instance is of the type `ProductConnectedAppPushInput`
                     if (value.getActualInstance() instanceof ProductConnectedAppPushInput) {
                         JsonElement element = adapterProductConnectedAppPushInput.toJsonTree((ProductConnectedAppPushInput)value.getActualInstance());
@@ -399,7 +489,7 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
                         finally { out.setSerializeNulls(previousSerializeNulls); }
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput");
                 }
 
                 @Override
@@ -776,6 +866,110 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductSequenceStartInput failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'ProductSequenceStartInput'", e);
                     }
+                    // deserialize ProductMailSequenceDraftSaveInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceDraftSaveInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceDraftSaveInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceDraftSaveInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceDraftSaveInput'", e);
+                    }
+                    // deserialize ProductMailSequenceAddAudienceInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceAddAudienceInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceAddAudienceInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAudienceInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceAddAudienceInput'", e);
+                    }
+                    // deserialize ProductMailSequenceReadinessInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceReadinessInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceReadinessInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceReadinessInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceReadinessInput'", e);
+                    }
+                    // deserialize ProductMailSequencePublishInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequencePublishInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequencePublishInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequencePublishInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequencePublishInput'", e);
+                    }
+                    // deserialize ProductMailSequenceRecipientsListInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceRecipientsListInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceRecipientsListInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceRecipientsListInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceRecipientsListInput'", e);
+                    }
+                    // deserialize ProductMailSequenceAddAbInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceAddAbInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceAddAbInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAbInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceAddAbInput'", e);
+                    }
+                    // deserialize ProductMailSequenceStateInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceStateInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceStateInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceStateInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceStateInput'", e);
+                    }
+                    // deserialize ProductMailSequenceResultsInput
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ProductMailSequenceResultsInput.validateJsonElement(jsonElement);
+                        actualAdapter = adapterProductMailSequenceResultsInput;
+                        ProductToolRequestInput ret = new ProductToolRequestInput();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceResultsInput failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ProductMailSequenceResultsInput'", e);
+                    }
                     // deserialize ProductConnectedAppPushInput
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -837,6 +1031,14 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
         schemas.put("ProductSequenceRecipientAddInput", ProductSequenceRecipientAddInput.class);
         schemas.put("ProductSequenceRecipientCancelInput", ProductSequenceRecipientCancelInput.class);
         schemas.put("ProductSequenceStartInput", ProductSequenceStartInput.class);
+        schemas.put("ProductMailSequenceDraftSaveInput", ProductMailSequenceDraftSaveInput.class);
+        schemas.put("ProductMailSequenceAddAudienceInput", ProductMailSequenceAddAudienceInput.class);
+        schemas.put("ProductMailSequenceReadinessInput", ProductMailSequenceReadinessInput.class);
+        schemas.put("ProductMailSequencePublishInput", ProductMailSequencePublishInput.class);
+        schemas.put("ProductMailSequenceRecipientsListInput", ProductMailSequenceRecipientsListInput.class);
+        schemas.put("ProductMailSequenceAddAbInput", ProductMailSequenceAddAbInput.class);
+        schemas.put("ProductMailSequenceStateInput", ProductMailSequenceStateInput.class);
+        schemas.put("ProductMailSequenceResultsInput", ProductMailSequenceResultsInput.class);
         schemas.put("ProductConnectedAppPushInput", ProductConnectedAppPushInput.class);
     }
 
@@ -848,7 +1050,7 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput
+     * Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -994,19 +1196,59 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof ProductMailSequenceDraftSaveInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceAddAudienceInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceReadinessInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequencePublishInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceRecipientsListInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceAddAbInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceStateInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ProductMailSequenceResultsInput) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ProductConnectedAppPushInput) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput");
+        throw new RuntimeException("Invalid instance type. Must be Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput
+     * Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput
      *
-     * @return The actual instance (Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput)
+     * @return The actual instance (Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1323,6 +1565,94 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `ProductMailSequenceDraftSaveInput`. If the actual instance is not `ProductMailSequenceDraftSaveInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceDraftSaveInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceDraftSaveInput`
+     */
+    public ProductMailSequenceDraftSaveInput getProductMailSequenceDraftSaveInput() throws ClassCastException {
+        return (ProductMailSequenceDraftSaveInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceAddAudienceInput`. If the actual instance is not `ProductMailSequenceAddAudienceInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceAddAudienceInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceAddAudienceInput`
+     */
+    public ProductMailSequenceAddAudienceInput getProductMailSequenceAddAudienceInput() throws ClassCastException {
+        return (ProductMailSequenceAddAudienceInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceReadinessInput`. If the actual instance is not `ProductMailSequenceReadinessInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceReadinessInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceReadinessInput`
+     */
+    public ProductMailSequenceReadinessInput getProductMailSequenceReadinessInput() throws ClassCastException {
+        return (ProductMailSequenceReadinessInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequencePublishInput`. If the actual instance is not `ProductMailSequencePublishInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequencePublishInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequencePublishInput`
+     */
+    public ProductMailSequencePublishInput getProductMailSequencePublishInput() throws ClassCastException {
+        return (ProductMailSequencePublishInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceRecipientsListInput`. If the actual instance is not `ProductMailSequenceRecipientsListInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceRecipientsListInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceRecipientsListInput`
+     */
+    public ProductMailSequenceRecipientsListInput getProductMailSequenceRecipientsListInput() throws ClassCastException {
+        return (ProductMailSequenceRecipientsListInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceAddAbInput`. If the actual instance is not `ProductMailSequenceAddAbInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceAddAbInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceAddAbInput`
+     */
+    public ProductMailSequenceAddAbInput getProductMailSequenceAddAbInput() throws ClassCastException {
+        return (ProductMailSequenceAddAbInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceStateInput`. If the actual instance is not `ProductMailSequenceStateInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceStateInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceStateInput`
+     */
+    public ProductMailSequenceStateInput getProductMailSequenceStateInput() throws ClassCastException {
+        return (ProductMailSequenceStateInput)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ProductMailSequenceResultsInput`. If the actual instance is not `ProductMailSequenceResultsInput`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ProductMailSequenceResultsInput`
+     * @throws ClassCastException if the instance is not `ProductMailSequenceResultsInput`
+     */
+    public ProductMailSequenceResultsInput getProductMailSequenceResultsInput() throws ClassCastException {
+        return (ProductMailSequenceResultsInput)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `ProductConnectedAppPushInput`. If the actual instance is not `ProductConnectedAppPushInput`,
      * the ClassCastException will be thrown.
      *
@@ -1568,6 +1898,70 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductSequenceStartInput failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with ProductMailSequenceDraftSaveInput
+        try {
+            ProductMailSequenceDraftSaveInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceDraftSaveInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceAddAudienceInput
+        try {
+            ProductMailSequenceAddAudienceInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAudienceInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceReadinessInput
+        try {
+            ProductMailSequenceReadinessInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceReadinessInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequencePublishInput
+        try {
+            ProductMailSequencePublishInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequencePublishInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceRecipientsListInput
+        try {
+            ProductMailSequenceRecipientsListInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceRecipientsListInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceAddAbInput
+        try {
+            ProductMailSequenceAddAbInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceAddAbInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceStateInput
+        try {
+            ProductMailSequenceStateInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceStateInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ProductMailSequenceResultsInput
+        try {
+            ProductMailSequenceResultsInput.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductMailSequenceResultsInput failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with ProductConnectedAppPushInput
         try {
             ProductConnectedAppPushInput.validateJsonElement(jsonElement);
@@ -1576,7 +1970,7 @@ public class ProductToolRequestInput extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ProductConnectedAppPushInput failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ProductToolRequestInput with anyOf schemas: Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ProductToolRequestInput with anyOf schemas: Object, ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

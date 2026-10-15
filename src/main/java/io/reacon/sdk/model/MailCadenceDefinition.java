@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.reacon.sdk.model.MailCadenceNode;
 import io.reacon.sdk.model.MailCadenceStopConditions;
+import io.reacon.sdk.model.MailEmailSequenceDeliverySettings;
+import io.reacon.sdk.model.MailEmailSequenceRecipientOverride;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -62,8 +64,13 @@ public class MailCadenceDefinition {
   /** Whether a wire property was supplied, including an explicit null. */
   public boolean isFieldSet(String wireName) {
     switch (wireName) {
+      case SERIALIZED_NAME_AUTHORING_REVISION: return reaconPresentFields.contains(SERIALIZED_NAME_AUTHORING_REVISION) || this.authoringRevision != null;
       case SERIALIZED_NAME_CREATED_AT: return reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT) || this.createdAt != null;
       case SERIALIZED_NAME_CREATED_BY_ACTOR_ID: return reaconPresentFields.contains(SERIALIZED_NAME_CREATED_BY_ACTOR_ID) || this.createdByActorId != null;
+      case SERIALIZED_NAME_EMAIL_DELIVERY: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_DELIVERY) || this.emailDelivery != null;
+      case SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS) || this.emailExcludedContactIds != null;
+      case SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES) || this.emailRecipientOverrides != null;
+      case SERIALIZED_NAME_EMAIL_RENDER_SEED: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_RENDER_SEED) || this.emailRenderSeed != null;
       case SERIALIZED_NAME_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ID) || this.id != null;
       case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
       case SERIALIZED_NAME_NODES: return reaconPresentFields.contains(SERIALIZED_NAME_NODES) || this.nodes != null;
@@ -79,8 +86,13 @@ public class MailCadenceDefinition {
   public void unsetField(String wireName) {
     if (openapiRequiredFields.contains(wireName)) throw new IllegalArgumentException("Required wire property: " + wireName);
     switch (wireName) {
+      case SERIALIZED_NAME_AUTHORING_REVISION: this.authoringRevision = null; break;
       case SERIALIZED_NAME_CREATED_AT: this.createdAt = null; break;
       case SERIALIZED_NAME_CREATED_BY_ACTOR_ID: this.createdByActorId = null; break;
+      case SERIALIZED_NAME_EMAIL_DELIVERY: this.emailDelivery = null; break;
+      case SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS: this.emailExcludedContactIds = null; break;
+      case SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES: this.emailRecipientOverrides = null; break;
+      case SERIALIZED_NAME_EMAIL_RENDER_SEED: this.emailRenderSeed = null; break;
       case SERIALIZED_NAME_ID: this.id = null; break;
       case SERIALIZED_NAME_NAME: this.name = null; break;
       case SERIALIZED_NAME_NODES: this.nodes = null; break;
@@ -93,6 +105,11 @@ public class MailCadenceDefinition {
     reaconPresentFields.remove(wireName);
   }
 
+  public static final String SERIALIZED_NAME_AUTHORING_REVISION = "authoringRevision";
+  @SerializedName(SERIALIZED_NAME_AUTHORING_REVISION)
+  @javax.annotation.Nullable
+  private BigDecimal authoringRevision;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
@@ -102,6 +119,26 @@ public class MailCadenceDefinition {
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ACTOR_ID)
   @javax.annotation.Nonnull
   private String createdByActorId;
+
+  public static final String SERIALIZED_NAME_EMAIL_DELIVERY = "emailDelivery";
+  @SerializedName(SERIALIZED_NAME_EMAIL_DELIVERY)
+  @javax.annotation.Nullable
+  private MailEmailSequenceDeliverySettings emailDelivery;
+
+  public static final String SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS = "emailExcludedContactIds";
+  @SerializedName(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS)
+  @javax.annotation.Nullable
+  private List<String> emailExcludedContactIds;
+
+  public static final String SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES = "emailRecipientOverrides";
+  @SerializedName(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES)
+  @javax.annotation.Nullable
+  private List<MailEmailSequenceRecipientOverride> emailRecipientOverrides;
+
+  public static final String SERIALIZED_NAME_EMAIL_RENDER_SEED = "emailRenderSeed";
+  @SerializedName(SERIALIZED_NAME_EMAIL_RENDER_SEED)
+  @javax.annotation.Nullable
+  private String emailRenderSeed;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -140,6 +177,27 @@ public class MailCadenceDefinition {
 
   public MailCadenceDefinition() {
   }
+
+  public MailCadenceDefinition authoringRevision(@javax.annotation.Nullable BigDecimal authoringRevision) {
+    this.authoringRevision = authoringRevision;
+    this.reaconPresentFields.add(SERIALIZED_NAME_AUTHORING_REVISION);
+    return this;
+  }
+
+  /**
+   * Get authoringRevision
+   * @return authoringRevision
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getAuthoringRevision() {
+    return authoringRevision;
+  }
+
+  public void setAuthoringRevision(@javax.annotation.Nullable BigDecimal authoringRevision) {
+    this.authoringRevision = authoringRevision;
+    this.reaconPresentFields.add(SERIALIZED_NAME_AUTHORING_REVISION);
+  }
+
 
   public MailCadenceDefinition createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
@@ -180,6 +238,106 @@ public class MailCadenceDefinition {
   public void setCreatedByActorId(@javax.annotation.Nonnull String createdByActorId) {
     this.createdByActorId = createdByActorId;
     this.reaconPresentFields.add(SERIALIZED_NAME_CREATED_BY_ACTOR_ID);
+  }
+
+
+  public MailCadenceDefinition emailDelivery(@javax.annotation.Nullable MailEmailSequenceDeliverySettings emailDelivery) {
+    this.emailDelivery = emailDelivery;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_DELIVERY);
+    return this;
+  }
+
+  /**
+   * Get emailDelivery
+   * @return emailDelivery
+   */
+  @javax.annotation.Nullable
+  public MailEmailSequenceDeliverySettings getEmailDelivery() {
+    return emailDelivery;
+  }
+
+  public void setEmailDelivery(@javax.annotation.Nullable MailEmailSequenceDeliverySettings emailDelivery) {
+    this.emailDelivery = emailDelivery;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_DELIVERY);
+  }
+
+
+  public MailCadenceDefinition emailExcludedContactIds(@javax.annotation.Nullable List<String> emailExcludedContactIds) {
+    this.emailExcludedContactIds = emailExcludedContactIds;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS);
+    return this;
+  }
+
+  public MailCadenceDefinition addEmailExcludedContactIdsItem(String emailExcludedContactIdsItem) {
+    if (this.emailExcludedContactIds == null) {
+      this.emailExcludedContactIds = new ArrayList<>();
+    }
+    this.emailExcludedContactIds.add(emailExcludedContactIdsItem);
+    return this;
+  }
+
+  /**
+   * Get emailExcludedContactIds
+   * @return emailExcludedContactIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getEmailExcludedContactIds() {
+    return emailExcludedContactIds;
+  }
+
+  public void setEmailExcludedContactIds(@javax.annotation.Nullable List<String> emailExcludedContactIds) {
+    this.emailExcludedContactIds = emailExcludedContactIds;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS);
+  }
+
+
+  public MailCadenceDefinition emailRecipientOverrides(@javax.annotation.Nullable List<MailEmailSequenceRecipientOverride> emailRecipientOverrides) {
+    this.emailRecipientOverrides = emailRecipientOverrides;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES);
+    return this;
+  }
+
+  public MailCadenceDefinition addEmailRecipientOverridesItem(MailEmailSequenceRecipientOverride emailRecipientOverridesItem) {
+    if (this.emailRecipientOverrides == null) {
+      this.emailRecipientOverrides = new ArrayList<>();
+    }
+    this.emailRecipientOverrides.add(emailRecipientOverridesItem);
+    return this;
+  }
+
+  /**
+   * Get emailRecipientOverrides
+   * @return emailRecipientOverrides
+   */
+  @javax.annotation.Nullable
+  public List<MailEmailSequenceRecipientOverride> getEmailRecipientOverrides() {
+    return emailRecipientOverrides;
+  }
+
+  public void setEmailRecipientOverrides(@javax.annotation.Nullable List<MailEmailSequenceRecipientOverride> emailRecipientOverrides) {
+    this.emailRecipientOverrides = emailRecipientOverrides;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES);
+  }
+
+
+  public MailCadenceDefinition emailRenderSeed(@javax.annotation.Nullable String emailRenderSeed) {
+    this.emailRenderSeed = emailRenderSeed;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_RENDER_SEED);
+    return this;
+  }
+
+  /**
+   * Get emailRenderSeed
+   * @return emailRenderSeed
+   */
+  @javax.annotation.Nullable
+  public String getEmailRenderSeed() {
+    return emailRenderSeed;
+  }
+
+  public void setEmailRenderSeed(@javax.annotation.Nullable String emailRenderSeed) {
+    this.emailRenderSeed = emailRenderSeed;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_RENDER_SEED);
   }
 
 
@@ -392,8 +550,13 @@ public class MailCadenceDefinition {
       return false;
     }
     MailCadenceDefinition mailCadenceDefinition = (MailCadenceDefinition) o;
-    return Objects.equals(this.createdAt, mailCadenceDefinition.createdAt) &&
+    return Objects.equals(this.authoringRevision, mailCadenceDefinition.authoringRevision) &&
+        Objects.equals(this.createdAt, mailCadenceDefinition.createdAt) &&
         Objects.equals(this.createdByActorId, mailCadenceDefinition.createdByActorId) &&
+        Objects.equals(this.emailDelivery, mailCadenceDefinition.emailDelivery) &&
+        Objects.equals(this.emailExcludedContactIds, mailCadenceDefinition.emailExcludedContactIds) &&
+        Objects.equals(this.emailRecipientOverrides, mailCadenceDefinition.emailRecipientOverrides) &&
+        Objects.equals(this.emailRenderSeed, mailCadenceDefinition.emailRenderSeed) &&
         Objects.equals(this.id, mailCadenceDefinition.id) &&
         Objects.equals(this.name, mailCadenceDefinition.name) &&
         Objects.equals(this.nodes, mailCadenceDefinition.nodes) &&
@@ -406,15 +569,20 @@ public class MailCadenceDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdByActorId, id, name, nodes, status, stopConditions, tenantId, version, additionalProperties);
+    return Objects.hash(authoringRevision, createdAt, createdByActorId, emailDelivery, emailExcludedContactIds, emailRecipientOverrides, emailRenderSeed, id, name, nodes, status, stopConditions, tenantId, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MailCadenceDefinition {\n");
+    sb.append("    authoringRevision: ").append(toIndentedString(authoringRevision)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByActorId: ").append(toIndentedString(createdByActorId)).append("\n");
+    sb.append("    emailDelivery: ").append(toIndentedString(emailDelivery)).append("\n");
+    sb.append("    emailExcludedContactIds: ").append(toIndentedString(emailExcludedContactIds)).append("\n");
+    sb.append("    emailRecipientOverrides: ").append(toIndentedString(emailRecipientOverrides)).append("\n");
+    sb.append("    emailRenderSeed: ").append(toIndentedString(emailRenderSeed)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
@@ -441,7 +609,7 @@ public class MailCadenceDefinition {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("createdAt", "createdByActorId", "id", "name", "nodes", "status", "stopConditions", "tenantId", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("authoringRevision", "createdAt", "createdByActorId", "emailDelivery", "emailExcludedContactIds", "emailRecipientOverrides", "emailRenderSeed", "id", "name", "nodes", "status", "stopConditions", "tenantId", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("createdAt", "createdByActorId", "id", "name", "nodes", "status", "tenantId", "version"));
@@ -469,6 +637,31 @@ public class MailCadenceDefinition {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("createdByActorId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdByActorId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdByActorId").toString()));
+      }
+      // validate the optional field `emailDelivery`
+      if (jsonObj.get("emailDelivery") != null && !jsonObj.get("emailDelivery").isJsonNull()) {
+        MailEmailSequenceDeliverySettings.validateJsonElement(jsonObj.get("emailDelivery"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("emailExcludedContactIds") != null && !jsonObj.get("emailExcludedContactIds").isJsonNull() && !jsonObj.get("emailExcludedContactIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailExcludedContactIds` to be an array in the JSON string but got `%s`", jsonObj.get("emailExcludedContactIds").toString()));
+      }
+      if (jsonObj.get("emailRecipientOverrides") != null && !jsonObj.get("emailRecipientOverrides").isJsonNull()) {
+        JsonArray jsonArrayemailRecipientOverrides = jsonObj.getAsJsonArray("emailRecipientOverrides");
+        if (jsonArrayemailRecipientOverrides != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("emailRecipientOverrides").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailRecipientOverrides` to be an array in the JSON string but got `%s`", jsonObj.get("emailRecipientOverrides").toString()));
+          }
+
+          // validate the optional field `emailRecipientOverrides` (array)
+          for (int i = 0; i < jsonArrayemailRecipientOverrides.size(); i++) {
+            MailEmailSequenceRecipientOverride.validateJsonElement(jsonArrayemailRecipientOverrides.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("emailRenderSeed") != null && !jsonObj.get("emailRenderSeed").isJsonNull()) && !jsonObj.get("emailRenderSeed").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailRenderSeed` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emailRenderSeed").toString()));
       }
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
@@ -513,6 +706,10 @@ public class MailCadenceDefinition {
            @Override
            public void write(JsonWriter out, MailCadenceDefinition value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             if (value.authoringRevision == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_AUTHORING_REVISION)) obj.add(SERIALIZED_NAME_AUTHORING_REVISION, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_AUTHORING_REVISION);
+             }
              if (value.createdAt == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_CREATED_AT)) obj.add(SERIALIZED_NAME_CREATED_AT, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_CREATED_AT);
@@ -520,6 +717,22 @@ public class MailCadenceDefinition {
              if (value.createdByActorId == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_CREATED_BY_ACTOR_ID)) obj.add(SERIALIZED_NAME_CREATED_BY_ACTOR_ID, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_CREATED_BY_ACTOR_ID);
+             }
+             if (value.emailDelivery == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_DELIVERY)) obj.add(SERIALIZED_NAME_EMAIL_DELIVERY, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_DELIVERY);
+             }
+             if (value.emailExcludedContactIds == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS)) obj.add(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_EXCLUDED_CONTACT_IDS);
+             }
+             if (value.emailRecipientOverrides == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES)) obj.add(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_RECIPIENT_OVERRIDES);
+             }
+             if (value.emailRenderSeed == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_RENDER_SEED)) obj.add(SERIALIZED_NAME_EMAIL_RENDER_SEED, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_RENDER_SEED);
              }
              if (value.id == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_ID)) obj.add(SERIALIZED_NAME_ID, com.google.gson.JsonNull.INSTANCE);

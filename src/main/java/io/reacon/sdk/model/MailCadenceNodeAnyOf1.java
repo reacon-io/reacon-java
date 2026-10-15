@@ -61,6 +61,7 @@ public class MailCadenceNodeAnyOf1 {
       case SERIALIZED_NAME_ID: return reaconPresentFields.contains(SERIALIZED_NAME_ID) || this.id != null;
       case SERIALIZED_NAME_NAME: return reaconPresentFields.contains(SERIALIZED_NAME_NAME) || this.name != null;
       case SERIALIZED_NAME_CHANNEL: return reaconPresentFields.contains(SERIALIZED_NAME_CHANNEL) || this.channel != null;
+      case SERIALIZED_NAME_EMAIL_THREAD: return reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_THREAD) || this.emailThread != null;
       case SERIALIZED_NAME_EXPERIMENT: return reaconPresentFields.contains(SERIALIZED_NAME_EXPERIMENT) || this.experiment != null;
       case SERIALIZED_NAME_KIND: return reaconPresentFields.contains(SERIALIZED_NAME_KIND) || this.kind != null;
       case SERIALIZED_NAME_NEXT_NODE_ID: return reaconPresentFields.contains(SERIALIZED_NAME_NEXT_NODE_ID) || this.nextNodeId != null;
@@ -77,6 +78,7 @@ public class MailCadenceNodeAnyOf1 {
       case SERIALIZED_NAME_ID: this.id = null; break;
       case SERIALIZED_NAME_NAME: this.name = null; break;
       case SERIALIZED_NAME_CHANNEL: this.channel = null; break;
+      case SERIALIZED_NAME_EMAIL_THREAD: this.emailThread = null; break;
       case SERIALIZED_NAME_EXPERIMENT: this.experiment = null; break;
       case SERIALIZED_NAME_KIND: this.kind = null; break;
       case SERIALIZED_NAME_NEXT_NODE_ID: this.nextNodeId = null; break;
@@ -101,6 +103,11 @@ public class MailCadenceNodeAnyOf1 {
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   @javax.annotation.Nonnull
   private String channel;
+
+  public static final String SERIALIZED_NAME_EMAIL_THREAD = "emailThread";
+  @SerializedName(SERIALIZED_NAME_EMAIL_THREAD)
+  @javax.annotation.Nullable
+  private String emailThread;
 
   public static final String SERIALIZED_NAME_EXPERIMENT = "experiment";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT)
@@ -240,6 +247,27 @@ public class MailCadenceNodeAnyOf1 {
   public void setChannel(@javax.annotation.Nonnull String channel) {
     this.channel = channel;
     this.reaconPresentFields.add(SERIALIZED_NAME_CHANNEL);
+  }
+
+
+  public MailCadenceNodeAnyOf1 emailThread(@javax.annotation.Nullable String emailThread) {
+    this.emailThread = emailThread;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_THREAD);
+    return this;
+  }
+
+  /**
+   * Get emailThread
+   * @return emailThread
+   */
+  @javax.annotation.Nullable
+  public String getEmailThread() {
+    return emailThread;
+  }
+
+  public void setEmailThread(@javax.annotation.Nullable String emailThread) {
+    this.emailThread = emailThread;
+    this.reaconPresentFields.add(SERIALIZED_NAME_EMAIL_THREAD);
   }
 
 
@@ -405,6 +433,7 @@ public class MailCadenceNodeAnyOf1 {
     return Objects.equals(this.id, mailCadenceNodeAnyOf1.id) &&
         Objects.equals(this.name, mailCadenceNodeAnyOf1.name) &&
         Objects.equals(this.channel, mailCadenceNodeAnyOf1.channel) &&
+        Objects.equals(this.emailThread, mailCadenceNodeAnyOf1.emailThread) &&
         Objects.equals(this.experiment, mailCadenceNodeAnyOf1.experiment) &&
         Objects.equals(this.kind, mailCadenceNodeAnyOf1.kind) &&
         Objects.equals(this.nextNodeId, mailCadenceNodeAnyOf1.nextNodeId) &&
@@ -415,7 +444,7 @@ public class MailCadenceNodeAnyOf1 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, channel, experiment, kind, nextNodeId, templateId, templateVersion, additionalProperties);
+    return Objects.hash(id, name, channel, emailThread, experiment, kind, nextNodeId, templateId, templateVersion, additionalProperties);
   }
 
   @Override
@@ -425,6 +454,7 @@ public class MailCadenceNodeAnyOf1 {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
+    sb.append("    emailThread: ").append(toIndentedString(emailThread)).append("\n");
     sb.append("    experiment: ").append(toIndentedString(experiment)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    nextNodeId: ").append(toIndentedString(nextNodeId)).append("\n");
@@ -449,7 +479,7 @@ public class MailCadenceNodeAnyOf1 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "channel", "experiment", "kind", "nextNodeId", "templateId", "templateVersion"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "channel", "emailThread", "experiment", "kind", "nextNodeId", "templateId", "templateVersion"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "channel", "kind", "nextNodeId", "templateId", "templateVersion"));
@@ -483,6 +513,9 @@ public class MailCadenceNodeAnyOf1 {
       }
       if (!jsonObj.get("channel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel").toString()));
+      }
+      if ((jsonObj.get("emailThread") != null && !jsonObj.get("emailThread").isJsonNull()) && !jsonObj.get("emailThread").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailThread` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emailThread").toString()));
       }
       // validate the optional field `experiment`
       if (jsonObj.get("experiment") != null && !jsonObj.get("experiment").isJsonNull()) {
@@ -527,6 +560,10 @@ public class MailCadenceNodeAnyOf1 {
              if (value.channel == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_CHANNEL)) obj.add(SERIALIZED_NAME_CHANNEL, com.google.gson.JsonNull.INSTANCE);
                else obj.remove(SERIALIZED_NAME_CHANNEL);
+             }
+             if (value.emailThread == null) {
+               if (value.reaconPresentFields.contains(SERIALIZED_NAME_EMAIL_THREAD)) obj.add(SERIALIZED_NAME_EMAIL_THREAD, com.google.gson.JsonNull.INSTANCE);
+               else obj.remove(SERIALIZED_NAME_EMAIL_THREAD);
              }
              if (value.experiment == null) {
                if (value.reaconPresentFields.contains(SERIALIZED_NAME_EXPERIMENT)) obj.add(SERIALIZED_NAME_EXPERIMENT, com.google.gson.JsonNull.INSTANCE);

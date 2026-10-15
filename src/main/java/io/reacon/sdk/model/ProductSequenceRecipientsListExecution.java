@@ -19,9 +19,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.reacon.sdk.model.ProductSequenceRecipientsListOutput;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -86,7 +87,7 @@ public class ProductSequenceRecipientsListExecution {
   public static final String SERIALIZED_NAME_OUTPUT = "output";
   @SerializedName(SERIALIZED_NAME_OUTPUT)
   @javax.annotation.Nonnull
-  private ProductSequenceRecipientsListOutput output;
+  private Map<String, Object> output = new HashMap<>();
 
   public static final String SERIALIZED_NAME_REPLAY = "replay";
   @SerializedName(SERIALIZED_NAME_REPLAY)
@@ -172,22 +173,30 @@ public class ProductSequenceRecipientsListExecution {
   }
 
 
-  public ProductSequenceRecipientsListExecution output(@javax.annotation.Nonnull ProductSequenceRecipientsListOutput output) {
+  public ProductSequenceRecipientsListExecution output(@javax.annotation.Nonnull Map<String, Object> output) {
     this.output = output;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTPUT);
     return this;
   }
 
+  public ProductSequenceRecipientsListExecution putOutputItem(String key, Object outputItem) {
+    if (this.output == null) {
+      this.output = new HashMap<>();
+    }
+    this.output.put(key, outputItem);
+    return this;
+  }
+
   /**
-   * Get output
+   * Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients, returned unchanged.
    * @return output
    */
   @javax.annotation.Nonnull
-  public ProductSequenceRecipientsListOutput getOutput() {
+  public Map<String, Object> getOutput() {
     return output;
   }
 
-  public void setOutput(@javax.annotation.Nonnull ProductSequenceRecipientsListOutput output) {
+  public void setOutput(@javax.annotation.Nonnull Map<String, Object> output) {
     this.output = output;
     this.reaconPresentFields.add(SERIALIZED_NAME_OUTPUT);
   }
@@ -357,8 +366,6 @@ public class ProductSequenceRecipientsListExecution {
       if ((jsonObj.get("executionId") != null && !jsonObj.get("executionId").isJsonNull()) && !jsonObj.get("executionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `executionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executionId").toString()));
       }
-      // validate the required field `output`
-      ProductSequenceRecipientsListOutput.validateJsonElement(jsonObj.get("output"));
       if (!jsonObj.get("tool").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tool` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tool").toString()));
       }
