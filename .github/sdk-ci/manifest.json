@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "family": "java",
-  "packageVersion": "6.0.1-beta.1",
-  "canonicalVersion": "6.0.1-beta.1",
+  "packageVersion": "6.0.2-beta.1",
+  "canonicalVersion": "6.0.2-beta.1",
   "image": "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
   "contractSha256": "d126f8da770677fa40353a20ca3aa7aca820873fb11fb8e53022b6f6c691b266",
   "recordingIndexSha256": "063ea925b10d8c658ad6438e472ac62d1ffa0519b848cfa00f1a13e2d2906279",

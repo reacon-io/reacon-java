@@ -1,6 +1,6 @@
 # Reacon Java SDK
 
-Package `io.reacon:reacon-java`, version `6.0.1-beta.1`.
+Package `io.reacon:reacon-java`, version `6.0.2-beta.1`.
 
 Minimum runtime: **Java 8**.
 
@@ -17,6 +17,8 @@ SDK package versions and API path versions are separate. The generated methods a
 Prerelease packages may become available before the matching API changes are deployed. Package availability alone does not mean those changes are ready in production. Use the package versions shown in the production API documentation for the currently supported release; try newer prereleases only when their matching API changes are available.
 
 Package managers can exclude prereleases from their default version selection. To test a prerelease, install its explicit version from the matching documentation instead of relying on a latest or unversioned install.
+
+Any operation can return HTTP 429 when a rate or concurrency limit is reached; wait and retry with backoff instead of retrying immediately. When an error response includes a `requestId`, quote it when you contact support.
 
 List methods can return one page of results. Use the pagination parameters and continuation fields documented for that operation; an empty page or a short page is not a universal end-of-list signal. Keep the same filters and ordering when following a continuation, and set an application-specific page or result limit.
 
@@ -53,7 +55,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation("io.reacon:reacon-java:6.0.1-beta.1")
+    implementation("io.reacon:reacon-java:6.0.2-beta.1")
 }
 ```
 
@@ -74,7 +76,7 @@ Add these entries to your project's POM:
     <dependency>
         <groupId>io.reacon</groupId>
         <artifactId>reacon-java</artifactId>
-        <version>6.0.1-beta.1</version>
+        <version>6.0.2-beta.1</version>
     </dependency>
 </dependencies>
 ```
